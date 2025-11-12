@@ -1,0 +1,125 @@
+[gd_scene load_steps=16 format=3 uid="uid://cueor188j5xp7"]
+
+[ext_resource type="ArrayMesh" uid="uid://d0p8csjp0wecy" path="res://tanque.obj" id="1_71jk5"]
+[ext_resource type="Texture2D" uid="uid://bw544sn4rfnno" path="res://texturas/barvy.png" id="1_mt5rx"]
+[ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://texturas/OIP.webp" id="1_rcdd3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rcdd3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_i5a71"]
+sky_material = SubResource("ProceduralSkyMaterial_rcdd3")
+
+[sub_resource type="Environment" id="Environment_i2p14"]
+background_mode = 2
+sky = SubResource("Sky_i5a71")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i5a71"]
+panorama = ExtResource("1_rcdd3")
+
+[sub_resource type="Sky" id="Sky_i2p14"]
+sky_material = SubResource("PanoramaSkyMaterial_i5a71")
+
+[sub_resource type="Environment" id="Environment_2tsr8"]
+background_mode = 2
+sky = SubResource("Sky_i2p14")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mt5rx"]
+size = Vector3(25, 0.1, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rcdd3"]
+size = Vector2(25, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcdd3"]
+albedo_texture = ExtResource("1_mt5rx")
+metallic = 0.3
+metallic_specular = 0.78
+roughness = 0.1
+anisotropy = -1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rcdd3"]
+size = Vector3(1, 0.68133545, 1.9753418)
+
+[sub_resource type="Gradient" id="Gradient_rcdd3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i5a71"]
+gradient = SubResource("Gradient_rcdd3")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i2p14")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 40.772537, 29.055954)
+environment = SubResource("Environment_2tsr8")
+fov = 30.0
+size = 0.05
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.97667605, 0.21471828, 0, -0.21471828, 0.97667605, 11.043098, 13.868551, 17.831846)
+
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.235786)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_mt5rx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("PlaneMesh_rcdd3")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rcdd3")
+mesh = ExtResource("1_71jk5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1.871927, 0, 0, 0, 2.6806984, 0, 0, 0, 1, 0, 0.9266441, -0.22058105)
+shape = SubResource("BoxShape3D_rcdd3")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 150.0
+offset_bottom = 960.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ColorRect"]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Puntuacion etiqueta" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Puntuacion"
+
+[node name="Label" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Vidas"
+
+[node name="TextureRect" type="TextureRect" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_i5a71")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/ColorRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Puntuacion datos" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "...."
