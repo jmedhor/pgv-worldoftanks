@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://dprlg0xrf0opm"]
+
+[ext_resource type="Script" uid="uid://bpvbtgfwgclxw" path="res://scripts/personaje_principal.gd" id="1_16k11"]
+[ext_resource type="PackedScene" uid="uid://ceechljenw11v" path="res://proyectil.tscn" id="2_omvyu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8o684"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ukil5"]
+sky_material = SubResource("ProceduralSkyMaterial_8o684")
+
+[sub_resource type="Environment" id="Environment_7st5j"]
+background_mode = 2
+sky = SubResource("Sky_ukil5")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16k11"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_omvyu"]
+material = SubResource("StandardMaterial3D_16k11")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ukil5"]
+
+[node name="Personaje_principal" type="CharacterBody3D"]
+script = ExtResource("1_16k11")
+proyectil = ExtResource("2_omvyu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7st5j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_omvyu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ukil5")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
