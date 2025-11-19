@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdcc0xw23oamx"]
+
+[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://PressStart2P-Regular.ttf" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://bm4rvuh76g81p" path="res://fondo.png" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://dli8o855vcdkj" path="res://titulo.gd" id="2_7vrkn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rhts7"]
+font = ExtResource("1_06t4h")
+font_size = 48
+shadow_size = 8
+shadow_color = Color(0, 0.7607843, 0, 0)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_7vrkn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(192, 205)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_06t4h"]
+resource_name = "floating"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.98, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(192, 205), Vector2(192, 215), Vector2(192, 205)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.98, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fu7sn"]
+_data = {
+&"RESET": SubResource("Animation_7vrkn"),
+&"floating": SubResource("Animation_06t4h")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_fu7sn")
+
+[node name="Titulo" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 0
+offset_left = 192.0
+offset_top = 205.0
+offset_right = 960.0
+offset_bottom = 355.0003
+text = "WORLD OF TANKS"
+label_settings = SubResource("LabelSettings_rhts7")
+horizontal_alignment = 1
+script = ExtResource("2_7vrkn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Titulo"]
+libraries = {
+&"": SubResource("AnimationLibrary_fu7sn")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 359.0
+offset_right = 960.0
+offset_bottom = 359.0
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 363.0
+offset_right = 890.0
+offset_bottom = 521.0
+scale = Vector2(1.15, 1.15)
+
+[node name="StartButton" type="Button" parent="ButtonsVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "Jugar"
+flat = true
+metadata/_edit_group_ = true
+
+[node name="OptionsButton" type="Button" parent="ButtonsVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "Opciones"
+flat = true
+metadata/_edit_group_ = true
+
+[node name="QuitButton" type="Button" parent="ButtonsVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_06t4h")
+text = "Salir"
+flat = true
+metadata/_edit_group_ = true
