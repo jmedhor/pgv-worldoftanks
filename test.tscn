@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn67gecooprai"]
+[gd_scene load_steps=13 format=3 uid="uid://cn67gecooprai"]
 
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://jugador.tscn" id="3_ppyta"]
+
+[sub_resource type="Environment" id="Environment_8uh7m"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mf4mk"]
 
@@ -29,10 +31,13 @@ albedo_texture = ExtResource("1_37kl0")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppyta"]
 
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0077414513, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8uh7m")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99115086, 0.1327407, 0, -0.1327407, 0.99115086, 0.43244648, 2.2927642, 8.617697)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.432, 40, 29)
+fov = 30.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9124775, 0.4091269, 0, -0.4091269, 0.9124775, -1.5060844, 2.1148376, 2.3581161)
@@ -43,14 +48,13 @@ mesh = SubResource("PlaneMesh_mf4mk")
 surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
 
 [node name="Suelo" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04958844, 0, -0.059094787)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo"]
 mesh = SubResource("PlaneMesh_37kl0")
 surface_material_override/0 = SubResource("StandardMaterial3D_8uh7m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13372803, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("BoxShape3D_8uh7m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -69,4 +73,4 @@ mesh = SubResource("CapsuleMesh_6uqi0")
 shape = SubResource("CapsuleShape3D_ppyta")
 
 [node name="Personaje_principal" parent="." instance=ExtResource("3_ppyta")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.698, 0.5, -2.45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

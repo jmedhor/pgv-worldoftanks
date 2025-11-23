@@ -1,14 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceechljenw11v"]
+[gd_scene load_steps=6 format=3 uid="uid://ceechljenw11v"]
 
 [ext_resource type="Script" uid="uid://f7gnrwu4dtst" path="res://scripts/proyectil.gd" id="1_bg2bl"]
+[ext_resource type="Shader" uid="uid://cgtok4jasuqi6" path="res://proyectil.gdshader" id="2_etydj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_g5fc7"]
-radius = 0.2
-height = 0.4
+radius = 0.3
+height = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oby6o"]
+render_priority = 0
+shader = ExtResource("2_etydj")
+shader_parameter/inner_color = Color(0.3, 0.7, 1, 1)
+shader_parameter/outer_color = Color(0, 0.2, 1, 1)
+shader_parameter/glow_strength = 4.0
+shader_parameter/noise_scale = 3.0
+shader_parameter/energy_speed = 1.0
+shader_parameter/pulse_strength = 0.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_etydj"]
-margin = 0.0
-radius = 0.845
+radius = 0.3
 
 [node name="proyectil" type="RigidBody3D"]
 script = ExtResource("1_bg2bl")
@@ -16,10 +26,12 @@ speed = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_g5fc7")
+surface_material_override/0 = SubResource("ShaderMaterial_oby6o")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_etydj")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

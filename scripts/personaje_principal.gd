@@ -2,6 +2,9 @@ extends CharacterBody3D
 
 @export var speed : float = 5.0
 @export var proyectil:PackedScene
+@export var tiempoEntreDisparo : float = 0.5
+var puedeDisparar : bool = true
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -18,13 +21,21 @@ func _physics_process(delta: float) -> void:
 	velocity = direction  * speed
 	
 	move_and_slide() 
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("disparar"):
+	
+	if Input.is_action_pressed("disparar"):
 		disparar()
+	
 
 func disparar():
-	var tmp_proyectil = proyectil.instantiate()
-	tmp_proyectil.position = $Marker3D.global_position
-	add_sibling(tmp_proyectil)
+	if puedeDisparar:
+		var tmp_proyectil = proyectil.instantiate()
+		tmp_proyectil.position = $Marker3D.global_position
+		add_sibling(tmp_proyectil)
+		
+		puedeDisparar = false
+		$timerDisparo.start(tiempoEntreDisparo)
 	
+
+
+func _on_timer_disparo_timeout() -> void:
+	puedeDisparar = true
