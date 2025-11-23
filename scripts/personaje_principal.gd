@@ -30,12 +30,17 @@ func disparar():
 	if puedeDisparar:
 		var tmp_proyectil = proyectil.instantiate()
 		tmp_proyectil.position = $Marker3D.global_position
+		tmp_proyectil.add_to_group("Proyectil_Jugador")
+		tmp_proyectil.speed = 15
 		add_sibling(tmp_proyectil)
 		
 		puedeDisparar = false
 		$timerDisparo.start(tiempoEntreDisparo)
 	
 
-
 func _on_timer_disparo_timeout() -> void:
 	puedeDisparar = true
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Proyectil_Enemigo"):
+		print("Nos Han Dado")

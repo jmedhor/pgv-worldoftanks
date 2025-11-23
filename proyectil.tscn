@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ceechljenw11v"]
 
 [ext_resource type="Script" uid="uid://f7gnrwu4dtst" path="res://scripts/proyectil.gd" id="1_bg2bl"]
-[ext_resource type="Shader" uid="uid://cgtok4jasuqi6" path="res://proyectil.gdshader" id="2_etydj"]
+[ext_resource type="Shader" path="res://proyectil.gdshader" id="2_etydj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_g5fc7"]
 radius = 0.3

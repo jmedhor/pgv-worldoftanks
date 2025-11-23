@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dprlg0xrf0opm"]
+[gd_scene load_steps=7 format=3 uid="uid://c743cblhnrf4c"]
 
 [ext_resource type="Script" uid="uid://bpvbtgfwgclxw" path="res://scripts/personaje_principal.gd" id="1_16k11"]
 [ext_resource type="PackedScene" uid="uid://ceechljenw11v" path="res://proyectil.tscn" id="2_omvyu"]

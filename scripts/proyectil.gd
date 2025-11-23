@@ -4,6 +4,9 @@ extends RigidBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("dumbtest")
+	print(self.is_in_group("Proyectil_Jugador"))
+	print(self.is_in_group("Proyectil_Enemigo"))
 	pass # Replace with function body.
 
 
@@ -13,6 +16,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Enemigos"):
-		print("Impacto")
-		queue_free()
+	if (self.is_in_group("Proyectil_Jugador") and body.is_in_group("Enemigos")):
+		pass
+		#print("Impacto")
+		#queue_free()
