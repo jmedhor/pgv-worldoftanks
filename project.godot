@@ -14,3 +14,8 @@ config/name="Nuevo Proyecto de Juego"
 run/main_scene="uid://cdcqfrq1tnlgc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"

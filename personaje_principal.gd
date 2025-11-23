@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 @export var speed : float = 5.0
-@export var fall_acceleration: float = 75.0
-@export var jump_impulse: float = 20
+@export var fall_acceleration : float = 75.0
+@export var jump_impulse : float = 20.0
 
 var target_velocity = Vector3.ZERO
 
@@ -19,15 +19,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("backward"):
 		direction.z += 1.0	
 		
-	if is_on_floor() and Input.is_action_pressed("nueva"):
+		
+	if is_on_floor() and Input.is_action_pressed("jump"):
 		target_velocity.y = jump_impulse
 	if not is_on_floor():
 		target_velocity.y -= fall_acceleration * delta
-		
+	
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
-	
-		
-	velocity = target_velocity
+	velocity = direction  * speed
 	
 	move_and_slide() 
