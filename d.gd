@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var rect_brilho = $ColorRectBrillo
+@onready var rect_brillo = $ColorRectBrillo
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -83,7 +83,7 @@ func _on_option_button_item_selected(index: int) -> void:
 
 func _on_h_slider_value_changed(value: float) -> void:
 	var normalized = value / 255.0
-	rect_brilho.color.a = 1.0 - normalized
+	rect_brillo.color.a = 1.0 - normalized
 
 
 func _on_h_slider_2_value_changed(value: float) -> void:
