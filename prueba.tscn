@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=30 format=3 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="ArrayMesh" uid="uid://d0p8csjp0wecy" path="res://tanque.obj" id="1_71jk5"]
+[ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://prueba.gd" id="1_i5a71"]
 [ext_resource type="Texture2D" uid="uid://bw544sn4rfnno" path="res://texturas/barvy.png" id="1_mt5rx"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://texturas/OIP.webp" id="1_rcdd3"]
 
@@ -25,11 +26,266 @@ sky_material = SubResource("PanoramaSkyMaterial_i5a71")
 background_mode = 2
 sky = SubResource("Sky_i2p14")
 
+[sub_resource type="Animation" id="Animation_rcdd3"]
+resource_name = "mov_camara"
+length = 90.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 90),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 40.772537, 29.055954), Vector3(0, 40.772537, -609.51526)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BarreraTrasera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 90),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.017790794, 0.48101997, 7.3235283), Vector3(-0.018, 0.481, -631.176)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BarreraDelantera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 90),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.019294739, 0.99640465, -27.127901), Vector3(-0.019, 0.996, -665.62)]
+}
+
+[sub_resource type="Animation" id="Animation_i5a71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 40.772537, 29.055954)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BarreraTrasera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.017790794, 0.48101997, 7.3235283)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BarreraDelantera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.019294739, 0.99640465, -27.127901)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2p14"]
+_data = {
+&"RESET": SubResource("Animation_i5a71"),
+&"mov_camara": SubResource("Animation_rcdd3")
+}
+
+[sub_resource type="Animation" id="Animation_i2p14"]
+resource_name = "mov_camara_2"
+length = 70.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 70),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 40.772537, -609.51526), Vector3(0, 40.772537, -1241.5833)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BarreraTrasera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 70),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.018, 0.481, -631.176), Vector3(-0.018, 0.481, -1263.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BarreraDelantera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 70),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.019, 0.996, -665.62), Vector3(-0.019, 0.996, -1296.7)]
+}
+
+[sub_resource type="Animation" id="Animation_2tsr8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 40.772537, -609.51526)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BarreraTrasera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.018, 0.481, -631.176)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BarreraDelantera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.019, 0.996, -665.62)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bjpd"]
+_data = {
+&"RESET": SubResource("Animation_2tsr8"),
+&"mov_camara_2": SubResource("Animation_i2p14")
+}
+
+[sub_resource type="Animation" id="Animation_3plae"]
+resource_name = "mov_camara_3"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 40.772537, -1241.5833), Vector3(0, 40.772537, -1314.9275)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BarreraTrasera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.018, 0.481, -1263.1), Vector3(-0.018, 0.481, -1335.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BarreraDelantera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.019, 0.996, -1297.7), Vector3(-0.019, 0.996, -1370.6)]
+}
+
+[sub_resource type="Animation" id="Animation_rvi4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 40.772537, -1241.5833)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BarreraTrasera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.018, 0.481, -1263.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BarreraDelantera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.019, 0.996, -1297.7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pel6o"]
+_data = {
+&"RESET": SubResource("Animation_rvi4t"),
+&"mov_camara_3": SubResource("Animation_3plae")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_mt5rx"]
-size = Vector3(25, 0.1, 100)
+size = Vector3(25, 0.1, 1500)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rcdd3"]
-size = Vector2(25, 100)
+size = Vector2(25, 1500)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcdd3"]
 albedo_texture = ExtResource("1_mt5rx")
@@ -41,21 +297,47 @@ anisotropy = -1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_rcdd3"]
 size = Vector3(1, 0.68133545, 1.9753418)
 
-[sub_resource type="Gradient" id="Gradient_rcdd3"]
+[sub_resource type="BoxMesh" id="BoxMesh_2tsr8"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_i5a71"]
-gradient = SubResource("Gradient_rcdd3")
+[sub_resource type="BoxMesh" id="BoxMesh_8bjpd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7i0ls"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2n4ld"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a8cc0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yp0q4"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_i5a71")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i2p14")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 40.772537, 29.055954)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 40.772537, -1241.5833)
 environment = SubResource("Environment_2tsr8")
 fov = 30.0
 size = 0.05
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_i2p14")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Camera3D"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_8bjpd")
+}
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="Camera3D"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_pel6o")
+}
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.97667605, 0.21471828, 0, -0.21471828, 0.97667605, 11.043098, 13.868551, 17.831846)
@@ -64,14 +346,16 @@ transform = Transform3D(1, 0, 0, 0, 0.97667605, 0.21471828, 0, -0.21471828, 0.97
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.235786)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -702.4567)
 shape = SubResource("BoxShape3D_mt5rx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -699.02545)
 mesh = SubResource("PlaneMesh_rcdd3")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0, 0, 0)
@@ -83,6 +367,7 @@ transform = Transform3D(1.871927, 0, 0, 0, 2.6806984, 0, 0, 0, 1, 0, 0.9266441, 
 shape = SubResource("BoxShape3D_rcdd3")
 
 [node name="UI" type="Control" parent="."]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -113,9 +398,9 @@ text = "Puntuacion"
 layout_mode = 2
 text = "Vidas"
 
-[node name="TextureRect" type="TextureRect" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
+[node name="CheckButton" type="CheckButton" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_i5a71")
+text = "Pausa"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/ColorRect/HBoxContainer"]
 layout_mode = 2
@@ -123,3 +408,53 @@ layout_mode = 2
 [node name="Puntuacion datos" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "...."
+
+[node name="delim_tienda" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 2.5757217, -1280.7169)
+mesh = SubResource("BoxMesh_2tsr8")
+
+[node name="delim_tienda_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 7.1982574, -639.3821)
+mesh = SubResource("BoxMesh_8bjpd")
+
+[node name="BarreraIzquierda" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.755587, 0, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraIzquierda"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1500, 0, 0.50166917, -743.29)
+shape = SubResource("BoxShape3D_7i0ls")
+
+[node name="BarreraDerecha" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.632, 0, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDerecha"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1500, 0, 0.50166917, -743.29)
+shape = SubResource("BoxShape3D_7i0ls")
+
+[node name="BarreraTrasera" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.481, -1263.1)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraTrasera"]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_2n4ld")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraTrasera"]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_a8cc0")
+
+[node name="BarreraDelantera" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDelantera"]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_2n4ld")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraDelantera"]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_yp0q4")
+
+[connection signal="toggled" from="UI/ColorRect/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
