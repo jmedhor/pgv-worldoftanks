@@ -1,9 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=34 format=3 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="ArrayMesh" uid="uid://d0p8csjp0wecy" path="res://tanque.obj" id="1_71jk5"]
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://prueba.gd" id="1_i5a71"]
 [ext_resource type="Texture2D" uid="uid://bw544sn4rfnno" path="res://texturas/barvy.png" id="1_mt5rx"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://texturas/OIP.webp" id="1_rcdd3"]
+[ext_resource type="Texture2D" uid="uid://c5s7tw3pobl8m" path="res://texturas/menu_pausa.png" id="5_3plae"]
+[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://texturas/option_plate.png" id="6_rvi4t"]
+[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://texturas/button_plate.png" id="7_pel6o"]
+[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://PressStart2P-Regular.ttf" id="8_7i0ls"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rcdd3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,6 +29,45 @@ sky_material = SubResource("PanoramaSkyMaterial_i5a71")
 [sub_resource type="Environment" id="Environment_2tsr8"]
 background_mode = 2
 sky = SubResource("Sky_i2p14")
+
+[sub_resource type="Animation" id="Animation_i5a71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 40.772537, 29.055954)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BarreraTrasera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.017790794, 0.48101997, 7.3235283)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BarreraDelantera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.019294739, 0.99640465, -27.127901)]
+}
 
 [sub_resource type="Animation" id="Animation_rcdd3"]
 resource_name = "mov_camara"
@@ -66,7 +109,13 @@ tracks/2/keys = {
 "values": [Vector3(-0.019294739, 0.99640465, -27.127901), Vector3(-0.019, 0.996, -665.62)]
 }
 
-[sub_resource type="Animation" id="Animation_i5a71"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2p14"]
+_data = {
+&"RESET": SubResource("Animation_i5a71"),
+&"mov_camara": SubResource("Animation_rcdd3")
+}
+
+[sub_resource type="Animation" id="Animation_2tsr8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -78,7 +127,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 40.772537, 29.055954)]
+"values": [Vector3(0, 40.772537, -609.51526)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -90,7 +139,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.017790794, 0.48101997, 7.3235283)]
+"values": [Vector3(-0.018, 0.481, -631.176)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -102,13 +151,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.019294739, 0.99640465, -27.127901)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2p14"]
-_data = {
-&"RESET": SubResource("Animation_i5a71"),
-&"mov_camara": SubResource("Animation_rcdd3")
+"values": [Vector3(-0.019, 0.996, -665.62)]
 }
 
 [sub_resource type="Animation" id="Animation_i2p14"]
@@ -151,7 +194,13 @@ tracks/2/keys = {
 "values": [Vector3(-0.019, 0.996, -665.62), Vector3(-0.019, 0.996, -1296.7)]
 }
 
-[sub_resource type="Animation" id="Animation_2tsr8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bjpd"]
+_data = {
+&"RESET": SubResource("Animation_2tsr8"),
+&"mov_camara_2": SubResource("Animation_i2p14")
+}
+
+[sub_resource type="Animation" id="Animation_rvi4t"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -163,7 +212,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 40.772537, -609.51526)]
+"values": [Vector3(0, 40.772537, -1241.5833)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -175,7 +224,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.018, 0.481, -631.176)]
+"values": [Vector3(-0.018, 0.481, -1263.1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -187,13 +236,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.019, 0.996, -665.62)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bjpd"]
-_data = {
-&"RESET": SubResource("Animation_2tsr8"),
-&"mov_camara_2": SubResource("Animation_i2p14")
+"values": [Vector3(-0.019, 0.996, -1297.7)]
 }
 
 [sub_resource type="Animation" id="Animation_3plae"]
@@ -236,45 +279,6 @@ tracks/2/keys = {
 "values": [Vector3(-0.019, 0.996, -1297.7), Vector3(-0.019, 0.996, -1370.6)]
 }
 
-[sub_resource type="Animation" id="Animation_rvi4t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 40.772537, -1241.5833)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../BarreraTrasera:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.018, 0.481, -1263.1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../BarreraDelantera:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.019, 0.996, -1297.7)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pel6o"]
 _data = {
 &"RESET": SubResource("Animation_rvi4t"),
@@ -310,12 +314,15 @@ size = Vector3(1, 0.68133545, 1.9753418)
 [sub_resource type="BoxMesh" id="BoxMesh_yp0q4"]
 
 [node name="Node3D" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_i5a71")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_mode = 1
 environment = SubResource("Environment_i2p14")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 40.772537, -1241.5833)
 environment = SubResource("Environment_2tsr8")
 fov = 30.0
@@ -323,57 +330,69 @@ size = 0.05
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 unique_name_in_owner = true
+process_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_i2p14")
 }
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Camera3D"]
 unique_name_in_owner = true
+process_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_8bjpd")
 }
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="Camera3D"]
 unique_name_in_owner = true
+process_mode = 1
 libraries = {
 &"": SubResource("AnimationLibrary_pel6o")
 }
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.97667605, 0.21471828, 0, -0.21471828, 0.97667605, 11.043098, 13.868551, 17.831846)
 
 [node name="floor" type="StaticBody3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.235786)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -702.4567)
 shape = SubResource("BoxShape3D_mt5rx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -699.02545)
 mesh = SubResource("PlaneMesh_rcdd3")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+process_mode = 1
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+process_mode = 1
 transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_rcdd3")
 mesh = ExtResource("1_71jk5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+process_mode = 1
 transform = Transform3D(1.871927, 0, 0, 0, 2.6806984, 0, 0, 0, 1, 0, 0.9266441, -0.22058105)
 shape = SubResource("BoxShape3D_rcdd3")
 
 [node name="UI" type="Control" parent="."]
-process_mode = 2
+process_mode = 1
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -383,78 +402,221 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/ColorRect"]
+process_mode = 1
 layout_mode = 0
 offset_right = 111.0
 offset_bottom = 50.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect/HBoxContainer"]
+process_mode = 1
 layout_mode = 2
 
 [node name="Puntuacion etiqueta" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
+process_mode = 1
 layout_mode = 2
 text = "Puntuacion"
 
 [node name="Label" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
+process_mode = 1
 layout_mode = 2
 text = "Vidas"
 
 [node name="CheckButton" type="CheckButton" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
+process_mode = 1
 layout_mode = 2
 text = "Pausa"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/ColorRect/HBoxContainer"]
+process_mode = 1
 layout_mode = 2
 
 [node name="Puntuacion datos" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer2"]
+process_mode = 1
 layout_mode = 2
 text = "...."
 
 [node name="delim_tienda" type="MeshInstance3D" parent="."]
+process_mode = 1
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 2.5757217, -1280.7169)
 mesh = SubResource("BoxMesh_2tsr8")
 
 [node name="delim_tienda_1" type="MeshInstance3D" parent="."]
+process_mode = 1
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 7.1982574, -639.3821)
 mesh = SubResource("BoxMesh_8bjpd")
 
 [node name="BarreraIzquierda" type="RigidBody3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.755587, 0, 0)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraIzquierda"]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1500, 0, 0.50166917, -743.29)
 shape = SubResource("BoxShape3D_7i0ls")
 
 [node name="BarreraDerecha" type="RigidBody3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.632, 0, 0)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDerecha"]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1500, 0, 0.50166917, -743.29)
 shape = SubResource("BoxShape3D_7i0ls")
 
 [node name="BarreraTrasera" type="RigidBody3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.481, -1263.1)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraTrasera"]
+process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_2n4ld")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraTrasera"]
+process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_a8cc0")
 
 [node name="BarreraDelantera" type="RigidBody3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDelantera"]
+process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_2n4ld")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraDelantera"]
+process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_yp0q4")
 
+[node name="menu_pausa" type="Control" parent="."]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="menu_pausa"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 652.0
+color = Color(0.019607844, 0.019607844, 0.019607844, 0.101960786)
+
+[node name="TextureRect" type="TextureRect" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 121.0
+offset_right = 1311.0
+offset_bottom = 848.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_3plae")
+
+[node name="TextureRect2" type="TextureRect" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 155.0
+offset_right = 1619.5714
+offset_bottom = 426.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_rvi4t")
+
+[node name="TextureRect3" type="TextureRect" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 247.0
+offset_right = 1218.0
+offset_bottom = 476.99988
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("7_pel6o")
+
+[node name="TextureRect4" type="TextureRect" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 292.0
+offset_right = 1218.0
+offset_bottom = 521.9999
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("7_pel6o")
+
+[node name="TextureRect5" type="TextureRect" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 338.0
+offset_right = 1218.0
+offset_bottom = 567.9999
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("7_pel6o")
+
+[node name="TextureRect6" type="TextureRect" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 380.0
+offset_right = 1218.0
+offset_bottom = 609.9999
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("7_pel6o")
+
+[node name="Label" type="Label" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 189.0
+offset_right = 838.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("8_7i0ls")
+theme_override_font_sizes/font_size = 24
+text = "JUEGO PAUSADO"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu_pausa"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 259.0
+offset_right = 784.0
+offset_bottom = 447.0
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="menu_pausa/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_7i0ls")
+text = "REANUDAR"
+flat = true
+
+[node name="Button2" type="Button" parent="menu_pausa/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_7i0ls")
+text = "OPCIONES"
+flat = true
+
+[node name="Button3" type="Button" parent="menu_pausa/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_7i0ls")
+text = "REINICIAR NIVEL"
+flat = true
+
+[node name="Button4" type="Button" parent="menu_pausa/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_7i0ls")
+text = "SALIR"
+flat = true
+
+[node name="timer1" type="Timer" parent="."]
+unique_name_in_owner = true
+process_mode = 1
+wait_time = 90.5
+
+[node name="timer2" type="Timer" parent="."]
+unique_name_in_owner = true
+process_mode = 1
+wait_time = 70.5
+
 [connection signal="toggled" from="UI/ColorRect/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
+[connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]
