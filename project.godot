@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 AppConfig="*res://addons/maaacks_options_menus/base/scenes/autoloads/app_config.tscn"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_options_menus/plugin.cfg")

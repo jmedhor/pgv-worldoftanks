@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=41 format=3 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="ArrayMesh" uid="uid://d0p8csjp0wecy" path="res://tanque.obj" id="1_71jk5"]
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://prueba.gd" id="1_i5a71"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://texturas/option_plate.png" id="6_rvi4t"]
 [ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://texturas/button_plate.png" id="7_pel6o"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://PressStart2P-Regular.ttf" id="8_7i0ls"]
+[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://texturas/panel_fondo.png" id="9_pel6o"]
+[ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://texturas/level_plate.png" id="10_7i0ls"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rcdd3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -313,6 +315,27 @@ size = Vector3(1, 0.68133545, 1.9753418)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yp0q4"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ykrsh"]
+font = ExtResource("8_7i0ls")
+font_size = 32
+outline_color = Color(0.9623018, 0.9653081, 0.98653823, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g14j6"]
+font = ExtResource("8_7i0ls")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_ehkex"]
+font = ExtResource("8_7i0ls")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_xersf"]
+font = ExtResource("8_7i0ls")
+font_size = 24
+
+[sub_resource type="SphereMesh" id="SphereMesh_pel6o"]
+radius = 9.591
+height = 9.081
+
 [node name="Node3D" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_i5a71")
@@ -367,18 +390,19 @@ process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -699.02545)
 mesh = SubResource("PlaneMesh_rcdd3")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="rigid" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="tanque" type="MeshInstance3D" parent="rigid"]
+unique_name_in_owner = true
 process_mode = 1
 transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_rcdd3")
 mesh = ExtResource("1_71jk5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rigid"]
 process_mode = 1
 transform = Transform3D(1.871927, 0, 0, 0, 2.6806984, 0, 0, 0, 1, 0, 0.9266441, -0.22058105)
 shape = SubResource("BoxShape3D_rcdd3")
@@ -609,14 +633,157 @@ flat = true
 [node name="timer1" type="Timer" parent="."]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 90.5
+wait_time = 10.5
 
 [node name="timer2" type="Timer" parent="."]
 unique_name_in_owner = true
 process_mode = 1
 wait_time = 70.5
 
+[node name="menu_opciones" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+
+[node name="ColorRect" type="ColorRect" parent="menu_opciones"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 652.0
+color = Color(0.019607844, 0.019607844, 0.019607844, 0.101960786)
+
+[node name="TextureRect3" type="TextureRect" parent="menu_opciones"]
+layout_mode = 0
+offset_right = 1114.0
+offset_bottom = 708.0
+texture = ExtResource("9_pel6o")
+
+[node name="TextureRect2" type="TextureRect" parent="menu_opciones"]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 96.0
+offset_right = 1183.0
+offset_bottom = 310.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_7i0ls")
+
+[node name="Fondo_opciones" type="TextureRect" parent="menu_opciones"]
+visible = false
+layout_mode = 0
+offset_right = 2306.0
+offset_bottom = 1304.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_pel6o")
+
+[node name="TextureRect" type="TextureRect" parent="menu_opciones"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 452.65
+offset_right = 1013.0
+offset_bottom = 672.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_pel6o")
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="menu_opciones"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 125.0
+offset_right = 885.0
+offset_bottom = 525.0
+scale = Vector2(1.15, 1.15)
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="menu_opciones/ButtonsVBox"]
+layout_mode = 2
+text = "Opciones"
+label_settings = SubResource("LabelSettings_ykrsh")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="menu_opciones/ButtonsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="menu_opciones/ButtonsVBox/HBoxContainer"]
+layout_mode = 2
+text = "Volumen"
+label_settings = SubResource("LabelSettings_g14j6")
+
+[node name="HSlider2" type="HSlider" parent="menu_opciones/ButtonsVBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -70.0
+max_value = 5.0
+value = -10.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="menu_opciones/ButtonsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="menu_opciones/ButtonsVBox/HBoxContainer2"]
+layout_mode = 2
+text = "Tipo de ventana"
+label_settings = SubResource("LabelSettings_ehkex")
+
+[node name="OptionButton" type="OptionButton" parent="menu_opciones/ButtonsVBox/HBoxContainer2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Ventana"
+popup/item_0/id = 0
+popup/item_1/text = "Pantalla completa"
+popup/item_1/id = 1
+popup/item_2/text = "Pantalla sin bordes"
+popup/item_2/id = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="menu_opciones/ButtonsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Label" type="Label" parent="menu_opciones/ButtonsVBox/HBoxContainer3"]
+layout_mode = 2
+text = "Brillo"
+label_settings = SubResource("LabelSettings_xersf")
+
+[node name="HSlider" type="HSlider" parent="menu_opciones/ButtonsVBox/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 30.0
+max_value = 255.0
+value = 255.0
+
+[node name="opciones_back" type="Button" parent="menu_opciones/ButtonsVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_7i0ls")
+theme_override_font_sizes/font_size = 24
+text = "Volver"
+flat = true
+
+[node name="ColorRectBrillo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 1153.0
+offset_bottom = 641.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.563245, -11.68939)
+mesh = SubResource("SphereMesh_pel6o")
+
 [connection signal="toggled" from="UI/ColorRect/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="menu_pausa/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
 [connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="item_selected" from="menu_opciones/ButtonsVBox/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="menu_opciones/ButtonsVBox/opciones_back" to="." method="_on_opciones_back_pressed"]

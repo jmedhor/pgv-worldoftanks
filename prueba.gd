@@ -3,7 +3,7 @@ extends Node3D
 var pausa := false
 var timer1 : SceneTreeTimer
 var timer2 : SceneTreeTimer
-
+@onready var rect_brillo = $ColorRectBrillo
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%AnimationPlayer.play("mov_camara")
@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 		get_tree().paused = pausa
 		if %menu_pausa.visible:
 				%menu_pausa.visible = false
+				%menu_opciones.visible = false
 		else:
 			%menu_pausa.visible = true
 
@@ -42,3 +43,47 @@ func _on_timer_1_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	%AnimationPlayer3.play("mov_camara_3")
+
+
+func _on_button_2_pressed() -> void:
+	%menu_pausa.visible = false
+	%menu_opciones.visible = true
+
+
+func _on_opciones_back_pressed() -> void:
+	%menu_opciones.visible = false
+	%menu_pausa.visible = true
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+
+
+func _on_h_slider_2_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	var normalized = value / 255.0
+	rect_brillo.color.a = 1.0 - normalized
+
+
+func _on_button_3_pressed() -> void:
+	%menu_opciones.visible = false
+	%menu_pausa.visible = false
+	pausa = not pausa
+	get_tree().paused = pausa
+	%AnimationPlayer.stop()
+	%AnimationPlayer2.stop()
+	%AnimationPlayer3.stop()
+	%AnimationPlayer.play("mov_camara")
+	%timer1.start()
