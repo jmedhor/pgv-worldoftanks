@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=46 format=3 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="ArrayMesh" uid="uid://d0p8csjp0wecy" path="res://tanque.obj" id="1_71jk5"]
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://prueba.gd" id="1_i5a71"]
@@ -10,6 +10,11 @@
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://PressStart2P-Regular.ttf" id="8_7i0ls"]
 [ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://texturas/panel_fondo.png" id="9_pel6o"]
 [ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://texturas/level_plate.png" id="10_7i0ls"]
+[ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://texturas/marco_obj_tienda.png" id="11_k31ow"]
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="12_ec7i0"]
+[ext_resource type="Texture2D" uid="uid://c8f1gw1uq0vhh" path="res://texturas/x.png" id="13_2pljw"]
+[ext_resource type="Texture2D" uid="uid://b7gho8mrl6pkj" path="res://texturas/left_arrow.png" id="14_i7ldd"]
+[ext_resource type="Texture2D" uid="uid://b3ux0idrpcega" path="res://texturas/right_arrow.png" id="15_gkbsn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rcdd3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -777,6 +782,206 @@ color = Color(0, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.563245, -11.68939)
 mesh = SubResource("SphereMesh_pel6o")
 
+[node name="Tienda" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 654.0
+
+[node name="TextureRect" type="TextureRect" parent="Tienda"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 34.0
+offset_right = 1118.0
+offset_bottom = 742.0
+scale = Vector2(0.9, 0.8)
+texture = ExtResource("9_pel6o")
+
+[node name="Button4" type="Button" parent="Tienda"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Obj1" type="TextureRect" parent="Tienda/Button4"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 156.0
+offset_right = 478.0
+offset_bottom = 389.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_k31ow")
+
+[node name="TextureRect3" type="TextureRect" parent="Tienda/Button4/Obj1"]
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_ec7i0")
+
+[node name="Label2" type="Label" parent="Tienda/Button4/Obj1"]
+layout_mode = 0
+offset_left = 215.00003
+offset_top = 68.33334
+offset_right = 502.00003
+offset_bottom = 156.33334
+theme_override_font_sizes/font_size = 64
+text = "PUTA"
+
+[node name="Obj2" type="TextureRect" parent="Tienda"]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 156.0
+offset_right = 828.0
+offset_bottom = 389.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_k31ow")
+
+[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj2"]
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_ec7i0")
+
+[node name="Label2" type="Label" parent="Tienda/Obj2"]
+layout_mode = 0
+offset_left = 215.00003
+offset_top = 68.33334
+offset_right = 502.00003
+offset_bottom = 156.33334
+theme_override_font_sizes/font_size = 64
+text = "PUTA"
+
+[node name="Obj3" type="TextureRect" parent="Tienda"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 306.0
+offset_right = 478.0
+offset_bottom = 539.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_k31ow")
+
+[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj3"]
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_ec7i0")
+
+[node name="Label2" type="Label" parent="Tienda/Obj3"]
+layout_mode = 0
+offset_left = 215.00003
+offset_top = 68.33334
+offset_right = 502.00003
+offset_bottom = 156.33334
+theme_override_font_sizes/font_size = 64
+text = "PUTA"
+
+[node name="Obj4" type="TextureRect" parent="Tienda"]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 306.0
+offset_right = 828.0
+offset_bottom = 539.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_k31ow")
+
+[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj4"]
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_ec7i0")
+
+[node name="Label2" type="Label" parent="Tienda/Obj4"]
+layout_mode = 0
+offset_left = 215.00003
+offset_top = 68.33334
+offset_right = 502.00003
+offset_bottom = 156.33334
+theme_override_font_sizes/font_size = 64
+text = "PUTA"
+
+[node name="Button" type="Button" parent="Tienda"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="TextureRect2" type="TextureRect" parent="Tienda/Button"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 13.0
+offset_right = 1112.0
+offset_bottom = 225.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_2pljw")
+
+[node name="Button2" type="Button" parent="Tienda"]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 441.0
+offset_right = 607.0
+offset_bottom = 654.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("14_i7ldd")
+flat = true
+
+[node name="Button3" type="Button" parent="Tienda"]
+layout_mode = 0
+offset_left = 654.0
+offset_top = 440.0
+offset_right = 845.0
+offset_bottom = 652.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("15_gkbsn")
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="Tienda"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 70.0
+offset_right = 1263.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_rvi4t")
+
+[node name="Label" type="Label" parent="Tienda"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 108.0
+offset_right = 676.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("8_7i0ls")
+theme_override_font_sizes/font_size = 30
+text = "TIENDA"
+
+[node name="Obj5" type="TextureRect" parent="Tienda"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 420.00003
+offset_right = 735.0
+offset_bottom = 653.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_k31ow")
+
+[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj5"]
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_ec7i0")
+
 [connection signal="toggled" from="UI/ColorRect/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
@@ -787,3 +992,4 @@ mesh = SubResource("SphereMesh_pel6o")
 [connection signal="item_selected" from="menu_opciones/ButtonsVBox/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="menu_opciones/ButtonsVBox/opciones_back" to="." method="_on_opciones_back_pressed"]
+[connection signal="pressed" from="Tienda/Button4" to="." method="_on_button_4_pressed"]
