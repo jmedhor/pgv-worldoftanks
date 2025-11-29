@@ -1,7 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cn67gecooprai"]
+[gd_scene load_steps=17 format=3 uid="uid://cn67gecooprai"]
 
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="1_37kl0"]
+[ext_resource type="Script" path="res://test.gd" id="1_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://menu_game_over.tscn" id="2_g14j6"]
+[ext_resource type="PackedScene" uid="uid://ceechljenw11v" path="res://proyectil.tscn" id="3_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://jugador.tscn" id="3_ppyta"]
+[ext_resource type="PackedScene" path="res://hud.tscn" id="4_ppyta"]
 
 [sub_resource type="Environment" id="Environment_8uh7m"]
 
@@ -31,6 +35,8 @@ albedo_texture = ExtResource("1_37kl0")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppyta"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ykrsh")
+escena_game_over = ExtResource("2_g14j6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8uh7m")
@@ -72,5 +78,13 @@ mesh = SubResource("CapsuleMesh_6uqi0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("CapsuleShape3D_ppyta")
 
-[node name="Personaje_principal" parent="." instance=ExtResource("3_ppyta")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+[node name="Personaje_principal" parent="." groups=["Jugador"] instance=ExtResource("3_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4435792, 0, 3)
+
+[node name="proyectil" parent="." instance=ExtResource("3_6uqi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3930168, 0.90786386, -4.391676)
+speed = -5
+objetivo = "Jugador"
+dano = 1
+
+[node name="hud" parent="." instance=ExtResource("4_ppyta")]
