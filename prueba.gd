@@ -10,6 +10,7 @@ func _ready() -> void:
 	%AnimationPlayer.play("mov_camara")
 	%timer1.start()
 	dinero = 100
+	%Dinero_tienda.text = str(dinero)
 	
 
 
@@ -94,6 +95,23 @@ func _on_button_3_pressed() -> void:
 func _on_button_4_pressed() -> void:
 	if dinero >= 100:
 		dinero = dinero - 100
+		%Dinero_tienda.text = str(dinero)
 		print("Has comprado puta")
 	else:
 		print("No tienes dinero para comprar puta")
+
+
+func _on_cerrar_tienda_pressed() -> void:
+	%cerrartienda.play("cerrar_tienda")
+	pausa = not pausa
+	get_tree().paused = pausa
+
+
+
+
+func _on_colision_tienda_area_body_entered(body: Node3D) -> void:
+	if body.name == "tanque" :
+		%Tienda.visible = true
+		%cerrartienda.play_backwards("cerrar_tienda")
+		pausa = not pausa
+		get_tree().paused = pausa
