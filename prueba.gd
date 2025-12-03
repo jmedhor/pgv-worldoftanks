@@ -115,3 +115,11 @@ func _on_colision_tienda_area_body_entered(body: Node3D) -> void:
 		%cerrartienda.play_backwards("cerrar_tienda")
 		pausa = not pausa
 		get_tree().paused = pausa
+
+
+func _on_colision_tienda_area_2_body_entered(body: Node3D) -> void:
+	if body.name == "tanque" :
+		%Tienda.visible = true
+		%cerrartienda.play_backwards("cerrar_tienda")
+		pausa = not pausa
+		get_tree().paused = pausa
