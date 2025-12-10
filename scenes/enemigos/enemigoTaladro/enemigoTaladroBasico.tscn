@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://c040bjt6dwrp8"]
+
+[ext_resource type="Script" uid="uid://4hyknxljwvhp" path="res://scenes/enemigos/enemigoJuggernaut/enemigoJuggernaut.gd" id="1_10sii"]
+[ext_resource type="ArrayMesh" uid="uid://b1kdn5vo00m5k" path="res://models/enemigos/enemigoTaladro/enemigo4.obj" id="1_j0thw"]
+[ext_resource type="Texture2D" uid="uid://b6hrjqjnwyyby" path="res://materials/gltf_embedded_0.png" id="2_2sk4o"]
+[ext_resource type="Texture2D" uid="uid://dqqqo62ob6bs3" path="res://materials/gltf_embedded_4.png" id="3_10sii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0thw"]
+size = Vector3(1.75, 1.5, 2.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sk4o"]
+albedo_texture = ExtResource("2_2sk4o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10sii"]
+albedo_texture = ExtResource("2_2sk4o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cpoq"]
+albedo_texture = ExtResource("3_10sii")
+
+[node name="enemigoTaladroBasico" type="CharacterBody3D"]
+script = ExtResource("1_10sii")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7901367, 0.1501149)
+shape = SubResource("BoxShape3D_j0thw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.25, 0, 0, 0.14644676)
+mesh = ExtResource("1_j0thw")
+surface_material_override/0 = SubResource("StandardMaterial3D_2sk4o")
+surface_material_override/2 = SubResource("StandardMaterial3D_10sii")
+surface_material_override/3 = SubResource("StandardMaterial3D_3cpoq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
