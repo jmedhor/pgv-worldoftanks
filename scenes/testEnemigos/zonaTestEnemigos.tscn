@@ -1,8 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://sxoag5s4pthj"]
+[gd_scene load_steps=15 format=3 uid="uid://sxoag5s4pthj"]
 
+[ext_resource type="Script" uid="uid://cfqgp6c75fr52" path="res://scenes/testEnemigos/zona_test_enemigos.gd" id="1_4q42e"]
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="1_upc3s"]
+[ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://hud.tscn" id="2_5p0qs"]
+[ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://menu_game_over.tscn" id="2_b8l55"]
 [ext_resource type="PackedScene" uid="uid://c743cblhnrf4c" path="res://jugador.tscn" id="2_gjt7l"]
 [ext_resource type="PackedScene" uid="uid://cuk711nm54qj8" path="res://scenes/enemigos/enemigo_test_spawner.tscn" id="3_4q42e"]
+[ext_resource type="PackedScene" uid="uid://24ir3kp6hnhg" path="res://scenes/enemigos/enemigoNormal/enemigoNormal.tscn" id="7_b8l55"]
+[ext_resource type="PackedScene" uid="uid://v1820mch4gef" path="res://scenes/enemigos/enemigoMecha/enemigoMecha.tscn" id="7_ncwd0"]
+[ext_resource type="PackedScene" uid="uid://qa4y3censpem" path="res://scenes/enemigos/enemigoJuggernaut/enemigoJuggernaut.tscn" id="8_iqql3"]
 
 [sub_resource type="Environment" id="Environment_8uh7m"]
 
@@ -18,6 +24,8 @@ size = Vector2(40, 50)
 albedo_color = Color(0.10980392, 1, 1, 1)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_4q42e")
+escena_game_over = ExtResource("2_b8l55")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8uh7m")
@@ -41,10 +49,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.649029)
 mesh = SubResource("PlaneMesh_37kl0")
 surface_material_override/0 = SubResource("StandardMaterial3D_8uh7m")
 
-[node name="Personaje_principal" parent="." instance=ExtResource("2_gjt7l")]
+[node name="Personaje_principal" parent="." groups=["Jugador"] instance=ExtResource("2_gjt7l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="Node3D" parent="." instance=ExtResource("3_4q42e")]
+[node name="Spawner" parent="." instance=ExtResource("3_4q42e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064632475, 0, -35.137947)
-test_max_enemigos = 10.0
-tiempoSpawn = 2.5
+test_max_enemigos = 8.0
+tiempoSpawn = 2.0
+enemigo = ExtResource("7_b8l55")
+
+[node name="hud" parent="." instance=ExtResource("2_5p0qs")]
+
+[node name="Node3D" parent="." instance=ExtResource("3_4q42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.138)
+test_max_enemigos = 4.0
+tiempoSpawn = 3.1
+enemigo = ExtResource("7_ncwd0")
+
+[node name="Node3D2" parent="." instance=ExtResource("3_4q42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.138)
+test_max_enemigos = 2.0
+tiempoSpawn = 4.11
+enemigo = ExtResource("8_iqql3")

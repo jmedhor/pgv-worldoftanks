@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @export var speed = 1
-@export var objetivo = "Enemigos"
+@export var objetivo = "null"
 @export var dano = 5
 
 # Called when the node enters the scene tree for the first time.

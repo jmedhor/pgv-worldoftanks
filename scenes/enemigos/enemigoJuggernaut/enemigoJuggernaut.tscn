@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://qa4y3censpem"]
+
+[ext_resource type="Script" uid="uid://cf6wf2tlhcrkg" path="res://scenes/enemigos/enemigoJuggernaut/enemigoJuggernaut.gd" id="1_4klen"]
+[ext_resource type="PackedScene" uid="uid://ceechljenw11v" path="res://proyectil.tscn" id="2_3lov5"]
+[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://barvy.png" id="3_d3bj0"]
+[ext_resource type="ArrayMesh" uid="uid://bdgg2xrm0jlwb" path="res://models/enemigos/enemigoJuggernaut/enemigo2.obj" id="4_3lov5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jju12"]
+size = Vector3(1.6, 1.8, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp171"]
+albedo_texture = ExtResource("3_d3bj0")
+
+[node name="enemigoJuggernautBasico" type="CharacterBody3D" groups=["Enemigos"]]
+script = ExtResource("1_4klen")
+proyectil = ExtResource("2_3lov5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90335405, -0.0006920099)
+shape = SubResource("BoxShape3D_jju12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.0016073585, 0.36168373, 0)
+material_override = SubResource("StandardMaterial3D_tp171")
+mesh = ExtResource("4_3lov5")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4133079, 0.96393204)
+
+[node name="timerDisparo" type="Timer" parent="."]
+
+[node name="timerMoverse" type="Timer" parent="."]
+
+[node name="timerMoviendose" type="Timer" parent="." groups=["Enemigos"]]
+
+[connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
+[connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
+[connection signal="timeout" from="timerMoviendose" to="." method="_on_timer_moviendose_timeout"]

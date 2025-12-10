@@ -24,3 +24,4 @@ func _on_timer_spawn_timeout():
 		enemigos.append(nu_enemigo)
 		
 		$TimerSpawn.start(tiempoSpawn)
+	

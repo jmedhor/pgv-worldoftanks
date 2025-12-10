@@ -10,7 +10,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eo42"]
 albedo_texture = ExtResource("1_jju12")
 
-[node name="enemigo" type="CharacterBody3D" groups=["Enemigos"]]
+[node name="enemigoTanqueBase" type="CharacterBody3D" groups=["Enemigos"]]
 script = ExtResource("1_t3h3x")
 velocidad_avance = 3.5
 velocidad_desplazo = 2.0

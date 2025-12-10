@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-@export var vida : float = 6.0
+class_name enemigoNormalBasico
+
+@export var vida : float = 3.0
 @export var velocidad_avance : float = 6.0
 @export var velocidad_desplazo : float = 3.0
 @export var proyectil:PackedScene
@@ -13,6 +15,7 @@ extends CharacterBody3D
 
 var rng : RandomNumberGenerator
 var derecha : bool = true
+var deltaMultiplier : float = 50
 
 func _ready():
 	$timerMoverse.start(tiempoEntreMoverse)
@@ -27,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	if puedeMoverse == true:
 		direction.x += moverse()
 
-	velocity = direction
+	velocity = direction * delta * deltaMultiplier
 	
 	move_and_slide() 
 

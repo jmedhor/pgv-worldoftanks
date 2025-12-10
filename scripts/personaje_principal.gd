@@ -3,7 +3,7 @@ extends CharacterBody3D
 signal vida_cambiada(nueva_vida)
 signal he_muerto
 
-@export var speed : float = 100.0
+@export var speed : float = 350.0
 @export var proyectil:PackedScene
 @export var tiempoEntreDisparo : float = 0.5
 @export var vida : float = 5
@@ -37,6 +37,7 @@ func disparar():
 	if puedeDisparar:
 		var tmp_proyectil = proyectil.instantiate()
 		tmp_proyectil.position = $Marker3D.global_position
+		tmp_proyectil.objetivo = "Enemigos"
 		if tmp_proyectil.has_method("iniciar"):
 			tmp_proyectil.iniciar(5,5)
 		add_sibling(tmp_proyectil)

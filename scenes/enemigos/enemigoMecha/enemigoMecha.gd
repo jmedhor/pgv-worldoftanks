@@ -1,20 +1,25 @@
 extends CharacterBody3D
 
-@export var vida : float = 6.0
+class_name enemigoMechaBasico
+
+@export var vida : float = 5.0
 @export var velocidad_avance : float = 6.0
-@export var velocidad_desplazo : float = 3.0
+@export var velocidad_desplazo : float = 1.0	#Queda raro sin animacion lol
 @export var proyectil:PackedScene
-@export var velocidad_proyectil : float = 10
-@export var dano_proyectil : float = 2
-@export var tiempoEntreDisparo : float = 1
-@export var tiempoEntreMoverse : float = 3
+@export var velocidad_proyectil : float = 20
+@export var dano_proyectil : float = 1
+@export var tiempoEntreDisparo : float = 0.5
+@export var tiempoEntreMoverse : float = 4
 @export var tiempoMoviendose : float = 1
 @export var puedeMoverse : bool = false
 
 var rng : RandomNumberGenerator
+var canonDerecho : bool = true
 var derecha : bool = true
+var deltaMultiplier : float = 50
 
 func _ready():
+	print("mecha")
 	$timerMoverse.start(tiempoEntreMoverse)
 	$timerDisparo.start(tiempoEntreDisparo)
 	rng = RandomNumberGenerator.new()
@@ -27,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	if puedeMoverse == true:
 		direction.x += moverse()
 
-	velocity = direction
+	velocity = direction * delta * deltaMultiplier
 	
 	move_and_slide() 
 
@@ -41,7 +46,12 @@ func moverse():
 
 func disparar():
 	var tmp_proyectil = proyectil.instantiate()
-	tmp_proyectil.position = $Marker3D.global_position
+	if canonDerecho:
+		tmp_proyectil.position = $Canon1.global_position
+		canonDerecho = false
+	else :
+		tmp_proyectil.position = $Canon2.global_position
+		canonDerecho = true		
 	tmp_proyectil.objetivo = "Jugador"
 	tmp_proyectil.speed = -velocidad_proyectil
 	tmp_proyectil.dano = dano_proyectil
