@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dp4ttj8lx7c5k" path="res://images/barraVida25.tres" id="10_4u2vk"]
 [ext_resource type="Texture2D" uid="uid://qt5b27w3xgwf" path="res://images/barraVida0.tres" id="11_4q17s"]
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="12_1fv7p"]
-[ext_resource type="Texture2D" uid="uid://drq5bo285iq8u" path="res://images/barraEscudo100.tres" id="12_4u2vk"]
+[ext_resource type="Texture2D" uid="uid://djtuxtejl1stj" path="res://images/barraEscudo75.tres" id="12_4u2vk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2d608"]
 bg_color = Color(0, 0, 0, 0.62352943)
@@ -126,7 +126,7 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="BarraVida" type="TextureRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer/MarginContainer2"]
+[node name="BarraEscudo" type="TextureRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer/MarginContainer2"]
 texture_filter = 3
 layout_mode = 2
 size_flags_vertical = 3

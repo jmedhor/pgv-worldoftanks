@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dprlg0xrf0opm"]
+[gd_scene load_steps=8 format=3 uid="uid://dprlg0xrf0opm"]
 
 [ext_resource type="Script" uid="uid://bpvbtgfwgclxw" path="res://scripts/personaje_principal.gd" id="1_16k11"]
 [ext_resource type="PackedScene" uid="uid://ceechljenw11v" path="res://proyectil.tscn" id="2_omvyu"]
-[ext_resource type="ArrayMesh" uid="uid://e8f0vmqouua0" path="res://tanqueMod3.obj" id="3_8o684"]
+[ext_resource type="ArrayMesh" uid="uid://bv8qlpixh5fp4" path="res://tanque_cabeza.obj" id="3_7st5j"]
 [ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://barvy.png" id="3_ukil5"]
+[ext_resource type="ArrayMesh" uid="uid://cqrhtnvoly0sy" path="res://tanque_decapitado.obj" id="5_cvhml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8o684"]
+size = Vector3(1.4459991, 2, 1.8473816)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvhml"]
 albedo_texture = ExtResource("3_ukil5")
@@ -13,26 +17,30 @@ normal_scale = 5.15
 stencil_flags = 2
 stencil_outline_thickness = 0.05
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8o684"]
-size = Vector3(2, 2, 2)
-
 [node name="Personaje_principal" type="CharacterBody3D"]
 script = ExtResource("1_16k11")
 proyectil = ExtResource("2_omvyu")
 vida = 4.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, 0.375, 0)
-material_override = SubResource("StandardMaterial3D_cvhml")
-mesh = ExtResource("3_8o684")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003730774, 1, -0.076309204)
 shape = SubResource("BoxShape3D_8o684")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62242556, -1.2108952)
 
 [node name="timerDisparo" type="Timer" parent="."]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, 0.375, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+mesh = ExtResource("3_7st5j")
+skeleton = NodePath("../..")
+
+[node name="Cuerpo" type="MeshInstance3D" parent="Node3D"]
+material_override = SubResource("StandardMaterial3D_cvhml")
+mesh = ExtResource("5_cvhml")
+skeleton = NodePath("../..")
 
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]

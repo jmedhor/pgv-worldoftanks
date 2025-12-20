@@ -77,6 +77,7 @@ mesh = SubResource("CapsuleMesh_6uqi0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("CapsuleShape3D_ppyta")
 
-[node name="hud" parent="." instance=ExtResource("4_ppyta")]
+[node name="Personaje_principal" parent="." groups=["Jugador"] instance=ExtResource("3_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4435792, 0, 3)
 
-[node name="Personaje_principal" parent="." instance=ExtResource("3_ppyta")]
+[node name="hud" parent="." instance=ExtResource("4_ppyta")]
