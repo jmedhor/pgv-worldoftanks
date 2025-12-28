@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="test"
-run/main_scene="res://test.tscn"
+run/main_scene="res://escenas/testeos_varios/test.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -60,3 +60,8 @@ locale/translations=PackedStringArray("res://addons/maaacks_options_menus/base/t
 disable_update_check=false
 disable_install_wizard=true
 copy_path="res://"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1plaltdd0tp0"]
+
+[ext_resource type="Script" uid="uid://ecn2mcl6prde" path="res://tipos/projectiles/projectile.gd" id="1_1y1qf"]
+[ext_resource type="Resource" uid="uid://b152g0ht1l3c7" path="res://recursos/projectiles/player/special_aoe_dmg.tres" id="2_eiaut"]
+[ext_resource type="PackedScene" uid="uid://k8jqgrvyxyi1" path="res://escenas/projectiles/aoe_dmg_model.tscn" id="3_u8emh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oirkn"]
+radius = 0.37579975
+
+[node name="SpecialAoeDmg" type="Area3D"]
+script = ExtResource("1_1y1qf")
+data = ExtResource("2_eiaut")
+metadata/_custom_type_script = "uid://ecn2mcl6prde"
+
+[node name="AoeDmgModel" parent="." instance=ExtResource("3_u8emh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_oirkn")

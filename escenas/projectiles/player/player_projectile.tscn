@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx3tay0q3kqfh"]
+
+[ext_resource type="Script" uid="uid://ecn2mcl6prde" path="res://tipos/projectiles/projectile.gd" id="1_fqrbi"]
+[ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="2_dxiwb"]
+[ext_resource type="Resource" uid="uid://wh3p36hopttf" path="res://recursos/projectiles/player/basic_projectile/player_weak.tres" id="2_p6ov7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p6ov7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qocfn"]
+render_priority = 0
+shader = ExtResource("2_dxiwb")
+shader_parameter/inner_color = Color(0.3, 0.7, 1, 1)
+shader_parameter/outer_color = Color(0.34044516, 0.54244244, 1, 1)
+shader_parameter/glow_strength = 4.0
+shader_parameter/noise_scale = 5.0
+shader_parameter/energy_speed = 1.0
+shader_parameter/pulse_strength = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dxiwb"]
+
+[node name="PlayerProjectile" type="Area3D"]
+script = ExtResource("1_fqrbi")
+data = ExtResource("2_p6ov7")
+metadata/_custom_type_script = "uid://ecn2mcl6prde"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_p6ov7")
+surface_material_override/0 = SubResource("ShaderMaterial_qocfn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dxiwb")
