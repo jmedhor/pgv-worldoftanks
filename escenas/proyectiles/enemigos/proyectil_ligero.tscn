@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://i3j02j23qdb5"]
 
-[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://tipos/area_reactiva/area_reactiva.gd" id="1_7ngbl"]
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_7ngbl"]
 [ext_resource type="Resource" uid="uid://djyhh54ca8qyl" path="res://recursos/proyectiles/enemigos/proyectil_ligero.tres" id="2_sspre"]
 [ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="3_oygx3"]
 

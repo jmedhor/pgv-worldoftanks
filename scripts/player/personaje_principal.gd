@@ -31,6 +31,9 @@ var catalogo_niveles = {
 }
 
 func _process(_delta: float) -> void:
+	if not vivo:
+		return
+
 	if not $timerEspecial.is_stopped():
 		var tiempo_transcurrido = $timerEspecial.wait_time - $timerEspecial.time_left
 		var porcentaje = (tiempo_transcurrido / $timerEspecial.wait_time) * 100
