@@ -4,13 +4,15 @@ var pausa := false
 var timer1 : SceneTreeTimer
 var timer2 : SceneTreeTimer
 @onready var rect_brillo = $ColorRectBrillo
-var dinero : int
+@onready var hud = $hud
+var puntos : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%AnimationPlayer.play("mov_camara")
 	%timer1.start()
-	dinero = 100
-	%Dinero_tienda.text = str(dinero)
+	puntos = 100
+	%Dinero_tienda.text = str(puntos)
+	hud.actualizar_puntuacion_hud(puntos)
 	
 
 
@@ -93,9 +95,10 @@ func _on_button_3_pressed() -> void:
 
 
 func _on_button_4_pressed() -> void:
-	if dinero >= 100:
-		dinero = dinero - 100
-		%Dinero_tienda.text = str(dinero)
+	if puntos >= 100:
+		puntos = puntos - 100
+		%Dinero_tienda.text = str(puntos)
+		hud.actualizar_puntuacion_hud(puntos)
 		print("Has comprado puta")
 	else:
 		print("No tienes dinero para comprar puta")
