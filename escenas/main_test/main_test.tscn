@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ej4jjeayjcng"]
 
 [ext_resource type="Script" uid="uid://dpay1plvpukxx" path="res://escenas/main_test/main_test.gd" id="1_prho6"]
-[ext_resource type="PackedScene" uid="uid://bvjnxtrb8mbc" path="res://escenas/projectiles/player/special_aoe_emp.tscn" id="2_4soap"]
+[ext_resource type="PackedScene" uid="uid://bvjnxtrb8mbc" path="res://escenas/proyectiles/jugador/bomba_pem.tscn" id="2_4soap"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67ojp"]
 
@@ -42,6 +42,7 @@ shape = SubResource("BoxShape3D_j0jm7")
 
 [node name="Diana" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.328768, -3)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Diana"]
@@ -52,6 +53,7 @@ shape = SubResource("CapsuleShape3D_qqaw5")
 
 [node name="Diana2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.328768, -3)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Diana2"]
@@ -62,6 +64,7 @@ shape = SubResource("CapsuleShape3D_qqaw5")
 
 [node name="Diana3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.328768, -3)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Diana3"]

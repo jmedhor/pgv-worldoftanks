@@ -10,7 +10,7 @@ func _process(_delta: float) -> void:
 		fire_projectile()
 
 func fire_projectile() -> void:
-	var projectile: Projectile = projectile_scene.instantiate()
-	projectile.shoot($PuntoDisparo.position, Vector3(0.0,0.0,-1.0))
+	var projectile: AreaReactiva = projectile_scene.instantiate()
+	projectile.inicializar($PuntoDisparo.position, Vector3(0.0,0.0,-1.0))
 	
 	add_child(projectile)
