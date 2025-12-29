@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0lr31thaiegi"]
+
+[ext_resource type="Script" uid="uid://ecn2mcl6prde" path="res://scripts/projectiles/projectile.gd" id="1_5jrs0"]
+[ext_resource type="Resource" uid="uid://dpqjxhtnodvds" path="res://recursos/projectiles/enemies/heavy_projectile.tres" id="2_4b4rf"]
+[ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="2_g12i3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4b4rf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r40uh"]
+render_priority = 0
+shader = ExtResource("2_g12i3")
+shader_parameter/inner_color = Color(1, 0, 0, 1)
+shader_parameter/outer_color = Color(1, 0, 0, 1)
+shader_parameter/glow_strength = 4.0
+shader_parameter/noise_scale = 5.0
+shader_parameter/energy_speed = 1.0
+shader_parameter/pulse_strength = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g12i3"]
+
+[node name="HeavyProjectile" type="Area3D"]
+collision_layer = 4
+script = ExtResource("1_5jrs0")
+data = ExtResource("2_4b4rf")
+metadata/_custom_type_script = "uid://ecn2mcl6prde"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4b4rf")
+surface_material_override/0 = SubResource("ShaderMaterial_r40uh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_g12i3")

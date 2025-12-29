@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ProjectileData" load_steps=6 format=3 uid="uid://b152g0ht1l3c7"]
+
+[ext_resource type="Script" uid="uid://tamyn5duf5wv" path="res://scripts/projectiles/projectile_effect.gd" id="1_m6fgd"]
+[ext_resource type="Script" uid="uid://cu7t0tayhqkd8" path="res://scripts/projectiles/efectos/area_damage_effect.gd" id="3_ykk8d"]
+[ext_resource type="Script" uid="uid://bkay1sq212epp" path="res://scripts/projectiles/projectile_data.gd" id="4_s25io"]
+[ext_resource type="PackedScene" uid="uid://wunug5xc8f44" path="res://scenes/projectiles/explosion_normal.tscn" id="5_ykk8d"]
+
+[sub_resource type="Resource" id="Resource_ayks8"]
+script = ExtResource("3_ykk8d")
+damage = 10.0
+radius = 3.0
+metadata/_custom_type_script = "uid://cu7t0tayhqkd8"
+
+[resource]
+script = ExtResource("4_s25io")
+speed = 10.0
+effects = Array[ExtResource("1_m6fgd")]([SubResource("Resource_ayks8")])
+collision_layer = 4
+collision_mask = 2
+vfx_scene = ExtResource("5_ykk8d")
+metadata/_custom_type_script = "uid://bkay1sq212epp"

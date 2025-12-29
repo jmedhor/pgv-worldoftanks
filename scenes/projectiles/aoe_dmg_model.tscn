@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://k8jqgrvyxyi1"]
+
+[ext_resource type="PackedScene" uid="uid://bl1abdlwirg31" path="res://assets/special_projectiles/projectile_model.glb" id="1_eoik4"]
+[ext_resource type="Shader" uid="uid://b4wc5wsyakc0a" path="res://assets/special_projectiles/projectile.gdshader" id="2_bxkao"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sehh3"]
+render_priority = 0
+shader = ExtResource("2_bxkao")
+shader_parameter/tail_color = Color(0.44829535, 0.25322503, 2.4065375e-07, 1)
+shader_parameter/head_color = Color(0.8794898, 0.46236885, 0, 1)
+
+[node name="AoeDmgModel" instance=ExtResource("1_eoik4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Projectile" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_sehh3")

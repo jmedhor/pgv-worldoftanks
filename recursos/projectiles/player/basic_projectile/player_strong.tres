@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ProjectileData" load_steps=5 format=3 uid="uid://ca1lk03i1hny1"]
+
+[ext_resource type="Script" uid="uid://tamyn5duf5wv" path="res://scripts/projectiles/projectile_effect.gd" id="1_c5trv"]
+[ext_resource type="Script" uid="uid://bfuxjykfrh5rm" path="res://scripts/projectiles/efectos/damage_effect.gd" id="2_eqxpp"]
+[ext_resource type="Script" uid="uid://bkay1sq212epp" path="res://scripts/projectiles/projectile_data.gd" id="3_71n4l"]
+
+[sub_resource type="Resource" id="Resource_kuurw"]
+script = ExtResource("2_eqxpp")
+damage = 20.0
+metadata/_custom_type_script = "uid://bfuxjykfrh5rm"
+
+[resource]
+script = ExtResource("3_71n4l")
+speed = 15.0
+effects = Array[ExtResource("1_c5trv")]([SubResource("Resource_kuurw")])
+collision_layer = 4
+collision_mask = 2
+metadata/_custom_type_script = "uid://bkay1sq212epp"
