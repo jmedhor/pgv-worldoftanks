@@ -20,17 +20,20 @@ var vivo : bool = true
 @onready var cuerpo = $Cuerpo
 
 var catalogo_especiales = {
-	"dmg": preload("res://escenas/projectiles/player/special_aoe_dmg.tscn"),
-	"emp": preload("res://escenas/projectiles/player/special_aoe_emp.tscn"),
+	"dmg": preload("res://escenas/proyectiles/jugador/bomba_dano.tscn"),
+	"emp": preload("res://escenas/proyectiles/jugador/bomba_pem.tscn"),
 }
 
 var catalogo_niveles = {
-	"lvl1": preload("res://recursos/projectiles/player/basic_projectile/player_weak.tres"),
-	"lvl2": preload("res://recursos/projectiles/player/basic_projectile/player_medium.tres"),
-	"lvl3": preload("res://recursos/projectiles/player/basic_projectile/player_strong.tres")
+	"lvl1": preload("res://recursos/proyectiles/jugador/basico/basico_nivel1.tres"),
+	"lvl2": preload("res://recursos/proyectiles/jugador/basico/basico_nivel2.tres"),
+	"lvl3": preload("res://recursos/proyectiles/jugador/basico/basico_nivel3.tres")
 }
 
 func _process(_delta: float) -> void:
+	if not vivo:
+		return
+
 	if not $timerEspecial.is_stopped():
 		var tiempo_transcurrido = $timerEspecial.wait_time - $timerEspecial.time_left
 		var porcentaje = (tiempo_transcurrido / $timerEspecial.wait_time) * 100
@@ -103,7 +106,7 @@ func rotarCuerpo(direction, delta):
 		delta * rotation_speed
 	)
 	
-func seleccion_nivel() -> ProjectileData:
+func seleccion_nivel() -> DatosArea:
 	var config = catalogo_niveles.get("lvl1")
 	if(nivelArma == 2):
 		config = catalogo_niveles.get("lvl2")
@@ -120,10 +123,10 @@ func cambiar():
 func disparar(accion: String):
 	if accion == "disparar" && puedeDisparar:
 		var tmp_proyectil = proyectil.instantiate()
-		tmp_proyectil.data = seleccion_nivel()
+		tmp_proyectil.datos = seleccion_nivel()
 		$sonido_disparo.play()
-		if tmp_proyectil.has_method("shoot"):
-			tmp_proyectil.shoot($Marker3D.global_position,Vector3(0,0,-1))
+		if tmp_proyectil.has_method("inicializar"):
+			tmp_proyectil.inicializar($Marker3D.global_position,Vector3(0,0,-1))
 		add_sibling(tmp_proyectil)
 		
 		puedeDisparar = false
@@ -131,8 +134,8 @@ func disparar(accion: String):
 	elif accion == "especial": 
 		if puedeDispararEspecial:
 			var tmp_especial = especial.instantiate()
-			if tmp_especial.has_method("shoot"):
-				tmp_especial.shoot($Marker3D.global_position,Vector3(0,0,-1))
+			if tmp_especial.has_method("inicializar"):
+				tmp_especial.inicializar($Marker3D.global_position,Vector3(0,0,-1))
 				add_sibling(tmp_especial)
 				puedeDispararEspecial = false
 				$timerEspecial.start(tiempoRecargaEspecial)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1plaltdd0tp0"]
+
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_pifuo"]
+[ext_resource type="Resource" uid="uid://bxfmwim7gq3s" path="res://recursos/proyectiles/jugador/habilidades/bomba_dano.tres" id="2_qbclo"]
+[ext_resource type="PackedScene" uid="uid://k8jqgrvyxyi1" path="res://escenas/proyectiles/bomba_dano_model.tscn" id="3_u8emh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oirkn"]
+radius = 0.37579975
+
+[node name="BombaDano" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_pifuo")
+datos = ExtResource("2_qbclo")
+metadata/_custom_type_script = "uid://l1jlr0fr0085"
+
+[node name="AoeDmgModel" parent="." instance=ExtResource("3_u8emh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_oirkn")
