@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://i3j02j23qdb5"]
 
-[ext_resource type="Script" uid="uid://ecn2mcl6prde" path="res://tipos/projectiles/projectile.gd" id="1_t1o0p"]
+[ext_resource type="Script" uid="uid://ecn2mcl6prde" path="res://scripts/projectiles/projectile.gd" id="1_t1o0p"]
 [ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="2_hqkpf"]
 [ext_resource type="Resource" uid="uid://b1htd733f8pwj" path="res://recursos/projectiles/enemies/light_projectile.tres" id="2_omi20"]
 
@@ -19,6 +19,7 @@ shader_parameter/pulse_strength = 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_fl5ik"]
 
 [node name="LightProjectile" type="Area3D"]
+collision_layer = 4
 script = ExtResource("1_t1o0p")
 data = ExtResource("2_omi20")
 metadata/_custom_type_script = "uid://ecn2mcl6prde"

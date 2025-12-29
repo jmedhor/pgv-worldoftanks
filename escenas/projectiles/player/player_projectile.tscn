@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx3tay0q3kqfh"]
 
-[ext_resource type="Script" uid="uid://ecn2mcl6prde" path="res://tipos/projectiles/projectile.gd" id="1_fqrbi"]
+[ext_resource type="Script" uid="uid://ecn2mcl6prde" path="res://scripts/projectiles/projectile.gd" id="1_fqrbi"]
 [ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="2_dxiwb"]
 [ext_resource type="Resource" uid="uid://wh3p36hopttf" path="res://recursos/projectiles/player/basic_projectile/player_weak.tres" id="2_p6ov7"]
 
@@ -19,6 +19,8 @@ shader_parameter/pulse_strength = 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_dxiwb"]
 
 [node name="PlayerProjectile" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_fqrbi")
 data = ExtResource("2_p6ov7")
 metadata/_custom_type_script = "uid://ecn2mcl6prde"

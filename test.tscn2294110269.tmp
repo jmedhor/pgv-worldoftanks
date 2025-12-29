@@ -1,0 +1,83 @@
+[gd_scene load_steps=16 format=3 uid="uid://cn67gecooprai"]
+
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://d0ik3cmkqxu44" path="res://test.gd" id="1_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://menu_game_over.tscn" id="2_g14j6"]
+[ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://jugador.tscn" id="3_ppyta"]
+[ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://hud.tscn" id="4_ppyta"]
+
+[sub_resource type="Environment" id="Environment_8uh7m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mf4mk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
+albedo_texture = ExtResource("1_37kl0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_37kl0"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uh7m"]
+albedo_color = Color(0.10980392, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mf4mk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf4mk"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.49803922, 0.6627451, 0.011764706, 1)
+albedo_texture = ExtResource("1_37kl0")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6uqi0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppyta"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ykrsh")
+escena_game_over = ExtResource("2_g14j6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8uh7m")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.432, 40, 29)
+fov = 30.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9124775, 0.4091269, 0, -0.4091269, 0.9124775, -1.5060844, 2.1148376, 2.3581161)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24904191, 0.015316486)
+mesh = SubResource("PlaneMesh_mf4mk")
+surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
+
+[node name="Suelo" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo"]
+mesh = SubResource("PlaneMesh_37kl0")
+surface_material_override/0 = SubResource("StandardMaterial3D_8uh7m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_8uh7m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.8034205, -0.035763144, -0.5943369, 0.07725321, 0.98349553, -0.16361038, 0.59037894, -0.17736234, -0.7873977, 0, 0.17088425, 0)
+mesh = SubResource("SphereMesh_mf4mk")
+surface_material_override/0 = SubResource("StandardMaterial3D_mf4mk")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["Enemigos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7223473, 0)
+angular_velocity = Vector3(0.015271631, 0.030979594, 8.726646)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("CapsuleMesh_6uqi0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CapsuleShape3D_ppyta")
+
+[node name="Personaje_principal" parent="." groups=["Jugador"] instance=ExtResource("3_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4435792, 0, 3)
+
+[node name="hud" parent="." instance=ExtResource("4_ppyta")]

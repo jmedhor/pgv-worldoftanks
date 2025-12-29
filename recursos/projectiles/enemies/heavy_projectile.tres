@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="ProjectileData" load_steps=5 format=3 uid="uid://dpqjxhtnodvds"]
 
-[ext_resource type="Script" uid="uid://tamyn5duf5wv" path="res://tipos/projectiles/projectile_effect.gd" id="1_on3ls"]
-[ext_resource type="Script" uid="uid://bkay1sq212epp" path="res://tipos/projectiles/projectile_data.gd" id="2_qyqtx"]
-[ext_resource type="Script" uid="uid://bfuxjykfrh5rm" path="res://tipos/projectiles/efectos/damage_effect.gd" id="2_w5nml"]
+[ext_resource type="Script" uid="uid://tamyn5duf5wv" path="res://scripts/projectiles/projectile_effect.gd" id="1_on3ls"]
+[ext_resource type="Script" uid="uid://bkay1sq212epp" path="res://scripts/projectiles/projectile_data.gd" id="2_qyqtx"]
+[ext_resource type="Script" uid="uid://bfuxjykfrh5rm" path="res://scripts/projectiles/efectos/damage_effect.gd" id="2_w5nml"]
 
 [sub_resource type="Resource" id="Resource_ig07u"]
 script = ExtResource("2_w5nml")
@@ -13,4 +13,5 @@ metadata/_custom_type_script = "uid://bfuxjykfrh5rm"
 script = ExtResource("2_qyqtx")
 speed = 10.0
 effects = Array[ExtResource("1_on3ls")]([SubResource("Resource_ig07u")])
+collision_layer = 4
 metadata/_custom_type_script = "uid://bkay1sq212epp"
