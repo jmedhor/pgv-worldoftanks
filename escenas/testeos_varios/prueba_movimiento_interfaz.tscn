@@ -88,3 +88,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.697032, 0.7795955, 1.334187
 
 [node name="Personaje_principal" parent="." instance=ExtResource("5_ihs85")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0.5294876, 3.799796e-07, 4.020102)
+
+[connection signal="cooldown_updated" from="Personaje_principal" to="." method="_on_personaje_principal_cooldown_updated"]

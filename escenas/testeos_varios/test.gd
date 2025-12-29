@@ -53,3 +53,7 @@ func _on_jugador_muerto():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		print("ERROR: No has asignado la escena de Game Over en el Inspector")
+
+
+func _on_personaje_principal_cooldown_updated(time_left: float) -> void:
+	hud.actualizar_temp_especial(time_left)

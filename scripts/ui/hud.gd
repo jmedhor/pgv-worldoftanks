@@ -54,9 +54,13 @@ func actualizar_imagen_retrato(vida_actual: int):
 	else:
 		retrato_estado.texture = textura_0
 
+func actualizar_temp_especial(tiempo: float):
+	var barra = $PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/ProgressBar
+	barra.value = tiempo
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var barra = $PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/ProgressBar
+	barra.value = 100;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfdocv5x2aw7"]
+[gd_scene load_steps=21 format=3 uid="uid://cfdocv5x2aw7"]
 
 [ext_resource type="Script" uid="uid://c3kddpg7va21" path="res://scripts/ui/hud.gd" id="1_37p78"]
 [ext_resource type="Texture2D" uid="uid://b1ac63bviuebm" path="res://images/100.png" id="2_64ctp"]
@@ -30,6 +30,13 @@ bg_color = Color(0, 0, 0, 0.62352943)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q17s"]
 bg_color = Color(0, 0, 0, 0.62352943)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhv7f"]
+bg_color = Color(0.30716628, 0.6855164, 0.50558674, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -253,20 +260,20 @@ text = "x1"
 label_settings = SubResource("LabelSettings_amv7k")
 horizontal_alignment = 1
 
-[node name="Fogueos" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
+[node name="Especial" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4q17s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 color = Color(0, 0, 0, 0.62352943)
 
-[node name="TituloFogueos" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/ColorRect"]
+[node name="TituloFogueos" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -280,7 +287,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -288,14 +295,14 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("12_1fv7p")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -303,11 +310,15 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/MarginContainer2"]
+[node name="Label" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "(Q)"
 label_settings = SubResource("LabelSettings_amv7k")
 horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_nhv7f")
 
 [node name="Fogueos2" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
 layout_mode = 2
