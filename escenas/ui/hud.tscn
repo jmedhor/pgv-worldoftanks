@@ -23,7 +23,7 @@ bg_color = Color(0, 0, 0, 0.62352943)
 bg_color = Color(0, 0, 0, 0.62352943)
 
 [sub_resource type="LabelSettings" id="LabelSettings_amv7k"]
-font_size = 32
+font_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2vk"]
 bg_color = Color(0, 0, 0, 0.62352943)
@@ -58,13 +58,11 @@ barra_1 = ExtResource("10_4u2vk")
 barra_0 = ExtResource("11_4q17s")
 
 [node name="PanelIzquierdo" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
+anchor_right = 0.2
 anchor_bottom = 1.0
-offset_right = 300.0
-grow_vertical = 2
-color = Color(0.9978921, 0.660632, 0.5010179, 1)
+color = Color(0, 0.24705882, 0.08627451, 0.18039216)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelIzquierdo"]
 layout_mode = 1
@@ -75,6 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_right = 24
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelIzquierdo/MarginContainer"]
 layout_mode = 2
@@ -142,7 +141,7 @@ texture = ExtResource("12_4u2vk")
 [node name="RetratoEstado" type="TextureRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 4
 texture = ExtResource("2_64ctp")
 expand_mode = 5
 
@@ -191,15 +190,15 @@ label_settings = SubResource("LabelSettings_amv7k")
 horizontal_alignment = 1
 
 [node name="PanelDerecho" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
-color = Color(0.99607843, 0.65882355, 0.5019608, 1)
+color = Color(0, 0.24705882, 0.08627451, 0.18039216)
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelDerecho"]
 layout_mode = 1
@@ -208,8 +207,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_right = 24
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer"]
 layout_mode = 2
@@ -219,6 +220,7 @@ alignment = 1
 [node name="Combo" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_4u2vk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Combo"]
@@ -262,6 +264,7 @@ horizontal_alignment = 1
 
 [node name="Especial" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_4q17s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial"]
@@ -316,24 +319,35 @@ text = "(Q)"
 label_settings = SubResource("LabelSettings_amv7k")
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="BarraEspecial" type="ProgressBar" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_nhv7f")
+value = 100.0
 
-[node name="Fogueos2" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
+[node name="Fogueos" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_4q17s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos2/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 color = Color(0, 0, 0, 0.62352943)
 
-[node name="TituloFogueos" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos2/VBoxContainer/ColorRect"]
+[node name="TituloFogueos" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -347,7 +361,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -355,14 +369,14 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos2/VBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("12_1fv7p")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -370,7 +384,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos2/VBoxContainer/MarginContainer2"]
+[node name="Label" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "(E)"
 label_settings = SubResource("LabelSettings_amv7k")

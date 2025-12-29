@@ -4,6 +4,7 @@ extends Control
 @onready var retrato_estado = %RetratoEstado
 @onready var label_puntos = %LabelPuntos
 @onready var label_combo = %LabelCombo
+@onready var barra_especial = %BarraEspecial
 
 @export var textura_100 : Texture2D
 @export var textura_75 : Texture2D
@@ -55,14 +56,12 @@ func actualizar_imagen_retrato(vida_actual: int):
 		retrato_estado.texture = textura_0
 
 func actualizar_temp_especial(tiempo: float):
-	var barra = $PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/ProgressBar
-	barra.value = tiempo
+	barra_especial.value = tiempo
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var barra = $PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/ProgressBar
-	barra.value = 100;
+	barra_especial.value = 100;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
