@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0lr31thaiegi"]
+
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://tipos/area_reactiva/area_reactiva.gd" id="1_ppd56"]
+[ext_resource type="Resource" uid="uid://wrkpocq87vrm" path="res://recursos/proyectiles/enemigos/proyectil_pesado.tres" id="2_0cwf2"]
+[ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="2_g12i3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4b4rf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r40uh"]
+render_priority = 0
+shader = ExtResource("2_g12i3")
+shader_parameter/inner_color = Color(1, 0, 0, 1)
+shader_parameter/outer_color = Color(1, 0, 0, 1)
+shader_parameter/glow_strength = 4.0
+shader_parameter/noise_scale = 5.0
+shader_parameter/energy_speed = 1.0
+shader_parameter/pulse_strength = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g12i3"]
+
+[node name="ProyectilPesado" type="Area3D"]
+script = ExtResource("1_ppd56")
+datos = ExtResource("2_0cwf2")
+metadata/_custom_type_script = "uid://l1jlr0fr0085"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4b4rf")
+surface_material_override/0 = SubResource("ShaderMaterial_r40uh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_g12i3")

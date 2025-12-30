@@ -19,14 +19,14 @@ var vivo : bool = true
 @onready var cuerpo = $Cuerpo
 
 var catalogo_especiales = {
-	"dmg": preload("res://scenes/projectiles/player/special_aoe_dmg.tscn"),
-	"emp": preload("res://scenes/projectiles/player/special_aoe_emp.tscn"),
+	"dmg": preload("res://escenas/proyectiles/jugador/bomba_dano.tscn"),
+	"emp": preload("res://escenas/proyectiles/jugador/bomba_pem.tscn"),
 }
 
 var catalogo_niveles = {
-	"lvl1": preload("res://recursos/projectiles/player/basic_projectile/player_weak.tres"),
-	"lvl2": preload("res://recursos/projectiles/player/basic_projectile/player_medium.tres"),
-	"lvl3": preload("res://recursos/projectiles/player/basic_projectile/player_strong.tres")
+	"lvl1": preload("res://recursos/proyectiles/enemigos/proyectil_ligero.tres"),
+	"lvl2": preload("res://recursos/proyectiles/enemigos/proyectil_medio.tres"),
+	"lvl3": preload("res://recursos/proyectiles/enemigos/proyectil_pesado.tres")
 }
 
 func _physics_process(delta: float) -> void:

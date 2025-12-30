@@ -1,10 +1,10 @@
-[gd_scene load_steps=2485 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=2486 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://prueba.gd" id="1_i5a71"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://texturas/OIP.webp" id="1_rcdd3"]
-[ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://hud.tscn" id="2_fmekg"]
 [ext_resource type="Texture2D" uid="uid://5fnhugpjpanf" path="res://suelo_tierra.png" id="3_04saj"]
 [ext_resource type="Texture2D" uid="uid://knoyfjej311q" path="res://textures/Vandereyt_Salome_GameArtExam_Environment_Tex.jpg" id="3_ih1lc"]
+[ext_resource type="Script" uid="uid://drs35a0wr77x6" path="res://camara_pivot.gd" id="3_ivxyl"]
 [ext_resource type="Texture2D" uid="uid://c5s7tw3pobl8m" path="res://texturas/menu_pausa.png" id="5_3plae"]
 [ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://texturas/option_plate.png" id="6_rvi4t"]
 [ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://texturas/button_plate.png" id="7_pel6o"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://texturas/panel_fondo.png" id="9_pel6o"]
 [ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://texturas/level_plate.png" id="10_7i0ls"]
 [ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://texturas/marco_obj_tienda.png" id="11_k31ow"]
-[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="12_ec7i0"]
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="12_ec7i0"]
 [ext_resource type="Texture2D" uid="uid://c8f1gw1uq0vhh" path="res://texturas/x.png" id="13_2pljw"]
 [ext_resource type="Texture2D" uid="uid://b7gho8mrl6pkj" path="res://texturas/left_arrow.png" id="14_i7ldd"]
 [ext_resource type="Texture2D" uid="uid://b3ux0idrpcega" path="res://texturas/right_arrow.png" id="15_gkbsn"]
@@ -55,15 +55,25 @@
 [ext_resource type="PackedScene" uid="uid://beleh2f3bpmut" path="res://Models/GLTF format/grass_large.glb" id="54_1plb7"]
 [ext_resource type="Script" uid="uid://bpvbtgfwgclxw" path="res://scripts/player/personaje_principal.gd" id="55_1nfdb"]
 [ext_resource type="PackedScene" uid="uid://cravtom61tske" path="res://Models/GLTF format/grass_leafsLarge.glb" id="55_xjn1t"]
-[ext_resource type="PackedScene" uid="uid://cx3tay0q3kqfh" path="res://scenes/projectiles/player/player_projectile.tscn" id="56_1nfdb"]
-[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://assets/barvy.png" id="56_pt8ix"]
+[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://barvy.png" id="56_pt8ix"]
 [ext_resource type="ArrayMesh" uid="uid://bv8qlpixh5fp4" path="res://assets/player/tanque_cabeza.obj" id="57_1nfdb"]
-[ext_resource type="PackedScene" uid="uid://d1plaltdd0tp0" path="res://scenes/projectiles/player/special_aoe_dmg.tscn" id="57_3sqfe"]
+[ext_resource type="PackedScene" uid="uid://cx3tay0q3kqfh" path="res://escenas/proyectiles/jugador/basico.tscn" id="57_d5gmp"]
 [ext_resource type="ArrayMesh" uid="uid://cqrhtnvoly0sy" path="res://assets/player/tanque_decapitado.obj" id="58_3sqfe"]
+[ext_resource type="PackedScene" uid="uid://d1plaltdd0tp0" path="res://escenas/proyectiles/jugador/bomba_dano.tscn" id="58_teke0"]
 [ext_resource type="Script" uid="uid://dafpcy1tfio24" path="res://tankboss.gd" id="61_rpkff"]
+[ext_resource type="PackedScene" uid="uid://dpmc0ph1v8qme" path="res://scenes/area_aviso_explosion.tscn" id="62_1plb7"]
 [ext_resource type="Texture2D" uid="uid://cn0fk1ivviuk" path="res://tankboss_CTF_TankFree_Base_Color_R.png" id="62_gmqnf"]
-[ext_resource type="Animation" uid="uid://knq3idauc5ou" path="res://animaciones/gira_cabeza.res" id="63_1plb7"]
-[ext_resource type="Animation" uid="uid://8djtsjyb2ykw" path="res://animaciones/shoot.res" id="64_xjn1t"]
+[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://scripts/tank_shoot.wav" id="62_r8jxj"]
+[ext_resource type="AudioStream" uid="uid://y0ryt31i555o" path="res://scripts/error_sound.wav" id="63_6ha28"]
+[ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://scenes/explosion.tscn" id="63_xjn1t"]
+[ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://scenes/shoot_effect.tscn" id="64_gmqnf"]
+[ext_resource type="AudioStream" uid="uid://1v2im4je30ib" path="res://assets/sounds/168707__qubodup__tank-firing.wav" id="66_1plb7"]
+[ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="66_hsrrj"]
+[ext_resource type="StyleBox" uid="uid://bn81q4txys2wl" path="res://recursos/barra_de_vida.tres" id="67_ivxyl"]
+[ext_resource type="AudioStream" uid="uid://cmyo4nanaxtx2" path="res://assets/sounds/Boss_fight.wav" id="70_ucxdg"]
+[ext_resource type="AudioStream" uid="uid://csobc8678jcon" path="res://assets/sounds/418881__kierankeegan__tank-turret-rotate.wav" id="71_v57vw"]
+[ext_resource type="AudioStream" uid="uid://ddomofawl8r4m" path="res://assets/sounds/200303__qubodup__tank-engine-loop.wav" id="72_d5gmp"]
+[ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="74_r8jxj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3um7j"]
 sky_top_color = Color(0.21349326, 0.4629131, 0.70244217, 1)
@@ -39324,158 +39334,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tbkvs")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lppmh"]
-resource_name = "03_Mat_AddElements"
-cull_mode = 2
-albedo_color = Color(0.34586897, 0.34586897, 0.34586897, 1)
-metallic = 1.0
-roughness = 0.8585786
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_i3tam"]
-_surfaces = [{
-"aabb": AABB(-4.8865076e-08, -0.33089083, -0.33089107, 2.7574234, 0.6617818, 0.6617819),
-"format": 34896613377,
-"index_count": 492,
-"index_data": PackedByteArray("AAAqABYAKwAWACoAFgACAAAAKwAsABYAFgAsAAIAKwAOACwALAADAAIADgAtACwALAAtAAMALgAOACsALgArAC8AKwAqAC8ALgAvAA0ALgAwAA4ADQAwAC4ADgAfAC0AMAAfAA4ADQAZADAALwAZAA0AMAAxAB8AGQAxADAALwAyABkAKgAyAC8AGQAeADEAMgAeABkAHwAxADMAMQAeADQAMQA0ADMAHwAzACAALQAfACAALQAgADUAAwAtADUAIgAgADMANgAzADQAIgAzADYANwA1ACAANwAgACIAAwA1AAUABgA1ADcABgAFADUAOAADAAUAAgADADgAOQAFAAYAAgA4ADoAOAAFADsAOQA7AAUAGgA4ADsAOgA4ABoAAAACADoAGgA7AB0AIQA7ADkAIQAdADsAPAAaAB0AOgAaABgAGAAaADwAAAA6AD0APQA6ABgAPQAYABcAGAA8AD4AFwAYAD4APwA9ABcAFwA+AD8AQAAAAD0APwBAAD0AQAAMAAAAAAAMACoAPwAEAEAAPwA+AAQAQABBAAwAQAAEAEEADAABACoADABBAAEAKgABADIAPgAPAAQAPgA8AA8ABABCAEEABAAPAEIAQQAbAAEAQQBCABsAAQBDADIAAQAbAEMAMgBDAB4ADwA8AEQAPAAdAEQAQgAPABwADwBEABwAHgBDABAAHgAQADQAQwBFABAAQwAbAEUAGwBCAEYAQgAcAEYAGwBGAEUABwA0ABAANgA0AAcARwAQAEUABwAQAEcAEQBFAEYARwBFABEAEQBGAEgASABGABwAEQAkAEcASAAcAAgACAAcAEQASABJABEAEQBJACQACAAKAEgASAAKAEkACABEAEoASgBEAB0ASgAdACEACgBLAEkASgAlAAgACAAlAAoAIQAmAEoASgAmACUASQBLABQASQAUACQACgBMAEsAJQBMAAoATAAUAEsAJQAVAEwAFABMABUAJgAVACUAJAAUAE0AFAAVAE0AJABNAE4ARwAkAE4ARwBOAAcATgBNACcAJwBNABUABwBOABIATgAnABIABwASADYAJwAVAE8AJgBPABUAEgAnAFAAUAAnAE8ANgASAFEAEgBQAFEANgBRACIAEwBPACYAIQATACYAOQATACEAEwAoAE8AUABPACgAOQApABMAKQAoABMABgApADkAUgBQACgAUQBQAFIAKQBTACgAUgAoAFMABgAJACkACQBTACkANwAJAAYAUgBTAAsACQALAFMAUQBSACMAIwBSAAsAIwALAAkANwAjAAkAIgBRACMAIgAjADcA"),
-"lods": [0.16326281, PackedByteArray("AAAMABYAFgACAAAADAAAABcAAAACABcAFgAMAA0ADQAOABYAFgAOAAIADAABAA0AFwAEAAwADAAEAAEAFwACABgAFwAYAAQADQAZAA4ADQABABkADgADAAIAAgAaABgAAgADABoAGAAPAAQAGAAaAA8ABAAbAAEABAAPABsADwAaABwAGwAPABwAGgADAB0AGgAdABwAAQAbAB4AAQAeABkAGwAcABAAHgAbABAACAAcAB0AGQAeAB8AGQAfAA4ADgAfAAMAHwAeACAAHgAQACAAAwAfAAUAAwAFAB0AHwAgAAUAIQAdAAUACAAdACEABgAFACAAIQAFAAYAIgAgABAABgAgACIAEQAQABwAEQAcAAgAIgAQAAcABwAQABEAIgAjAAYABwASACIAIgASACMAEQAkAAcABwAkABIACAAKABEAEQAKACQABgAjAAkACAAlAAoACgAUACQACAAmACUAIQAmAAgAJQAVAAoACgAVABQAJgAVACUAJAAUACcAJwAUABUAJAAnABIAIQATACYAJgAoABUAJwAVACgAEwAoACYAEgAnAAsACwAnACgAEgALACMAIwALAAkAIQApABMAKQAoABMAKQALACgACQALACkABgApACEABgAJACkA"), 0.5059838, PackedByteArray("DAABAA0AAAAMAA0AAAAEAAwADAAEAAEADQAOAAAADQABAA4AAAACAAQAAAAOAAIABAAPAAEAAgAPAAQAAQADAA4ADgADAAIAAQAPAAMAAgADAA8AAwAPABAADwADAAUAAwAQAAUADwAFABAABwAFABAACAAQAAUABwAQABEAEQAQAAgABgAFAAcACAAFAAYAEQASAAcACAAKABEAEQAKABIABgATAAgACAATAAoABwAJAAYABgAJABMABwASAAkACgAUABIAEgALAAkAEgAUAAsACQAVABMAEwAVAAoACQALABUACgAVABQACwAUABUA"), 1.83916, PackedByteArray("AAABAAIAAQADAAIAAAACAAQAAAAEAAEAAAAEAAAAAgADAAQABAADAAEAAwADAAUAAwAFAAUABgAFAAcACAAFAAYABwAFAAgABgAJAAgABwAJAAYACAAKAAcABwAKAAkACAAJAAoACQALAAoACgALAAkACgALAAsA")],
-"name": "03_Mat_AddElements",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 84,
-"vertex_data": PackedByteArray("AAAAAP9/AAD1KP7//38AAPUoAAD/fwAA9Sh3E/9/AAD1KP+/JhEAAHA9dxP/fwAAcD0AAP9/AABwPf+/2O4AAHA9/78mEQAA2L4AAP9/AADYvtju/z8AAP//pEz/fwAAAADY7v8/AAAAAP+/2O4AAPUo/z/Y7gAA9ShDtgIiAABwPfzdQ7YAAHA9/v//fwAA2L7/f/7/AADYvv8/JhEAAP//eaysmQAA//+smYVTAAAAACYR/78AAAAA/z8mEQAA9Sj/PyYRAAD1KP+/2O4AAPUou0kCIgAA9SiH7P9/AABwPUO2AiIAAHA9u0kCIgAA9ShDtvzdAAD1KLtJ/N0AAHA9u0n83QAAcD3/PyYRAABwPf8/2O4AANi+JhH/vwAA2L7Y7v+/AADYvv+/JhEAANi+/38AAAAA////f1qzAAD//1JmhVMAANi+JhH/PwAAAAD+//9/AAAAAP8/2O4AAPUoJhH/vwAA9SgCIkO2AAAAAP9///8AAAAA2O7/vwAA9Sj/f/7/AAD1KP9/h+wAAPUo2O7/vwAAcD3/f4fsAABwPUO2/N0AAHA9AiJDtgAAcD3/f/7/AABwPSYR/78AAPUoAiK8SQAAcD0mEf8/AAD1KCYR/z8AAHA9AiK8SQAA9Sj/f3cTAAAAACYR/z8AAPUo/38AAAAAAAD/fwAAAAAAAP+/JhEAAPUo2O7/PwAA9Sj83btJAAD1KPzdQ7YAAHA9/393EwAAcD2H7P9/AABwPfzdu0kAAHA92O7/vwAAcD3Y7v8/AADYvv///38AAHA9/38AAAAA//9as/9/AAD//3msUWYAAP//rZl5rAAA2L7/v9juAAD///9/pEwAAP//UmZ5rAAA2L7/P9juAAD//4VTrJkAAP//hVNSZgAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_ul64b"]
-resource_name = "tankboss_Mesh_011"
-_surfaces = [{
-"aabb": AABB(-4.8865076e-08, -0.33089083, -0.33089107, 2.7574234, 0.6617818, 0.6617819),
-"attribute_data": PackedByteArray("3sIr6YC+WfOAvivpgL699t7Chv2Avob9+r6Gd0i9VIUxuIV3aLFThWixhXfDxVSFw8WGd/p7A9uzhFPg53+55bSEF9nqf7DTNrF21DaxueUHr7nlB6921B9aRODDVXnkaFXS5OpacuPtB85g9AIeX40GTFt4Aj1f3sIL9d7C9O+AvpDslruFd3+2U4VewlSFIINj3el8peFFg13buX1E1jax+N8Hr6jbnVSk4W9aT+NSCDZf1AinXcwKuFoFDXxZ/QxYW0isn/yKrzL3yrE/+7ytf/19q3H5gL70797CIvrewt3qgL4i+uO5U4XNtIV3G7NThfq+VIWswFSFXsKGdxDEVIX5e2XegIOx3lV8Wtm3foLk63zC19ODINq6fubUNrE32jaxGN0Hr1fXB6/43zaxV9c2sdniB6/Z4hdX2d/4Vl3fF1XH4cNZneCOWLnlb1g95b8EmWFqBsZb4gQeYbgDclxfAxdcwgsgWbYLqlv/sBH4bq+G/dGxjfnqsLT82K0q93WrI/tcrP333sJZ84C+pvHewqbxgL6m8YC+Qu7ewkLugL5Z84C+C/Xewr323sJv+IC+b/iAvm/43sLU+4C+1PvewpDsgL5C7oC+3erjuYV3MbhThZa7U4VIvYV3f7aFd820U4Ubs4V3G7OFd0i9hXeswIZ3EMSGd9t7rNwUg6zcIIMH3CCDY91Egw3eVHwO4CCDB9xFg13bRIMN3tODSt+3fSTjOoTX3zqE19+Bg7na04Mg2juElNk7hJTZcAwjWVcNw1paDRVaZAytWykLdFnPCglaIQtQWzaxqNsHrxjdNrEY3TaxqNsHrzfaNrHH2Aevx9g2sefVB6/n1Tax59U2sUnkB69J5AevSeQ2sUnkNrFo4QevaOEHr2jhB6/43zaxiN4Hr4jeNrGI3gevGN2HWN/fqlhl3/FawOHVVYvgdVrf4XxVMOAKWubkEVU347FZi+SVVFbj3Fax5f9WN+XMCFlfWAjGXaYHhFwBCCtclAdyYHEGoGH6BMBbUgYkYdsERFtKA7lg+gKuXaYDYGB/Aotd"),
-"format": 34896613399,
-"index_count": 492,
-"index_data": PackedByteArray("MQBcADQAXQA0AFwAMQAyAFwAXQBcAF4AXwBdAF4AXwBeADMAYAAyADEAYAAxAGEAYgBgAGEAYgBhADUAYwBkAGUAYwABAGQAZQBmADYAZQA2AB8AHwA2AGcAHwBnAGgAHgBpAGMAHgBqAGkAawBqAB4AawADAGoAbAADAGsAbABtAAMANwBuAGwANwA5AG4AbwA5ADcAbwBwADkABABwAG8ABAAFAHAAaAAgAHEAaAByACAAcQAgAHMAcQBzADgAOABzAAIAOAACAAAAIQA6AHQAdAA6AHUAIQB2ADoAdwB2ACEAdwAHAHYAdAB1AAgACAB1ACIACAAiAHgAeAAiAHkAeAB5ADsAOwB5ADwAOwA8AHoAewA8AAkAewAJAAoABgAHAHwABgA9AAcAfQA9AAYAfQA+AD0APwA+AH0APwAjAD4AfgAjAD8AfgBAACMADABAAH4ADAALAEAAfwAkAEEAfwCAACQADQCAAH8ADQCBAIAAQQCCAIMAQQCDAIQAQwCFAA0AQwCGAIUAhACHAEIAhABCACUAJQBCAIgAJQCIAIkAiQCIAIoAiQCKAEQARACLAA4ARAAOAA8ARQAmAEMARQCMACYAJwCMAEUAJwBGAIwARwCNACcARwCOAI0AEQCPAEcAEQAQAI8ALwAwAJAAWgCQADAALwCRADAAkQAvAJIAWgAwAJMAlABaAJMAlACTAFsAlQCUAFsAlQBbAJYAlQCWAC4AlwCYACkAlwCZAJgASACaACkASAApAJsAnABIAJsAnACbAJ0ATACcAJ0ATACdAEoAngBMAEoAngBKAJ8AEgCgAJ8AEgCfABUAoQAUAKIAoQATABQATQCjAE4ATQCkAKMApQBNAE4ApQBOAKYAKAClAKcAKACnAKgAqQAoAEsAqQBLAKoASQCrAKoASQCqAKwAFgCtAK4ArgCtAE8AFgBSAK0ArgBPAFAArwBSABYAUABPALAArwCxAFIAUACwALIAGQCxAK8AsgCwAFEAGQArALEAsgBRACoAswArABkAKgBRALQAswC1ACsAKgC0ALYAUwC1ALMAtgC0ABcAUwBUALUAtgAXABgAtwBUAFMAGAAXALgAtwC4AFQAGAC4ALcAuQC6AC0ALQC6ALsAuQAsALoALQC7ALwAGgAsALkAvAC7AFYAGgC9ACwAvABWABwAvgC9ABoAHABWAL8AvgDAAL0AHAC/AMEAVQDAAL4AwQC/AFgAVQBXAMAAwQBYAFkAwgBXAFUAWQBYAMMAwgDEAFcAWQDDAMUAHQDEAMIAxQDDABsAHQAbAMQAxQAbAB0A"),
-"lods": [0.16326281, PackedByteArray("MQAyADQANAAyADMAMgAxADUAHgABAB8AHwABADYAHgADAAEAHwA2ACAANwADAB4AHwAgADgAOAAgAAIAOAACAAAANwA5AAMANwAFADkABAAFADcAIQA6AAgACAA6ACIAIQAHADoACAAiADsABgAHACEAOwAiADwAOwA8AAoACgA8AAkABgA9AAcABgA+AD0APwA+AAYAPwAjAD4APwBAACMADABAAD8ADAALAEAADQAkAEEAQQAkAEIADQAmACQAQQBCACUAQwAmAA0AJQBCAA4AJQAOAEQARAAOAA8ARQAmAEMARQBGACYAJwBGAEUARwBGACcARwAQAEYAEQAQAEcASABJACkASAApAEoASQBLACkATABIAEoATABKABUAEgBMABUASQAoAEsAKABNAEsATQBOAEsATQATAE4AEwAUAE4AFgBPAFAAUABPAFEAFgBSAE8AUABRACoAGQBSABYAKgBRABcAGQArAFIAKgAXABgAUwArABkAGAAXAFQAUwBUACsAGABUAFMAGgAsAC0AVQAsABoALQAsAFYAVQBXACwALQBWABwAHQBXAFUAHABWAFgAHQAbAFcAHABYAFkAWQAbAB0AWQBYABsAWgAwAFsAWgAvADAALgBaAFsA"), 0.5059838, PackedByteArray("HgABAB8AHwABACAAHwAgAAAAAAAgAAIAHgADAAEABAADAB4ABAAFAAMAIQAiAAgACAAiAAkACAAJAAoAIQAHACIABgAHACEABgAjAAcADAAjAAYADAALACMADQAkACUAJQAkAA4AJQAOAA8ADQAmACQAJwAmAA0AEQAmACcAEQAQACYAEgAoACkAEgApABUAKAAUACkAKAATABQAFgAXACoAKgAXABgAFgArABcAGAAXACsAGQArABYAGAArABkAGgAsAC0ALQAsABwAGgAbACwAHAAsABsAHQAbABoAHAAbAB0ALgAvADAAMQAyADMA"), 1.83916, PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMABgAHAAgACAAHAAkACAAJAAoABgALAAcADAALAAYADQAOAA8ADQAQAA4AEQAQAA0AEgATABQAEgAUABUAFgAXABgAGAAXABkAGQAXABYAGgAbABwAHAAbAB0AHQAbABoA")],
-"material": SubResource("StandardMaterial3D_lppmh"),
-"name": "03_Mat_AddElements",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 198,
-"vertex_data": PackedByteArray("AAAAAP9////1KP7//3////UoAAD/f///9Sj/vyYR//8AAAAA/3////UoAAD/f///cD3/vyYRAPHYvtju/z+C33A9/7/Y7r3C2L4AAP9/sNdwPQAA/39U1di+AAD/f3PZcD0AAP9/VNXYvtju/z8r1f//pEz/fwnD2L4AAP9/hsT//6RM/39ay9i+AAD/f5LI9Sh3E/9////1KHcT/3///3A9dxP/f///cD13E/9////1KP7//389xvUodxP/fz3G9SgAAP9/Pcb1KP+/JhE+xnA9/7/Y7tXPcD13E/9/1s9wPf+/JhHVz3A9AAD/f9bPAADY7v8///8AAP+/2O7///Uo/z/Y7v//cD3+//9/VtXYvv9//v8wwNi+/z8mEdP0//95rKyZBa3Yvv9//v+0kf//rJmFU4vp2L7/PyYR+ez1KEO2AiL//3A9/N1Dtv//9Sj/P9juPcb1KEO2AiI+xnA9/N1DttXPcD3+//9/1s///6RM/3/Xz///eaysmdbP//+smYVT1s8AAAAA/389xgAA2O7/Pz3GAAD/v9juPcYAACYR/789xgAA/z8mET7G9Sj/v9ju//8AAP8/JhH//wAAJhH/v///9Sj/PyYR///Yvtju/7/3x3A9/z/Y7rzC2L4mEf+/As7Yvv+/JhE17di+/38AAB78cD3/PyYR//DYviYR/z8t5ti+2O7/v66r////f1qzEZTYvv+/JhEq6ti+JhH/v1Wx2L7/fwAA3v7//1JmhVOv7ti+JhH/P97Z9ShDtvzd///1KIfs/3///3A9u0n83f//cD1DtgIi///1KLtJ/N3///Uou0kCIv//cD27SQIi///1KEO2/N09xvUo/7/Y7j3G9Si7SfzdPsb1KIfs/38+xvUo/z8mET7G9Si7SQIiPsZwPf8/2O7Wz3A9Q7YCItXPcD27Sfzd1s9wPbtJAiLWz3A9/z8mEdbP////f1qz1c///1JmhVPWzwAA/v//fz7GAAD/P9juPcYAANju/78+xgAA/3///z3GAAD/vyYRPcYAACYR/z89xgAA/38AAD7GAAD+//9////1KNju/7///wAA2O7/v///9SjY7v+////1KP9//v///wAA/3//////9Sj+//9////1KNju/z///wAA/78mEf//AAD/fwAA///1KP9/AAD///Uo/38AAP//AAAmEf8////1KCYR/z///wAA/z/Y7v//9Sj/f/7////1KCYR/7///3A92O7/v03K2L7/v9juh8HYvv///38+0nA92O7/P43icD3/f/7/AcDYvv8/2O5ExHA9JhH/v0vKcD0mEf+/SspwPdju/z+N4nA9/38AAP//cD0mEf8/jeLYvv///38twP//WrP/f77A//95rFFmFtX//3msrJkErf//rZl5rJ6b2L7/v9juVZn//3msUWYe1f//rJmFU4vp//+tmXmsnZv//1JmeayCnti+/z/Y7j2e//+FU6yZGbD//4VTrJkZsP///3+kTLf9//9SZoVTr+7//4VTUmYg3P//hVNSZiDc//+tmXms1c///3msUWbXz///WrP/f9TP////f6RM1s///1JmeazWz///hVOsmdXP//+FU1Jm1c/1KPzdQ7b//3A9h+z/f///9SiH7P9////1KPzdQ7b//3A9Q7b83f//9Sj/f4fs//9wPf9/h+z///UoAiJDtv//cD0CIkO2///1KAIiQ7b///UoAiK8Sf//cD0CIrxJ//9wPQIivEn///UoAiK8Sf//9Sj/f3cT//9wPf9/dxP//3A9/393E///cD1DtgIi///1KPzdu0n//3A9/N27Sf//9Sj83btJ//9wPYfs/3////Uo/N1Dtj3G9SjY7v+/Pcb1KNju/z8+xvUo/3+H7D7G9Sj83btJPsb1KP9//v8+xvUo/38AAD3G9SgCIkO2Pcb1KP9/dxM9xvUoJhH/vz3G9SgmEf8/Pcb1KAIivEk9xnA92O7/v9XPcD2H7P9/1s9wPfzdu0nVz3A92O7/P9XPcD1Dtvzd1c9wPf9//v/Vz3A9/393E9bPcD3/f4fs1c9wPf9/AADWz3A9JhH/v9bPcD0CIrxJ1c9wPQIiQ7bWz3A9JhH/P9XP/3//P/9//7//f/8//3/y5P9//z//f/8/jcduOFjK2i+q6VMWWyZ50qoqVNV4J23UqipU1bHw0XPgPU9XLTwzXeQTCrqhGGG6/3//P/9//z//f/8//3//PzpFYh06RWIdOkViHThFYx0LzvjYDM742AvO+NgMzvjY/38l0f9/DJv/f/JkU9WoKpkHmgfSNTPID9rHcDWGYmIr5GRutRegpP9/8uT/f9muOkViHThFYx0LzvnYDM742PAxByfyMQYn8zEGJ8S6nOLEupziwrqd4sS6nOLGupvi/38Mm/Jk////fyVR8mT///3Y1x5UFqvpKR4928bEGznnvRRCcTiQx4Mut83T5xV70Ym/UNvrKW80QyFhK+TralEV9KcmGd2u/38Mm/9//7//f/Jk/3/y5P9/8mTyZP//8mT//zpFYh06RWIdOUViHTlFYh05RWIdOUViHQzO+NgLzvjYDM742AzO+NgMzvjY8zEGJ/IxBifFupzixLqc4sW6nOLDupzixLqc4sS6nOLFupzi/3//vyXRAAD/f9mu/3/Zrv1//3//f/9//78AAP9/JdH/f/Lk/3////9/////fwAAJVH//yVR////f/Jk/3//f/9/JVGy3Uoit+PoEGfRsShSzqYx/////4UQYORMIrPdTCKz3VPOpzEBQADAqjFVzsrwT3g75O9xW+ZNcA/axXBAwd1oUszCd3/mr3Ar5GVuP8HeaFBVKFiTTxhkTEWdWUxFnVkG3y9sURX1p5QVVrCVFVaw8zEGJ/ExByf0MQUn8zEGJ/IxBifzMQYn9DEFJ/9/2a7/f/+//3//v/9/2a7/fwyb/3//f/9//3//fyVR/38lUSXR//8lUf///3/ZLiVR///Zrv///3////9/AAD/f/7/DJsAAP9/JdH/fyXR2a4AAP+/AAA6RWIdOkViHTdFYx04RWMdN0VkHThFYx06RWIdO0ViHTpFYh07RWEdOkViHTpFYh0LzvjYDM742AvO+NgLzvnYC8742AvO+NgMzvjYC8742AzO+NgNzvjYCs752A3O+NgKzvnY")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_i3tam")
-
-[sub_resource type="Animation" id="Animation_gv3f6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../tankboss/TankFree_Wheel_f_right:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../tankboss/TankFree_Wheel_b_right:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../tankboss/TankFree_Wheel_f_left:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../tankboss/TankFree_Wheel_b_left:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.1415923, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_agveb"]
-resource_name = "walk"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../tankboss/TankFree_Wheel_f_right:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0), Vector3(6.2831855, -3.1415927, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../tankboss/TankFree_Wheel_b_right:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0), Vector3(6.2831855, -3.1415927, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../tankboss/TankFree_Wheel_f_left:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -3.1415925, 0), Vector3(6.2831855, -3.1415927, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../tankboss/TankFree_Wheel_b_left:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -3.1415923, 0), Vector3(6.2831855, -3.1415927, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lf6dl"]
-_data = {
-&"RESET": SubResource("Animation_gv3f6"),
-&"gira_cabeza": ExtResource("63_1plb7"),
-&"walk": SubResource("Animation_agveb")
-}
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_vqtpk"]
 _surfaces = [{
 "aabb": AABB(-5.8554363, -3.713361e-07, -6.5406547, 11.312094, 7.9242454, 14.090704),
@@ -39544,93 +39402,284 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s1ss2")
 
-[sub_resource type="Animation" id="Animation_l2qne"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../tankboss/cabeza:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../tankboss/cabeza:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dgdft"]
-_data = {
-&"RESET": SubResource("Animation_l2qne"),
-&"gira_cabeza": ExtResource("63_1plb7")
-}
-
-[sub_resource type="Animation" id="Animation_il4u3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cabeza/TankFree_Canon:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.1415927, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hossq"]
-_data = {
-&"RESET": SubResource("Animation_il4u3"),
-&"shoot": ExtResource("64_xjn1t")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lf6dl"]
-animation = &"walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_44ijy"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l2qne"]
-states/walk/node = SubResource("AnimationNodeAnimation_lf6dl")
-states/walk/position = Vector2(384, 106)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_44ijy")]
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rpkff"]
 height = 2.0620117
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ivxyl"]
 size = Vector3(0.48901367, 1, 1)
 
+[sub_resource type="Animation" id="Animation_xjn1t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(24.221624, 0.836725, -1361.7091)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cabeza:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.03899002)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cabeza:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TankFree_Wheel_f_right:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TankFree_Wheel_b_right:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TankFree_Wheel_b_left:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TankFree_Wheel_f_left:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("cabeza/CSGCombiner3D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.18966675, 0.707549, -0.4997425)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("cabeza/CSGCombiner3D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1plb7"]
+resource_name = "boss_inicio"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(24.221624, 0.836725, -1361.7091), Vector3(0, 0.837, -1361.709)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cabeza:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.03899002)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cabeza:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TankFree_Wheel_f_right:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927), Vector3(-3.0229104, 1.509958e-07, 3.1415927), Vector3(-6.164503, 1.509958e-07, 3.1415927), Vector3(-9.306095, 1.509958e-07, 3.1415927)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TankFree_Wheel_b_right:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927), Vector3(-3.0229104, 1.509958e-07, 3.1415927), Vector3(-6.164503, 1.509958e-07, 3.1415927), Vector3(-9.306095, 1.509958e-07, 3.1415927)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TankFree_Wheel_b_left:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927), Vector3(-3.0229104, 1.509958e-07, 3.1415927), Vector3(-6.164503, 1.509958e-07, 3.1415927), Vector3(-9.306095, 1.509958e-07, 3.1415927)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TankFree_Wheel_f_left:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.118093885, 1.509958e-07, 3.1415927), Vector3(-3.0229104, 1.509958e-07, 3.1415927), Vector3(-6.164503, 1.509958e-07, 3.1415927), Vector3(-9.306095, 1.509958e-07, 3.1415927)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("cabeza/CSGCombiner3D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(6.99, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.18966675, 0.707549, -0.4997425), Vector3(-0.3146057, 0.707549, -0.03726831)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("cabeza/CSGCombiner3D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(6.99, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0), Vector3(0, -1.5707964, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsrrj"]
+_data = {
+&"RESET": SubResource("Animation_xjn1t"),
+&"boss_inicio": SubResource("Animation_1plb7")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ucxdg"]
+size = Vector3(25.995544, 1, 2.8253174)
+
 [node name="Node3D" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_i5a71")
-
-[node name="hud" parent="." instance=ExtResource("2_fmekg")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
 environment = SubResource("Environment_i2p14")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 40.772537, -1241.5833)
 environment = SubResource("Environment_2tsr8")
 fov = 30.0
 size = 0.05
+script = ExtResource("3_ivxyl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 unique_name_in_owner = true
@@ -39672,60 +39721,9 @@ transform = Transform3D(2.3901353, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017910004, 0, -69
 material_override = SubResource("StandardMaterial3D_pmwq3")
 mesh = SubResource("PlaneMesh_rcdd3")
 
-[node name="UI" type="Control" parent="."]
-process_mode = 1
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="UI"]
-process_mode = 1
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 150.0
-offset_bottom = 960.0
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/ColorRect"]
-process_mode = 1
-layout_mode = 0
-offset_right = 111.0
-offset_bottom = 50.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect/HBoxContainer"]
-process_mode = 1
-layout_mode = 2
-
-[node name="Puntuacion etiqueta" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
-process_mode = 1
-layout_mode = 2
-text = "Puntuacion"
-
-[node name="Label" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
-process_mode = 1
-layout_mode = 2
-text = "Vidas"
-
-[node name="CheckButton" type="CheckButton" parent="UI/ColorRect/HBoxContainer/VBoxContainer"]
-process_mode = 1
-layout_mode = 2
-text = "Pausa"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/ColorRect/HBoxContainer"]
-process_mode = 1
-layout_mode = 2
-
-[node name="Puntuacion datos" type="Label" parent="UI/ColorRect/HBoxContainer/VBoxContainer2"]
-process_mode = 1
-layout_mode = 2
-text = "...."
-
 [node name="BarreraIzquierda" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.756, 1.5, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraIzquierda"]
 process_mode = 1
@@ -39739,6 +39737,7 @@ skeleton = NodePath("")
 
 [node name="BarreraDerecha2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1500, 12.632, 1.5, -743.29)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDerecha2"]
 process_mode = 1
@@ -53627,11 +53626,11 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.430917, 0.049999237, -13
 
 [node name="Personaje_principal" type="CharacterBody3D" parent="."]
 process_mode = 1
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.493768, -7.636845e-07, -1345.6565)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.078771114, -7.636845e-07, -1349.2585)
 script = ExtResource("55_1nfdb")
 speed = 600.0
-proyectil = ExtResource("56_1nfdb")
-especial = ExtResource("57_3sqfe")
+proyectil = ExtResource("57_d5gmp")
+especial = ExtResource("58_teke0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Personaje_principal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0.7498672, 0)
@@ -53655,9 +53654,22 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.375, 0)
 material_override = SubResource("StandardMaterial3D_cvhml")
 mesh = ExtResource("58_3sqfe")
 
+[node name="sonido_disparo" type="AudioStreamPlayer3D" parent="Personaje_principal"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.07865316, 7.636845e-07, -1349.2585)
+stream = ExtResource("62_r8jxj")
+volume_db = 22.325
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Personaje_principal"]
+stream = ExtResource("63_6ha28")
+volume_db = 14.884
+
 [node name="tankboss2" type="Node3D" parent="." groups=["Enemigos"]]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -0.2201562, 0.836725, -1365.2996)
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.221624, 0.836725, -1361.7091)
+visible = false
 script = ExtResource("61_rpkff")
+area_aviso_scene = ExtResource("62_1plb7")
+explosion_scene = ExtResource("63_xjn1t")
+shoot_effect_scene = ExtResource("64_gmqnf")
 
 [node name="TankFree_Body" type="MeshInstance3D" parent="tankboss2"]
 transform = Transform3D(-0.06571409, 0, -4.1257472e-08, 0, 0.06571409, 0, 4.1257472e-08, 0, -0.06571409, 0.22494423, 0.19258823, -0.038599785)
@@ -53665,40 +53677,30 @@ mesh = SubResource("ArrayMesh_ggvqa")
 skeleton = NodePath("")
 
 [node name="TankFree_Wheel_f_right" type="MeshInstance3D" parent="tankboss2"]
-transform = Transform3D(-0.06571409, -1.1690708e-09, 9.853441e-09, 0, -0.065256394, -0.0077424063, 9.922552e-09, -0.0077424063, 0.065256394, 0.73869735, -0.029266054, -0.40095565)
+transform = Transform3D(-0.06571409, 4.5758375e-09, 9.853441e-09, -5.7048952e-09, -0.065256394, -0.007742407, 9.2456895e-09, -0.007742407, 0.065256394, 0.73869735, -0.029266054, -0.40095565)
 mesh = SubResource("ArrayMesh_acxms")
 skeleton = NodePath("")
 
 [node name="TankFree_Wheel_b_right" type="MeshInstance3D" parent="tankboss2"]
-transform = Transform3D(-0.06571409, -1.1690708e-09, 9.853441e-09, 0, -0.065256394, -0.0077424063, 9.922552e-09, -0.0077424063, 0.065256394, 0.73869735, -0.029266054, 0.33747423)
+transform = Transform3D(-0.06571409, 4.5758375e-09, 9.853441e-09, -5.7048952e-09, -0.065256394, -0.007742407, 9.2456895e-09, -0.007742407, 0.065256394, 0.73869735, -0.029266054, 0.33747423)
 mesh = SubResource("ArrayMesh_w03b8")
 skeleton = NodePath("")
 
 [node name="TankFree_Wheel_b_left" type="MeshInstance3D" parent="tankboss2"]
-transform = Transform3D(-0.06571409, -1.1690708e-09, 9.853441e-09, 0, -0.065256394, -0.0077424063, 9.922552e-09, -0.0077424063, 0.065256394, -0.28862527, -0.029266084, 0.33747432)
+transform = Transform3D(-0.06571409, 4.5758375e-09, 9.853441e-09, -5.7048952e-09, -0.065256394, -0.007742407, 9.2456895e-09, -0.007742407, 0.065256394, -0.28862527, -0.029266084, 0.33747432)
 mesh = SubResource("ArrayMesh_oq8pl")
 skeleton = NodePath("")
 
 [node name="TankFree_Wheel_f_left" type="MeshInstance3D" parent="tankboss2"]
-transform = Transform3D(-0.06571409, -1.1690708e-09, 9.853441e-09, 0, -0.065256394, -0.0077424063, 9.922552e-09, -0.0077424063, 0.065256394, -0.28862542, -0.029266018, -0.4009555)
+transform = Transform3D(-0.065714106, 4.5758366e-09, 9.85344e-09, -5.704896e-09, -0.06525639, -0.007742406, 9.245691e-09, -0.007742406, 0.06525639, -0.28860474, -0.029266044, -0.40095568)
 mesh = SubResource("ArrayMesh_vklet")
 skeleton = NodePath("")
 
-[node name="СTF_Missile" type="MeshInstance3D" parent="tankboss2"]
-transform = Transform3D(0.06571409, 0, 0, 0, 0.06571409, 0, 0, 0, 0.06571409, -0.8161307, -0.05322949, 0.25663462)
-mesh = SubResource("ArrayMesh_ul64b")
-skeleton = NodePath("")
-
-[node name="Tankwalk" type="AnimationPlayer" parent="tankboss2"]
-root_node = NodePath("../../tankboss2")
-libraries = {
-&"": SubResource("AnimationLibrary_lf6dl")
-}
-
 [node name="cabeza" type="Node3D" parent="tankboss2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03899002)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="tankboss2/cabeza"]
-transform = Transform3D(-2.872455e-09, 0, -0.065714106, 0, 0.065714106, 0, 0.065714106, 0, -2.872455e-09, -0.26037598, 0.707549, 0.012666691)
+transform = Transform3D(-0.065714106, 0, -9.922554e-09, 0, 0.065714106, 0, 9.922554e-09, 0, -0.065714106, 0.18966675, 0.707549, -0.4997425)
 
 [node name="TankFree_Tower" type="MeshInstance3D" parent="tankboss2/cabeza/CSGCombiner3D"]
 transform = Transform3D(0.9999998, 0, 7.788286e-07, 0, 0.9999998, 0, -7.788286e-07, 0, 0.9999998, 0, -2.836381, -7.5678415)
@@ -53709,22 +53711,6 @@ skeleton = NodePath("")
 transform = Transform3D(0.99999994, 0, -1.4210855e-14, 0, 0.99999994, 0, 1.4210855e-14, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("ArrayMesh_oetps")
 skeleton = NodePath("")
-
-[node name="tank_head_rotation" type="AnimationPlayer" parent="tankboss2"]
-root_node = NodePath("../../tankboss2")
-libraries = {
-&"": SubResource("AnimationLibrary_dgdft")
-}
-
-[node name="TankShoot" type="AnimationPlayer" parent="tankboss2"]
-root_node = NodePath("../../tankboss2")
-libraries = {
-&"": SubResource("AnimationLibrary_hossq")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="tankboss2"]
-tree_root = SubResource("AnimationNodeStateMachine_l2qne")
-anim_player = NodePath("../Tankwalk")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="tankboss2"]
 transform = Transform3D(1, 0, 0, 0, -0.1478439, 0.98901075, 0, -0.98901075, -0.1478439, -0.15523219, 2.3712227, -0.26729786)
@@ -53747,15 +53733,65 @@ shape = SubResource("BoxShape3D_ivxyl")
 [node name="CanvasLayer" type="CanvasLayer" parent="tankboss2"]
 
 [node name="ProgressBar" type="ProgressBar" parent="tankboss2/CanvasLayer"]
-offset_left = 589.0
-offset_right = 593.0
-offset_bottom = 27.0
+offset_left = 329.0
+offset_top = 32.0
+offset_right = 510.61765
+offset_bottom = 50.5
 scale = Vector2(2.7200003, 2)
 theme_override_fonts/font = ExtResource("8_7i0ls")
+theme_override_styles/background = ExtResource("66_hsrrj")
+theme_override_styles/fill = ExtResource("67_ivxyl")
 max_value = 1500.0
 value = 1500.0
+show_percentage = false
 
-[connection signal="toggled" from="UI/ColorRect/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[node name="TextoBoss" type="Label" parent="tankboss2/CanvasLayer"]
+offset_right = 182.33334
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("8_7i0ls")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animacion_inicial" type="AnimationPlayer" parent="tankboss2"]
+libraries = {
+&"": SubResource("AnimationLibrary_hsrrj")
+}
+
+[node name="TriggerBoss" type="Area3D" parent="tankboss2"]
+transform = Transform3D(-1.4570462e-08, 0, -0.33333334, 0, 0.33333334, 0, 0.33333334, 0, -1.4570462e-08, -6.9299316, -0.27890834, -8.073876)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tankboss2/TriggerBoss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35043335, 0, 0.9127197)
+shape = SubResource("BoxShape3D_ucxdg")
+
+[node name="Shoot" type="AudioStreamPlayer3D" parent="tankboss2"]
+stream = ExtResource("66_1plb7")
+
+[node name="BossFightMusic" type="AudioStreamPlayer3D" parent="tankboss2"]
+stream = ExtResource("70_ucxdg")
+volume_db = 15.094
+
+[node name="Rotateeffect" type="AudioStreamPlayer3D" parent="tankboss2"]
+stream = ExtResource("71_v57vw")
+
+[node name="TankMoving" type="AudioStreamPlayer3D" parent="tankboss2"]
+stream = ExtResource("72_d5gmp")
+volume_db = 6.038
+
+[node name="hudas" parent="." instance=ExtResource("74_r8jxj")]
+
+[node name="Victoria" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 480.0
+offset_top = 247.0
+offset_right = 641.0
+offset_bottom = 292.0
+theme_override_font_sizes/font_size = 32
+text = "Has ganao"
+
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
@@ -53774,3 +53810,4 @@ value = 1500.0
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
 [connection signal="body_entered" from="tankboss2/Hitbox" to="tankboss2" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]

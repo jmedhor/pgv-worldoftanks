@@ -20,7 +20,7 @@ func _ready() -> void:
 	$Camera3D.position = Vector3(0,40,-1314)
 	puntos = 100
 	%Dinero_tienda.text = str(puntos)
-	hud.actualizar_puntuacion_hud(puntos)
+	#hud.actualizar_puntuacion_hud(puntos)
 	
 
 
@@ -159,3 +159,5 @@ func _on_colision_tienda_area_2_body_entered(body: Node3D) -> void:
 		%cerrartienda.play_backwards("cerrar_tienda")
 		pausa = not pausa
 		get_tree().paused = pausa
+
+	
