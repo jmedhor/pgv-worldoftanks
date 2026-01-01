@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var damage := 40
+@export var damage := 10
 @onready var sprite := $AnimatedSprite3D
 @onready var area := $Area3D
 @onready var fire = $Fire
@@ -31,7 +31,7 @@ func _ready():
 
 func _on_Area3D_body_entered(body):
 	if body.name == "Personaje_principal":
-		print("jugador recibe daño")
 		
-		#body.recibir_danio(damage)
+		
+		body.recibir_dano(damage)
 		

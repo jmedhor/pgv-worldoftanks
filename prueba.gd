@@ -15,9 +15,9 @@ var combo_maximo : int
 var combo_actual : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#%AnimationPlayer.play("mov_camara")
-	#%timer1.start()
-	$Camera3D.position = Vector3(0,40,-1314)
+	%AnimationPlayer.play("mov_camara")
+	%timer1.start()
+	
 	puntos = 100
 	%Dinero_tienda.text = str(puntos)
 	#hud.actualizar_puntuacion_hud(puntos)
@@ -81,7 +81,8 @@ func _on_timer_1_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	%AnimationPlayer3.play("mov_camara_3")
-
+	await $%AnimationPlayer3.animation_finished
+	$tankboss2/TriggerBoss.monitoring = true
 
 func _on_button_2_pressed() -> void:
 	%menu_pausa.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2486 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=2485 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://prueba.gd" id="1_i5a71"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://texturas/OIP.webp" id="1_rcdd3"]
@@ -395,10 +395,6 @@ font_size = 24
 font = ExtResource("8_7i0ls")
 font_size = 24
 
-[sub_resource type="SphereMesh" id="SphereMesh_pel6o"]
-radius = 9.591
-height = 9.081
-
 [sub_resource type="Animation" id="Animation_i7ldd"]
 length = 0.001
 tracks/0/type = "value"
@@ -427,7 +423,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.23333335),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+"values": [Vector2(0.75, 0.75), Vector2(1e-05, 1e-05)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gkbsn"]
@@ -39405,9 +39401,6 @@ shadow_mesh = SubResource("ArrayMesh_s1ss2")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rpkff"]
 height = 2.0620117
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ivxyl"]
-size = Vector3(0.48901367, 1, 1)
-
 [sub_resource type="Animation" id="Animation_xjn1t"]
 length = 0.001
 tracks/0/type = "value"
@@ -39662,7 +39655,10 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ucxdg"]
-size = Vector3(25.995544, 1, 2.8253174)
+size = Vector3(25.995544, 1, 27.64508)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ivxyl"]
+size = Vector3(0.48901367, 1, 1)
 
 [node name="Node3D" type="Node3D"]
 process_mode = 3
@@ -39777,6 +39773,9 @@ shape = SubResource("BoxShape3D_2n4ld")
 process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_yp0q4")
+
+[node name="hud" parent="." instance=ExtResource("74_r8jxj")]
+mouse_filter = 1
 
 [node name="menu_pausa" type="Control" parent="."]
 unique_name_in_owner = true
@@ -40033,10 +40032,6 @@ offset_right = 1153.0
 offset_bottom = 641.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.563245, -11.68939)
-mesh = SubResource("SphereMesh_pel6o")
 
 [node name="Tienda" type="Control" parent="."]
 unique_name_in_owner = true
@@ -53626,7 +53621,8 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.430917, 0.049999237, -13
 
 [node name="Personaje_principal" type="CharacterBody3D" parent="."]
 process_mode = 1
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.078771114, -7.636845e-07, -1349.2585)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.078771114, -7.636845e-07, -0.8471403)
+platform_floor_layers = 4294967064
 script = ExtResource("55_1nfdb")
 speed = 600.0
 proyectil = ExtResource("57_d5gmp")
@@ -53663,9 +53659,11 @@ volume_db = 22.325
 stream = ExtResource("63_6ha28")
 volume_db = 14.884
 
-[node name="tankboss2" type="Node3D" parent="." groups=["Enemigos"]]
+[node name="tankboss2" type="CharacterBody3D" parent="." groups=["Enemigos"]]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.221624, 0.836725, -1361.7091)
 visible = false
+collision_layer = 2
+collision_mask = 17
 script = ExtResource("61_rpkff")
 area_aviso_scene = ExtResource("62_1plb7")
 explosion_scene = ExtResource("63_xjn1t")
@@ -53723,13 +53721,6 @@ transform = Transform3D(1, 0, 0, 0, -0.1478439, 0.98901075, 0, -0.98901075, -0.1
 transform = Transform3D(4.371139e-08, 5, -3.019916e-07, 1, -2.1855695e-07, -1.1293773e-21, -6.6002366e-15, -7.54979e-07, -2, -5.2391663, 0, -2.0861626e-07)
 shape = SubResource("CylinderShape3D_rpkff")
 
-[node name="Hitbox" type="Area3D" parent="tankboss2"]
-collision_mask = 15
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tankboss2/Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 2.0650663, 0, 0, 0, 1.5848308, 0.25549316, 0, 0.054592934)
-shape = SubResource("BoxShape3D_ivxyl")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="tankboss2"]
 
 [node name="ProgressBar" type="ProgressBar" parent="tankboss2/CanvasLayer"]
@@ -53741,8 +53732,8 @@ scale = Vector2(2.7200003, 2)
 theme_override_fonts/font = ExtResource("8_7i0ls")
 theme_override_styles/background = ExtResource("66_hsrrj")
 theme_override_styles/fill = ExtResource("67_ivxyl")
-max_value = 1500.0
-value = 1500.0
+max_value = 500.0
+value = 500.0
 show_percentage = false
 
 [node name="TextoBoss" type="Label" parent="tankboss2/CanvasLayer"]
@@ -53761,9 +53752,10 @@ libraries = {
 
 [node name="TriggerBoss" type="Area3D" parent="tankboss2"]
 transform = Transform3D(-1.4570462e-08, 0, -0.33333334, 0, 0.33333334, 0, 0.33333334, 0, -1.4570462e-08, -6.9299316, -0.27890834, -8.073876)
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tankboss2/TriggerBoss"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35043335, 0, 0.9127197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35043335, 0, -11.497192)
 shape = SubResource("BoxShape3D_ucxdg")
 
 [node name="Shoot" type="AudioStreamPlayer3D" parent="tankboss2"]
@@ -53780,7 +53772,9 @@ stream = ExtResource("71_v57vw")
 stream = ExtResource("72_d5gmp")
 volume_db = 6.038
 
-[node name="hudas" parent="." instance=ExtResource("74_r8jxj")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tankboss2"]
+transform = Transform3D(1, 0, 0, 0, 2.0650663, 0, 0, 0, 1.5848308, 0.25549316, 0, 0.054592133)
+shape = SubResource("BoxShape3D_ivxyl")
 
 [node name="Victoria" type="Label" parent="."]
 unique_name_in_owner = true
@@ -53809,5 +53803,4 @@ text = "Has ganao"
 [connection signal="timeout" from="Personaje_principal/timerEspecial" to="Personaje_principal" method="_on_timer_especial_timeout"]
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
-[connection signal="body_entered" from="tankboss2/Hitbox" to="tankboss2" method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]

@@ -13,6 +13,5 @@ metadata/_custom_type_script = "uid://df5sang7onuw8"
 script = ExtResource("2_1yjw2")
 velocidad = 10.0
 efectos = Array[ExtResource("1_2pyu2")]([SubResource("Resource_ttdq1")])
-collision_layer = 8
-collision_mask = 0
+collision_layer = 4
 metadata/_custom_type_script = "uid://c3g3wakhpgv8w"

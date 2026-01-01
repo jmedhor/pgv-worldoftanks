@@ -1,5 +1,5 @@
 
-extends Node3D
+extends CharacterBody3D
 @onready var barra_vida: ProgressBar = $CanvasLayer/ProgressBar
 @onready var texto_boss: Label = $CanvasLayer/TextoBoss
 @onready var rueda_izquierda_b = $TankFree_Wheel_b_left
@@ -33,7 +33,7 @@ enum BossState {
 	DERROTADO
 }
 
-@export var max_vida := 1500
+@export var max_vida := 500
 @export var velocidad := 6.0
 
 var vida := max_vida
@@ -49,7 +49,7 @@ var comenzar_batalla := false
 func _ready() -> void:
 	
 	posicion_inicial = global_position
-	$Hitbox.area_entered.connect(_on_hitbox_area_entered)
+
 	canon_rotacion_inicial = canon.rotation
 	barra_vida.visible = false
 	barra_vida.modulate.a = 0.0
@@ -262,7 +262,7 @@ func disparar_bala(angulo):
 	var offset = 5
 	bala.global_position = firepoint.global_position + rotated_dir * offset
 	bala.direccion = rotated_dir
-	
+	bala.global_position.y -= 2
 	var efecto = shoot_effect_scene.instantiate()
 	get_parent().add_child(efecto)
 	efecto.global_position = firepoint.global_position + dir *0.4
@@ -314,15 +314,13 @@ func morir():
 	%Victoria.visible = true
 	queue_free()
 	
-func _on_hitbox_area_entered(body: Area3D) -> void:
-	if body is AreaReactiva:
-		recibir_danio(50)
-		body.queue_free()
+func _on_hitbox_area_entered(area: Area3D) -> void:
 		
-		
-func recibir_danio(valor):
+		pass
+func recibir_dano(dano: int):
+	
 	if comenzar_batalla and not en_transicion_fase2:
-		vida -= valor
+		vida -= dano
 		actualizar_barra_vida()
 func actualizar_barra_vida() -> void:
 	var tween = create_tween()
@@ -340,29 +338,32 @@ func obtener_posicion_aleatoria() -> Vector3:
 
 
 func _on_trigger_boss_body_entered(body: Node3D) -> void:
-	get_tree().paused = true
-	await get_tree().create_timer(10).timeout
-	$Animacion_inicial.play("boss_inicio")
-	$TankMoving.play()
-	await get_tree().create_timer(5.05).timeout
-	$TankMoving.play()
-	await get_tree().create_timer(1).timeout
-	$TankMoving.stop()
-	await get_tree().create_timer(1).timeout
-	$Rotateeffect.play()
-	await get_tree().create_timer(3).timeout
-	$TriggerBoss.monitoring = false
-	get_tree().paused = false
-	$BossFightMusic.play()
-	var cam = %Camera3D
-	cam.camera_shake(0.55, 5)
-	mostrar_barra_vida()
-	mostrar_texto_boss("Behemoth")
-	await get_tree().create_timer(5).timeout
 	
 	
-	comenzar_batalla = true
-	posicion_inicial = Vector3.ZERO
+	if body.name == "Personaje_principal":
+		get_tree().paused = true
+		
+		$Animacion_inicial.play("boss_inicio")
+		$TankMoving.play()
+		await get_tree().create_timer(5.05).timeout
+		$TankMoving.play()
+		await get_tree().create_timer(1).timeout
+		$TankMoving.stop()
+		await get_tree().create_timer(1).timeout
+		$Rotateeffect.play()
+		await get_tree().create_timer(3).timeout
+		$TriggerBoss.monitoring = false
+		get_tree().paused = false
+		$BossFightMusic.play()
+		var cam = %Camera3D
+		cam.camera_shake(0.55, 5)
+		mostrar_barra_vida()
+		mostrar_texto_boss("Behemoth")
+		await get_tree().create_timer(5).timeout
+		
+		
+		comenzar_batalla = true
+		posicion_inicial = Vector3.ZERO
 	
 func kick_canon():
 	var tween = create_tween()

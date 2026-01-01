@@ -5,11 +5,11 @@ signal cooldown_updated(time_left: float)
 signal he_muerto
 
 @export var speed : float = 100.0
-@export var proyectil: PackedScene
+@export var proyectil:PackedScene
 @export var especial:PackedScene
 @export var tiempoEntreDisparo : float = 0.5
 @export var tiempoRecargaEspecial : float = 5.0
-@export var vida : float = 5
+@export var vida : float = 50
 @export var nivelArma : float = 1
 var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
@@ -25,9 +25,9 @@ var catalogo_especiales = {
 }
 
 var catalogo_niveles = {
-	"lvl1": preload("res://recursos/proyectiles/enemigos/proyectil_ligero.tres"),
-	"lvl2": preload("res://recursos/proyectiles/enemigos/proyectil_medio.tres"),
-	"lvl3": preload("res://recursos/proyectiles/enemigos/proyectil_pesado.tres")
+	"lvl1": preload("res://recursos/proyectiles/jugador/basico/basico_nivel1.tres"),
+	"lvl2": preload("res://recursos/proyectiles/jugador/basico/basico_nivel2.tres"),
+	"lvl3": preload("res://recursos/proyectiles/jugador/basico/basico_nivel3.tres")
 }
 
 func _process(_delta: float) -> void:
@@ -123,8 +123,6 @@ func cambiar():
 func disparar(accion: String):
 	if accion == "disparar" && puedeDisparar:
 		var tmp_proyectil = proyectil.instantiate()
-		
-		assert(tmp_proyectil is AreaReactiva, "ERROR: tmp_proyectil no es AreaReactiva")
 		tmp_proyectil.datos = seleccion_nivel()
 		$sonido_disparo.play()
 		if tmp_proyectil.has_method("inicializar"):
