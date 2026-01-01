@@ -298,7 +298,8 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer"]
+[node name="armaEspecial" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("12_1fv7p")

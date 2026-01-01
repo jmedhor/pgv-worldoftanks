@@ -21,6 +21,8 @@ func _ready() -> void:
 	jugador.vida_cambiada.connect(_on_actualizar_vida)
 	jugador.he_muerto.connect(_on_jugador_muerto)
 	Global.enemigo_ha_muerto.connect(_on_enemigo_muerto)
+	jugador.cambiar("emp")
+	hud.actualizar_arma_especial("emp")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

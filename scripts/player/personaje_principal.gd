@@ -14,6 +14,7 @@ signal he_muerto
 var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
 var vivo : bool = true
+var cadEspecial : String
 
 @export var rotation_speed := 8.0
 
@@ -30,6 +31,13 @@ var catalogo_niveles = {
 	"lvl3": preload("res://recursos/proyectiles/jugador/basico/basico_nivel3.tres")
 }
 
+func cambiar(arma:String):
+	cadEspecial = arma
+	if (arma == "emp"):
+		especial = catalogo_especiales.get("emp")
+	else:
+		especial = catalogo_especiales.get("dmg")
+
 func _process(_delta: float) -> void:
 	if not vivo:
 		return
@@ -43,8 +51,6 @@ func _process(_delta: float) -> void:
 		disparar("disparar")
 	if Input.is_action_just_pressed("especial"):
 		disparar("especial")
-	if Input.is_action_just_pressed("cambiar"):
-		cambiar()
 
 func _physics_process(delta: float) -> void:
 	if not vivo:
@@ -113,12 +119,6 @@ func seleccion_nivel() -> DatosArea:
 	elif(nivelArma == 3):
 		config = catalogo_niveles.get("lvl3")
 	return config
-
-func cambiar():
-	if especial == catalogo_especiales.get("emp"):
-		especial = catalogo_especiales.get("dmg")
-	else:
-		especial = catalogo_especiales.get("emp")
 
 func disparar(accion: String):
 	if accion == "disparar" && puedeDisparar:
