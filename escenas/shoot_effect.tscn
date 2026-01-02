@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dxobnoahmktiy"]
 
-[ext_resource type="Script" uid="uid://btwk0f5hsybu3" path="res://scenes/shoot_effect.gd" id="1_pbw5x"]
+[ext_resource type="Script" uid="uid://btwk0f5hsybu3" path="res://scripts/shoot_effect.gd" id="1_pbw5x"]
 
 [sub_resource type="Gradient" id="Gradient_osanr"]
 colors = PackedColorArray(1, 0.69411767, 0.019607844, 1, 1, 0.18039216, 0.19215687, 1)

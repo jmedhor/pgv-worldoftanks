@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://cn67gecooprai"]
 
-[ext_resource type="Script" uid="uid://d0ik3cmkqxu44" path="res://escenas/testeos_varios/test.gd" id="1_6kt0s"]
+[ext_resource type="Script" uid="uid://d0ik3cmkqxu44" path="res://escenas/testeos_varios/prueba_movimiento_interfaz.gd" id="1_6kt0s"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_h17py"]
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="3_1gm0e"]
 [ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="4_xc0o4"]

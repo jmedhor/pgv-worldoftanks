@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://x4f32fnxvk8u"]
 
-[ext_resource type="Script" uid="uid://cck12gjuy2w67" path="res://scenes/explosion.gd" id="1_nfeox"]
+[ext_resource type="Script" uid="uid://cck12gjuy2w67" path="res://scripts/explosion.gd" id="1_nfeox"]
 [ext_resource type="AudioStream" uid="uid://mvva4ygsb8ip" path="res://assets/sounds/322488__liamg_sfx__explosion-8.wav" id="2_nfeox"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xe657"]
