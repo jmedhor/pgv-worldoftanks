@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnu3hqjcdjg71"]
 
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="1_jju12"]
-[ext_resource type="Script" uid="uid://ce4t1f4c185d2" path="res://scenes/enemigos/enemigo_test.gd" id="1_t3h3x"]
+[ext_resource type="Script" uid="uid://ce4t1f4c185d2" path="res://scenes/enemigos/enemigoTest/enemigo_test.gd" id="1_t3h3x"]
 [ext_resource type="PackedScene" uid="uid://ceechljenw11v" path="res://proyectil.tscn" id="2_0eo42"]
 [ext_resource type="ArrayMesh" uid="uid://e8f0vmqouua0" path="res://tanqueMod3.obj" id="2_t3h3x"]
 

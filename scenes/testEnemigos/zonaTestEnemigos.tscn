@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://hud.tscn" id="2_5p0qs"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://menu_game_over.tscn" id="2_b8l55"]
 [ext_resource type="PackedScene" uid="uid://c743cblhnrf4c" path="res://jugador.tscn" id="2_gjt7l"]
-[ext_resource type="PackedScene" uid="uid://cuk711nm54qj8" path="res://scenes/enemigos/enemigo_test_spawner.tscn" id="3_4q42e"]
+[ext_resource type="PackedScene" uid="uid://cuk711nm54qj8" path="res://scenes/enemigos/enemigoTest/enemigo_test_spawner.tscn" id="3_4q42e"]
 [ext_resource type="PackedScene" uid="uid://24ir3kp6hnhg" path="res://scenes/enemigos/enemigoNormal/enemigoNormal.tscn" id="7_b8l55"]
 [ext_resource type="PackedScene" uid="uid://v1820mch4gef" path="res://scenes/enemigos/enemigoMecha/enemigoMecha.tscn" id="7_ncwd0"]
 [ext_resource type="PackedScene" uid="uid://qa4y3censpem" path="res://scenes/enemigos/enemigoJuggernaut/enemigoJuggernaut.tscn" id="8_iqql3"]
