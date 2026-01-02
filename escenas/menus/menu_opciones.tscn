@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv4sxwtgh3fo5"]
+
+[ext_resource type="Texture2D" path="res://texturas/level_plate.png" id="1_klfs5"]
+[ext_resource type="Texture2D" path="res://texturas/panel_fondo.png" id="2_si3p7"]
+[ext_resource type="Texture2D" path="res://texturas/button_plate.png" id="3_ifjmc"]
+[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_dhwh1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ykrsh"]
+font = ExtResource("4_dhwh1")
+font_size = 32
+outline_color = Color(0.9623018, 0.9653081, 0.98653823, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g14j6"]
+font = ExtResource("4_dhwh1")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_ehkex"]
+font = ExtResource("4_dhwh1")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_xersf"]
+font = ExtResource("4_dhwh1")
+font_size = 24
+
+[node name="menu_opciones" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 96.0
+offset_right = 1183.0
+offset_bottom = 310.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_klfs5")
+
+[node name="Fondo_opciones" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 2306.0
+offset_bottom = 1304.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_si3p7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 452.65
+offset_right = 1013.0
+offset_bottom = 672.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ifjmc")
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 125.0
+offset_right = 885.0
+offset_bottom = 525.0
+scale = Vector2(1.15, 1.15)
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="ButtonsVBox"]
+layout_mode = 2
+text = "Opciones"
+label_settings = SubResource("LabelSettings_ykrsh")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="ButtonsVBox/HBoxContainer"]
+layout_mode = 2
+text = "Volumen"
+label_settings = SubResource("LabelSettings_g14j6")
+
+[node name="HSlider2" type="HSlider" parent="ButtonsVBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -70.0
+max_value = 5.0
+value = -10.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ButtonsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="ButtonsVBox/HBoxContainer2"]
+layout_mode = 2
+text = "Tipo de ventana"
+label_settings = SubResource("LabelSettings_ehkex")
+
+[node name="OptionButton" type="OptionButton" parent="ButtonsVBox/HBoxContainer2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Ventana"
+popup/item_0/id = 0
+popup/item_1/text = "Pantalla completa"
+popup/item_1/id = 1
+popup/item_2/text = "Pantalla sin bordes"
+popup/item_2/id = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ButtonsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Label" type="Label" parent="ButtonsVBox/HBoxContainer3"]
+layout_mode = 2
+text = "Brillo"
+label_settings = SubResource("LabelSettings_xersf")
+
+[node name="HSlider" type="HSlider" parent="ButtonsVBox/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 10.0
+max_value = 255.0
+value = 255.0
+
+[node name="opciones_back" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_dhwh1")
+theme_override_font_sizes/font_size = 24
+text = "Volver"
+flat = true

@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfrhyxgrw488v"]
-
-[ext_resource type="PackedScene" uid="uid://37c1ibvl4dwx" path="res://prueba.gltf" id="1_a202f"]
-
-[node name="Node3D" instance=ExtResource("1_a202f")]
