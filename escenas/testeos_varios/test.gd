@@ -20,6 +20,7 @@ func _ready() -> void:
 	hud.actualizar_combo_hud(combo_actual)
 	jugador.vida_cambiada.connect(_on_actualizar_vida)
 	jugador.he_muerto.connect(_on_jugador_muerto)
+	jugador.cooldown_updated.connect(_on_personaje_principal_cooldown_updated)
 	Global.enemigo_ha_muerto.connect(_on_enemigo_muerto)
 	jugador.cambiar("emp")
 	hud.actualizar_arma_especial("emp")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=2485 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=2480 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://prueba.gd" id="1_i5a71"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://texturas/OIP.webp" id="1_rcdd3"]
+[ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_d5gmp"]
 [ext_resource type="Texture2D" uid="uid://5fnhugpjpanf" path="res://suelo_tierra.png" id="3_04saj"]
 [ext_resource type="Texture2D" uid="uid://knoyfjej311q" path="res://textures/Vandereyt_Salome_GameArtExam_Environment_Tex.jpg" id="3_ih1lc"]
 [ext_resource type="Script" uid="uid://drs35a0wr77x6" path="res://camara_pivot.gd" id="3_ivxyl"]
@@ -12,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://texturas/panel_fondo.png" id="9_pel6o"]
 [ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://texturas/level_plate.png" id="10_7i0ls"]
 [ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://texturas/marco_obj_tienda.png" id="11_k31ow"]
-[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://textula_ladrillo.png" id="12_ec7i0"]
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="12_ec7i0"]
 [ext_resource type="Texture2D" uid="uid://c8f1gw1uq0vhh" path="res://texturas/x.png" id="13_2pljw"]
 [ext_resource type="Texture2D" uid="uid://b7gho8mrl6pkj" path="res://texturas/left_arrow.png" id="14_i7ldd"]
 [ext_resource type="Texture2D" uid="uid://b3ux0idrpcega" path="res://texturas/right_arrow.png" id="15_gkbsn"]
@@ -21,12 +22,15 @@
 [ext_resource type="Texture2D" uid="uid://cp28373whosay" path="res://shop_Vandereyt_Salome_GameArtExam_Building_Rework_Tex.png" id="18_gkbsn"]
 [ext_resource type="Texture2D" uid="uid://b03qr1rbrqfya" path="res://shop_Vandereyt_Salome_GameArtExam_Plants_Tex-Vandereyt_Salome_GameArtExam_Plants_Opacity_Tex.png" id="19_ih1lc"]
 [ext_resource type="PackedScene" uid="uid://dfts5xnmr8oe" path="res://Models/GLTF format/grass.glb" id="22_nhlc6"]
-[ext_resource type="ArrayMesh" uid="uid://cne22x4dida1b" path="res://Models/OBJ format/log.obj" id="23_n7351"]
+[ext_resource type="PackedScene" uid="uid://b5gyma04anfp2" path="res://prueba_tronco.tscn" id="23_hsrrj"]
 [ext_resource type="ArrayMesh" uid="uid://khmm7v5yw6w5" path="res://Models/OBJ format/log_stackLarge.obj" id="24_3um7j"]
 [ext_resource type="PackedScene" uid="uid://dmf7vhovjlnjo" path="res://Models/GLTF format/stone_largeB.glb" id="24_caauc"]
+[ext_resource type="PackedScene" uid="uid://d3ux7gipjcvo1" path="res://tronco_en_s.tscn" id="24_ivxyl"]
 [ext_resource type="PackedScene" uid="uid://0d5tyh1ymmlo" path="res://Models/GLTF format/tree_default.glb" id="25_2xgey"]
+[ext_resource type="PackedScene" uid="uid://cipf7wq8hjjfy" path="res://tronco_doble.tscn" id="25_ucxdg"]
 [ext_resource type="PackedScene" uid="uid://cnqghrwwpetsv" path="res://Models/GLTF format/tree_oak.glb" id="26_a0yig"]
 [ext_resource type="PackedScene" uid="uid://bbf6wmpxds7q" path="res://Models/GLTF format/stone_largeD.glb" id="27_kbpp8"]
+[ext_resource type="PackedScene" uid="uid://byft2uavlu1kv" path="res://bloque_troncos.tscn" id="27_v57vw"]
 [ext_resource type="PackedScene" uid="uid://c3ar5oyapksnb" path="res://Models/GLTF format/plant_bushDetailed.glb" id="28_j1l7p"]
 [ext_resource type="PackedScene" uid="uid://s5xuivj5h0km" path="res://Models/GLTF format/plant_bushLargeTriangle.glb" id="29_wuv2y"]
 [ext_resource type="PackedScene" uid="uid://b6kl5hc30sgo8" path="res://Models/GLTF format/plant_bush.glb" id="30_4iqmy"]
@@ -53,23 +57,17 @@
 [ext_resource type="PackedScene" uid="uid://cl1uffmxsbd1b" path="res://Models/GLTF format/stone_smallTopB.glb" id="52_rpkff"]
 [ext_resource type="PackedScene" uid="uid://bi7e3y01utdre" path="res://Models/GLTF format/stone_tallJ.glb" id="53_gmqnf"]
 [ext_resource type="PackedScene" uid="uid://beleh2f3bpmut" path="res://Models/GLTF format/grass_large.glb" id="54_1plb7"]
-[ext_resource type="Script" uid="uid://bpvbtgfwgclxw" path="res://scripts/player/personaje_principal.gd" id="55_1nfdb"]
 [ext_resource type="PackedScene" uid="uid://cravtom61tske" path="res://Models/GLTF format/grass_leafsLarge.glb" id="55_xjn1t"]
-[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://barvy.png" id="56_pt8ix"]
-[ext_resource type="ArrayMesh" uid="uid://bv8qlpixh5fp4" path="res://assets/player/tanque_cabeza.obj" id="57_1nfdb"]
-[ext_resource type="PackedScene" uid="uid://cx3tay0q3kqfh" path="res://escenas/proyectiles/jugador/basico.tscn" id="57_d5gmp"]
-[ext_resource type="ArrayMesh" uid="uid://cqrhtnvoly0sy" path="res://assets/player/tanque_decapitado.obj" id="58_3sqfe"]
-[ext_resource type="PackedScene" uid="uid://d1plaltdd0tp0" path="res://escenas/proyectiles/jugador/bomba_dano.tscn" id="58_teke0"]
+[ext_resource type="PackedScene" uid="uid://dtrtqyfgf0oey" path="res://tronco_triple.tscn" id="59_v57vw"]
 [ext_resource type="Script" uid="uid://dafpcy1tfio24" path="res://tankboss.gd" id="61_rpkff"]
-[ext_resource type="PackedScene" uid="uid://dpmc0ph1v8qme" path="res://scenes/area_aviso_explosion.tscn" id="62_1plb7"]
+[ext_resource type="PackedScene" uid="uid://dpmc0ph1v8qme" path="res://escenas/area_aviso_explosion.tscn" id="62_1plb7"]
 [ext_resource type="Texture2D" uid="uid://cn0fk1ivviuk" path="res://tankboss_CTF_TankFree_Base_Color_R.png" id="62_gmqnf"]
-[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://scripts/tank_shoot.wav" id="62_r8jxj"]
-[ext_resource type="AudioStream" uid="uid://y0ryt31i555o" path="res://scripts/error_sound.wav" id="63_6ha28"]
-[ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://scenes/explosion.tscn" id="63_xjn1t"]
-[ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://scenes/shoot_effect.tscn" id="64_gmqnf"]
+[ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://escenas/explosion.tscn" id="63_xjn1t"]
+[ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/shoot_effect.tscn" id="64_gmqnf"]
 [ext_resource type="AudioStream" uid="uid://1v2im4je30ib" path="res://assets/sounds/168707__qubodup__tank-firing.wav" id="66_1plb7"]
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="66_hsrrj"]
 [ext_resource type="StyleBox" uid="uid://bn81q4txys2wl" path="res://recursos/barra_de_vida.tres" id="67_ivxyl"]
+[ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://scenes/entidades/jugador.tscn" id="67_xjn1t"]
 [ext_resource type="AudioStream" uid="uid://cmyo4nanaxtx2" path="res://assets/sounds/Boss_fight.wav" id="70_ucxdg"]
 [ext_resource type="AudioStream" uid="uid://csobc8678jcon" path="res://assets/sounds/418881__kierankeegan__tank-turret-rotate.wav" id="71_v57vw"]
 [ext_resource type="AudioStream" uid="uid://ddomofawl8r4m" path="res://assets/sounds/200303__qubodup__tank-engine-loop.wav" id="72_d5gmp"]
@@ -365,11 +363,12 @@ material = SubResource("StandardMaterial3D_o67f3")
 size = Vector2(25, 1500)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7i0ls"]
-size = Vector3(1, 1.9764557, 1499.3022)
+size = Vector3(1, 2, 1500)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3um7j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fmekg"]
+size = Vector3(1, 2, 1500)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2n4ld"]
 size = Vector3(27.957733, 1, 1)
@@ -39135,23 +39134,8 @@ shadow_mesh = SubResource("ArrayMesh_24k6f")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o67f3"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_04saj"]
-height = 5.9749756
-radius = 0.79345703
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_hsrrj"]
 size = Vector3(7.7368546, 7.334648, 3.432312)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8o684"]
-size = Vector3(1.15, 1.5132656, 1.25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvhml"]
-albedo_texture = ExtResource("56_pt8ix")
-metallic = 0.75
-roughness = 0.55
-normal_scale = 5.15
-stencil_flags = 2
-stencil_outline_thickness = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhxp4"]
 resource_name = "01_Mat_Tank"
@@ -39663,6 +39647,7 @@ size = Vector3(0.48901367, 1, 1)
 [node name="Node3D" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_i5a71")
+escena_game_over = ExtResource("2_d5gmp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
@@ -39719,6 +39704,7 @@ mesh = SubResource("PlaneMesh_rcdd3")
 
 [node name="BarreraIzquierda" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.756, 1.5, 0)
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraIzquierda"]
 process_mode = 1
@@ -39731,11 +39717,12 @@ mesh = SubResource("BoxMesh_3um7j")
 skeleton = NodePath("")
 
 [node name="BarreraDerecha2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1500, 12.632, 1.5, -743.29)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.632, 1.5, -743.29)
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDerecha2"]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.00066666666, -1, 0, 3.1292439e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3.1292439e-06)
 shape = SubResource("BoxShape3D_7i0ls")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraDerecha2"]
@@ -39746,6 +39733,7 @@ skeleton = NodePath("")
 [node name="BarreraTrasera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.481, -1263.1)
+collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraTrasera"]
@@ -39761,6 +39749,7 @@ mesh = SubResource("BoxMesh_a8cc0")
 [node name="BarreraDelantera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
+collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDelantera"]
@@ -52144,198 +52133,50 @@ transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -2.5847397, 1.3570232, -24
 [node name="grass23" parent="deco+obstaculos" instance=ExtResource("22_nhlc6")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, -5.5728884, 1.3570232, -252.83296)
 
-[node name="PruebaTronco1" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.83526075, 0, 0.549854, 0, 1, 0, -0.549854, 0, -0.83526075, 0.4626069, 0, -30.262285)
+[node name="Tronco1" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(-0.8348478, 0, 0.5504807, 0, 1, 0, -0.5504807, 0, -0.8348478, 0.4626069, 0, -30.262285)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco1"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
+[node name="Tronco2" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(0.5548444, 0, 0.831954, 0, 1, 0, -0.831954, 0, 0.5548444, 4.466, 0, -94.562)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco1"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
+[node name="Tronco3" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(-0.13225639, 0, 0.9912153, 0, 1, 0, -0.9912153, 0, -0.13225639, -0.222, 0, -206.517)
 
-[node name="PruebaTronco2" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(0.5551348, 0, 0.8317604, 0, 1, 0, -0.8317604, 0, 0.5551348, 4.4657607, 0, -94.561516)
+[node name="Tronco4" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(-0.6252423, 0, 0.78043, 0, 1, 0, -0.78043, 0, -0.6252423, -4.686, 0, -369.534)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco2"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
+[node name="TroncoEnS" parent="deco+obstaculos" instance=ExtResource("24_ivxyl")]
+transform = Transform3D(-0.62524265, 0, 0.78043044, 0, 1, 0, -0.78043044, 0, -0.62524265, -0.26796073, -7.636845e-07, -409.0147)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco2"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
+[node name="TroncoDoble" parent="deco+obstaculos" instance=ExtResource("25_ucxdg")]
+transform = Transform3D(-0.7098044, 0, -0.7043989, 0, 1, 0, 0.7043989, 0, -0.7098044, 4.142572, 1.899898e-07, -437.10764)
 
-[node name="PruebaTronco3" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.13159907, 0, 0.991303, 0, 1, 0, -0.991303, 0, -0.13159907, -0.222157, 0, -206.5171)
+[node name="Tronco6" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(-0.6247386, 0, 0.7808339, 0, 1, 0, -0.7808339, 0, -0.6247386, -5.8938317, 0, -454.6754)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco3"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
+[node name="Tronco7" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(0.53731424, 0, 0.84338206, 0, 1, 0, -0.84338206, 0, 0.53731424, 2.60248, 0, -467.7728)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco3"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
+[node name="Tronco8" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 1.4172821, 0, -485.0689)
 
-[node name="PruebaTronco4" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.62473863, 0, 0.780834, 0, 1, 0, -0.780834, 0, -0.62473863, -4.685719, 0, -369.5343)
+[node name="TroncoTriple" parent="deco+obstaculos" instance=ExtResource("59_v57vw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8962543, 0, -539.62054)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
+[node name="TroncoTriple2" parent="deco+obstaculos" instance=ExtResource("59_v57vw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.6794586, 1.899898e-07, -563.9195)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(8, 0, -2.3841858e-07, 0, 8, 0, 2.3841858e-07, 0, 8, 27.91275, 0, 28.114578)
-mesh = ExtResource("23_n7351")
+[node name="PruebaTronco1" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(-0.40194777, 0, 0.9156625, 0, 1, 0, -0.9156625, 0, -0.40194777, 0.085, 0, -579.066)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(6.1938148, 0, -5.0632644, 0, 8, 0, 5.0632644, 0, 6.1938148, 29.454102, 0, 23.791718)
-mesh = ExtResource("23_n7351")
+[node name="PruebaTronco2" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(0.46638662, 0, 0.8845809, 0, 1, 0, -0.8845809, 0, 0.46638662, -6.573, 0, -588.508)
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(6.1938148, 0, -5.0632644, 0, 8, 0, 5.0632644, 0, 6.1938148, 26.122986, 0, 32.912613)
-mesh = ExtResource("23_n7351")
+[node name="PruebaTronco3" parent="deco+obstaculos" instance=ExtResource("23_hsrrj")]
+transform = Transform3D(0.43523106, 0, 0.90031874, 0, 1, 0, -0.90031874, 0, 0.43523106, 7.637, 0, -587.759)
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(0.95347, 0, -7.942978, 0, 8, 0, 7.942978, 0, 0.95347, 44.536316, 0, 49.519547)
-mesh = ExtResource("23_n7351")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(0.95347, 0, -7.942978, 0, 8, 0, 7.942978, 0, 0.95347, 50.070923, 0, 48.875076)
-mesh = ExtResource("23_n7351")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(-7.99969, 0, -0.07050991, 0, 8, 0, 0.07050991, 0, -7.99969, 67.29889, 0, 52.237564)
-mesh = ExtResource("23_n7351")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(-2.749932, 0, 7.512515, 0, 8, 0, -7.512515, 0, -2.749932, 72.222534, 0, 67.11635)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco4"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco6" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.00036662817, 0, 1, 0, 1, 0, -1, 0, -0.00036662817, 1.4527221, 0, -485.01962)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco6"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco6"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco7" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.00036662817, 0, 1, 0, 1, 0, -1, 0, -0.00036662817, 8.708145, 0, -539.63904)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco7"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco7"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco8" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.00036662817, 0, 1, 0, 1, 0, -1, 0, -0.00036662817, 2.9696236, 0, -539.63904)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco8"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco8"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco9" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.00036662817, 0, 1, 0, 1, 0, -1, 0, -0.00036662817, -2.7821856, 0, -539.63904)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco9"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco9"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco10" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.00036662817, 0, 1, 0, 1, 0, -1, 0, -0.00036662817, -9.25028, 0, -563.8686)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco10"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco10"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco11" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.00036662817, 0, 1, 0, 1, 0, -1, 0, -0.00036662817, -3.6257782, 0, -563.8686)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco11"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco11"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco12" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.00036662817, 0, 1, 0, 1, 0, -1, 0, -0.00036662817, 1.9304962, 0, -563.8686)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco12"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco12"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco13" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(-0.40234742, 0, 0.9154871, 0, 1, 0, -0.9154871, 0, -0.40234742, -0.5237503, 0, -579.0663)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco13"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco13"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco14" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(0.46667978, 0, 0.88442636, 0, 1, 0, -0.88442636, 0, 0.46667978, -6.573233, 0, -588.5081)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco14"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco14"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="PruebaTronco5" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(0.43479106, 0, 0.9005314, 0, 1, 0, -0.9005314, 0, 0.43479106, 7.637218, 0, -587.7589)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/PruebaTronco5"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-mesh = ExtResource("23_n7351")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/PruebaTronco5"]
-transform = Transform3D(1, 0, 1.7763568e-15, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0054855347, 0.8096973, -0.046390533)
-shape = SubResource("CylinderShape3D_04saj")
-
-[node name="BloqueTroncos" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(0.43479106, 0, 0.9005314, 0, 1, 0, -0.9005314, 0, 0.43479106, 0.50758934, 0.42634463, -698.2333)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/BloqueTroncos"]
-transform = Transform3D(12.5, 0, -2.9802328e-07, 0, 10, 0, 3.7252912e-07, 0, 10, 0.1762085, -0.20292616, 0.36502075)
-mesh = ExtResource("24_3um7j")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/BloqueTroncos"]
-transform = Transform3D(0.99999964, -1.4901161e-07, 7.1054274e-15, 0, -4.371139e-08, -1, 1.4901161e-07, 0.99999964, -4.3711374e-08, 0.1864624, 1.6597645, 0.40252686)
-shape = SubResource("BoxShape3D_hsrrj")
+[node name="BloqueTroncos" parent="deco+obstaculos" instance=ExtResource("27_v57vw")]
+transform = Transform3D(0.434791, 0, 0.9005314, 0, 1, 0, -0.9005314, 0, 0.434791, 0.50758934, 0.42634463, -698.2333)
 
 [node name="BloqueTroncos3" type="StaticBody3D" parent="deco+obstaculos"]
 transform = Transform3D(-0.072280675, 0, -0.9973843, 0, 1, 0, 0.9973843, 0, -0.072280675, -3.7485313, 0.42634463, -761.4186)
@@ -53617,46 +53458,6 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 2.3930407, 0.049999237, -1
 [node name="grass_leafsLarge24" parent="deco+obstaculos" instance=ExtResource("55_xjn1t")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 7.430917, 0.049999237, -1326.8525)
 
-[node name="Personaje_principal" type="CharacterBody3D" parent="."]
-process_mode = 1
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.078771114, -7.636845e-07, -0.8471403)
-platform_floor_layers = 4294967064
-script = ExtResource("55_1nfdb")
-speed = 600.0
-proyectil = ExtResource("57_d5gmp")
-especial = ExtResource("58_teke0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Personaje_principal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0.7498672, 0)
-shape = SubResource("BoxShape3D_8o684")
-
-[node name="Marker3D" type="Marker3D" parent="Personaje_principal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622, 1.211)
-
-[node name="timerDisparo" type="Timer" parent="Personaje_principal"]
-
-[node name="timerEspecial" type="Timer" parent="Personaje_principal"]
-
-[node name="Canon" type="MeshInstance3D" parent="Personaje_principal"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.375, 0)
-rotation_order = 0
-material_override = SubResource("StandardMaterial3D_cvhml")
-mesh = ExtResource("57_1nfdb")
-
-[node name="Cuerpo" type="MeshInstance3D" parent="Personaje_principal"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.375, 0)
-material_override = SubResource("StandardMaterial3D_cvhml")
-mesh = ExtResource("58_3sqfe")
-
-[node name="sonido_disparo" type="AudioStreamPlayer3D" parent="Personaje_principal"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.07865316, 7.636845e-07, -1349.2585)
-stream = ExtResource("62_r8jxj")
-volume_db = 22.325
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Personaje_principal"]
-stream = ExtResource("63_6ha28")
-volume_db = 14.884
-
 [node name="tankboss2" type="CharacterBody3D" parent="." groups=["Enemigos"]]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.221624, 0.836725, -1361.7091)
 visible = false
@@ -53774,6 +53575,10 @@ volume_db = 6.038
 transform = Transform3D(1, 0, 0, 0, 2.0650663, 0, 0, 0, 1.5848308, 0.25549316, 0, 0.054592133)
 shape = SubResource("BoxShape3D_ivxyl")
 
+[node name="Personaje_principal" parent="." instance=ExtResource("67_xjn1t")]
+collision_mask = 8
+speed = 650.0
+
 [node name="Victoria" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -53797,8 +53602,6 @@ text = "Has ganao"
 [connection signal="pressed" from="Tienda/cerrar_tienda" to="." method="_on_cerrar_tienda_pressed"]
 [connection signal="body_entered" from="shop/colision_tienda_area" to="." method="_on_colision_tienda_area_body_entered"]
 [connection signal="body_entered" from="shop2/colision_tienda_area2" to="." method="_on_colision_tienda_area_2_body_entered"]
-[connection signal="timeout" from="Personaje_principal/timerDisparo" to="Personaje_principal" method="_on_timer_disparo_timeout"]
-[connection signal="timeout" from="Personaje_principal/timerEspecial" to="Personaje_principal" method="_on_timer_especial_timeout"]
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
 [connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://byft2uavlu1kv"]
+
+[ext_resource type="ArrayMesh" uid="uid://khmm7v5yw6w5" path="res://Models/OBJ format/log_stackLarge.obj" id="1_isn7o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsrrj"]
+size = Vector3(7.7368546, 7.334648, 3.4650726)
+
+[node name="BloqueTroncos" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(12.5, 0, -2.9802328e-07, 0, 10, 0, 3.7252912e-07, 0, 10, 0, 0, 0)
+mesh = ExtResource("1_isn7o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.99999964, -1.4901161e-07, 6.5135068e-15, 0, -4.3711374e-08, -1, 1.4901161e-07, 0.99999964, -4.371139e-08, -4.9789433e-16, 1.7364402, 3.3413112e-09)
+shape = SubResource("BoxShape3D_hsrrj")
