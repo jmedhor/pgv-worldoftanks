@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3ux7gipjcvo1"]
 
-[ext_resource type="PackedScene" uid="uid://b5gyma04anfp2" path="res://escenas/prueba_tronco.tscn" id="1_r3gb4"]
+[ext_resource type="PackedScene" uid="uid://b5gyma04anfp2" path="res://escenas/obstaculos/tronco_simple.tscn" id="1_r3gb4"]
 
 [node name="Node3D" type="Node3D"]
 
