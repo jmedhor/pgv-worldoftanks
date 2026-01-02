@@ -74,6 +74,9 @@ func actualizar_imagen_retrato(vida_actual: int):
 	else:
 		retrato_estado.texture = textura_0
 
+func mostrar_aviso_tienda(aviso:bool):
+	%AvisoTienda.visible = aviso
+
 func actualizar_temp_especial(tiempo: float):
 	barra_especial.value = tiempo
 # Called when the node enters the scene tree for the first time.

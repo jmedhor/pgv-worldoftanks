@@ -15,6 +15,8 @@ var partida_activa : bool = true
 var ultima_vida : int
 var combo_maximo : int
 var combo_actual : int
+var puede_comprar : bool = false
+var tienda_abierta : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +24,7 @@ func _ready() -> void:
 	%timer1.start()
 	puntos = 0
 	%Dinero_tienda.text = str(puntos)
-	Global.enter_shop.connect(_on_enter_shop)
+	Global.is_shopping.connect(_on_puede_comprar)
 	ultima_vida = jugador.vida
 	combo_actual = 1
 	combo_maximo = combo_actual
@@ -36,18 +38,30 @@ func _ready() -> void:
 	hud.actualizar_arma_especial("emp")
 	
 
+func _on_puede_comprar(puede:bool):
+	puede_comprar = puede
+	hud.mostrar_aviso_tienda(puede)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pausa"): 
-		print("estoy pausando crack")
-		_alterar_pausa()
-		get_tree().paused = pausa
-		if %menu_pausa.visible:
-				%menu_pausa.visible = false
-				%menu_opciones.visible = false
+	if Input.is_action_just_pressed("pausa"):
+		if tienda_abierta:
+			_on_cerrar_tienda_pressed()
 		else:
-			%menu_pausa.visible = true
+			print("estoy pausando crack")
+			_alterar_pausa()
+			get_tree().paused = pausa
+			if %menu_pausa.visible:
+					%menu_pausa.visible = false
+					%menu_opciones.visible = false
+			else:
+				tienda_abierta = false
+				%menu_pausa.visible = true
+	if Input.is_action_just_pressed("tienda") && puede_comprar:
+		if tienda_abierta:
+			_on_cerrar_tienda_pressed()
+		else:
+			_on_enter_shop()
 
 func _on_enemigo_muerto(p : int):
 	puntos = puntos + p
@@ -156,11 +170,13 @@ func _on_button_4_pressed() -> void:
 
 
 func _on_cerrar_tienda_pressed() -> void:
+	tienda_abierta = false
 	%cerrartienda.play("cerrar_tienda")
 	_alterar_pausa()
 	get_tree().paused = pausa
 	
 func _on_enter_shop():
+	tienda_abierta = true
 	%Tienda.visible = true
 	%cerrartienda.play_backwards("cerrar_tienda")
 	_alterar_pausa()

@@ -44594,3 +44594,4 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_o67f3")
 
 [connection signal="body_entered" from="colision_tienda_area" to="." method="_on_colision_tienda_area_body_entered"]
+[connection signal="body_exited" from="colision_tienda_area" to="." method="_on_colision_tienda_area_body_exited"]
