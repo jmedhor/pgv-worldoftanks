@@ -12,6 +12,7 @@ signal cooldown_updated(time_left: float)
 @export var nivelArma : float = 1
 var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
+var pausado : bool = false
 var vivo : bool = true
 var cadEspecial : String
 var escudo : bool = false
@@ -38,8 +39,11 @@ func cambiar(arma:String):
 	else:
 		especial = catalogo_especiales.get("dmg")
 
+func _ready() -> void:
+	Global.pausar_juego.connect(_on_pause_changed)
+
 func _process(_delta: float) -> void:
-	if not vivo:
+	if not vivo or pausado:
 		return
 
 	if not $timerEspecial.is_stopped():
@@ -56,7 +60,7 @@ func _process(_delta: float) -> void:
 		vida_cambiada.emit()
 
 func _physics_process(delta: float) -> void:
-	if not vivo:
+	if not vivo or pausado:
 		return
 
 	var direction = Vector3.ZERO
@@ -165,3 +169,6 @@ func _on_timer_especial_timeout() -> void:
 	puedeDispararEspecial = true
 	cooldown_updated.emit(100)
 	$timerEspecial.stop()
+
+func _on_pause_changed(pausa: bool) -> void:
+	pausado = pausa

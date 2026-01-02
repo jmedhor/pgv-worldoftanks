@@ -22,7 +22,7 @@ func _ready() -> void:
 	%timer1.start()
 	puntos = 0
 	%Dinero_tienda.text = str(puntos)
-
+	Global.enter_shop.connect(_on_enter_shop)
 	ultima_vida = jugador.vida
 	combo_actual = 1
 	combo_maximo = combo_actual
@@ -41,7 +41,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pausa"): 
 		print("estoy pausando crack")
-		pausa = not pausa
+		_alterar_pausa()
 		get_tree().paused = pausa
 		if %menu_pausa.visible:
 				%menu_pausa.visible = false
@@ -80,15 +80,13 @@ func _on_actualizar_vida():
 func _on_personaje_principal_cooldown_updated(time_left: float) -> void:
 	hud.actualizar_temp_especial(time_left)
 
-
-func _on_check_button_toggled(toggled_on: bool) -> void:
-	print("estoy quitando la pausa crack")
+func _alterar_pausa():
 	pausa = not pausa
+	Global.pausar_juego.emit(pausa)
 	get_tree().paused = pausa
 
-
 func _on_button_pressed() -> void:
-	pausa = not pausa
+	_alterar_pausa()
 	%menu_pausa.visible = false
 	get_tree().paused = pausa
 
@@ -138,7 +136,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 func _on_button_3_pressed() -> void:
 	%menu_opciones.visible = false
 	%menu_pausa.visible = false
-	pausa = not pausa
+	_alterar_pausa()
 	get_tree().paused = pausa
 	%AnimationPlayer.stop()
 	%AnimationPlayer2.stop()
@@ -159,19 +157,10 @@ func _on_button_4_pressed() -> void:
 
 func _on_cerrar_tienda_pressed() -> void:
 	%cerrartienda.play("cerrar_tienda")
-	pausa = not pausa
+	_alterar_pausa()
 	get_tree().paused = pausa
-
-func _on_colision_tienda_area_body_entered(body: Node3D) -> void:
-	if body.name == "Personaje_principal" :
-		%Tienda.visible = true
-		%cerrartienda.play_backwards("cerrar_tienda")
-		pausa = not pausa
-		get_tree().paused = pausa
-
-func _on_colision_tienda_area_2_body_entered(body: Node3D) -> void:
-	if body.name == "Personaje_principal" :
-		%Tienda.visible = true
-		%cerrartienda.play_backwards("cerrar_tienda")
-		pausa = not pausa
-		get_tree().paused = pausa
+	
+func _on_enter_shop():
+	%Tienda.visible = true
+	%cerrartienda.play_backwards("cerrar_tienda")
+	_alterar_pausa()
