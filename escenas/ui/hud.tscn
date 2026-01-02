@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfdocv5x2aw7"]
+[gd_scene load_steps=24 format=3 uid="uid://cfdocv5x2aw7"]
 
 [ext_resource type="Script" uid="uid://c3kddpg7va21" path="res://scripts/ui/hud.gd" id="1_37p78"]
 [ext_resource type="Texture2D" uid="uid://b1ac63bviuebm" path="res://images/100.png" id="2_64ctp"]
@@ -12,7 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://dp4ttj8lx7c5k" path="res://images/barraVida25.tres" id="10_4u2vk"]
 [ext_resource type="Texture2D" uid="uid://qt5b27w3xgwf" path="res://images/barraVida0.tres" id="11_4q17s"]
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="12_1fv7p"]
+[ext_resource type="Texture2D" uid="uid://dvwxu8fklff8t" path="res://images/06.png" id="12_3wfay"]
 [ext_resource type="Texture2D" uid="uid://djtuxtejl1stj" path="res://images/barraEscudo75.tres" id="12_4u2vk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn517"]
+atlas = ExtResource("12_3wfay")
+region = Rect2(3, 21, 42, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei7fy"]
+atlas = ExtResource("12_3wfay")
+region = Rect2(195, 21, 42, 7)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2d608"]
 bg_color = Color(0, 0, 0, 0.62352943)
@@ -56,6 +65,8 @@ barra_3 = ExtResource("8_amv7k")
 barra_2 = ExtResource("9_1fv7p")
 barra_1 = ExtResource("10_4u2vk")
 barra_0 = ExtResource("11_4q17s")
+escudo_on = SubResource("AtlasTexture_sn517")
+escudo_off = SubResource("AtlasTexture_ei7fy")
 
 [node name="PanelIzquierdo" type="ColorRect" parent="."]
 layout_mode = 1
@@ -133,6 +144,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
 [node name="BarraEscudo" type="TextureRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
 texture_filter = 3
 layout_mode = 2
 size_flags_vertical = 3

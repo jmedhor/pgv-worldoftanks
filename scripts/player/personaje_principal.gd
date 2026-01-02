@@ -1,8 +1,7 @@
 extends CharacterBody3D
 
-signal vida_cambiada(nueva_vida)
+signal vida_cambiada()
 signal cooldown_updated(time_left: float)
-signal he_muerto
 
 @export var speed : float = 100.0
 @export var proyectil:PackedScene
@@ -15,6 +14,7 @@ var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
 var vivo : bool = true
 var cadEspecial : String
+var escudo : bool = false
 
 @export var rotation_speed := 8.0
 
@@ -51,6 +51,9 @@ func _process(_delta: float) -> void:
 		disparar("disparar")
 	if Input.is_action_just_pressed("especial"):
 		disparar("especial")
+	if Input.is_action_just_pressed("cambiar"):
+		escudo = !escudo
+		vida_cambiada.emit()
 
 func _physics_process(delta: float) -> void:
 	if not vivo:
@@ -145,14 +148,14 @@ func disparar(accion: String):
 			$AudioStreamPlayer3D.play()
 
 func recibir_dano(dano: int):
-	print("Ouch")
-	vida = vida - dano
-	vida_cambiada.emit(vida)
-	Global.enemigo_ha_muerto.emit(100)
+	if escudo && dano > 0:
+		escudo = false
+	else:
+		vida = vida - dano
+	#Global.enemigo_ha_muerto.emit(100)
 	if vida <= 0 :
-		print("Me morio")
 		vivo = false
-		he_muerto.emit()
+	vida_cambiada.emit()
 
 func _on_timer_disparo_timeout() -> void:
 	puedeDisparar = true
