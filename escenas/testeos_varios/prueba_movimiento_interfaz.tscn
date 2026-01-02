@@ -1,0 +1,103 @@
+[gd_scene load_steps=19 format=3 uid="uid://cn67gecooprai"]
+
+[ext_resource type="Script" uid="uid://d0ik3cmkqxu44" path="res://escenas/testeos_varios/test.gd" id="1_6kt0s"]
+[ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_h17py"]
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="3_1gm0e"]
+[ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="4_xc0o4"]
+[ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="5_ihs85"]
+[ext_resource type="PackedScene" uid="uid://i3j02j23qdb5" path="res://escenas/proyectiles/enemigos/proyectil_ligero.tscn" id="6_6kt0s"]
+[ext_resource type="PackedScene" uid="uid://b0lr31thaiegi" path="res://escenas/proyectiles/enemigos/proyectil_pesado.tscn" id="6_x40vn"]
+[ext_resource type="PackedScene" uid="uid://cp0k3nwgblaam" path="res://escenas/proyectiles/enemigos/proyectil_medio.tscn" id="8_1gm0e"]
+
+[sub_resource type="Environment" id="Environment_8uh7m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mf4mk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
+albedo_texture = ExtResource("3_1gm0e")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_37kl0"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uh7m"]
+albedo_color = Color(0.10980392, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mf4mk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mf4mk"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.49803922, 0.6627451, 0.011764706, 1)
+albedo_texture = ExtResource("3_1gm0e")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6uqi0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppyta"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_6kt0s")
+escena_game_over = ExtResource("2_h17py")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8uh7m")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.432, 40, 29)
+fov = 30.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9124775, 0.4091269, 0, -0.4091269, 0.9124775, -1.5060844, 2.1148376, 2.3581161)
+layers = 7
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24904191, 0.015316486)
+mesh = SubResource("PlaneMesh_mf4mk")
+surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
+
+[node name="Suelo" type="StaticBody3D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo"]
+mesh = SubResource("PlaneMesh_37kl0")
+surface_material_override/0 = SubResource("StandardMaterial3D_8uh7m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_8uh7m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.8034205, -0.035763144, -0.5943369, 0.07725321, 0.98349553, -0.16361038, 0.59037894, -0.17736234, -0.7873977, 0, 0.17088425, 0)
+mesh = SubResource("SphereMesh_mf4mk")
+surface_material_override/0 = SubResource("StandardMaterial3D_mf4mk")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["Enemigos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7223473, 0)
+collision_layer = 2
+collision_mask = 17
+angular_velocity = Vector3(0.015271631, 0.030979594, 8.726646)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+layers = 2
+mesh = SubResource("CapsuleMesh_6uqi0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CapsuleShape3D_ppyta")
+
+[node name="hud" parent="." instance=ExtResource("4_xc0o4")]
+
+[node name="Personaje_principal" parent="." instance=ExtResource("5_ihs85")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -1.9767976, 3.799796e-07, 4.020102)
+
+[node name="ProyectilPesado" parent="." instance=ExtResource("6_x40vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 1.5)
+
+[node name="ProyectilLigero" parent="." instance=ExtResource("6_6kt0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 1.5)
+
+[node name="ProyectilMedio" parent="." instance=ExtResource("8_1gm0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 1.5)
+
+[connection signal="cooldown_updated" from="Personaje_principal" to="." method="_on_personaje_principal_cooldown_updated"]

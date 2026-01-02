@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvjnxtrb8mbc"]
+
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_eyra6"]
+[ext_resource type="Resource" uid="uid://cpu84wqc5b4af" path="res://recursos/proyectiles/jugador/habilidades/bomba_pem.tres" id="2_rnstb"]
+[ext_resource type="PackedScene" uid="uid://cldeqxx3cd2p0" path="res://escenas/proyectiles/bomba_pem_model.tscn" id="3_khyxr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_apsof"]
+radius = 0.37579975
+
+[node name="BombaPem" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_eyra6")
+datos = ExtResource("2_rnstb")
+metadata/_custom_type_script = "uid://l1jlr0fr0085"
+
+[node name="AoeEmpModel" parent="." instance=ExtResource("3_khyxr")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_apsof")

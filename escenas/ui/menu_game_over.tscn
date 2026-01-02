@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://njtbqfvsktla"]
+
+[ext_resource type="Script" uid="uid://bhw8oyp4d82ck" path="res://scripts/ui/menu_game_over.gd" id="1_qpg8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpg8w"]
+bg_color = Color(0, 0, 0, 0.34901962)
+
+[node name="menu_game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qpg8w")
+
+[node name="ColorRect" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -122.0
+offset_right = 167.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qpg8w")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LabelDerrota" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "DERROTA"
+horizontal_alignment = 1
+
+[node name="LabelFraseRandom" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Frase random"
+horizontal_alignment = 1
+
+[node name="LabelPuntos" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Puntuacion: "
+
+[node name="LabelCombo" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mejor combo: "
+
+[node name="LabelTiempo" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tiempo: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="boton_volver" type="Button" parent="ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Volver al menu"
+
+[node name="boton_reiniciar" type="Button" parent="ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Reiniciar nivel"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/boton_volver" to="." method="_on_boton_volver_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/HBoxContainer/boton_reiniciar" to="." method="_on_boton_reiniciar_pressed"]

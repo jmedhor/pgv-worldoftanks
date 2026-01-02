@@ -1,0 +1,392 @@
+[gd_scene load_steps=21 format=3 uid="uid://cfdocv5x2aw7"]
+
+[ext_resource type="Script" uid="uid://c3kddpg7va21" path="res://scripts/ui/hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://b1ac63bviuebm" path="res://images/100.png" id="2_64ctp"]
+[ext_resource type="Texture2D" uid="uid://bspb35fk2o4v2" path="res://images/75.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://8tu6dqu578l4" path="res://images/50.png" id="4_rftc2"]
+[ext_resource type="Texture2D" uid="uid://j2y7vb2cvt0s" path="res://images/25.png" id="5_61f8s"]
+[ext_resource type="Texture2D" uid="uid://bvbujxv0ljhai" path="res://images/0.png" id="6_g10ll"]
+[ext_resource type="Texture2D" uid="uid://fsdm2lauq5rc" path="res://images/barraVida100.tres" id="7_rftc2"]
+[ext_resource type="Texture2D" uid="uid://bkor7lfy6ebac" path="res://images/barraVida75.tres" id="8_amv7k"]
+[ext_resource type="Texture2D" uid="uid://dm12y1n38gr3x" path="res://images/barraVida50.tres" id="9_1fv7p"]
+[ext_resource type="Texture2D" uid="uid://dp4ttj8lx7c5k" path="res://images/barraVida25.tres" id="10_4u2vk"]
+[ext_resource type="Texture2D" uid="uid://qt5b27w3xgwf" path="res://images/barraVida0.tres" id="11_4q17s"]
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="12_1fv7p"]
+[ext_resource type="Texture2D" uid="uid://djtuxtejl1stj" path="res://images/barraEscudo75.tres" id="12_4u2vk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2d608"]
+bg_color = Color(0, 0, 0, 0.62352943)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rftc2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w71nf"]
+bg_color = Color(0, 0, 0, 0.62352943)
+
+[sub_resource type="LabelSettings" id="LabelSettings_amv7k"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2vk"]
+bg_color = Color(0, 0, 0, 0.62352943)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q17s"]
+bg_color = Color(0, 0, 0, 0.62352943)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhv7f"]
+bg_color = Color(0.30716628, 0.6855164, 0.50558674, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37p78")
+textura_100 = ExtResource("2_64ctp")
+textura_75 = ExtResource("3_1xsix")
+textura_50 = ExtResource("4_rftc2")
+textura_25 = ExtResource("5_61f8s")
+textura_0 = ExtResource("6_g10ll")
+barra_4 = ExtResource("7_rftc2")
+barra_3 = ExtResource("8_amv7k")
+barra_2 = ExtResource("9_1fv7p")
+barra_1 = ExtResource("10_4u2vk")
+barra_0 = ExtResource("11_4q17s")
+
+[node name="PanelIzquierdo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 1.0
+color = Color(0, 0.24705882, 0.08627451, 0.18039216)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelIzquierdo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelIzquierdo/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Vidas" type="PanelContainer" parent="PanelIzquierdo/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2d608")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+color = Color(0, 0, 0, 0.62352943)
+
+[node name="Label" type="Label" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vida RESTANTE"
+label_settings = SubResource("LabelSettings_rftc2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="BarraVida" type="TextureRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+texture_filter = 3
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("7_rftc2")
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="BarraEscudo" type="TextureRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Vidas/VBoxContainer/MarginContainer2"]
+texture_filter = 3
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("12_4u2vk")
+
+[node name="RetratoEstado" type="TextureRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_64ctp")
+expand_mode = 5
+
+[node name="Puntuacion" type="PanelContainer" parent="PanelIzquierdo/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w71nf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Puntuacion"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Puntuacion/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+color = Color(0, 0, 0, 0.62352943)
+
+[node name="TituloPuntos" type="Label" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Puntuacion/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "puntuación"
+label_settings = SubResource("LabelSettings_rftc2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Puntuacion/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="LabelPuntos" type="Label" parent="PanelIzquierdo/MarginContainer/VBoxContainer/Puntuacion/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10000"
+label_settings = SubResource("LabelSettings_amv7k")
+horizontal_alignment = 1
+
+[node name="PanelDerecho" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0.24705882, 0.08627451, 0.18039216)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Combo" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4u2vk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Combo"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Combo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.62352943)
+
+[node name="TituloCombo" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Combo/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "combo"
+label_settings = SubResource("LabelSettings_rftc2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Combo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="LabelCombo" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Combo/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x1"
+label_settings = SubResource("LabelSettings_amv7k")
+horizontal_alignment = 1
+
+[node name="Especial" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4q17s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+color = Color(0, 0, 0, 0.62352943)
+
+[node name="TituloFogueos" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "arma especial"
+label_settings = SubResource("LabelSettings_rftc2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="armaEspecial" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("12_1fv7p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "(Q)"
+label_settings = SubResource("LabelSettings_amv7k")
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="BarraEspecial" type="ProgressBar" parent="PanelDerecho/MarginContainer/VBoxContainer/Especial/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_nhv7f")
+value = 100.0
+
+[node name="Fogueos" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4q17s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+color = Color(0, 0, 0, 0.62352943)
+
+[node name="TituloFogueos" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fogueos"
+label_settings = SubResource("LabelSettings_rftc2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("12_1fv7p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "(E)"
+label_settings = SubResource("LabelSettings_amv7k")
+horizontal_alignment = 1

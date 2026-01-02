@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DatosArea" load_steps=5 format=3 uid="uid://djyhh54ca8qyl"]
+
+[ext_resource type="Script" uid="uid://b1p2xioqh726r" path="res://scripts/area_reactiva/efecto_reactivo.gd" id="1_d0awt"]
+[ext_resource type="Script" uid="uid://c3g3wakhpgv8w" path="res://scripts/area_reactiva/datos_area.gd" id="2_mthm6"]
+[ext_resource type="Script" uid="uid://df5sang7onuw8" path="res://scripts/area_reactiva/efectos_ofensivos/dano_directo.gd" id="2_ym7ui"]
+
+[sub_resource type="Resource" id="Resource_kwdhn"]
+script = ExtResource("2_ym7ui")
+dano = 10.0
+metadata/_custom_type_script = "uid://df5sang7onuw8"
+
+[resource]
+script = ExtResource("2_mthm6")
+velocidad = 20.0
+efectos = Array[ExtResource("1_d0awt")]([SubResource("Resource_kwdhn")])
+collision_layer = 4
+metadata/_custom_type_script = "uid://c3g3wakhpgv8w"
