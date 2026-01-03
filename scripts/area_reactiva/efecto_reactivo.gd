@@ -1,5 +1,7 @@
 class_name EfectoReactivo extends Resource
 
+const NOMBRE_JUGADOR = "Personaje_principal"
+
 func _comprobar_colisiones_aoe(_rea: AreaReactiva, rad: float) -> Array[Dictionary]:
 	var esfera := SphereShape3D.new()
 	esfera.radius = rad

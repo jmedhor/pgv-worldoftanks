@@ -86,6 +86,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_options_menus/base/t
 3d_physics/layer_3="Proyectiles"
 3d_physics/layer_4="Obstaculos"
 3d_physics/layer_5="Suelo"
+3d_physics/layer_6="Potenciadores"
 
 [maaacks_options_menus]
 

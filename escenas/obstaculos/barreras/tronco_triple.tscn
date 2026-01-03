@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtrtqyfgf0oey"]
+
+[ext_resource type="PackedScene" uid="uid://b5gyma04anfp2" path="res://escenas/obstaculos/barreras/tronco_simple.tscn" id="1_5a8dx"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PruebaTronco1" parent="." instance=ExtResource("1_5a8dx")]
+
+[node name="PruebaTronco2" parent="." instance=ExtResource("1_5a8dx")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 5.611951)
+
+[node name="PruebaTronco3" parent="." instance=ExtResource("1_5a8dx")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -5.635258)

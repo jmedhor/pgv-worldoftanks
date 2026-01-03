@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DatosArea" load_steps=5 format=3 uid="uid://d36hse3hmyjos"]
+
+[ext_resource type="Script" uid="uid://b1p2xioqh726r" path="res://scripts/area_reactiva/efecto_reactivo.gd" id="1_ld0af"]
+[ext_resource type="Script" uid="uid://c3g3wakhpgv8w" path="res://scripts/area_reactiva/datos_area.gd" id="2_knlow"]
+[ext_resource type="Script" uid="uid://co6441sj36fmk" path="res://scripts/area_reactiva/efectos_soporte/mejora.gd" id="2_wph2g"]
+
+[sub_resource type="Resource" id="Resource_q0rdx"]
+script = ExtResource("2_wph2g")
+metadata/_custom_type_script = "uid://co6441sj36fmk"
+
+[resource]
+script = ExtResource("2_knlow")
+efectos = Array[ExtResource("1_ld0af")]([SubResource("Resource_q0rdx")])
+collision_layer = 32
+metadata/_custom_type_script = "uid://c3g3wakhpgv8w"

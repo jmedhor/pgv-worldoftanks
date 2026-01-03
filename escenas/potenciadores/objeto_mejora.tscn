@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqwod8t5mlsbg"]
+
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_63ati"]
+[ext_resource type="Resource" uid="uid://d36hse3hmyjos" path="res://recursos/potenciadores/objeto_mejora.tres" id="2_npup3"]
+[ext_resource type="PackedScene" uid="uid://b717dyif4adfa" path="res://assets/potenciadores/Bullets Pickup.glb" id="3_an0d5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4gebw"]
+
+[node name="ObjetoMejora" type="Area3D"]
+script = ExtResource("1_63ati")
+datos = ExtResource("2_npup3")
+metadata/_custom_type_script = "uid://l1jlr0fr0085"
+
+[node name="Balas" parent="." instance=ExtResource("3_an0d5")]
+transform = Transform3D(0.95, 0, 0, 0, 0.67175144, 0.67175144, 0, -0.67175144, 0.67175144, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4gebw")

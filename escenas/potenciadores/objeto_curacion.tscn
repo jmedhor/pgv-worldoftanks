@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://2i05slwijum3"]
+
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_tgqdg"]
+[ext_resource type="Resource" uid="uid://c65jr0s7448gx" path="res://recursos/potenciadores/objeto_curacion.tres" id="2_6si8r"]
+[ext_resource type="PackedScene" uid="uid://l565rweptoo5" path="res://assets/potenciadores/Wrench.glb" id="3_6sd28"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fs8i7"]
+
+[node name="ObjetoCuracion" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0)
+script = ExtResource("1_tgqdg")
+datos = ExtResource("2_6si8r")
+metadata/_custom_type_script = "uid://l1jlr0fr0085"
+metadata/_edit_group_ = true
+
+[node name="LlaveInglesa" parent="." instance=ExtResource("3_6sd28")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, -0.013670608, -0.13156794)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_fs8i7")
