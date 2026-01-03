@@ -24,8 +24,10 @@ datos = ExtResource("2_mtmg8")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 mesh = SubResource("SphereMesh_id0dg")
 surface_material_override/0 = SubResource("ShaderMaterial_u5vqp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 shape = SubResource("SphereShape3D_srt4x")

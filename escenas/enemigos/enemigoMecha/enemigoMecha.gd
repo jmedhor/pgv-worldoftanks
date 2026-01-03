@@ -6,13 +6,13 @@ class_name enemigoMechaBasico
 @export var velocidad_avance : float = 6.0
 @export var velocidad_desplazo : float = 1.0	#Queda raro sin animacion lol
 @export var proyectil:PackedScene
-@export var velocidad_proyectil : float = 20
-@export var dano_proyectil : float = 1
 @export var tiempoEntreDisparo : float = 0.5
 @export var tiempoEntreMoverse : float = 4
 @export var tiempoMoviendose : float = 1
-@export var puedeMoverse : bool = false
+@export var puntuacion : float = 350
+@export var destruccion:PackedScene
 
+var puedeMoverse : bool = false
 var rng : RandomNumberGenerator
 var canonDerecho : bool = true
 var derecha : bool = true
@@ -46,15 +46,15 @@ func moverse():
 
 func disparar():
 	var tmp_proyectil = proyectil.instantiate()
+	var pos_proyectil
 	if canonDerecho:
-		tmp_proyectil.position = $Canon1.global_position
+		pos_proyectil = $Canon1.global_position
 		canonDerecho = false
 	else :
-		tmp_proyectil.position = $Canon2.global_position
+		pos_proyectil = $Canon2.global_position
 		canonDerecho = true		
-	tmp_proyectil.objetivo = "Jugador"
-	tmp_proyectil.speed = -velocidad_proyectil
-	tmp_proyectil.dano = dano_proyectil
+	if tmp_proyectil.has_method("inicializar"):
+		tmp_proyectil.inicializar(pos_proyectil,Vector3(0,0,1))
 	add_sibling(tmp_proyectil)
 	
 	$timerDisparo.start(tiempoEntreDisparo)
@@ -75,4 +75,20 @@ func recibir_dano(dano: int):
 	vida = vida - dano
 	if vida <= 0 :
 		print("Enemigo Destruido")
+		Global.enemigo_ha_muerto.emit(puntuacion)
+		vfx_destruccion()
 		queue_free()
+
+func eliminar_borde():
+	print("Enemigo se fue por el borde")
+	queue_free()
+
+func vfx_destruccion():
+	var escena = destruccion.instantiate()
+	
+	get_tree().current_scene.add_child(escena)
+	escena.global_position = global_position
+
+func _on_area_contacto_destruir():
+	vfx_destruccion()
+	queue_free()

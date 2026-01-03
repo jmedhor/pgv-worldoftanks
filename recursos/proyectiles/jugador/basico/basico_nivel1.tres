@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_7tajs"]
 script = ExtResource("2_rki2b")
-dano = 10.0
+dano = 3.0
 metadata/_custom_type_script = "uid://df5sang7onuw8"
 
 [resource]

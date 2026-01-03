@@ -162,3 +162,8 @@ func _on_timer_especial_timeout() -> void:
 	puedeDispararEspecial = true
 	cooldown_updated.emit(100)
 	$timerEspecial.stop()
+
+func _on_area_contacto_area_entered(area):
+	print("yeyyyyyyyyyyyyyyyyyyyyyyyyyyyyy")
+	if area.has_method("dano_contacto"):
+		recibir_dano(area.dano_contacto())

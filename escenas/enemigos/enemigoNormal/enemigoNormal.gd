@@ -1,18 +1,18 @@
 extends CharacterBody3D
 
-class_name enemigoJuggernautBasico
+class_name enemigoNormalBasico
 
-@export var vida : float = 12.0
-@export var velocidad_avance : float = 4.0
-@export var velocidad_desplazo : float = 2.0
+@export var vida : float = 3.0
+@export var velocidad_avance : float = 6.0
+@export var velocidad_desplazo : float = 3.0
 @export var proyectil:PackedScene
-@export var velocidad_proyectil : float = 10
-@export var dano_proyectil : float = 4
-@export var tiempoEntreDisparo : float = 3
-@export var tiempoEntreMoverse : float = 5
-@export var tiempoMoviendose : float = 2
-@export var puedeMoverse : bool = false
+@export var tiempoEntreDisparo : float = 1
+@export var tiempoEntreMoverse : float = 3
+@export var tiempoMoviendose : float = 1
+@export var puntuacion : float = 100
+@export var destruccion:PackedScene
 
+var puedeMoverse : bool = false
 var rng : RandomNumberGenerator
 var derecha : bool = true
 var deltaMultiplier : float = 50
@@ -44,10 +44,8 @@ func moverse():
 
 func disparar():
 	var tmp_proyectil = proyectil.instantiate()
-	tmp_proyectil.position = $Marker3D.global_position
-	tmp_proyectil.objetivo = "Jugador"
-	tmp_proyectil.speed = -velocidad_proyectil
-	tmp_proyectil.dano = dano_proyectil
+	if tmp_proyectil.has_method("inicializar"):
+		tmp_proyectil.inicializar($Marker3D.global_position,Vector3(0,0,1))
 	add_sibling(tmp_proyectil)
 	
 	$timerDisparo.start(tiempoEntreDisparo)
@@ -68,4 +66,20 @@ func recibir_dano(dano: int):
 	vida = vida - dano
 	if vida <= 0 :
 		print("Enemigo Destruido")
+		Global.enemigo_ha_muerto.emit(puntuacion)
+		vfx_destruccion()
 		queue_free()
+
+func eliminar_borde():
+	print("Enemigo se fue por el borde")
+	queue_free()
+
+func vfx_destruccion():
+	var escena = destruccion.instantiate()
+
+	get_tree().current_scene.add_child(escena)
+	escena.global_position = global_position
+
+func _on_area_contacto_destruir():
+	vfx_destruccion()
+	queue_free()

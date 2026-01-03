@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuk711nm54qj8"]
 
-[ext_resource type="Script" uid="uid://b455wensfqspf" path="res://scenes/enemigos/enemigoTest/enemigo_test_spawner.gd" id="1_0isfd"]
-[ext_resource type="PackedScene" uid="uid://cnu3hqjcdjg71" path="res://scenes/enemigos/enemigoTest/enemigo_test.tscn" id="2_ym312"]
+[ext_resource type="Script" uid="uid://b455wensfqspf" path="res://escenas/enemigos/enemigoTest/enemigo_test_spawner.gd" id="1_0isfd"]
+[ext_resource type="PackedScene" uid="uid://cnu3hqjcdjg71" path="res://escenas/enemigos/enemigoTest/enemigo_test.tscn" id="2_ym312"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_0isfd")

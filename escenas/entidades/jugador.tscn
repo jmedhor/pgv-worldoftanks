@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dprlg0xrf0opm"]
+[gd_scene load_steps=11 format=3 uid="uid://dprlg0xrf0opm"]
 
 [ext_resource type="Script" uid="uid://bpvbtgfwgclxw" path="res://scripts/player/personaje_principal.gd" id="1_16k11"]
 [ext_resource type="PackedScene" uid="uid://cx3tay0q3kqfh" path="res://escenas/proyectiles/jugador/basico.tscn" id="2_7st5j"]
@@ -19,18 +19,15 @@ normal_scale = 5.15
 stencil_flags = 2
 stencil_outline_thickness = 0.05
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mr0k"]
+size = Vector3(2, 1.8, 2)
+
 [node name="Personaje_principal" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-collision_mask = 0
-platform_floor_layers = 24
+collision_mask = 2
 script = ExtResource("1_16k11")
-speed = null
 proyectil = ExtResource("2_7st5j")
-tiempoEntreDisparo = null
-tiempoRecargaEspecial = null
 vida = 4.0
-nivelArma = null
-rotation_speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0.7498672, 0)
@@ -61,5 +58,13 @@ stream = ExtResource("7_qhgh3")
 stream = ExtResource("8_qhgh3")
 bus = &"Jugador"
 
+[node name="AreaContacto" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90560246, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaContacto"]
+shape = SubResource("BoxShape3D_7mr0k")
+
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
 [connection signal="timeout" from="timerEspecial" to="." method="_on_timer_especial_timeout"]
+[connection signal="area_entered" from="AreaContacto" to="." method="_on_area_contacto_area_entered"]

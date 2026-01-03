@@ -57,6 +57,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8uh7m")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.048367783, 0, 3.086196)
 collision_mask = 1
 speed = 300.0
+tiempoEntreDisparo = 0.5
+tiempoRecargaEspecial = 5.0
+nivelArma = 1.0
+rotation_speed = 8.0
 
 [node name="Spawner" parent="." instance=ExtResource("3_4q42e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064632475, 0, -35.137947)

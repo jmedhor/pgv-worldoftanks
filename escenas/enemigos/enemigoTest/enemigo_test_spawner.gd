@@ -15,13 +15,15 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 	
 func _on_timer_spawn_timeout():
-	if enemigos.size() < test_max_enemigos:
+	for enem in enemigos:
+		if enem == null:
+			enemigos.erase(enem)
+	if enemigos.size() < test_max_enemigos and self.visible:
 		var nu_enemigo = enemigo.instantiate()
 		nu_enemigo.position = self.position + Vector3(enemigoPos - (enemigoPos*2*rng.randf()), 0,0)
-		nu_enemigo.add_to_group("Enemigos")
 		add_sibling(nu_enemigo)
 		
 		enemigos.append(nu_enemigo)
 		
-		$TimerSpawn.start(tiempoSpawn)
-	
+	$TimerSpawn.start(tiempoSpawn)
+	print(enemigos.size())
