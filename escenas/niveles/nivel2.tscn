@@ -90,7 +90,8 @@
 [ext_resource type="ArrayMesh" uid="uid://0wf3suw3r0l6" path="res://assets/scenery/OBJ format_medieval/barrels.obj" id="89_fsm5s"]
 [ext_resource type="ArrayMesh" uid="uid://npgacyn1pcv8" path="res://assets/scenery/OBJ format_urban/detail-barrier-type-b.obj" id="89_ycxr8"]
 [ext_resource type="PackedScene" uid="uid://chttl01e62jm5" path="res://assets/scenery/GLB format_urban/detail-light-single.glb" id="90_4pdt5"]
-[ext_resource type="ArrayMesh" uid="uid://crvlkhid0osvl" path="res://assets/scenery/OBJ format/target-large.obj" id="90_fsm5s"]
+[ext_resource type="PackedScene" uid="uid://dhcb4d0qe48v" path="res://escenas/obstaculos/mina.tscn" id="91_yds7f"]
+[ext_resource type="PackedScene" uid="uid://bsque6jse7eps" path="res://escenas/obstaculos/foso.tscn" id="92_wb5qf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3um7j"]
 sky_top_color = Color(0.21349326, 0.4629131, 0.70244217, 1)
@@ -372,7 +373,7 @@ size = Vector3(59.844833, 0.1, 1503.291)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmwq3"]
 albedo_texture = ExtResource("4_gny6c")
-uv1_scale = Vector3(1, 30, 1)
+uv1_scale = Vector3(1, 20, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o67f3"]
 albedo_texture = ExtResource("5_vwct7")
@@ -39680,10 +39681,6 @@ size = Vector3(10.100616, 4.0614014, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ebpw"]
 size = Vector3(4.708496, 2.4152832, 1)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_htg6l"]
-height = 0.5970459
-radius = 1.1577148
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_htg6l"]
 size = Vector3(4.2396693, 3.953125, 2.2691498)
 
@@ -39740,7 +39737,7 @@ shape = SubResource("BoxShape3D_mt5rx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 process_mode = 1
-transform = Transform3D(2.3901353, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017910004, 0, -699.03973)
+transform = Transform3D(3.0056808, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017910004, 0, -699.03973)
 material_override = SubResource("StandardMaterial3D_pmwq3")
 mesh = SubResource("PlaneMesh_rcdd3")
 
@@ -52349,6 +52346,9 @@ transform = Transform3D(4.0884895, 0, -2.8782382, 0, 4.9999995, 0, 2.8782382, 0,
 [node name="truck-green-cargo2" parent="deco+obstaculos" instance=ExtResource("44_fsm5s")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 13.7785225, -4.8428774e-08, -10.053978)
 
+[node name="truck-green-cargo10" parent="deco+obstaculos" instance=ExtResource("44_fsm5s")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 13.7785225, -4.8428774e-08, 42.71379)
+
 [node name="truck-green-cargo5" parent="deco+obstaculos" instance=ExtResource("44_fsm5s")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 13.7785225, -4.8428774e-08, -364.8116)
 
@@ -52514,6 +52514,18 @@ transform = Transform3D(0.015620232, 0, -4.999976, 0, 5.0000005, 0, 4.999976, 0,
 [node name="wall-a-corner5" parent="deco+obstaculos" instance=ExtResource("48_mwdhu")]
 transform = Transform3D(-4.999183, 0, -0.090402484, 0, 5.0000005, 0, 0.090402484, 0, -4.999183, 14.747322, -4.8428774e-08, 0.10947418)
 
+[node name="wall-a-corner15" parent="deco+obstaculos" instance=ExtResource("48_mwdhu")]
+transform = Transform3D(-4.999183, 0, -0.090402484, 0, 5.0000005, 0, 0.090402484, 0, -4.999183, 14.747322, 4.962412, 0.10947418)
+
+[node name="wall-a-corner16" parent="deco+obstaculos" instance=ExtResource("48_mwdhu")]
+transform = Transform3D(-4.999183, 0, -0.090402484, 0, 5.0000005, 0, 0.090402484, 0, -4.999183, 14.747322, 4.962412, 4.997963)
+
+[node name="wall-a-corner17" parent="deco+obstaculos" instance=ExtResource("48_mwdhu")]
+transform = Transform3D(-4.999183, 0, -0.090402484, 0, 5.0000005, 0, 0.090402484, 0, -4.999183, 14.747322, 4.962412, 9.988518)
+
+[node name="wall-a-corner18" parent="deco+obstaculos" instance=ExtResource("48_mwdhu")]
+transform = Transform3D(-4.999183, 0, -0.090402484, 0, 5.0000005, 0, 0.090402484, 0, -4.999183, 14.747322, 4.962412, 14.982048)
+
 [node name="wall-a-corner4" parent="deco+obstaculos" instance=ExtResource("48_mwdhu")]
 transform = Transform3D(-3.4210176, 0, -3.6464558, 0, 5.0000005, 0, 3.6464558, 0, -3.4210176, 14.747322, -4.8428774e-08, 35.377213)
 
@@ -52671,7 +52683,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 16.197512, 1.7715132, -253.04
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 16.197512, 1.7715132, -250.8544)
 
 [node name="barrels3" parent="deco+obstaculos" instance=ExtResource("54_e7lhh")]
-transform = Transform3D(-4.5685782, 0, -5.303592, 0, 7, 0, 5.303592, 0, -4.5685782, -13.48456, 2.2724271e-07, -96.57711)
+transform = Transform3D(-4.5685782, 0, -5.303592, 0, 7, 0, 5.303592, 0, -4.5685782, -14.222804, 0.86185336, -96.57711)
 
 [node name="barrels22" parent="deco+obstaculos" instance=ExtResource("54_e7lhh")]
 transform = Transform3D(-3.9985046, 0, 5.7456036, 0, 6.9999995, 0, -5.7456036, 0, -3.9985046, 13.381376, 2.2724271e-07, -449.73395)
@@ -52683,7 +52695,7 @@ transform = Transform3D(-3.9985046, 0, 5.7456036, 0, 6.9999995, 0, -5.7456036, 0
 transform = Transform3D(-3.9985046, 0, 5.7456036, 0, 6.9999995, 0, -5.7456036, 0, -3.9985046, 13.381376, 2.2724271e-07, -439.76764)
 
 [node name="barrels4" parent="deco+obstaculos" instance=ExtResource("54_e7lhh")]
-transform = Transform3D(1.8107882, 0, -6.7617335, 0, 6.9999995, 0, 6.7617335, 0, 1.8107882, -13.48456, 2.2724271e-07, -101.48502)
+transform = Transform3D(1.8107882, 0, -6.7617335, 0, 6.9999995, 0, 6.7617335, 0, 1.8107882, -13.48456, 0.85237813, -101.48502)
 
 [node name="barrels5" parent="deco+obstaculos" instance=ExtResource("54_e7lhh")]
 transform = Transform3D(1.8107882, 0, -6.7617335, 0, 6.9999995, 0, 6.7617335, 0, 1.8107882, 12.795183, 2.2724271e-07, -185.79309)
@@ -54743,347 +54755,6 @@ mesh = ExtResource("89_ycxr8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009033203, 1.3162842, 0)
 shape = SubResource("BoxShape3D_8ebpw")
 
-[node name="Mina" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.89463)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina2" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7550125, 0, -99.184044)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina2"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina3" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5141277, 0, -99.184044)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina3"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina4" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39608812, 0, -182.39981)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina4"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina5" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32476854, 0, -214.00897)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina5"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina6" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.703548, 0, -250.14426)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina6"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina7" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6664596, 0, -250.14426)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina7"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina8" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15027285, 0, -289.05637)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina8"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina9" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5203176, 0, -346.16574)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina9"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina10" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.963557, 0, -346.16574)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina10"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina11" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.645106, 0, -387.06924)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina11"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina12" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.673905, 0, -387.06924)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina12"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina13" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22004747, 0, -419.79193)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina13"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina14" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22004747, 0, -473.04016)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina14"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina15" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.758885, 0, -511.3463)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina15"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina17" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4270811, 0, -686.53406)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina17"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina17"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina18" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46417713, 0, -748.12036)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina18"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina18"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina19" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46417713, 0, -848.26575)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina19"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina19"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina20" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.211445, 0, -896.9216)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina20"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina20"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina21" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7520247, 0, -896.9216)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina21"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina21"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina22" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20452785, 0, -942.51764)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina22"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina22"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina23" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.14314, 0, -942.51764)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina23"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina24" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.808057, 0, -995.1415)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina24"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina24"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina25" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2815733, 0, -995.1415)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina25"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina25"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina26" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0492043, 0, -1048.8054)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina26"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina26"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina27" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3656993, 0, -1048.8054)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina27"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina27"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina28" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.171722, 0, -1107.0723)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina28"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina29" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617957, 0, -1125.1968)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina29"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina30" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0617957, 0, -1151.7661)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina30"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina30"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina31" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15916204, 0, -1170.64)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina31"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina31"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
-[node name="Mina16" type="StaticBody3D" parent="deco+obstaculos"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.512798, 0, -511.3463)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="deco+obstaculos/Mina16"]
-transform = Transform3D(-3.059797e-07, 7, 0, -7, -3.059797e-07, 0, 0, 0, 7, 0, 0, 0)
-mesh = ExtResource("90_fsm5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="deco+obstaculos/Mina16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33764648, 0)
-shape = SubResource("CylinderShape3D_htg6l")
-
 [node name="planks12" parent="deco+obstaculos" instance=ExtResource("40_qshi1")]
 transform = Transform3D(1.0867128, 0, -4.880477, 0, 5, 0, 4.880477, 0, 1.0867128, 13.548908, 3.4735007, -1284.259)
 
@@ -55414,6 +55085,149 @@ transform = Transform3D(-0.48361665, 0, -9.988299, 0, 10, 0, 9.988299, 0, -0.483
 
 [node name="detail-light-single3" parent="deco+obstaculos" instance=ExtResource("90_4pdt5")]
 transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 14.04619, -7.636845e-07, -1280.3881)
+
+[node name="obstaculos" type="Node3D" parent="."]
+
+[node name="Mina" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.14922714, 0.049997337, -54.718266)
+
+[node name="Mina2" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 8.512472, 0.049997337, -115.95242)
+
+[node name="Mina4" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.331285, 0.049997337, -157.5428)
+
+[node name="Mina5" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.331285, 0.049997337, -202.2061)
+
+[node name="Mina6" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.802345, 0.049997337, -236.31268)
+
+[node name="Mina7" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.197655, 0.049997337, -236.31268)
+
+[node name="Mina8" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.1137576, 0.049997337, -317.15305)
+
+[node name="Mina9" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.24469328, 0.049997337, -317.15305)
+
+[node name="Mina10" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.049939, 0.049997337, -317.15305)
+
+[node name="Mina11" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -9.292971, 0.049997337, -357.04187)
+
+[node name="Mina12" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 8.833559, 0.049997337, -357.04187)
+
+[node name="Mina13" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -2.036584, 0.049997337, -407.504)
+
+[node name="Mina14" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.8445625, 0.049997337, -418.1586)
+
+[node name="Mina15" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.2199135, 0.049997337, -437.2891)
+
+[node name="Mina16" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.2199135, 0.049997337, -458.46262)
+
+[node name="Mina17" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5.502674, 0.049997337, -458.46262)
+
+[node name="Mina18" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5.502674, 0.049997337, -543.3208)
+
+[node name="Mina19" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.775958, 0.049997337, -543.3208)
+
+[node name="Mina20" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.775958, 0.049997337, -621.9598)
+
+[node name="Mina21" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.063265, 0.049997337, -621.9598)
+
+[node name="Mina22" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.063265, 0.049997337, -691.9953)
+
+[node name="Mina23" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.32265568, 0.049997337, -703.6176)
+
+[node name="Mina24" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.498444, 0.049997337, -716.0057)
+
+[node name="Mina25" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.498444, 0.049997337, -736.6403)
+
+[node name="Mina26" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.07988548, 0.049997337, -751.6131)
+
+[node name="Mina27" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.9108524, 0.049997337, -767.42163)
+
+[node name="Mina28" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.9108524, 0.049997337, -820.7335)
+
+[node name="Mina29" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.23891544, 0.049997337, -820.7335)
+
+[node name="Mina30" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.687417, 0.049997337, -820.7335)
+
+[node name="Mina31" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.3605375, 0.049997337, -884.99805)
+
+[node name="Mina32" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.3605375, 0.049997337, -905.2347)
+
+[node name="Mina33" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.3464956, 0.049997337, -905.2347)
+
+[node name="Mina34" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.3464956, 0.049997337, -928.965)
+
+[node name="Mina35" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.4940567, 0.049997337, -991.8696)
+
+[node name="Mina36" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.193968, 0.049997337, -991.8696)
+
+[node name="Mina37" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.5365067, 0.049997337, -1079.9194)
+
+[node name="Mina38" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.4634933, 0.049997337, -1079.9194)
+
+[node name="Mina39" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.4634933, 0.049997337, -1136.4567)
+
+[node name="Mina40" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.6483307, 0.049997337, -1136.4567)
+
+[node name="Mina41" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -6.6483307, 0.049997337, -1255.7621)
+
+[node name="Mina42" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.3516693, 0.049997337, -1255.7621)
+
+[node name="Mina43" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.972048, 0.049997337, -1255.7621)
+
+[node name="Mina3" parent="obstaculos" instance=ExtResource("91_yds7f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -8.88039, 0.049997337, -115.95242)
+
+[node name="Foso" parent="obstaculos" instance=ExtResource("92_wb5qf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.71799517, -7.636845e-07, -260.27533)
+
+[node name="Foso2" parent="obstaculos" instance=ExtResource("92_wb5qf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.727118, -7.636845e-07, -516.7976)
+
+[node name="Foso3" parent="obstaculos" instance=ExtResource("92_wb5qf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.5292716, -7.636845e-07, -802.5857)
+
+[node name="Foso4" parent="obstaculos" instance=ExtResource("92_wb5qf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.36494112, -7.636845e-07, -1192.5706)
 
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

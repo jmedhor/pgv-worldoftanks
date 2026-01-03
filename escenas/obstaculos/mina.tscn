@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhcb4d0qe48v"]
+
+[ext_resource type="ArrayMesh" uid="uid://crvlkhid0osvl" path="res://assets/scenery/OBJ format/target-large.obj" id="1_ekajx"]
+[ext_resource type="Script" uid="uid://drn577mbdybkj" path="res://escenas/obstaculos/mina.gd" id="1_k20ua"]
+[ext_resource type="Resource" uid="uid://bvomhqs2apc2r" path="res://recursos/proyectiles/mina.tres" id="2_djkq8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k20ua"]
+height = 0.111694336
+radius = 0.16210938
+
+[node name="Mina" type="Area3D"]
+script = ExtResource("1_k20ua")
+datos = ExtResource("2_djkq8")
+metadata/_custom_type_script = "uid://l1jlr0fr0085"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1_ekajx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00091552734, 0)
+shape = SubResource("CylinderShape3D_k20ua")
