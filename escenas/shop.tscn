@@ -1,7 +1,7 @@
 [gd_scene load_steps=2357 format=4 uid="uid://bnbhvfjmkaqhd"]
 
 [ext_resource type="Texture2D" uid="uid://cp28373whosay" path="res://assets/texturas/shop_Vandereyt_Salome_GameArtExam_Building_Rework_Tex.png" id="1_2mejn"]
-[ext_resource type="Script" uid="uid://bld6k58gdhekx" path="res://escenas/shop.gd" id="1_j5xns"]
+[ext_resource type="Script" uid="uid://bld6k58gdhekx" path="res://scripts/tienda/shop.gd" id="1_j5xns"]
 [ext_resource type="Texture2D" uid="uid://b03qr1rbrqfya" path="res://assets/texturas/shop_Vandereyt_Salome_GameArtExam_Plants_Tex-Vandereyt_Salome_GameArtExam_Plants_Opacity_Tex.png" id="2_kg00w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idx4u"]

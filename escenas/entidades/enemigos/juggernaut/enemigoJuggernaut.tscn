@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://qa4y3censpem"]
+
+[ext_resource type="Script" uid="uid://cf6wf2tlhcrkg" path="res://scripts/entidades/enemigos/juggernaut/juggernaut.gd" id="1_4klen"]
+[ext_resource type="PackedScene" uid="uid://b0lr31thaiegi" path="res://escenas/proyectiles/enemigos/proyectil_pesado.tscn" id="2_3lov5"]
+[ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="3_1182l"]
+[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://assets/barvy.png" id="3_d3bj0"]
+[ext_resource type="ArrayMesh" uid="uid://bdgg2xrm0jlwb" path="res://assets/enemigos/enemigoJuggernaut/enemigo2.obj" id="4_3lov5"]
+[ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="5_xuxw8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jju12"]
+size = Vector3(2.2, 1.8, 2.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp171"]
+albedo_texture = ExtResource("3_d3bj0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1182l"]
+size = Vector3(2.4, 1.8, 2.8)
+
+[node name="enemigoJuggernautBasico" type="CharacterBody3D" groups=["Enemigos"]]
+collision_layer = 2
+script = ExtResource("1_4klen")
+vida = 8.0
+proyectil = ExtResource("2_3lov5")
+destruccion = ExtResource("3_1182l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90335405, -0.0006920099)
+shape = SubResource("BoxShape3D_jju12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.33, 0, 0, 0, 0.26, 0, 0, 0, 0.33, -0.0016073585, 0.36168373, 0)
+material_override = SubResource("StandardMaterial3D_tp171")
+mesh = ExtResource("4_3lov5")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4133079, 1.1840053)
+
+[node name="timerDisparo" type="Timer" parent="."]
+
+[node name="timerMoverse" type="Timer" parent="."]
+
+[node name="timerMoviendose" type="Timer" parent="." groups=["Enemigos"]]
+
+[node name="AreaContacto" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90560246, 0)
+collision_layer = 256
+script = ExtResource("5_xuxw8")
+dano = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaContacto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01372385, 0)
+shape = SubResource("BoxShape3D_1182l")
+
+[connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
+[connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
+[connection signal="timeout" from="timerMoviendose" to="." method="_on_timer_moviendose_timeout"]
+[connection signal="destruir" from="AreaContacto" to="." method="_on_area_contacto_destruir"]

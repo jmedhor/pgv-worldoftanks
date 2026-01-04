@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DatosArea" load_steps=6 format=3 uid="uid://dq6agwqoqw74m"]
+
+[ext_resource type="Script" uid="uid://b1p2xioqh726r" path="res://scripts/area_reactiva/efecto_reactivo.gd" id="1_uemwb"]
+[ext_resource type="Script" uid="uid://d08gbqg2huyny" path="res://scripts/area_reactiva/efectos_ofensivos/muerte_instantanea.gd" id="2_6g351"]
+[ext_resource type="PackedScene" uid="uid://wunug5xc8f44" path="res://escenas/proyectiles/explosion_normal.tscn" id="3_v5xep"]
+[ext_resource type="Script" uid="uid://c3g3wakhpgv8w" path="res://scripts/area_reactiva/datos_area.gd" id="4_1u01d"]
+
+[sub_resource type="Resource" id="Resource_qbs2e"]
+script = ExtResource("2_6g351")
+metadata/_custom_type_script = "uid://d08gbqg2huyny"
+
+[resource]
+script = ExtResource("4_1u01d")
+persistente = true
+efectos = Array[ExtResource("1_uemwb")]([SubResource("Resource_qbs2e")])
+collision_layer = 4
+escena_vfx = ExtResource("3_v5xep")
+metadata/_custom_type_script = "uid://c3g3wakhpgv8w"

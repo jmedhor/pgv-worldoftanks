@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsque6jse7eps"]
 
-[ext_resource type="Script" uid="uid://c3oxwjw6jbvhl" path="res://escenas/obstaculos/foso.gd" id="1_vnowa"]
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_vnowa"]
 [ext_resource type="ArrayMesh" uid="uid://6bcrcfdynytu" path="res://assets/scenery/OBJ format_pirate/hole.obj" id="2_dljrp"]
-[ext_resource type="Resource" uid="uid://dq6agwqoqw74m" path="res://recursos/proyectiles/foso.tres" id="2_hfanl"]
+[ext_resource type="Resource" uid="uid://dq6agwqoqw74m" path="res://recursos/obstaculos/foso.tres" id="2_hfanl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hfanl"]
-height = 0.48864746
+height = 0.59721375
 radius = 0.31054688
 
 [node name="Foso" type="Area3D"]
@@ -17,5 +17,5 @@ metadata/_custom_type_script = "uid://l1jlr0fr0085"
 mesh = ExtResource("2_dljrp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2321167, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28639984, 0)
 shape = SubResource("CylinderShape3D_hfanl")

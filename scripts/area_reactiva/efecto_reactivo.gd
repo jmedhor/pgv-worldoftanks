@@ -1,5 +1,7 @@
 class_name EfectoReactivo extends Resource
 
+const NOMBRE_JUGADOR = "Personaje_principal"
+
 func _comprobar_colisiones_aoe(_rea: AreaReactiva, rad: float) -> Array[Dictionary]:
 	var esfera := SphereShape3D.new()
 	esfera.radius = rad
@@ -14,13 +16,9 @@ func _comprobar_colisiones_aoe(_rea: AreaReactiva, rad: float) -> Array[Dictiona
 	
 	return resultados
 
-func _aplicar_dano(dano: float, _body: Node3D) -> void:
-	if _body.has_method("aplicar_dano"):
-		_body.aplicar_dano(dano)
-	elif _body.has_method("recibir_dano"):
+func _aplicar_dano(dano: int, _body: Node3D) -> void:
+	if _body.has_method("recibir_dano"):
 		_body.recibir_dano(dano)
-	elif _body.has_method("take_damage"):
-		_body.take_damage(dano)
 
 func _on_spawn(_rea: AreaReactiva) -> void:
 	""" Para efectos con consecuencias al aparecer. """

@@ -1,9 +1,9 @@
-[gd_scene load_steps=123 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=116 format=4 uid="uid://cueor188j5xp7"]
 
-[ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/prueba.gd" id="1_v2o2g"]
+[ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_7vjjb"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://assets/texturas/menus/OIP.webp" id="3_2d2d7"]
-[ext_resource type="Script" uid="uid://drs35a0wr77x6" path="res://scripts/camara_pivot.gd" id="4_bdw2m"]
+[ext_resource type="Script" uid="uid://drs35a0wr77x6" path="res://scripts/niveles/camara_pivot.gd" id="4_bdw2m"]
 [ext_resource type="Texture2D" uid="uid://5fnhugpjpanf" path="res://assets/texturas/suelo_tierra.png" id="5_2vr2k"]
 [ext_resource type="Texture2D" uid="uid://knoyfjej311q" path="res://assets/texturas/Vandereyt_Salome_GameArtExam_Environment_Tex.jpg" id="6_lasgm"]
 [ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="7_rif7b"]
@@ -13,13 +13,6 @@
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="11_dn6xt"]
 [ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="12_uuvpw"]
 [ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://assets/texturas/menus/level_plate.png" id="13_63y5h"]
-[ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://assets/texturas/menus/marco_obj_tienda.png" id="14_1yo48"]
-[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="15_un2eu"]
-[ext_resource type="Texture2D" uid="uid://c8f1gw1uq0vhh" path="res://assets/texturas/menus/x.png" id="16_wrl7g"]
-[ext_resource type="Texture2D" uid="uid://b7gho8mrl6pkj" path="res://assets/texturas/menus/left_arrow.png" id="17_28x4a"]
-[ext_resource type="Texture2D" uid="uid://b3ux0idrpcega" path="res://assets/texturas/menus/right_arrow.png" id="18_udr52"]
-[ext_resource type="Texture2D" uid="uid://b427p7seifnk7" path="res://assets/texturas/menus/coin.png" id="19_2rpq0"]
-[ext_resource type="Texture2D" uid="uid://cpikfw1ajt4ih" path="res://assets/texturas/menus/barra_0.png" id="20_d2ml0"]
 [ext_resource type="PackedScene" uid="uid://bnbhvfjmkaqhd" path="res://escenas/shop.tscn" id="21_4vhic"]
 [ext_resource type="PackedScene" uid="uid://dfts5xnmr8oe" path="res://assets/scenery/GLTF format/grass.glb" id="23_2bkpj"]
 [ext_resource type="PackedScene" uid="uid://dmf7vhovjlnjo" path="res://assets/scenery/GLTF format/stone_largeB.glb" id="24_ghcse"]
@@ -50,17 +43,19 @@
 [ext_resource type="PackedScene" uid="uid://bi7e3y01utdre" path="res://assets/scenery/GLTF format/stone_tallJ.glb" id="52_5xd34"]
 [ext_resource type="PackedScene" uid="uid://beleh2f3bpmut" path="res://assets/scenery/GLTF format/grass_large.glb" id="53_c2k37"]
 [ext_resource type="PackedScene" uid="uid://cravtom61tske" path="res://assets/scenery/GLTF format/grass_leafsLarge.glb" id="54_vuq2t"]
-[ext_resource type="PackedScene" uid="uid://b5gyma04anfp2" path="res://escenas/obstaculos/tronco_simple.tscn" id="55_n7yr1"]
-[ext_resource type="PackedScene" uid="uid://d3ux7gipjcvo1" path="res://escenas/obstaculos/tronco_en_s.tscn" id="56_u1wub"]
-[ext_resource type="PackedScene" uid="uid://cipf7wq8hjjfy" path="res://escenas/obstaculos/tronco_doble.tscn" id="57_3mu1k"]
-[ext_resource type="PackedScene" uid="uid://dtrtqyfgf0oey" path="res://escenas/obstaculos/tronco_triple.tscn" id="58_biy8a"]
-[ext_resource type="PackedScene" uid="uid://byft2uavlu1kv" path="res://escenas/obstaculos/bloque_troncos.tscn" id="59_ytqtc"]
-[ext_resource type="Script" uid="uid://dafpcy1tfio24" path="res://scripts/tankboss.gd" id="60_7522d"]
-[ext_resource type="PackedScene" uid="uid://dpmc0ph1v8qme" path="res://escenas/area_aviso_explosion.tscn" id="61_xoytu"]
-[ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://escenas/explosion.tscn" id="62_d34lg"]
-[ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/shoot_effect.tscn" id="63_ppgys"]
+[ext_resource type="PackedScene" uid="uid://b5gyma04anfp2" path="res://escenas/obstaculos/barreras/tronco_simple.tscn" id="55_n7yr1"]
+[ext_resource type="PackedScene" uid="uid://d3ux7gipjcvo1" path="res://escenas/obstaculos/barreras/tronco_en_s.tscn" id="56_u1wub"]
+[ext_resource type="PackedScene" uid="uid://cipf7wq8hjjfy" path="res://escenas/obstaculos/barreras/tronco_doble.tscn" id="57_3mu1k"]
+[ext_resource type="PackedScene" uid="uid://dtrtqyfgf0oey" path="res://escenas/obstaculos/barreras/tronco_triple.tscn" id="58_biy8a"]
+[ext_resource type="PackedScene" uid="uid://byft2uavlu1kv" path="res://escenas/obstaculos/barreras/bloque_troncos.tscn" id="59_ytqtc"]
+[ext_resource type="Script" uid="uid://dafpcy1tfio24" path="res://scripts/entidades/tank_boss/tankboss.gd" id="60_7522d"]
+[ext_resource type="PackedScene" uid="uid://dpmc0ph1v8qme" path="res://escenas/entidades/tank_boss/area_aviso_explosion.tscn" id="61_xoytu"]
+[ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://escenas/entidades/tank_boss/explosion.tscn" id="62_d34lg"]
+[ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/entidades/tank_boss/shoot_effect.tscn" id="63_ppgys"]
 [ext_resource type="Texture2D" uid="uid://cn0fk1ivviuk" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="64_hf2n6"]
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
+[ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="65_cu5jt"]
+[ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="65_lqvft"]
 [ext_resource type="StyleBox" uid="uid://bn81q4txys2wl" path="res://recursos/barra_de_vida.tres" id="66_dt3yu"]
 [ext_resource type="AudioStream" uid="uid://1v2im4je30ib" path="res://assets/sounds/168707__qubodup__tank-firing.wav" id="67_xn8w1"]
 [ext_resource type="AudioStream" uid="uid://cmyo4nanaxtx2" path="res://assets/sounds/Boss_fight.wav" id="68_i2wjq"]
@@ -69,6 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="71_56w5e"]
 [ext_resource type="PackedScene" uid="uid://dhcb4d0qe48v" path="res://escenas/obstaculos/mina.tscn" id="71_v2o2g"]
 [ext_resource type="PackedScene" uid="uid://bsque6jse7eps" path="res://escenas/obstaculos/foso.tscn" id="72_7vjjb"]
+[ext_resource type="PackedScene" uid="uid://boihdnajnn6l1" path="res://escenas/tienda.tscn" id="73_asdf5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3um7j"]
 sky_top_color = Color(0.21349326, 0.4629131, 0.70244217, 1)
@@ -390,43 +386,6 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_xersf"]
 font = ExtResource("11_dn6xt")
 font_size = 24
-
-[sub_resource type="Animation" id="Animation_i7ldd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_2pljw"]
-resource_name = "cerrar_tienda"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.75, 0.75), Vector2(1e-05, 1e-05)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkbsn"]
-_data = {
-&"RESET": SubResource("Animation_i7ldd"),
-&"cerrar_tienda": SubResource("Animation_2pljw")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhxp4"]
 resource_name = "01_Mat_Tank"
@@ -981,6 +940,7 @@ transform = Transform3D(1, 0, 0, 0, 0.97667605, 0.21471828, 0, -0.21471828, 0.97
 [node name="floor" type="StaticBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.235786)
+collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 process_mode = 1
@@ -1310,245 +1270,6 @@ offset_right = 1153.0
 offset_bottom = 641.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="Tienda" type="Control" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1155.0
-offset_bottom = 654.0
-pivot_offset = Vector2(575, 300)
-
-[node name="TextureRect" type="TextureRect" parent="Tienda"]
-layout_mode = 0
-offset_left = 142.0
-offset_top = 34.0
-offset_right = 1118.0
-offset_bottom = 742.0
-scale = Vector2(0.9, 0.8)
-texture = ExtResource("12_uuvpw")
-
-[node name="Button4" type="Button" parent="Tienda"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-flat = true
-
-[node name="Obj1" type="TextureRect" parent="Tienda/Button4"]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 156.0
-offset_right = 478.0
-offset_bottom = 389.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("14_1yo48")
-
-[node name="TextureRect3" type="TextureRect" parent="Tienda/Button4/Obj1"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("15_un2eu")
-
-[node name="Label2" type="Label" parent="Tienda/Button4/Obj1"]
-layout_mode = 0
-offset_left = 215.00003
-offset_top = 68.33334
-offset_right = 502.00003
-offset_bottom = 156.33334
-theme_override_font_sizes/font_size = 64
-text = "ob1"
-
-[node name="Obj2" type="TextureRect" parent="Tienda"]
-layout_mode = 0
-offset_left = 622.0
-offset_top = 156.0
-offset_right = 828.0
-offset_bottom = 389.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("14_1yo48")
-
-[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj2"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("15_un2eu")
-
-[node name="Label2" type="Label" parent="Tienda/Obj2"]
-layout_mode = 0
-offset_left = 215.00003
-offset_top = 68.33334
-offset_right = 502.00003
-offset_bottom = 156.33334
-theme_override_font_sizes/font_size = 64
-text = "obj2"
-
-[node name="Obj3" type="TextureRect" parent="Tienda"]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 306.0
-offset_right = 478.0
-offset_bottom = 539.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("14_1yo48")
-
-[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj3"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("15_un2eu")
-
-[node name="Label2" type="Label" parent="Tienda/Obj3"]
-layout_mode = 0
-offset_left = 215.00003
-offset_top = 68.33334
-offset_right = 502.00003
-offset_bottom = 156.33334
-theme_override_font_sizes/font_size = 64
-text = "obj3"
-
-[node name="Obj4" type="TextureRect" parent="Tienda"]
-layout_mode = 0
-offset_left = 622.0
-offset_top = 306.0
-offset_right = 828.0
-offset_bottom = 539.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("14_1yo48")
-
-[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj4"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("15_un2eu")
-
-[node name="Label2" type="Label" parent="Tienda/Obj4"]
-layout_mode = 0
-offset_left = 215.00003
-offset_top = 68.33334
-offset_right = 502.00003
-offset_bottom = 156.33334
-theme_override_font_sizes/font_size = 64
-text = "obj4"
-
-[node name="cerrar_tienda" type="Button" parent="Tienda"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-flat = true
-
-[node name="TextureRect2" type="TextureRect" parent="Tienda/cerrar_tienda"]
-layout_mode = 0
-offset_left = 945.0
-offset_top = 13.0
-offset_right = 1112.0
-offset_bottom = 225.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_wrl7g")
-
-[node name="Button2" type="Button" parent="Tienda"]
-layout_mode = 0
-offset_left = 430.0
-offset_top = 441.0
-offset_right = 607.0
-offset_bottom = 654.0
-scale = Vector2(0.5, 0.5)
-icon = ExtResource("17_28x4a")
-flat = true
-
-[node name="Button3" type="Button" parent="Tienda"]
-layout_mode = 0
-offset_left = 654.0
-offset_top = 440.0
-offset_right = 845.0
-offset_bottom = 652.0
-scale = Vector2(0.5, 0.5)
-icon = ExtResource("18_udr52")
-flat = true
-
-[node name="TextureRect2" type="TextureRect" parent="Tienda"]
-layout_mode = 0
-offset_left = 398.0
-offset_top = 70.0
-offset_right = 1263.0
-offset_bottom = 341.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("9_10i1b")
-
-[node name="Label" type="Label" parent="Tienda"]
-layout_mode = 0
-offset_left = 484.0
-offset_top = 108.0
-offset_right = 676.0
-offset_bottom = 140.0
-theme_override_fonts/font = ExtResource("11_dn6xt")
-theme_override_font_sizes/font_size = 30
-text = "TIENDA"
-
-[node name="Obj5" type="TextureRect" parent="Tienda"]
-layout_mode = 0
-offset_left = 529.0
-offset_top = 420.00003
-offset_right = 735.0
-offset_bottom = 653.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("14_1yo48")
-
-[node name="TextureRect3" type="TextureRect" parent="Tienda/Obj5"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("15_un2eu")
-
-[node name="TextureRect3" type="TextureRect" parent="Tienda"]
-layout_mode = 0
-offset_left = 211.0
-offset_top = 93.0
-offset_right = 708.0
-offset_bottom = 541.0
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("19_2rpq0")
-
-[node name="TextureRect4" type="TextureRect" parent="Tienda/TextureRect3"]
-layout_mode = 0
-offset_left = 466.66675
-offset_top = 66.66667
-offset_right = 1306.6667
-offset_bottom = 186.66667
-scale = Vector2(1, 2.5)
-texture = ExtResource("20_d2ml0")
-
-[node name="Dinero_tienda" type="Label" parent="Tienda/TextureRect3"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 739.99994
-offset_top = 153.33334
-offset_right = 1252.0
-offset_bottom = 281.33337
-theme_override_fonts/font = ExtResource("11_dn6xt")
-theme_override_font_sizes/font_size = 128
-horizontal_alignment = 2
-
-[node name="cerrartienda" type="AnimationPlayer" parent="Tienda"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_gkbsn")
-}
 
 [node name="shop" parent="." instance=ExtResource("21_4vhic")]
 transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -11.396, 0, -648.395)
@@ -2824,10 +2545,10 @@ transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -6.170451, -0.11482036, -1225
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 8.008745, -0.11482036, -1225.1401)
 
 [node name="Foso" parent="Obstaculos" instance=ExtResource("72_7vjjb")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.9635835, 1.899898e-07, -268.15186)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.964, 0, -268.152)
 
 [node name="Foso2" parent="Obstaculos" instance=ExtResource("72_7vjjb")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.27480745, 1.899898e-07, -907.9215)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.275, 0, -907.922)
 
 [node name="tankboss2" type="CharacterBody3D" parent="." groups=["Enemigos"]]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.221624, 0.836725, -1361.7091)
@@ -2947,7 +2668,7 @@ transform = Transform3D(1, 0, 0, 0, 2.0650663, 0, 0, 0, 1.5848308, 0.25549316, 0
 shape = SubResource("BoxShape3D_ivxyl")
 
 [node name="Personaje_principal" parent="." instance=ExtResource("71_56w5e")]
-collision_mask = 8
+collision_mask = 40
 speed = 650.0
 
 [node name="Victoria" type="Label" parent="."]
@@ -2960,6 +2681,17 @@ offset_bottom = 292.0
 theme_override_font_sizes/font_size = 32
 text = "Has ganao"
 
+[node name="pruebaTienda" parent="." instance=ExtResource("73_asdf5")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ObjetoMejora" parent="." instance=ExtResource("65_lqvft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3714209, 1.7396365, -20.099121)
+collision_layer = 32
+
+[node name="ObjetoCuracion" parent="." instance=ExtResource("65_cu5jt")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 5.39245, 0.38908285, -19.09607)
+
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
@@ -2969,8 +2701,6 @@ text = "Has ganao"
 [connection signal="item_selected" from="menu_opciones/ButtonsVBox/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="menu_opciones/ButtonsVBox/opciones_back" to="." method="_on_opciones_back_pressed"]
-[connection signal="pressed" from="Tienda/Button4" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="Tienda/cerrar_tienda" to="." method="_on_cerrar_tienda_pressed"]
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
 [connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]

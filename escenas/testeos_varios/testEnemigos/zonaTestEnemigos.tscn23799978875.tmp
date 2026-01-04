@@ -1,0 +1,104 @@
+[gd_scene load_steps=17 format=3 uid="uid://sxoag5s4pthj"]
+
+[ext_resource type="Script" uid="uid://cfqgp6c75fr52" path="res://scenes/testEnemigos/zona_test_enemigos.gd" id="1_4q42e"]
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="1_upc3s"]
+[ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="2_5p0qs"]
+[ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_b8l55"]
+[ext_resource type="PackedScene" uid="uid://cuk711nm54qj8" path="res://escenas/enemigos/enemigoTest/enemigo_test_spawner.tscn" id="3_4q42e"]
+[ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="4_iqql3"]
+[ext_resource type="PackedScene" uid="uid://24ir3kp6hnhg" path="res://escenas/enemigos/enemigoNormal/enemigoNormal.tscn" id="7_b8l55"]
+[ext_resource type="PackedScene" uid="uid://v1820mch4gef" path="res://escenas/enemigos/enemigoMecha/enemigoMecha.tscn" id="7_ncwd0"]
+[ext_resource type="PackedScene" uid="uid://qa4y3censpem" path="res://escenas/enemigos/enemigoJuggernaut/enemigoJuggernaut.tscn" id="8_iqql3"]
+[ext_resource type="PackedScene" uid="uid://c040bjt6dwrp8" path="res://escenas/enemigos/enemigoTaladro/enemigoTaladroBasico.tscn" id="10_aa401"]
+
+[sub_resource type="Environment" id="Environment_8uh7m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mf4mk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
+albedo_texture = ExtResource("1_upc3s")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_37kl0"]
+size = Vector2(40, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uh7m"]
+albedo_color = Color(0.10980392, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqql3"]
+size = Vector3(50, 5, 3)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4q42e")
+escena_game_over = ExtResource("2_b8l55")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8uh7m")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 40, 29)
+fov = 30.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9124775, 0.4091269, 0, -0.4091269, 0.9124775, -1.5060844, 2.1148376, 2.3581161)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025962353, 0.015316486)
+mesh = SubResource("PlaneMesh_mf4mk")
+surface_material_override/0 = SubResource("StandardMaterial3D_37kl0")
+
+[node name="Suelo" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.649029)
+mesh = SubResource("PlaneMesh_37kl0")
+surface_material_override/0 = SubResource("StandardMaterial3D_8uh7m")
+
+[node name="Personaje_principal" parent="." instance=ExtResource("4_iqql3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.048367783, 0, 3.086196)
+collision_mask = 1
+speed = 300.0
+tiempoEntreDisparo = 0.5
+tiempoRecargaEspecial = 5.0
+nivelArma = 1.0
+rotation_speed = 8.0
+
+[node name="Spawner" parent="." instance=ExtResource("3_4q42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064632475, 0, -35.137947)
+test_max_enemigos = 4.0
+tiempoSpawn = 3.0
+enemigo = ExtResource("7_b8l55")
+enemigoPos = 12.0
+
+[node name="hud" parent="." instance=ExtResource("2_5p0qs")]
+
+[node name="Node3D" parent="." instance=ExtResource("3_4q42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.138)
+test_max_enemigos = 2.0
+tiempoSpawn = 5.1
+enemigo = ExtResource("7_ncwd0")
+enemigoPos = 12.0
+
+[node name="Node3D2" parent="." instance=ExtResource("3_4q42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.138)
+test_max_enemigos = 2.0
+tiempoSpawn = 4.11
+enemigo = ExtResource("8_iqql3")
+enemigoPos = 12.0
+
+[node name="Node3D3" parent="." instance=ExtResource("3_4q42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.138)
+test_max_enemigos = 3.0
+tiempoSpawn = 3.0
+enemigo = ExtResource("10_aa401")
+enemigoPos = 12.0
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8.022318)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_iqql3")
+
+[connection signal="cooldown_updated" from="Personaje_principal" to="." method="_on_personaje_principal_cooldown_updated"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
