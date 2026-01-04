@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://boihdnajnn6l1"]
+[gd_scene load_steps=25 format=3 uid="uid://boihdnajnn6l1"]
 
 [ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="1_6iohk"]
 [ext_resource type="Script" uid="uid://choyww27qhude" path="res://scripts/tienda/tienda.gd" id="1_7w1lh"]
@@ -13,18 +13,9 @@
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="8_6xkys"]
 [ext_resource type="Texture2D" uid="uid://b427p7seifnk7" path="res://assets/texturas/menus/coin.png" id="9_tdeos"]
 [ext_resource type="Texture2D" uid="uid://cpikfw1ajt4ih" path="res://assets/texturas/menus/barra_0.png" id="10_jfyo6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7w1lh"]
-font = ExtResource("8_6xkys")
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_poroo"]
-font = ExtResource("8_6xkys")
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_2d5a0"]
-font = ExtResource("8_6xkys")
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://d1n1xl77pejca" path="res://assets/icons/ammo-pistol 32px.png" id="12_008l2"]
+[ext_resource type="Texture2D" uid="uid://d1wgr6am6o7xk" path="res://assets/icons/health-green 32px.png" id="14_6xkys"]
+[ext_resource type="Texture2D" uid="uid://cwy7o537ptjrd" path="res://assets/icons/health-armor 32px.png" id="15_tdeos"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bbqv"]
 font = ExtResource("8_6xkys")
@@ -72,6 +63,18 @@ _data = {
 &"cerrar_tienda": SubResource("Animation_2pljw")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_7w1lh"]
+font = ExtResource("8_6xkys")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_poroo"]
+font = ExtResource("8_6xkys")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2d5a0"]
+font = ExtResource("8_6xkys")
+font_size = 32
+
 [node name="Tienda" type="Control"]
 layout_mode = 3
 anchors_preset = 8
@@ -96,244 +99,6 @@ offset_right = 1118.0
 offset_bottom = 742.0
 scale = Vector2(0.9, 0.8)
 texture = ExtResource("1_6iohk")
-
-[node name="botonMejora" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-flat = true
-
-[node name="Obj1" type="TextureRect" parent="botonMejora"]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 156.0
-offset_right = 478.0
-offset_bottom = 389.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_7w1lh")
-
-[node name="TextureRect3" type="TextureRect" parent="botonMejora/Obj1"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_poroo")
-
-[node name="TextureRect2" type="TextureRect" parent="botonMejora"]
-layout_mode = 0
-offset_left = 386.0
-offset_top = 159.0
-offset_right = 906.0
-offset_bottom = 514.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_008l2")
-expand_mode = 5
-
-[node name="Label2" type="Label" parent="botonMejora/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Mejorar Proyectiles"
-label_settings = SubResource("LabelSettings_7w1lh")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-autowrap_trim_flags = 0
-justification_flags = 0
-
-[node name="mejoraSoldOut" type="TextureRect" parent="botonMejora"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 276.5
-offset_top = 155.0
-offset_right = 1114.0
-offset_bottom = 492.49997
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_1bbqv")
-expand_mode = 1
-
-[node name="botonVida" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-flat = true
-
-[node name="Obj2" type="TextureRect" parent="botonVida"]
-layout_mode = 0
-offset_left = 622.0
-offset_top = 156.0
-offset_right = 828.0
-offset_bottom = 389.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_7w1lh")
-
-[node name="TextureRect3" type="TextureRect" parent="botonVida/Obj2"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_poroo")
-
-[node name="TextureRect2" type="TextureRect" parent="botonVida"]
-layout_mode = 0
-offset_left = 735.0
-offset_top = 156.0
-offset_right = 1255.0
-offset_bottom = 511.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_008l2")
-expand_mode = 5
-
-[node name="Label3" type="Label" parent="botonVida/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Salud"
-label_settings = SubResource("LabelSettings_poroo")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="vidaSoldOut" type="TextureRect" parent="botonVida"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 616.5
-offset_top = 144.0
-offset_right = 1454.0
-offset_bottom = 481.49997
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_1bbqv")
-expand_mode = 1
-
-[node name="botonEscudo" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-flat = true
-
-[node name="Obj3" type="TextureRect" parent="botonEscudo"]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 306.0
-offset_right = 478.0
-offset_bottom = 539.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_7w1lh")
-
-[node name="TextureRect3" type="TextureRect" parent="botonEscudo/Obj3"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_poroo")
-
-[node name="TextureRect2" type="TextureRect" parent="botonEscudo"]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 304.0
-offset_right = 904.0
-offset_bottom = 659.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_008l2")
-expand_mode = 5
-
-[node name="Label2" type="Label" parent="botonEscudo/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Escudo"
-label_settings = SubResource("LabelSettings_2d5a0")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="escudoSoldOut" type="TextureRect" parent="botonEscudo"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = 268.5
-offset_top = 299.0
-offset_right = 1106.0
-offset_bottom = 636.5
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_1bbqv")
-expand_mode = 1
-
-[node name="botonRandom" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-flat = true
-
-[node name="Obj4" type="TextureRect" parent="botonRandom"]
-layout_mode = 0
-offset_left = 622.0
-offset_top = 306.0
-offset_right = 828.0
-offset_bottom = 539.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_7w1lh")
-
-[node name="TextureRect3" type="TextureRect" parent="botonRandom/Obj4"]
-layout_mode = 0
-offset_left = 51.666683
-offset_top = 59.999996
-offset_right = 584.99994
-offset_bottom = 551.6666
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_poroo")
-expand_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="botonRandom"]
-layout_mode = 0
-offset_left = 732.0
-offset_top = 308.0
-offset_right = 1252.0
-offset_bottom = 663.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_008l2")
-expand_mode = 5
-
-[node name="Label2" type="Label" parent="botonRandom/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Random"
-label_settings = SubResource("LabelSettings_2d5a0")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect3" type="TextureRect" parent="botonRandom"]
-visible = false
-layout_mode = 0
-offset_left = 618.5
-offset_top = 300.0
-offset_right = 1456.0
-offset_bottom = 637.5
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_1bbqv")
-expand_mode = 1
 
 [node name="cerrar_tienda" type="Button" parent="."]
 layout_mode = 0
@@ -452,10 +217,260 @@ libraries = {
 
 [node name="soundStream" type="AudioStreamPlayer" parent="."]
 
-[connection signal="pressed" from="botonMejora" to="." method="_on_boton_mejora_pressed"]
-[connection signal="pressed" from="botonVida" to="." method="_on_boton_vida_pressed"]
-[connection signal="pressed" from="botonEscudo" to="." method="_on_boton_escudo_pressed"]
-[connection signal="pressed" from="botonRandom" to="." method="_on_boton_random_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 225.5
+offset_top = 168.0
+offset_right = -191.5
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="botonMejora" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj1" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+stretch_mode = 4
+
+[node name="iconoMejora" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora/Obj1"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_008l2")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 718.75
+offset_bottom = 342.49997
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mejorar Cañon"
+label_settings = SubResource("LabelSettings_7w1lh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="mejoraSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
+[node name="botonVida" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj2" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida/Obj2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_6xkys")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 640.0
+offset_bottom = 355.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Salud"
+label_settings = SubResource("LabelSettings_poroo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="vidaSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="botonEscudo" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj3" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo/Obj3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_tdeos")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 640.0
+offset_bottom = 355.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Escudo"
+label_settings = SubResource("LabelSettings_2d5a0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="escudoSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
+[node name="botonRandom" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj4" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom/Obj4"]
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_poroo")
+expand_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 640.0
+offset_bottom = 355.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Random"
+label_settings = SubResource("LabelSettings_2d5a0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="randomSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
 [connection signal="pressed" from="cerrar_tienda" to="." method="_on_cerrar_tienda_pressed"]
 [connection signal="pressed" from="botonAnterior" to="." method="_on_boton_anterior_pressed"]
 [connection signal="pressed" from="botonSiguiente" to="." method="_on_boton_siguiente_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/botonMejora" to="." method="_on_boton_mejora_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/botonVida" to="." method="_on_boton_vida_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/botonEscudo" to="." method="_on_boton_escudo_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/botonRandom" to="." method="_on_boton_random_pressed"]

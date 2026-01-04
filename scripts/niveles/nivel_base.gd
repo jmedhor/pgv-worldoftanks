@@ -206,5 +206,6 @@ func _on_enter_shop():
 	tienda.set_puntos(puntos)
 	tienda.set_arma(jugador.cadEspecial)
 	tienda.set_nivel(jugador.get_nivel())
+	tienda.set_escudo(jugador.escudo)
 	tienda.set_vida(jugador.vida)
 	_alterar_pausa()

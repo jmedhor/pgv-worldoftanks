@@ -135,6 +135,12 @@ func curar(puntos: int) -> void:
 	vida = min(MAX_VIDA, vida + puntos)
 	vida_cambiada.emit()
 
+func set_nivel(nivel:int):
+	_nivel_arma = nivel
+
+func get_nivel():
+	return _nivel_arma
+
 func disparar(accion: String):
 	if accion == "disparar" && puedeDisparar:
 		var tmp_proyectil = proyectil.instantiate()

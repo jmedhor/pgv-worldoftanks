@@ -21,14 +21,15 @@ var catalogo_strings = [
 	"emp",
 ]
 
+
 var catalogo_iconos = [
 	preload("res://assets/icons/dmg.png"),
 	preload("res://assets/icons/emp.png")
 ]
 
 var catalogo_niveles = [
-	100,
-	500
+	{"precio": 100, "icono":preload("res://assets/icons/ammo-pistol 32px.png")},
+	{"precio": 500, "icono":preload("res://assets/icons/ammo-rifle 32px.png")}
 ]
 
 func _ready() -> void:
@@ -62,6 +63,8 @@ func set_nivel(nuevo:int):
 	_nivel = nuevo
 	var estado : bool = (_nivel == MAX_NIVEL)
 	%mejoraSoldOut.visible = estado
+	if _nivel < MAX_NIVEL:
+		%iconoMejora.texture = catalogo_niveles.get(_nivel).get("icono")
 
 func _on_cerrar_tienda_pressed() -> void:
 	print("Cerrando tienda")
@@ -79,7 +82,7 @@ func _on_boton_anterior_pressed() -> void:
 
 func _on_boton_mejora_pressed() -> void:
 	if _nivel < 2:
-		var precio = catalogo_niveles.get(_nivel)
+		var precio = catalogo_niveles.get(_nivel).get("precio")
 		if _puntos >= precio:
 			_puntos = _puntos - precio
 			set_nivel(_nivel+1)
