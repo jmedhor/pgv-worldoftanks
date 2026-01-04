@@ -6,7 +6,8 @@ const MAX_VIDA: int = Global.MAX_VIDA_JUGADOR
 signal cerrar_tienda
 signal cambio_puntos(nuevos:int)
 signal cambio_arma(nueva:String)
-signal cambio_nivel(nuevo:int)
+signal filtro(nuevo:String, activo:bool)
+signal cambio_nivel()
 signal compra_vida()
 signal compra_escudo()
 var _puntos : int
@@ -14,7 +15,12 @@ var _arma : int
 var _nivel : int
 var _vida : int
 var _escudo : bool
+var filtro_actual = {"activo":false, "color":"ByN"}
 var activar_rot : bool
+
+var precio_vida : int = 100
+var precio_random : int = 10
+var precio_escudo : int = 500
 
 var catalogo_strings = [
 	"dmg",
@@ -34,6 +40,10 @@ var catalogo_niveles = [
 
 func _ready() -> void:
 	_puntos = 0
+	%escudoPrecio.text = str(precio_escudo)
+	%vidaPrecio.text = str(precio_vida)
+	%randomPrecio.text = str(precio_random)
+	%mejoraPrecio.text = str(catalogo_niveles.get(_nivel).get("precio"))
 
 func _process(delta: float) -> void:
 	if activar_rot:
@@ -65,6 +75,7 @@ func set_nivel(nuevo:int):
 	%mejoraSoldOut.visible = estado
 	if _nivel < MAX_NIVEL:
 		%iconoMejora.texture = catalogo_niveles.get(_nivel).get("icono")
+		%mejoraPrecio.text = str(catalogo_niveles.get(_nivel).get("precio"))
 
 func _on_cerrar_tienda_pressed() -> void:
 	print("Cerrando tienda")
@@ -88,7 +99,7 @@ func _on_boton_mejora_pressed() -> void:
 			set_nivel(_nivel+1)
 			%Dinero_tienda.text = str(_puntos)
 			cambio_puntos.emit(_puntos)
-			cambio_nivel.emit(_nivel)
+			cambio_nivel.emit()
 			
 		else:
 			print("No tienes puntos")
@@ -99,13 +110,14 @@ func _on_boton_mejora_pressed() -> void:
 
 func _on_boton_vida_pressed() -> void:
 	if _vida < MAX_VIDA:
-		var precio = 100
-		if _puntos >= precio:
-			_puntos = _puntos - precio
+		if _puntos >= precio_vida:
+			_puntos = _puntos - precio_vida
 			set_vida(_vida+1)
 			%Dinero_tienda.text = str(_puntos)
 			cambio_puntos.emit(_puntos)
 			compra_vida.emit()
+			precio_vida+=25
+			%vidaPrecio.text = str(precio_vida)
 		else:
 			print("No tienes puntos")
 	else:
@@ -114,9 +126,8 @@ func _on_boton_vida_pressed() -> void:
 
 func _on_boton_escudo_pressed() -> void:
 	if not _escudo:
-		var precio = 100
-		if _puntos >= precio:
-			_puntos = _puntos - precio
+		if _puntos >= precio_escudo:
+			_puntos = _puntos - precio_escudo
 			set_escudo(true)
 			%Dinero_tienda.text = str(_puntos)
 			cambio_puntos.emit(_puntos)
@@ -128,7 +139,43 @@ func _on_boton_escudo_pressed() -> void:
 		elegir_error()
 
 func _on_boton_random_pressed() -> void:
-	activar_rot = !activar_rot
+	if _puntos >= precio_random:
+		_puntos = _puntos - precio_random
+		cambio_puntos.emit(_puntos)
+		%Dinero_tienda.text = str(_puntos)
+		var opcion = randi_range(0,3)
+		match opcion:
+			0:
+				print("FIUUU")
+				activar_rot = !activar_rot
+			1:
+				print("BLANCO Y NEGRO FIUUUU")
+				var actual = filtro_actual.get("color")
+				var activo = true
+				if actual == "byn":
+					activo = false
+				filtro_actual.set("filtro", activo)
+				filtro.emit("byn", activo)
+			2:
+				print("Vn FIUUUU")
+				var actual = filtro_actual.get("color")
+				var activo = true
+				if actual == "nv":
+					activo = false
+				filtro_actual.set("filtro", activo)
+				filtro_actual.set("color", "nv")
+				filtro.emit("nv", activo)
+			3:
+				var actual = filtro_actual.get("color")
+				var activo = true
+				if actual == "crt":
+					activo = false
+				filtro_actual.set("filtro", activo)
+				filtro_actual.set("color", "crt")
+				filtro.emit("crt", activo)
+	else:
+		print("No tienes puntos")
+		elegir_error()
 
 var sonidos = [
 	preload("res://assets/sounds/error1.mp3"), 

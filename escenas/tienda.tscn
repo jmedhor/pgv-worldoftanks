@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://boihdnajnn6l1"]
+[gd_scene load_steps=24 format=3 uid="uid://boihdnajnn6l1"]
 
 [ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="1_6iohk"]
 [ext_resource type="Script" uid="uid://choyww27qhude" path="res://scripts/tienda/tienda.gd" id="1_7w1lh"]
@@ -67,13 +67,9 @@ _data = {
 font = ExtResource("8_6xkys")
 font_size = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_poroo"]
+[sub_resource type="LabelSettings" id="LabelSettings_008l2"]
 font = ExtResource("8_6xkys")
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_2d5a0"]
-font = ExtResource("8_6xkys")
-font_size = 32
+font_size = 48
 
 [node name="Tienda" type="Control"]
 layout_mode = 3
@@ -101,19 +97,27 @@ scale = Vector2(0.9, 0.8)
 texture = ExtResource("1_6iohk")
 
 [node name="cerrar_tienda" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -211.5
+offset_top = 4.0
+offset_right = -109.5
+offset_bottom = 110.0
+grow_horizontal = 0
 flat = true
 
 [node name="TextureRect2" type="TextureRect" parent="cerrar_tienda"]
-layout_mode = 0
-offset_left = 945.0
-offset_top = 13.0
-offset_right = 1112.0
-offset_bottom = 225.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_1bbqv")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="botonAnterior" type="Button" parent="."]
 unique_name_in_owner = true
@@ -268,14 +272,24 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_008l2")
 expand_mode = 5
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 6.1035156e-05
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
 text = "Mejorar Cañon"
 label_settings = SubResource("LabelSettings_7w1lh")
 horizontal_alignment = 1
@@ -283,6 +297,24 @@ vertical_alignment = 1
 autowrap_mode = 2
 autowrap_trim_flags = 0
 justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="mejoraPrecio" type="Label" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_008l2")
 
 [node name="mejoraSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora"]
 unique_name_in_owner = true
@@ -327,18 +359,49 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_008l2")
 expand_mode = 5
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 64
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
 text = "Salud"
-label_settings = SubResource("LabelSettings_poroo")
+label_settings = SubResource("LabelSettings_7w1lh")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="vidaPrecio" type="Label" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_008l2")
 
 [node name="vidaSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida"]
 unique_name_in_owner = true
@@ -387,18 +450,49 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_008l2")
 expand_mode = 5
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 64
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
 text = "Escudo"
-label_settings = SubResource("LabelSettings_2d5a0")
+label_settings = SubResource("LabelSettings_7w1lh")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="escudoPrecio" type="Label" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_008l2")
 
 [node name="escudoSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo"]
 unique_name_in_owner = true
@@ -443,18 +537,49 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_008l2")
 expand_mode = 5
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 64
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
 text = "Random"
-label_settings = SubResource("LabelSettings_2d5a0")
+label_settings = SubResource("LabelSettings_7w1lh")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="randomPrecio" type="Label" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_008l2")
 
 [node name="randomSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom"]
 visible = false

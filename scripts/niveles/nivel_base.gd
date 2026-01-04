@@ -55,10 +55,14 @@ func inicializar_señales():
 	tienda.cambio_arma.connect(_on_cambio_arma)
 	tienda.compra_vida.connect(_on_compra_vida)
 	tienda.compra_escudo.connect(_on_compra_escudo)
+	tienda.filtro.connect(_on_filtro)
 
-func _on_cambio_nivel(nuevo:int):
-	print(str(nuevo))
-	jugador.set_nivel(nuevo)
+func _on_filtro(nombre:String, activo:bool):
+	%capa.visible = activo
+	%filtro.material.shader = Global.filtros.get(nombre)
+
+func _on_cambio_nivel():
+	jugador.mejorar(1)
 
 func _on_compra_vida():
 	jugador.curar(1)

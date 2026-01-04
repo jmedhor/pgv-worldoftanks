@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=118 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_7vjjb"]
@@ -56,6 +56,7 @@
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="65_cu5jt"]
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="65_lqvft"]
+[ext_resource type="Shader" uid="uid://dcnjcasv3d57r" path="res://assets/crt.gdshader" id="66_cu5jt"]
 [ext_resource type="StyleBox" uid="uid://bn81q4txys2wl" path="res://recursos/barra_de_vida.tres" id="66_dt3yu"]
 [ext_resource type="AudioStream" uid="uid://1v2im4je30ib" path="res://assets/sounds/168707__qubodup__tank-firing.wav" id="67_xn8w1"]
 [ext_resource type="AudioStream" uid="uid://cmyo4nanaxtx2" path="res://assets/sounds/Boss_fight.wav" id="68_i2wjq"]
@@ -893,6 +894,12 @@ size = Vector3(25.995544, 1, 27.64508)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ivxyl"]
 size = Vector3(0.48901367, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jpn7"]
+shader = ExtResource("66_cu5jt")
+shader_parameter/curvature = 0.1
+shader_parameter/scanline_count = 300.0
+shader_parameter/aberration = 0.002
 
 [node name="Node3D" type="Node3D"]
 process_mode = 3
@@ -2691,6 +2698,24 @@ collision_layer = 32
 
 [node name="ObjetoCuracion" parent="." instance=ExtResource("65_cu5jt")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 5.39245, 0.38908285, -19.09607)
+
+[node name="capa" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+
+[node name="filtro" type="ColorRect" parent="capa"]
+unique_name_in_owner = true
+process_mode = 4
+material = SubResource("ShaderMaterial_5jpn7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
 
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

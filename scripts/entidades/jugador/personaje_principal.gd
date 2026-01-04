@@ -12,7 +12,7 @@ const MAX_VIDA: int = Global.MAX_VIDA_JUGADOR
 @export var tiempoEntreDisparo : float = 0.5
 @export var tiempoRecargaEspecial : float = 5.0
 @export var vida : float = MAX_VIDA
-@export var _nivel_arma : int = 2
+@export var _nivel_arma : int = 0
 var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
 var pausado : bool = false
@@ -136,7 +136,8 @@ func curar(puntos: int) -> void:
 	vida_cambiada.emit()
 
 func set_nivel(nivel:int):
-	_nivel_arma = nivel
+	if _nivel_arma < MAX_NIVEL:
+		_nivel_arma = nivel
 
 func get_nivel():
 	return _nivel_arma
