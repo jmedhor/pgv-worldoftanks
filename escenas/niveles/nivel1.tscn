@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=119 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_7vjjb"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" uid="uid://dafpcy1tfio24" path="res://scripts/entidades/tank_boss/tankboss.gd" id="60_7522d"]
 [ext_resource type="PackedScene" uid="uid://dpmc0ph1v8qme" path="res://escenas/entidades/tank_boss/area_aviso_explosion.tscn" id="61_xoytu"]
 [ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://escenas/entidades/tank_boss/explosion.tscn" id="62_d34lg"]
+[ext_resource type="PackedScene" uid="uid://ggu3faetcj12" path="res://escenas/ui/menu_victoria.tscn" id="63_5jpn7"]
 [ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/entidades/tank_boss/shoot_effect.tscn" id="63_ppgys"]
 [ext_resource type="Texture2D" uid="uid://cn0fk1ivviuk" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="64_hf2n6"]
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
@@ -905,6 +906,7 @@ shader_parameter/aberration = 0.002
 process_mode = 3
 script = ExtResource("1_v2o2g")
 escena_game_over = ExtResource("2_7vjjb")
+escena_victoria = ExtResource("63_5jpn7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1

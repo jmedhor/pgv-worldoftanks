@@ -1,44 +1,45 @@
-[gd_scene load_steps=13 format=3 uid="uid://njtbqfvsktla"]
+[gd_scene load_steps=14 format=3 uid="uid://ggu3faetcj12"]
 
-[ext_resource type="Script" uid="uid://bhw8oyp4d82ck" path="res://scripts/ui/menu_game_over.gd" id="1_qpg8w"]
-[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="2_fr63o"]
-[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/menus/option_plate.png" id="3_umyuj"]
-[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_nvm5m"]
-[ext_resource type="Texture2D" uid="uid://cpikfw1ajt4ih" path="res://assets/texturas/menus/barra_0.png" id="5_vxc51"]
-[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/menus/button_plate.png" id="6_5b26r"]
+[ext_resource type="Script" uid="uid://ce53ck2ur8df" path="res://escenas/ui/menu_victoria.gd" id="1_smdrh"]
+[ext_resource type="Texture2D" uid="uid://d1w2hnxagaedf" path="res://assets/icons/empty_star.tres" id="2_8tfq3"]
+[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="2_pa62r"]
+[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_ahgin"]
+[ext_resource type="Texture2D" uid="uid://cpikfw1ajt4ih" path="res://assets/texturas/menus/barra_0.png" id="4_pa62r"]
+[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/menus/option_plate.png" id="5_ahgin"]
+[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/menus/button_plate.png" id="7_cj0d2"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_r6pbf"]
-font = ExtResource("4_nvm5m")
+[sub_resource type="LabelSettings" id="LabelSettings_jyduj"]
+font = ExtResource("4_ahgin")
 font_size = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_1dxsa"]
-font = ExtResource("4_nvm5m")
+[sub_resource type="LabelSettings" id="LabelSettings_cj0d2"]
+font = ExtResource("4_ahgin")
 font_size = 24
 
-[sub_resource type="LabelSettings" id="LabelSettings_o8kdg"]
-font = ExtResource("4_nvm5m")
+[sub_resource type="LabelSettings" id="LabelSettings_m2h41"]
+font = ExtResource("4_ahgin")
 font_size = 24
 
-[sub_resource type="LabelSettings" id="LabelSettings_ewn2n"]
-font = ExtResource("4_nvm5m")
+[sub_resource type="LabelSettings" id="LabelSettings_ahgin"]
+font = ExtResource("4_ahgin")
 font_size = 18
 
-[sub_resource type="LabelSettings" id="LabelSettings_pydkt"]
-font = ExtResource("4_nvm5m")
+[sub_resource type="LabelSettings" id="LabelSettings_qy0v7"]
+font = ExtResource("4_ahgin")
 font_size = 24
 
-[sub_resource type="LabelSettings" id="LabelSettings_b81k0"]
-font = ExtResource("4_nvm5m")
+[sub_resource type="LabelSettings" id="LabelSettings_73vmh"]
+font = ExtResource("4_ahgin")
 font_size = 24
 
-[node name="menu_game_over" type="Control"]
+[node name="menu_victoria" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qpg8w")
+script = ExtResource("1_smdrh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -54,7 +55,7 @@ offset_bottom = 418.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.8)
-texture = ExtResource("2_fr63o")
+texture = ExtResource("2_pa62r")
 expand_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect"]
@@ -64,13 +65,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -186.11111
-offset_top = -308.75
-offset_right = 186.11108
-offset_bottom = -156.25
+offset_left = -186.11115
+offset_top = -316.25
+offset_right = 186.11115
+offset_bottom = -163.75
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_umyuj")
+texture = ExtResource("5_ahgin")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="TextureRect/TextureRect2"]
@@ -80,37 +81,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -112.0
+offset_left = -128.0
 offset_top = -16.0
-offset_right = 112.0
+offset_right = 128.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "DERROTA"
-label_settings = SubResource("LabelSettings_r6pbf")
+text = "VICTORIA"
+label_settings = SubResource("LabelSettings_jyduj")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="LabelFraseRandom" type="Label" parent="TextureRect"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -381.0
-offset_top = -132.0
-offset_right = 381.0
-offset_bottom = -108.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Frase random"
-label_settings = SubResource("LabelSettings_1dxsa")
-horizontal_alignment = 1
-autowrap_mode = 2
-justification_flags = 131
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
@@ -120,13 +100,51 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -373.0
-offset_top = -97.0
+offset_top = -179.0
 offset_right = 389.0
-offset_bottom = 211.75
+offset_bottom = 252.25
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
-alignment = 1
+
+[node name="ContainerEstrellas" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="e1" type="TextureRect" parent="TextureRect/VBoxContainer/ContainerEstrellas"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("2_8tfq3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="e2" type="TextureRect" parent="TextureRect/VBoxContainer/ContainerEstrellas"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("2_8tfq3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="e3" type="TextureRect" parent="TextureRect/VBoxContainer/ContainerEstrellas"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("2_8tfq3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelFraseRandom" type="Label" parent="TextureRect/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Frase random"
+label_settings = SubResource("LabelSettings_cj0d2")
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 131
 
 [node name="Puntos" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -135,7 +153,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Puntuacion: "
-label_settings = SubResource("LabelSettings_o8kdg")
+label_settings = SubResource("LabelSettings_m2h41")
 
 [node name="CenterContainer" type="CenterContainer" parent="TextureRect/VBoxContainer/Puntos"]
 layout_mode = 2
@@ -143,14 +161,14 @@ layout_mode = 2
 [node name="TextureRect4" type="TextureRect" parent="TextureRect/VBoxContainer/Puntos/CenterContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-texture = ExtResource("5_vxc51")
+texture = ExtResource("4_pa62r")
 expand_mode = 3
 
 [node name="LabelPuntos" type="Label" parent="TextureRect/VBoxContainer/Puntos/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00000"
-label_settings = SubResource("LabelSettings_ewn2n")
+label_settings = SubResource("LabelSettings_ahgin")
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -163,7 +181,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Combo: "
-label_settings = SubResource("LabelSettings_pydkt")
+label_settings = SubResource("LabelSettings_qy0v7")
 
 [node name="CenterContainer" type="CenterContainer" parent="TextureRect/VBoxContainer/Combo"]
 layout_mode = 2
@@ -172,14 +190,14 @@ size_flags_horizontal = 4
 [node name="TextureRect4" type="TextureRect" parent="TextureRect/VBoxContainer/Combo/CenterContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-texture = ExtResource("5_vxc51")
+texture = ExtResource("4_pa62r")
 expand_mode = 3
 
 [node name="LabelCombo" type="Label" parent="TextureRect/VBoxContainer/Combo/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00000"
-label_settings = SubResource("LabelSettings_ewn2n")
+label_settings = SubResource("LabelSettings_ahgin")
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -191,7 +209,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Tiempo de juego: "
-label_settings = SubResource("LabelSettings_b81k0")
+label_settings = SubResource("LabelSettings_73vmh")
 
 [node name="CenterContainer2" type="CenterContainer" parent="TextureRect/VBoxContainer/Tiempo"]
 layout_mode = 2
@@ -199,40 +217,29 @@ layout_mode = 2
 [node name="TextureRect4" type="TextureRect" parent="TextureRect/VBoxContainer/Tiempo/CenterContainer2"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-texture = ExtResource("5_vxc51")
+texture = ExtResource("4_pa62r")
 expand_mode = 3
 
 [node name="LabelTiempo" type="Label" parent="TextureRect/VBoxContainer/Tiempo/CenterContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00000"
-label_settings = SubResource("LabelSettings_ewn2n")
+label_settings = SubResource("LabelSettings_ahgin")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -381.00003
-offset_top = 177.5
-offset_right = 381.0
-offset_bottom = 237.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="TextureRect/HBoxContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("6_5b26r")
+texture = ExtResource("7_cj0d2")
 expand_mode = 2
 
-[node name="boton_volver" type="Button" parent="TextureRect/HBoxContainer2/TextureRect2"]
+[node name="boton_volver" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2/TextureRect2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -247,18 +254,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("4_nvm5m")
+theme_override_fonts/font = ExtResource("4_ahgin")
 text = "Volver al menu"
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("6_5b26r")
+texture = ExtResource("7_cj0d2")
 expand_mode = 3
 
-[node name="boton_reiniciar" type="Button" parent="TextureRect/HBoxContainer2/TextureRect"]
+[node name="boton_reiniciar" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -273,10 +280,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("4_nvm5m")
+theme_override_fonts/font = ExtResource("4_ahgin")
 theme_override_font_sizes/font_size = 16
 text = "Reiniciar nivel"
 flat = true
 
-[connection signal="pressed" from="TextureRect/HBoxContainer2/TextureRect2/boton_volver" to="." method="_on_boton_volver_pressed"]
-[connection signal="pressed" from="TextureRect/HBoxContainer2/TextureRect/boton_reiniciar" to="." method="_on_boton_reiniciar_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/TextureRect/boton_reiniciar" to="." method="_on_boton_reiniciar_pressed"]
