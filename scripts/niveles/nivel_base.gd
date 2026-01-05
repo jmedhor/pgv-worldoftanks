@@ -10,6 +10,7 @@ var timer2 : SceneTreeTimer
 @onready var jugador = $Personaje_principal
 @onready var tienda = $pruebaTienda
 @export var escena_game_over : PackedScene
+@export var escena_victoria : PackedScene
 var objeto_curacion = preload("res://escenas/potenciadores/objeto_curacion.tscn")
 var tiempo_jugado : float = 0
 var puntos : int
@@ -22,6 +23,9 @@ var tienda_abierta : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	reiniciar_pausa()
+	
 	%AnimationPlayer.play("mov_camara")
 	%timer1.start()
 	puntos = 1000
@@ -31,6 +35,12 @@ func _ready() -> void:
 	inicializar_jugador()
 	inicializar_hud()
 	inicializar_señales()
+	
+
+func reiniciar_pausa():
+	pausa = false
+	Global.pausar_juego.emit(pausa)
+	get_tree().paused = pausa
 
 func inicializar_jugador():
 	jugador.vida = 2
@@ -47,6 +57,7 @@ func inicializar_hud():
 func inicializar_señales():
 	Global.is_shopping.connect(_on_puede_comprar)
 	Global.enemigo_ha_muerto.connect(_on_enemigo_muerto)
+	Global.finalizar_victoria.connect(_finalizar_victoria)
 	jugador.cooldown_updated.connect(_on_personaje_principal_cooldown_updated)
 	jugador.vida_cambiada.connect(_on_actualizar_vida)
 	tienda.cambio_nivel.connect(_on_cambio_nivel)
@@ -56,6 +67,24 @@ func inicializar_señales():
 	tienda.compra_vida.connect(_on_compra_vida)
 	tienda.compra_escudo.connect(_on_compra_escudo)
 	tienda.filtro.connect(_on_filtro)
+
+func _comprobar_estrellas() -> int:
+	return 0
+
+func _finalizar_victoria():
+	partida_activa = false
+	_alterar_pausa()
+	if escena_victoria:
+		var menu = escena_victoria.instantiate()
+		menu.puntos = puntos
+		menu.tiempo = tiempo_jugado
+		menu.combo = combo_maximo
+		var cont = _comprobar_estrellas()
+		menu.rellenar_estrellas(cont)
+		add_child(menu)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		print("ERROR: No has asignado la escena de victoria en el Inspector")
 
 func _on_filtro(nombre:String, activo:bool):
 	%capa.visible = activo
@@ -83,8 +112,11 @@ func _on_cambio_arma(nueva:String):
 	hud.actualizar_arma_especial(nueva)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pausa"):
+func _process(delta: float) -> void:
+	if not pausa:
+		tiempo_jugado+=delta
+	
+	if Input.is_action_just_pressed("pausa") && partida_activa:
 		if tienda_abierta:
 			_on_cerrar_tienda()
 		else:
@@ -97,11 +129,13 @@ func _process(_delta: float) -> void:
 			else:
 				tienda_abierta = false
 				%menu_pausa.visible = true
-	if Input.is_action_just_pressed("tienda"):
+	if Input.is_action_just_pressed("tienda") && partida_activa && puede_comprar:
 		if tienda_abierta:
 			_on_cerrar_tienda()
 		else:
 			_on_enter_shop()
+	if  Input.is_action_just_pressed("pruebaa") && partida_activa:
+		_finalizar_victoria()
 
 func _on_enemigo_muerto(p : int):
 	puntos = puntos + p
@@ -120,6 +154,7 @@ func _on_actualizar_vida():
 	hud.actualizar_hud_vida(jugador.vida, jugador.escudo)
 	if jugador.vida <= 0:
 		partida_activa = false
+		_alterar_pausa()
 		if escena_game_over:
 			var menu = escena_game_over.instantiate()
 			menu.puntos = puntos
@@ -129,7 +164,6 @@ func _on_actualizar_vida():
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			print("ERROR: No has asignado la escena de Game Over en el Inspector")
-
 
 func _on_personaje_principal_cooldown_updated(time_left: float) -> void:
 	hud.actualizar_temp_especial(time_left)
@@ -186,17 +220,12 @@ func _on_h_slider_value_changed(value: float) -> void:
 	var normalized = value / 255.0
 	rect_brillo.color.a = 1.0 - normalized
 
-
 func _on_button_3_pressed() -> void:
 	%menu_opciones.visible = false
 	%menu_pausa.visible = false
 	_alterar_pausa()
 	get_tree().paused = pausa
-	%AnimationPlayer.stop()
-	%AnimationPlayer2.stop()
-	%AnimationPlayer3.stop()
-	%AnimationPlayer.play("mov_camara")
-	%timer1.start()
+	get_tree().reload_current_scene()
 
 func _on_cerrar_tienda() -> void:
 	tienda_abierta = false
