@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-class_name enemigoNormalBasico
+class_name enemigoNormal
 
 @export var vida : float = 3.0
 @export var estatico : bool = false
@@ -13,7 +13,7 @@ class_name enemigoNormalBasico
 @export var puntuacion : float = 100
 @export var destruccion:PackedScene
 @export var potenciadores: Array[PackedScene]
-@export var prob_pot: float = 100
+@export var prob_pot: float = 10
 
 @onready var parent = get_parent()
 
@@ -47,9 +47,6 @@ func moverse_camino(delta: float) -> void:
 	var curva = parent.get_parent().get_curve()
 	var avance = velocidad_avance*delta
 	if curva.closed == true:
-		print("WE ARE CLOSED")
-		print(parent.get_progress())
-		print(parent.get_progress() + avance)
 		parent.set_progress(parent.get_progress() + avance)
 	else:
 		var max_length = curva.get_baked_length()
@@ -94,17 +91,15 @@ func _on_timer_moviendose_timeout() -> void:
 	puedeMoverse = false
 	
 func recibir_dano(dano: int):
-	print("Enemigo Dañado")
 	vida = vida - dano
 	if vida <= 0 :
-		print("Enemigo Destruido")
 		Global.enemigo_ha_muerto.emit(puntuacion)
 		probar_suerte()
 		vfx_destruccion()
 		queue_free()
 
 func probar_suerte():
-	if rng.randf() < prob_pot:
+	if rng.randf() < prob_pot*0.01:
 		var potenciador = potenciadores[rng.randf_range(0,2)].instantiate()
 		get_tree().current_scene.add_child(potenciador)
 		potenciador.global_position = global_position
