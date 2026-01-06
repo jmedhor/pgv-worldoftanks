@@ -9,6 +9,8 @@ height = 0.111694336
 radius = 0.16210938
 
 [node name="Mina" type="Area3D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_o4l78")
 datos = ExtResource("2_kt5ln")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"

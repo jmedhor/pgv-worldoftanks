@@ -9,6 +9,8 @@ height = 0.59721375
 radius = 0.31054688
 
 [node name="Foso" type="Area3D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_vnowa")
 datos = ExtResource("2_hfanl")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"

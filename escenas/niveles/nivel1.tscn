@@ -348,7 +348,7 @@ size = Vector3(59.844833, 0.1, 1503.291)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmwq3"]
 albedo_texture = ExtResource("5_2vr2k")
-uv1_scale = Vector3(1, 40, 1)
+uv1_scale = Vector3(1.125, 45, 1.125)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o67f3"]
 albedo_texture = ExtResource("6_lasgm")
@@ -958,7 +958,7 @@ shape = SubResource("BoxShape3D_mt5rx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 process_mode = 1
-transform = Transform3D(2.3901353, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017910004, 0, -699.03973)
+transform = Transform3D(3.2264433, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017910004, 0, -699.03973)
 material_override = SubResource("StandardMaterial3D_pmwq3")
 mesh = SubResource("PlaneMesh_rcdd3")
 
@@ -973,6 +973,7 @@ shape = SubResource("BoxShape3D_7i0ls")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraIzquierda"]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1500, 0, 0, -743.29)
+visible = false
 mesh = SubResource("BoxMesh_3um7j")
 skeleton = NodePath("")
 
@@ -987,6 +988,7 @@ shape = SubResource("BoxShape3D_7i0ls")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraDerecha2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_fmekg")
 skeleton = NodePath("")
 
@@ -2461,16 +2463,13 @@ transform = Transform3D(0.43523106, 0, 0.90031874, 0, 1, 0, -0.90031874, 0, 0.43
 transform = Transform3D(0.434791, 0, 0.9005314, 0, 1, 0, -0.9005314, 0, 0.434791, 0.50758934, 0.42634463, -698.2333)
 
 [node name="BloqueTroncos2" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
-transform = Transform3D(-0.07149746, 0, -0.99744076, 0, 1, 0, 0.99744076, 0, -0.07149746, 5.215, 0.426, -761.419)
-
-[node name="BloqueTroncos4" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
-transform = Transform3D(-0.07149746, 0, -0.99744076, 0, 1, 0, 0.99744076, 0, -0.07149746, -3.749, 0.426, -761.419)
+transform = Transform3D(-0.07149746, 0, -0.99744076, 0, 1, 0, 0.99744076, 0, -0.07149746, 2.5901337, 0.426, -770.38416)
 
 [node name="BloqueTroncos17" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
-transform = Transform3D(-0.8616291, 0, -0.5075383, 0, 1, 0, 0.5075383, 0, -0.8616291, -4.301936, 0.42634463, -816.40753)
+transform = Transform3D(-0.8616291, 0, -0.5075383, 0, 1, 0, 0.5075383, 0, -0.8616291, -6.535279, 0.42634463, -816.40753)
 
 [node name="BloqueTroncos18" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
-transform = Transform3D(-0.8616291, 0, -0.5075383, 0, 1, 0, 0.5075383, 0, -0.8616291, 5.2939787, 0.42634463, -816.40753)
+transform = Transform3D(-0.8616291, 0, -0.5075383, 0, 1, 0, 0.5075383, 0, -0.8616291, 7.265688, 0.42634463, -816.40753)
 
 [node name="BloqueTroncos19" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
 transform = Transform3D(-0.8616291, 0, -0.5075383, 0, 1, 0, 0.5075383, 0, -0.8616291, 0.2515974, 0.42634463, -874.4415)
@@ -2497,13 +2496,13 @@ transform = Transform3D(-0.5835411, 0, 0.8120834, 0, 1, 0, -0.8120834, 0, -0.583
 transform = Transform3D(-0.5835411, 0, 0.8120834, 0, 1, 0, -0.8120834, 0, -0.5835411, -5.213001, 0.42634463, -1139.7124)
 
 [node name="BloqueTroncos24" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
-transform = Transform3D(-0.5835411, 0, 0.8120834, 0, 1, 0, -0.8120834, 0, -0.5835411, 3.5792747, 0.42634463, -1029.0203)
+transform = Transform3D(-0.5835411, 0, 0.8120834, 0, 1, 0, -0.8120834, 0, -0.5835411, 2.806127, 0.42634463, -1029.0203)
 
 [node name="BloqueTroncos27" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
-transform = Transform3D(-0.9365554, 0, 0.35051775, 0, 1, 0, -0.35051775, 0, -0.9365554, -5.213001, 0.42634463, -1180.0972)
+transform = Transform3D(-0.9365554, 0, 0.35051775, 0, 1, 0, -0.35051775, 0, -0.9365554, -6.3103256, 0.42634463, -1180.0972)
 
 [node name="BloqueTroncos29" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
-transform = Transform3D(0.9853152, 0, -0.17074269, 0, 1, 0, 0.17074269, 0, 0.9853152, 5.6597486, 0.42634463, -1180.0972)
+transform = Transform3D(0.9853152, 0, -0.17074269, 0, 1, 0, 0.17074269, 0, 0.9853152, 7.101359, 0.42634463, -1180.0972)
 
 [node name="BloqueTroncos30" parent="Obstaculos" instance=ExtResource("59_ytqtc")]
 transform = Transform3D(0.92917, 0, -0.369649, 0, 1, 0, 0.369649, 0, 0.92917, 0.74998903, 0.42634463, -1191.8619)
