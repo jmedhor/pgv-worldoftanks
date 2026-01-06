@@ -61,13 +61,13 @@ func inicializar_señales():
 	Global.finalizar_victoria.connect(_finalizar_victoria)
 	jugador.cooldown_updated.connect(_on_personaje_principal_cooldown_updated)
 	jugador.vida_cambiada.connect(_on_actualizar_vida)
-#	tienda.cambio_nivel.connect(_on_cambio_nivel)
-#	tienda.cerrar_tienda.connect(_on_cerrar_tienda)
-#	tienda.cambio_puntos.connect(_on_cambio_puntos)
-#	tienda.cambio_arma.connect(_on_cambio_arma)
-#	tienda.compra_vida.connect(_on_compra_vida)
-#	tienda.compra_escudo.connect(_on_compra_escudo)
-#	tienda.filtro.connect(_on_filtro)
+	tienda.cambio_nivel.connect(_on_cambio_nivel)
+	tienda.cerrar_tienda.connect(_on_cerrar_tienda)
+	tienda.cambio_puntos.connect(_on_cambio_puntos)
+	tienda.cambio_arma.connect(_on_cambio_arma)
+	tienda.compra_vida.connect(_on_compra_vida)
+	tienda.compra_escudo.connect(_on_compra_escudo)
+	tienda.filtro.connect(_on_filtro)
 
 func _comprobar_estrellas() -> int:
 	return 0
