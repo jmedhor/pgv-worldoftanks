@@ -59,7 +59,6 @@ func _on_jugador_muerto():
 func _on_personaje_principal_cooldown_updated(time_left: float) -> void:
 	hud.actualizar_temp_especial(time_left)
 
-
 func _on_area_3d_body_entered(body):
 	if body.has_method("eliminar_borde"):
 		body.eliminar_borde()

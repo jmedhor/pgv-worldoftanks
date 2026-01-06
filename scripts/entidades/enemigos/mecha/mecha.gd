@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
-class_name enemigoMechaBasico
+class_name enemigoMecha
 
 @export var vida : float = 5.0
+@export var estatico : bool = false
 @export var velocidad_avance : float = 6.0
 @export var velocidad_desplazo : float = 1.0	#Queda raro sin animacion lol
 @export var proyectil:PackedScene
@@ -11,6 +12,10 @@ class_name enemigoMechaBasico
 @export var tiempoMoviendose : float = 1
 @export var puntuacion : float = 350
 @export var destruccion:PackedScene
+@export var potenciadores: Array[PackedScene]
+@export var prob_pot: float = 0.25
+
+@onready var parent = get_parent()
 
 var puedeMoverse : bool = false
 var rng : RandomNumberGenerator
@@ -19,22 +24,45 @@ var derecha : bool = true
 var deltaMultiplier : float = 50
 
 func _ready():
-	print("mecha")
 	$timerMoverse.start(tiempoEntreMoverse)
 	$timerDisparo.start(tiempoEntreDisparo)
 	rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
 	
-	var direction = Vector3.ZERO
-	
-	direction.z += 1.0 * velocidad_avance
-	if puedeMoverse == true:
-		direction.x += moverse()
+	if get_parent() is PathFollow3D:
+		moverse_camino(delta)
+	else:
+		if !estatico:
+			var direction = Vector3.ZERO
+			
+			direction.z += 1.0 * velocidad_avance
+			if puedeMoverse == true:
+				direction.x += moverse()
 
-	velocity = direction * delta * deltaMultiplier
-	
-	move_and_slide() 
+			velocity = direction * delta * deltaMultiplier
+			
+			move_and_slide() 
+
+func moverse_camino(delta: float) -> void:
+	var curva = parent.get_parent().get_curve()
+	var avance = velocidad_avance*delta
+	if curva.closed == true:
+		parent.set_progress(parent.get_progress() + avance)
+	else:
+		var max_length = curva.get_baked_length()
+		if parent.get_progress()+avance < max_length:
+			parent.set_progress(parent.get_progress() + avance)
+		else:
+			parent.set_progress(max_length)
+			salir_camino()
+			
+func salir_camino():
+	var escena = get_tree().current_scene
+	var pos = self.global_position
+	parent.remove_child(self)
+	escena.add_child(self)
+	self.global_position = pos
 
 func moverse():
 	var x_factor : float = 0.0
@@ -71,13 +99,19 @@ func _on_timer_moviendose_timeout() -> void:
 	puedeMoverse = false
 	
 func recibir_dano(dano: int):
-	print("Enemigo Dañado")
 	vida = vida - dano
 	if vida <= 0 :
-		print("Enemigo Destruido")
 		Global.enemigo_ha_muerto.emit(puntuacion)
+		probar_suerte()
 		vfx_destruccion()
 		queue_free()
+
+func probar_suerte():
+	if rng.randf() < prob_pot:
+		var potenciador = potenciadores[rng.randf_range(0,2)].instantiate()
+		get_tree().current_scene.add_child(potenciador)
+		potenciador.global_position = global_position
+		potenciador.global_position.y += 0.5
 
 func eliminar_borde():
 	print("Enemigo se fue por el borde")
