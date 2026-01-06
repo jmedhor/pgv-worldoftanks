@@ -18,12 +18,25 @@ extends Control
 @export var barra_1 : Texture2D
 @export var barra_0 : Texture2D
 
-func actualizar_hud_vida(vida_actual: int):
+@export var escudo_on : Texture2D
+@export var escudo_off : Texture2D
+
+var icono : Resource
+
+func actualizar_hud_vida(vida_actual: int, escudo: bool):
 	actualizar_imagen_vida(vida_actual)
 	actualizar_imagen_retrato(vida_actual)
+	actualizar_imagen_escudo(escudo)
 
 func actualizar_puntuacion_hud(puntos_nuevos: int):
 	label_puntos.text = "%d" % puntos_nuevos
+
+func actualizar_arma_especial(arma:String):
+	if (arma == "emp"):
+		icono = preload("res://assets/icons/emp.png")
+	else:
+		icono = preload("res://assets/icons/dmg.png")
+	$%armaEspecial.texture = icono
 
 func actualizar_combo_hud(combo: int):
 	if combo > 3:
@@ -42,6 +55,12 @@ func actualizar_imagen_vida(vida_actual: int):
 		barra_vida.texture = barra_1
 	else:
 		barra_vida.texture = barra_0
+		
+func actualizar_imagen_escudo(escudo: bool):
+	if escudo: 
+		%BarraEscudo.texture = escudo_on
+	else:
+		%BarraEscudo.texture = escudo_off
 
 func actualizar_imagen_retrato(vida_actual: int):	
 	if vida_actual == 4: 
@@ -54,6 +73,9 @@ func actualizar_imagen_retrato(vida_actual: int):
 		retrato_estado.texture = textura_25
 	else:
 		retrato_estado.texture = textura_0
+
+func mostrar_aviso_tienda(aviso:bool):
+	%AvisoTienda.visible = aviso
 
 func actualizar_temp_especial(tiempo: float):
 	barra_especial.value = tiempo

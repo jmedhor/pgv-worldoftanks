@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://uwlqe6bn1kcx"]
+
+[ext_resource type="Texture2D" uid="uid://c5s7tw3pobl8m" path="res://assets/texturas/menus/menu_pausa.png" id="1_f0gls"]
+[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/menus/option_plate.png" id="2_kso7j"]
+[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/menus/button_plate.png" id="3_m1pn8"]
+[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_atpth"]
+
+[node name="menu_pausa" type="Control"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 652.0
+color = Color(0.019607844, 0.019607844, 0.019607844, 0.101960786)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 121.0
+offset_right = 1311.0
+offset_bottom = 848.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_f0gls")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 155.0
+offset_right = 1619.5714
+offset_bottom = 426.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_kso7j")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 247.0
+offset_right = 1218.0
+offset_bottom = 476.99988
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("3_m1pn8")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 292.0
+offset_right = 1218.0
+offset_bottom = 521.9999
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("3_m1pn8")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 338.0
+offset_right = 1218.0
+offset_bottom = 567.9999
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("3_m1pn8")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 380.0
+offset_right = 1218.0
+offset_bottom = 609.9999
+scale = Vector2(0.4, 0.22)
+texture = ExtResource("3_m1pn8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 189.0
+offset_right = 838.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("4_atpth")
+theme_override_font_sizes/font_size = 24
+text = "JUEGO PAUSADO"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 259.0
+offset_right = 784.0
+offset_bottom = 447.0
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_atpth")
+text = "REANUDAR"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_atpth")
+text = "OPCIONES"
+flat = true
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_atpth")
+text = "REINICIAR NIVEL"
+flat = true
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_atpth")
+text = "SALIR"
+flat = true

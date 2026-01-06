@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cp0k3nwgblaam"]
 
-[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://tipos/area_reactiva/area_reactiva.gd" id="1_nb5j7"]
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_nb5j7"]
 [ext_resource type="Resource" uid="uid://cth3ubyjt2dw5" path="res://recursos/proyectiles/enemigos/proyectil_medio.tres" id="2_mtmg8"]
 [ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="2_srt4x"]
 
@@ -19,6 +19,7 @@ shader_parameter/pulse_strength = 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_srt4x"]
 
 [node name="ProyectilMedio" type="Area3D"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("1_nb5j7")
 datos = ExtResource("2_mtmg8")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"

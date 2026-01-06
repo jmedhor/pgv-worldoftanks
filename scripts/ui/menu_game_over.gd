@@ -8,19 +8,12 @@ var tiempo : float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%LabelFraseRandom.text = obtener_frase_aleatoria()
-	%LabelPuntos.text = "Puntuacion: %s" % puntos
-	%LabelCombo.text = "Mejor combo: x%s" % combo
-	%LabelTiempo.text = "Tiempo: %s" % formatear_tiempo(tiempo)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	%LabelPuntos.text = str(puntos)
+	%LabelCombo.text = "x%s" % combo
+	%LabelTiempo.text = formatear_tiempo(tiempo)
 
 func _on_boton_reiniciar_pressed() -> void:
 	get_tree().reload_current_scene()
-
-
 
 func _on_boton_volver_pressed() -> void:
 	if ruta_menu_principal:

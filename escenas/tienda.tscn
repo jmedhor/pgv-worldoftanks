@@ -1,0 +1,601 @@
+[gd_scene load_steps=24 format=3 uid="uid://boihdnajnn6l1"]
+
+[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="1_6iohk"]
+[ext_resource type="Script" uid="uid://choyww27qhude" path="res://scripts/tienda/tienda.gd" id="1_7w1lh"]
+[ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://assets/texturas/menus/marco_obj_tienda.png" id="2_7w1lh"]
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="3_poroo"]
+[ext_resource type="Texture2D" uid="uid://c8f1gw1uq0vhh" path="res://assets/texturas/menus/x.png" id="4_1bbqv"]
+[ext_resource type="Texture2D" uid="uid://b7gho8mrl6pkj" path="res://assets/texturas/menus/left_arrow.png" id="5_2d5a0"]
+[ext_resource type="Texture2D" uid="uid://buca8dn8wfqj0" path="res://assets/images/random.jpg" id="5_poroo"]
+[ext_resource type="Texture2D" uid="uid://b3ux0idrpcega" path="res://assets/texturas/menus/right_arrow.png" id="6_exaca"]
+[ext_resource type="Texture2D" uid="uid://ivugmq00xdvn" path="res://assets/images/sold_out.png" id="7_1bbqv"]
+[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/menus/option_plate.png" id="7_008l2"]
+[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="8_6xkys"]
+[ext_resource type="Texture2D" uid="uid://b427p7seifnk7" path="res://assets/texturas/menus/coin.png" id="9_tdeos"]
+[ext_resource type="Texture2D" uid="uid://cpikfw1ajt4ih" path="res://assets/texturas/menus/barra_0.png" id="10_jfyo6"]
+[ext_resource type="Texture2D" uid="uid://d1n1xl77pejca" path="res://assets/icons/ammo-pistol 32px.png" id="12_008l2"]
+[ext_resource type="Texture2D" uid="uid://d1wgr6am6o7xk" path="res://assets/icons/health-green 32px.png" id="14_6xkys"]
+[ext_resource type="Texture2D" uid="uid://cwy7o537ptjrd" path="res://assets/icons/health-armor 32px.png" id="15_tdeos"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bbqv"]
+font = ExtResource("8_6xkys")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpvl8"]
+line_spacing = 0.0
+font = ExtResource("8_6xkys")
+font_size = 108
+
+[sub_resource type="Animation" id="Animation_i7ldd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2pljw"]
+resource_name = "cerrar_tienda"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkbsn"]
+_data = {
+&"RESET": SubResource("Animation_i7ldd"),
+&"cerrar_tienda": SubResource("Animation_2pljw")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_7w1lh"]
+font = ExtResource("8_6xkys")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_008l2"]
+font = ExtResource("8_6xkys")
+font_size = 48
+
+[node name="Tienda" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.5
+offset_top = -327.0
+offset_right = 577.5
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(575, 300)
+script = ExtResource("1_7w1lh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 34.0
+offset_right = 1118.0
+offset_bottom = 742.0
+scale = Vector2(0.9, 0.8)
+texture = ExtResource("1_6iohk")
+
+[node name="cerrar_tienda" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -211.5
+offset_top = 4.0
+offset_right = -109.5
+offset_bottom = 110.0
+grow_horizontal = 0
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="cerrar_tienda"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1bbqv")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="botonAnterior" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 430.0
+offset_top = 441.0
+offset_right = 607.0
+offset_bottom = 654.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("5_2d5a0")
+flat = true
+
+[node name="botonSiguiente" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 654.0
+offset_top = 440.0
+offset_right = 845.0
+offset_bottom = 652.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("6_exaca")
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 70.0
+offset_right = 1263.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_6xkys")
+theme_override_font_sizes/font_size = 30
+text = "TIENDA"
+label_settings = SubResource("LabelSettings_1bbqv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Obj5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 420.00003
+offset_right = 735.0
+offset_bottom = 653.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+
+[node name="iconoArma" type="TextureRect" parent="Obj5"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_poroo")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 93.0
+offset_right = 708.0
+offset_bottom = 541.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("9_tdeos")
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect3"]
+layout_mode = 0
+offset_left = 466.66675
+offset_top = 66.66667
+offset_right = 1306.6667
+offset_bottom = 186.66667
+scale = Vector2(1, 2.5)
+texture = ExtResource("10_jfyo6")
+
+[node name="Dinero_tienda" type="Label" parent="TextureRect3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 520.00006
+offset_top = 153.33333
+offset_right = 1266.6667
+offset_bottom = 272.0
+text = "00000"
+label_settings = SubResource("LabelSettings_vpvl8")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="cerrartienda" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_gkbsn")
+}
+
+[node name="soundStream" type="AudioStreamPlayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 225.5
+offset_top = 168.0
+offset_right = -191.5
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="botonMejora" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj1" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+stretch_mode = 4
+
+[node name="iconoMejora" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora/Obj1"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_008l2")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 718.75
+offset_bottom = 342.49997
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Mejorar Cañon"
+label_settings = SubResource("LabelSettings_7w1lh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="mejoraPrecio" type="Label" parent="VBoxContainer/HBoxContainer/botonMejora/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_008l2")
+
+[node name="mejoraSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonMejora"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
+[node name="botonVida" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj2" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida/Obj2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_6xkys")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 640.0
+offset_bottom = 355.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Salud"
+label_settings = SubResource("LabelSettings_7w1lh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="vidaPrecio" type="Label" parent="VBoxContainer/HBoxContainer/botonVida/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_008l2")
+
+[node name="vidaSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer/botonVida"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="botonEscudo" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj3" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo/Obj3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_tdeos")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 640.0
+offset_bottom = 355.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Escudo"
+label_settings = SubResource("LabelSettings_7w1lh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="escudoPrecio" type="Label" parent="VBoxContainer/HBoxContainer3/botonEscudo/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_008l2")
+
+[node name="escudoSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonEscudo"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
+[node name="botonRandom" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Obj4" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 233.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7w1lh")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom/Obj4"]
+layout_mode = 0
+offset_left = 51.666683
+offset_top = 59.999996
+offset_right = 584.99994
+offset_bottom = 551.6666
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_poroo")
+expand_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom"]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 640.0
+offset_bottom = 355.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_008l2")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 77.5
+offset_right = -41.25006
+offset_bottom = -99.99997
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Random"
+label_settings = SubResource("LabelSettings_7w1lh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer/HBoxContainer"]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_tdeos")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="randomPrecio" type="Label" parent="VBoxContainer/HBoxContainer3/botonRandom/TextureRect2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_008l2")
+
+[node name="randomSoldOut" type="TextureRect" parent="VBoxContainer/HBoxContainer3/botonRandom"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1bbqv")
+expand_mode = 3
+
+[connection signal="pressed" from="cerrar_tienda" to="." method="_on_cerrar_tienda_pressed"]
+[connection signal="pressed" from="botonAnterior" to="." method="_on_boton_anterior_pressed"]
+[connection signal="pressed" from="botonSiguiente" to="." method="_on_boton_siguiente_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/botonMejora" to="." method="_on_boton_mejora_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/botonVida" to="." method="_on_boton_vida_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/botonEscudo" to="." method="_on_boton_escudo_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/botonRandom" to="." method="_on_boton_random_pressed"]

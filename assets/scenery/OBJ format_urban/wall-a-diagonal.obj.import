@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2s6452ovmv3h"
+path="res://.godot/imported/wall-a-diagonal.obj-ef31a5f7a6a07a17dec66acddaa653c9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-a-diagonal.obj-ef31a5f7a6a07a17dec66acddaa653c9.mesh"]
+
+source_file="res://assets/scenery/OBJ format_urban/wall-a-diagonal.obj"
+dest_files=["res://.godot/imported/wall-a-diagonal.obj-ef31a5f7a6a07a17dec66acddaa653c9.mesh", "res://.godot/imported/wall-a-diagonal.obj-ef31a5f7a6a07a17dec66acddaa653c9.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

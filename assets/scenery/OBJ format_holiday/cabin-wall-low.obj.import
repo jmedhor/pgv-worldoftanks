@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b82k6ty4k6wkl"
+path="res://.godot/imported/cabin-wall-low.obj-4f43dc54766690a33fa2a014cdf0cfd6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cabin-wall-low.obj-4f43dc54766690a33fa2a014cdf0cfd6.mesh"]
+
+source_file="res://assets/scenery/OBJ format_holiday/cabin-wall-low.obj"
+dest_files=["res://.godot/imported/cabin-wall-low.obj-4f43dc54766690a33fa2a014cdf0cfd6.mesh", "res://.godot/imported/cabin-wall-low.obj-4f43dc54766690a33fa2a014cdf0cfd6.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

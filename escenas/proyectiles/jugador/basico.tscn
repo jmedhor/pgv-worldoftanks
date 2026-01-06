@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx3tay0q3kqfh"]
 
-[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://tipos/area_reactiva/area_reactiva.gd" id="1_efxnv"]
+[ext_resource type="Script" uid="uid://l1jlr0fr0085" path="res://scripts/area_reactiva/area_reactiva.gd" id="1_efxnv"]
 [ext_resource type="Resource" uid="uid://bm3h5x8we2aq7" path="res://recursos/proyectiles/jugador/basico/basico_nivel1.tres" id="2_a08mp"]
 [ext_resource type="Shader" uid="uid://bc0t1x7latbac" path="res://assets/basic_projectiles.gdshader" id="3_pktpy"]
 
@@ -19,6 +19,8 @@ shader_parameter/pulse_strength = 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_dxiwb"]
 
 [node name="Basico" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_efxnv")
 datos = ExtResource("2_a08mp")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"
