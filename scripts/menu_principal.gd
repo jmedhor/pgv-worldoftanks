@@ -40,29 +40,25 @@ func _on_level_menu_back_button_pressed() -> void:
 	%menu_principal.visible = true
 	
 
-
 func _on_level_1_pressed() -> void:
 	%animl1tol2.play("animl1-to-l2")
 	await get_tree().create_timer(2.5).timeout
 	%level2_animation.play("level1_anim")
 	%level_selected.play("lvl_selected")
 
-
-	
-
-
 func _on_level_2_pressed() -> void:
 	%animl2tol3.play("animl1-to-l2")
 	await get_tree().create_timer(2.5).timeout
 	%level3_animation.play("level1_anim")
 	%level_selected2.play("lvl_selected")
+
 func _on_level_3_pressed() -> void:
 	%level_selected3.play("lvl_selected")
 	
 func _on_button_2_pressed() -> void:
 	%level_selected.play_backwards("lvl_selected")
 	
-func _on_button_2_lvl_2_pressed() -> void:
+func _on_button_return_2_pressed() -> void:
 	%level_selected2.play_backwards("lvl_selected")
 	
 func _on_button_2_lvl_3_pressed() -> void:
@@ -91,3 +87,15 @@ func _on_h_slider_2_value_changed(value: float) -> void:
 	
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_boton_start_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/niveles/nivel2.tscn")
+
+
+func _on_boton_start_1_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/niveles/nivel1.tscn")
+
+
+func _on_boton_return_1_pressed() -> void:
+	%level_selected.play_backwards("lvl_selected")
