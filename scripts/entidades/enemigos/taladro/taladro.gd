@@ -11,7 +11,7 @@ class_name enemigoTaladro
 @export var puntuacion : float = 150
 @export var destruccion:PackedScene
 @export var potenciadores: Array[PackedScene]
-@export var prob_pot: float = 10
+@export var prob_pot: float = 0.1
 
 @onready var parent = get_parent()
 
@@ -82,7 +82,7 @@ func recibir_dano(dano: int):
 		queue_free()
 
 func probar_suerte():
-	if rng.randf() < prob_pot*0.01:
+	if rng.randf() < prob_pot:
 		var potenciador = potenciadores[rng.randf_range(0,2)].instantiate()
 		get_tree().current_scene.add_child(potenciador)
 		potenciador.global_position = global_position
@@ -96,7 +96,7 @@ func _on_zona_ataque_body_entered(body):
 		cargar()
 
 func eliminar_borde():
-	Global.enemigo_ha_muerto.emit(puntuacion)
+	print("Enemigo se fue por el borde")
 	queue_free()
 
 func vfx_destruccion():

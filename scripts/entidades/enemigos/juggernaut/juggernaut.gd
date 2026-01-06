@@ -13,7 +13,7 @@ class_name enemigoJuggernaut
 @export var puntuacion : float = 200
 @export var destruccion:PackedScene
 @export var potenciadores: Array[PackedScene]
-@export var prob_pot: float = 20
+@export var prob_pot: float = 0.2
 
 @onready var parent = get_parent()
 
@@ -99,7 +99,7 @@ func recibir_dano(dano: int):
 		queue_free()
 
 func probar_suerte():
-	if rng.randf() < prob_pot*0.01:
+	if rng.randf() < prob_pot:
 		var potenciador = potenciadores[rng.randf_range(0,2)].instantiate()
 		get_tree().current_scene.add_child(potenciador)
 		potenciador.global_position = global_position
