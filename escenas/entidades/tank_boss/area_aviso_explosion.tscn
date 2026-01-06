@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpmc0ph1v8qme"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym4my"]
+albedo_color = Color(0.49411765, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nb15l"]
+material = SubResource("StandardMaterial3D_ym4my")
+
+[node name="AreaAviso" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2407195, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, -0.69751596, 0, 0, 0, 7, 0, 0, 0)
+mesh = SubResource("SphereMesh_nb15l")

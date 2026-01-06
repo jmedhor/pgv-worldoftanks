@@ -1,0 +1,89 @@
+extends Control
+
+@onready var barra_vida = %BarraVida
+@onready var retrato_estado = %RetratoEstado
+@onready var label_puntos = %LabelPuntos
+@onready var label_combo = %LabelCombo
+@onready var barra_especial = %BarraEspecial
+
+@export var textura_100 : Texture2D
+@export var textura_75 : Texture2D
+@export var textura_50 : Texture2D
+@export var textura_25 : Texture2D
+@export var textura_0 : Texture2D
+
+@export var barra_4 : Texture2D
+@export var barra_3 : Texture2D
+@export var barra_2 : Texture2D
+@export var barra_1 : Texture2D
+@export var barra_0 : Texture2D
+
+@export var escudo_on : Texture2D
+@export var escudo_off : Texture2D
+
+var icono : Resource
+
+func actualizar_hud_vida(vida_actual: int, escudo: bool):
+	actualizar_imagen_vida(vida_actual)
+	actualizar_imagen_retrato(vida_actual)
+	actualizar_imagen_escudo(escudo)
+
+func actualizar_puntuacion_hud(puntos_nuevos: int):
+	label_puntos.text = "%d" % puntos_nuevos
+
+func actualizar_arma_especial(arma:String):
+	if (arma == "emp"):
+		icono = preload("res://assets/icons/emp.png")
+	else:
+		icono = preload("res://assets/icons/dmg.png")
+	$%armaEspecial.texture = icono
+
+func actualizar_combo_hud(combo: int):
+	if combo > 3:
+		label_combo.text = "x%d !!!!" % combo
+	else:
+		label_combo.text = "x%d" % combo
+
+func actualizar_imagen_vida(vida_actual: int):
+	if vida_actual == 4: 
+		barra_vida.texture = barra_4
+	elif vida_actual == 3:
+		barra_vida.texture = barra_3
+	elif vida_actual == 2:
+		barra_vida.texture = barra_2
+	elif vida_actual == 1:
+		barra_vida.texture = barra_1
+	else:
+		barra_vida.texture = barra_0
+		
+func actualizar_imagen_escudo(escudo: bool):
+	if escudo: 
+		%BarraEscudo.texture = escudo_on
+	else:
+		%BarraEscudo.texture = escudo_off
+
+func actualizar_imagen_retrato(vida_actual: int):	
+	if vida_actual == 4: 
+		retrato_estado.texture = textura_100
+	elif vida_actual == 3:
+		retrato_estado.texture = textura_75
+	elif vida_actual == 2:
+		retrato_estado.texture = textura_50
+	elif vida_actual == 1:
+		retrato_estado.texture = textura_25
+	else:
+		retrato_estado.texture = textura_0
+
+func mostrar_aviso_tienda(aviso:bool):
+	%AvisoTienda.visible = aviso
+
+func actualizar_temp_especial(tiempo: float):
+	barra_especial.value = tiempo
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	barra_especial.value = 100;
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass

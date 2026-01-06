@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b320tfu4erca"
+path="res://.godot/imported/rock_smallFlatB.obj-20b0f3b4acc05ad030a831ef37f5b3cb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rock_smallFlatB.obj-20b0f3b4acc05ad030a831ef37f5b3cb.mesh"]
+
+source_file="res://assets/scenery/OBJ format/rock_smallFlatB.obj"
+dest_files=["res://.godot/imported/rock_smallFlatB.obj-20b0f3b4acc05ad030a831ef37f5b3cb.mesh", "res://.godot/imported/rock_smallFlatB.obj-20b0f3b4acc05ad030a831ef37f5b3cb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

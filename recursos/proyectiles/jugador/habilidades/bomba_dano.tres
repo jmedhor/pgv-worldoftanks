@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DatosArea" load_steps=6 format=3 uid="uid://bxfmwim7gq3s"]
+
+[ext_resource type="Script" uid="uid://b1p2xioqh726r" path="res://scripts/area_reactiva/efecto_reactivo.gd" id="1_xbqpt"]
+[ext_resource type="Script" uid="uid://c3g3wakhpgv8w" path="res://scripts/area_reactiva/datos_area.gd" id="2_o1plt"]
+[ext_resource type="Script" uid="uid://w81fu16jghlg" path="res://scripts/area_reactiva/efectos_ofensivos/dano_area.gd" id="2_vg4qn"]
+[ext_resource type="PackedScene" uid="uid://wunug5xc8f44" path="res://escenas/proyectiles/explosion_normal.tscn" id="3_vg4qn"]
+
+[sub_resource type="Resource" id="Resource_1fx3k"]
+script = ExtResource("2_vg4qn")
+dano = 10.0
+radio = 3.0
+metadata/_custom_type_script = "uid://w81fu16jghlg"
+
+[resource]
+script = ExtResource("2_o1plt")
+velocidad = 10.0
+efectos = Array[ExtResource("1_xbqpt")]([SubResource("Resource_1fx3k")])
+collision_layer = 4
+collision_mask = 10
+escena_vfx = ExtResource("3_vg4qn")
+metadata/_custom_type_script = "uid://c3g3wakhpgv8w"

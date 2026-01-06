@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnu3hqjcdjg71"]
+
+[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="1_jju12"]
+[ext_resource type="Script" uid="uid://ce4t1f4c185d2" path="res://scripts/entidades/enemigos/test/enemigo_test.gd" id="1_t3h3x"]
+[ext_resource type="PackedScene" uid="uid://i3j02j23qdb5" path="res://escenas/proyectiles/enemigos/proyectil_ligero.tscn" id="2_py2kq"]
+[ext_resource type="ArrayMesh" uid="uid://e8f0vmqouua0" path="res://assets/player/tanqueMod3.obj" id="2_t3h3x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jju12"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eo42"]
+albedo_texture = ExtResource("1_jju12")
+
+[node name="enemigoTanqueBase" type="CharacterBody3D" groups=["Enemigos"]]
+script = ExtResource("1_t3h3x")
+velocidad_avance = 3.5
+velocidad_desplazo = 2.0
+proyectil = ExtResource("2_py2kq")
+tiempoEntreMoverse = 4.0
+tiempoMoviendose = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+shape = SubResource("BoxShape3D_jju12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.375, 0)
+material_override = SubResource("StandardMaterial3D_0eo42")
+mesh = ExtResource("2_t3h3x")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4133079, 1.226741)
+
+[node name="timerDisparo" type="Timer" parent="."]
+
+[node name="timerMoverse" type="Timer" parent="."]
+
+[node name="timerMoviendose" type="Timer" parent="." groups=["Enemigos"]]
+
+[connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
+[connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
+[connection signal="timeout" from="timerMoviendose" to="." method="_on_timer_moviendose_timeout"]

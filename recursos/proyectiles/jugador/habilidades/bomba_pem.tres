@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DatosArea" load_steps=6 format=3 uid="uid://cpu84wqc5b4af"]
+
+[ext_resource type="Script" uid="uid://b1p2xioqh726r" path="res://scripts/area_reactiva/efecto_reactivo.gd" id="1_08r8a"]
+[ext_resource type="Script" uid="uid://c3g3wakhpgv8w" path="res://scripts/area_reactiva/datos_area.gd" id="2_iduue"]
+[ext_resource type="Script" uid="uid://brr407y1ic0vf" path="res://scripts/area_reactiva/efectos_ofensivos/paralisis_area.gd" id="2_rn13v"]
+[ext_resource type="PackedScene" uid="uid://cohh4iiwaaiev" path="res://escenas/proyectiles/explosion_pem.tscn" id="3_rn13v"]
+
+[sub_resource type="Resource" id="Resource_c7n58"]
+script = ExtResource("2_rn13v")
+radio = 3.0
+segundos_duracion = 5.0
+metadata/_custom_type_script = "uid://brr407y1ic0vf"
+
+[resource]
+script = ExtResource("2_iduue")
+velocidad = 10.0
+efectos = Array[ExtResource("1_08r8a")]([SubResource("Resource_c7n58")])
+collision_layer = 8
+collision_mask = 10
+escena_vfx = ExtResource("3_rn13v")
+metadata/_custom_type_script = "uid://c3g3wakhpgv8w"
