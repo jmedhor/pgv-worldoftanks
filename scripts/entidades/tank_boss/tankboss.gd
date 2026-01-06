@@ -311,7 +311,8 @@ func morir():
 		explosion.global_position = global_position + offset
 		await get_tree().create_timer(0.6).timeout
 	await get_tree().create_timer(1).timeout
-	%Victoria.visible = true
+	Global.enemigo_ha_muerto.emit(1000)
+	Global.finalizar_victoria.emit()
 	queue_free()
 	
 func _on_hitbox_area_entered(area: Area3D) -> void:

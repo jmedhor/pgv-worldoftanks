@@ -15,6 +15,5 @@ metadata/_custom_type_script = "uid://w81fu16jghlg"
 script = ExtResource("4_cmlgb")
 persistente = true
 efectos = Array[ExtResource("1_t3f80")]([SubResource("Resource_nwhn6")])
-collision_layer = 4
 escena_vfx = ExtResource("3_e6c5e")
 metadata/_custom_type_script = "uid://c3g3wakhpgv8w"
