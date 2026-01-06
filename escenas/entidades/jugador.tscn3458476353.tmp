@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://assets/tank_shoot.wav" id="8_qhgh3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8o684"]
-size = Vector3(1.25, 2, 1.25)
+size = Vector3(1.15, 1.5132656, 1.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvhml"]
 albedo_texture = ExtResource("3_ukil5")
@@ -20,8 +20,8 @@ normal_scale = 5.15
 stencil_flags = 2
 stencil_outline_thickness = 0.05
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qhgh3"]
-radius = 0.45
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhgh3"]
+size = Vector3(1.15, 1.5132656, 1.25)
 
 [node name="Personaje_principal" type="CharacterBody3D"]
 process_mode = 3
@@ -33,7 +33,7 @@ proyectil = ExtResource("2_njudt")
 especial = ExtResource("3_qhgh3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_8o684")
 
 [node name="Marker3D" type="Marker3D" parent="."]
@@ -66,10 +66,8 @@ bus = &"Jugador"
 collision_mask = 72
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectorAplastamiento"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CylinderShape3D_qhgh3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_qhgh3")
 
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
 [connection signal="timeout" from="timerEspecial" to="." method="_on_timer_especial_timeout"]
-[connection signal="body_entered" from="DetectorAplastamiento" to="." method="_on_detector_aplastamiento_body_entered"]
-[connection signal="body_exited" from="DetectorAplastamiento" to="." method="_on_detector_aplastamiento_body_exited"]

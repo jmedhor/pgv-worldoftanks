@@ -8,11 +8,11 @@ var timer2 : SceneTreeTimer
 @onready var rect_brillo = $ColorRectBrillo
 @onready var hud = $hud
 @onready var jugador = $Personaje_principal
-@onready var tienda = $pruebaTienda
+@onready var tienda = $Tienda
 @export var escena_game_over : PackedScene
 @export var escena_victoria : PackedScene
 var objeto_curacion = preload("res://escenas/potenciadores/objeto_curacion.tscn")
-var tiempo_jugado : float = 0
+var tiempo_jugado : float
 var puntos : int
 var partida_activa : bool = true
 var ultima_vida : int
@@ -28,6 +28,7 @@ func _ready() -> void:
 	
 	%AnimationPlayer.play("mov_camara")
 	%timer1.start()
+	tiempo_jugado = 0
 	puntos = 1000
 	combo_actual = 1
 	combo_maximo = 1

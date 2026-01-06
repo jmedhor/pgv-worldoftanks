@@ -13,6 +13,7 @@ const MAX_VIDA: int = Global.MAX_VIDA_JUGADOR
 @export var tiempoRecargaEspecial : float = 5.0
 @export var vida : float = MAX_VIDA
 @export var _nivel_arma : int = 0
+@export var rotation_speed := 8.0
 var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
 var pausado : bool = false
@@ -20,7 +21,8 @@ var vivo : bool = true
 var cadEspecial : String
 var escudo : bool = false
 
-@export var rotation_speed := 8.0
+var choque_4 : bool = false
+var choque_7 : bool = false
 
 @onready var cuerpo = $Cuerpo
 
@@ -64,6 +66,8 @@ func _physics_process(delta: float) -> void:
 	if not vivo or pausado:
 		return
 
+	#revisar_colision_doble()
+
 	var direction = Vector3.ZERO
 
 	if Input.is_action_pressed("forward"):
@@ -82,6 +86,26 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = direction * speed * delta
 	move_and_slide()
+
+#Primer intento, funciona pero se lanza una vez por frame 
+func revisar_colision_doble():
+	#Resulta que Area3D puede obtener los cuerpos con los que choca, los obtenemos
+	var cuerpos = $DetectorAplastamiento.get_overlapping_bodies()
+	var tocando_obstaculo = false
+	var tocando_limite = false
+	
+	#Probamos si alguno de los objetos que colisionan estan en capa 4 o 7 (bit 3 y 6)
+	for colision in cuerpos:
+		if colision.collision_layer & (1 << 3):
+			tocando_obstaculo = true
+		if colision.collision_layer & (1 << 6):
+			tocando_limite = true
+			
+	# Si chocamos con los 2 a la vez pues chico, has muerto...
+	if tocando_obstaculo and tocando_limite:
+		vida = 0
+		vivo = false
+		vida_cambiada.emit()
 
 func rotarCuerpo(direction, delta):
 	var angulo = 0.0
@@ -190,3 +214,20 @@ func _on_timer_especial_timeout() -> void:
 
 func _on_pause_changed(pausa: bool) -> void:
 	pausado = pausa
+
+func _on_detector_aplastamiento_body_entered(body: Node3D) -> void:
+	if body.collision_layer & (1 << 3): # Capa 4
+		choque_4 = true
+	if body.collision_layer & (1 << 6): # Capa 7
+		choque_7 = true
+	
+	if choque_4 and choque_7:
+		vida = 0
+		vivo = false
+		vida_cambiada.emit()
+
+func _on_detector_aplastamiento_body_exited(body: Node3D) -> void:
+	if body.collision_layer & (1 << 3): # Capa 4
+		choque_4 = false
+	if body.collision_layer & (1 << 6): # Capa 7
+		choque_7 = false
