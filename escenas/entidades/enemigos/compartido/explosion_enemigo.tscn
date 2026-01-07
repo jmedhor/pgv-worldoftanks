@@ -137,6 +137,6 @@ draw_pass_1 = SubResource("SphereMesh_li8ag")
 
 [node name="SonidoExplosion" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_efodt")
-volume_db = -15.0
+volume_db = -10.0
 max_db = 2.0
 pitch_scale = 1.2
