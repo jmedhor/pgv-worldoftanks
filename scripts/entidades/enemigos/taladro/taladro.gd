@@ -5,8 +5,6 @@ class_name enemigoTaladro
 @export var vida : float = 3.0
 @export var estatico : bool = false
 @export var velocidad_avance : float = 6.0
-@export var velocidad_proyectil : float = 10
-@export var dano_proyectil : float = 2
 @export var tiempoCarga : float = 0.5
 @export var puntuacion : float = 150
 @export var destruccion:PackedScene
@@ -27,7 +25,7 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
-	
+
 	var direction = Vector3.ZERO
 	var nopath = false
 	

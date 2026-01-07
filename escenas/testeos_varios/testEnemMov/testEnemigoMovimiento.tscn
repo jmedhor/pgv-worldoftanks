@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://46rofch6egub"]
+[gd_scene load_steps=15 format=3 uid="uid://46rofch6egub"]
 
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="1_eybnr"]
 [ext_resource type="PackedScene" uid="uid://24ir3kp6hnhg" path="res://escenas/entidades/enemigos/normal/enemigoNormal.tscn" id="2_1ij5x"]
 [ext_resource type="PackedScene" uid="uid://c040bjt6dwrp8" path="res://escenas/entidades/enemigos/taladro/enemigoTaladroBasico.tscn" id="3_osbac"]
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="4_4ny4j"]
+[ext_resource type="PackedScene" uid="uid://qa4y3censpem" path="res://escenas/entidades/enemigos/juggernaut/enemigoJuggernaut.tscn" id="4_l5qy4"]
+[ext_resource type="PackedScene" uid="uid://v1820mch4gef" path="res://escenas/entidades/enemigos/mecha/enemigoMecha.tscn" id="5_l5qy4"]
 
 [sub_resource type="Environment" id="Environment_1ij5x"]
 
@@ -21,14 +23,14 @@ albedo_color = Color(0.10980392, 1, 1, 1)
 [sub_resource type="Curve3D" id="Curve3D_lm34b"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.004, 0, 0.038, 0, 0, 0, 0, 0, 0, 5.6743646, 0, 10.893, 0, 0, 0, 0, 0, 0, -5.439735, 0, 10.684),
+"points": PackedVector3Array(-5, 0, 0, 0, 0, 0, 0.004, 0, 0.038, 5, 0, 0, 0, 0, 0, 5.6743646, 0, 10.893, 5, 0, 5, 0, 0, 0, -5.439735, 0, 10.684),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_osbac"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.004, 0, 0.038, 0, 0, 0, 0, 0, 0, 5.6743646, 0, 10.893, 0, 0, 0, 0, 0, 0, -5.439735, 0, 10.684),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.004, 0, 0.038, 5, 0, 0, 0, 0, 0, 5.6743646, 0, 10.893, 0, 0, 0, 0, 0, 0, -5.439735, 0, 10.684),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -69,15 +71,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.405273, 0, -17.732384)
 curve = SubResource("Curve3D_lm34b")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1.0000077, 0, 0, 0, 1, 0.004, 0, 0.038)
-rotation_mode = 0
+transform = Transform3D(0.71314555, 0, 0.7010155, 0, 1.0000077, 0, -0.7010155, 0, 0.71314555, 0.004, 0, 0.038)
+rotation_mode = 1
 use_model_front = true
 
 [node name="enemigoNormalBasico" parent="Path3D/PathFollow3D" instance=ExtResource("2_1ij5x")]
 transform = Transform3D(1.0000006, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000008, -0.014048576, 0, 0.035533905)
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1.0000077, 0, 0, 0, 1, 1.4299893, 0, 2.7678273)
+transform = Transform3D(0.9999997, 0, 0, 0, 1.0000077, 0, 0, 0, 0.9999997, 2.097388, 0, 2.2964149)
 progress = 3.079897
 rotation_mode = 0
 use_model_front = true
@@ -89,25 +91,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12774181, 0, -21.727993)
 curve = SubResource("Curve3D_osbac")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1.0000077, 0, 0, 0, 1, 0.004, 0, 0.038)
-rotation_mode = 0
+transform = Transform3D(0.71314514, 0, 0.70101506, 0, 1.0000069, 0, -0.70101506, 0, 0.71314514, 0.004, 0, 0.038)
+rotation_mode = 1
 use_model_front = true
 
-[node name="enemigoNormalBasico" parent="Path3D3/PathFollow3D" instance=ExtResource("2_1ij5x")]
-transform = Transform3D(1.0000006, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000008, -0.014048576, 0, 0.035533905)
-estatico = true
+[node name="enemigoJuggernautBasico" parent="Path3D3/PathFollow3D" instance=ExtResource("4_l5qy4")]
 
 [node name="Path3D2" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.492727, 0, -17.732384)
 curve = SubResource("Curve3D_1ij5x")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1.0000077, 0, 0, 0, 1, 0.004, 0, 0.038)
-rotation_mode = 0
+transform = Transform3D(0.886354, 0, 0.46300796, 0, 1.0000077, 0, -0.46300796, 0, 0.886354, 0.004, 0, 0.038)
+rotation_mode = 1
 use_model_front = true
 
-[node name="enemigoNormalBasico" parent="Path3D2/PathFollow3D" instance=ExtResource("2_1ij5x")]
-transform = Transform3D(1.0000006, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000008, -0.014048576, 0, 0.035533905)
+[node name="enemigoMechaBasico" parent="Path3D2/PathFollow3D" instance=ExtResource("5_l5qy4")]
 
 [node name="Personaje_principal" parent="." instance=ExtResource("4_4ny4j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.10009575, 0, 0.2961588)

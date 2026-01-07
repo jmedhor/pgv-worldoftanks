@@ -1,14 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://c040bjt6dwrp8"]
+[gd_scene load_steps=17 format=3 uid="uid://djiqrbmwoi57o"]
 
-[ext_resource type="Script" uid="uid://c4mdoe2nhfy3m" path="res://scripts/entidades/enemigos/taladro/taladro.gd" id="1_cne2c"]
-[ext_resource type="Texture2D" uid="uid://cx0qv7rab7o35" path="res://assets/enemigos/enemigoTaladro/gltf_embedded_0.png" id="2_2sk4o"]
-[ext_resource type="ArrayMesh" uid="uid://bv7p6hblpamnn" path="res://assets/enemigos/enemigoTaladro/Drill.obj" id="2_10sii"]
-[ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="2_md47c"]
-[ext_resource type="Texture2D" uid="uid://q2jtic4qv0gh" path="res://assets/enemigos/enemigoTaladro/gltf_embedded_4.png" id="3_10sii"]
-[ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="3_jrrqc"]
-[ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="4_6m6h7"]
-[ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="5_6j3b3"]
-[ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="5_hgfcs"]
+[ext_resource type="Script" uid="uid://c4mdoe2nhfy3m" path="res://scripts/entidades/enemigos/taladro/taladro.gd" id="1_3issl"]
+[ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="2_rjfmw"]
+[ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="3_r81di"]
+[ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="4_l2h1d"]
+[ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="5_8gtim"]
+[ext_resource type="ArrayMesh" uid="uid://bv7p6hblpamnn" path="res://assets/enemigos/enemigoTaladro/Drill.obj" id="6_m156m"]
+[ext_resource type="Texture2D" uid="uid://cx0qv7rab7o35" path="res://assets/enemigos/enemigoTaladro/gltf_embedded_0.png" id="7_pycsn"]
+[ext_resource type="Texture2D" uid="uid://q2jtic4qv0gh" path="res://assets/enemigos/enemigoTaladro/gltf_embedded_4.png" id="8_7f8am"]
+[ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="9_tsb8p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0thw"]
 size = Vector3(1.75, 1.5, 1.8)
@@ -17,12 +17,14 @@ size = Vector3(1.75, 1.5, 1.8)
 size = Vector3(0.9, 0.9, 0.9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cpoq"]
-albedo_texture = ExtResource("2_2sk4o")
+albedo_color = Color(0.4346022, 0.5977148, 1, 1)
+albedo_texture = ExtResource("7_pycsn")
 uv1_scale = Vector3(1, -1, -1)
 uv1_offset = Vector3(1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5ppc"]
-albedo_texture = ExtResource("3_10sii")
+albedo_color = Color(0.99999887, 0.9977072, 0.7396688, 1)
+albedo_texture = ExtResource("8_7f8am")
 uv1_scale = Vector3(1, -1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cne2c"]
@@ -36,11 +38,14 @@ size = Vector3(1.5, 1, 1)
 
 [node name="enemigoTaladroBasico" type="CharacterBody3D"]
 collision_layer = 2
-script = ExtResource("1_cne2c")
-vida = 4.0
-velocidad_avance = 6.5
-destruccion = ExtResource("2_md47c")
-potenciadores = Array[PackedScene]([ExtResource("3_jrrqc"), ExtResource("4_6m6h7"), ExtResource("5_6j3b3")])
+script = ExtResource("1_3issl")
+vida = 6.0
+velocidad_avance = 9.0
+tiempoCarga = 0.2
+puntuacion = 300.0
+destruccion = ExtResource("2_rjfmw")
+potenciadores = Array[PackedScene]([ExtResource("3_r81di"), ExtResource("4_l2h1d"), ExtResource("5_8gtim")])
+prob_pot = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7575639, -0.23042265)
@@ -52,7 +57,7 @@ shape = SubResource("BoxShape3D_jrrqc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.25, 0, 0, 0.0893926)
-mesh = ExtResource("2_10sii")
+mesh = ExtResource("6_m156m")
 surface_material_override/0 = SubResource("StandardMaterial3D_3cpoq")
 surface_material_override/1 = SubResource("StandardMaterial3D_h5ppc")
 
@@ -69,7 +74,7 @@ shape = SubResource("BoxShape3D_cne2c")
 [node name="AreaContacto" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7633443, -0.25405222)
 collision_layer = 2
-script = ExtResource("5_hgfcs")
+script = ExtResource("9_tsb8p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaContacto"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.035461187)
@@ -78,8 +83,8 @@ shape = SubResource("BoxShape3D_hgfcs")
 [node name="AreaTaladro" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72291577, 1.1569432)
 collision_layer = 2
-script = ExtResource("5_hgfcs")
-dano = 3.0
+script = ExtResource("9_tsb8p")
+dano = 6.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaTaladro"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.038700104)
