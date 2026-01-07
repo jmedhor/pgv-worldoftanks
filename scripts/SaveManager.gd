@@ -9,6 +9,13 @@ var datos_jugador = {
 	"last_special":"dmg"
 }
 
+var configuracion = {
+	"sonido":100,
+	"modoPantalla":0,
+	"borderless": false,
+	"brillo":0.0
+}
+
 func is_lvl_completed(nivel:String):
 	return datos_jugador.get("levels").get(nivel).get("completado")
 
@@ -25,15 +32,25 @@ func set_level(nivel:String, datos:Dictionary):
 	datos_jugador.get("levels").set(nivel, datos)
 
 func update_level(nivel:String, completo: bool, obj1: bool, obj2:bool, obj3:bool, puntos: int):
-	datos_jugador.get("levels").get(nivel).set("completado", completo)
-	datos_jugador.get("levels").get(nivel).set("obj1", obj1)
-	datos_jugador.get("levels").get(nivel).set("obj2", obj2)
-	datos_jugador.get("levels").get(nivel).set("obj3", obj3)
-	datos_jugador.get("levels").get(nivel).set("best_score", puntos)
+	if not datos_jugador.get("levels").get(nivel).get("completado"):
+		datos_jugador.get("levels").get(nivel).set("completado", completo)
+	if not datos_jugador.get("levels").get(nivel).get("obj1"):
+		datos_jugador.get("levels").get(nivel).set("obj1", obj1)
+	if not datos_jugador.get("levels").get(nivel).get("obj2"):
+		datos_jugador.get("levels").get(nivel).set("obj2", obj2)
+	if not datos_jugador.get("levels").get(nivel).get("obj3"):
+		datos_jugador.get("levels").get(nivel).set("obj3", obj3)
+	if datos_jugador.get("levels").get(nivel).get("best_score") < puntos:
+		datos_jugador.get("levels").get(nivel).set("best_score", puntos)
 
 func guardar_datos():
 	var file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var json_string = JSON.stringify(datos_jugador)
+	file.store_line(json_string)
+
+func guardar_config():
+	var file = FileAccess.open("user://config.save", FileAccess.WRITE)
+	var json_string = JSON.stringify(configuracion)
 	file.store_line(json_string)
 
 func cargar_datos():
@@ -42,3 +59,10 @@ func cargar_datos():
 		var json = JSON.new()
 		json.parse(file.get_line())
 		datos_jugador = json.data
+
+func cargar_config():
+	if FileAccess.file_exists("user://config.save"):
+		var file = FileAccess.open("user://config.save", FileAccess.READ)
+		var json = JSON.new()
+		json.parse(file.get_line())
+		configuracion = json.data

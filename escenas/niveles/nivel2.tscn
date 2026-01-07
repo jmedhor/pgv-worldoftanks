@@ -536,6 +536,17 @@ escena_victoria = ExtResource("3_pcafi")
 process_mode = 1
 environment = SubResource("Environment_i2p14")
 
+[node name="ColorRectBrillo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
 [node name="hud" parent="." instance=ExtResource("74_fh427")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -619,7 +630,7 @@ skeleton = NodePath("")
 [node name="BarreraTrasera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.481, -1263.1)
-collision_layer = 8
+collision_layer = 64
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraTrasera"]
@@ -636,7 +647,7 @@ mesh = SubResource("BoxMesh_a8cc0")
 [node name="BarreraDelantera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
-collision_layer = 8
+collision_layer = 64
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDelantera"]
@@ -808,14 +819,6 @@ offset_bottom = 310.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_wco30")
 
-[node name="Fondo_opciones" type="TextureRect" parent="menu_opciones"]
-visible = false
-layout_mode = 0
-offset_right = 2306.0
-offset_bottom = 1304.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_hdhti")
-
 [node name="TextureRect" type="TextureRect" parent="menu_opciones"]
 layout_mode = 0
 offset_left = 400.0
@@ -825,12 +828,25 @@ offset_bottom = 672.65
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_bai2i")
 
+[node name="opciones_back" type="Button" parent="menu_opciones/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.633331
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_aai4m")
+theme_override_font_sizes/font_size = 48
+text = "Volver"
+flat = true
+
 [node name="ButtonsVBox" type="VBoxContainer" parent="menu_opciones"]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 125.0
 offset_right = 885.0
-offset_bottom = 525.0
+offset_bottom = 397.75366
 scale = Vector2(1.15, 1.15)
 theme_override_constants/separation = 50
 
@@ -850,11 +866,9 @@ text = "Volumen"
 label_settings = SubResource("LabelSettings_g14j6")
 
 [node name="HSlider2" type="HSlider" parent="menu_opciones/ButtonsVBox/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -70.0
-max_value = 5.0
-value = -10.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="menu_opciones/ButtonsVBox"]
 layout_mode = 2
@@ -866,6 +880,7 @@ text = "Tipo de ventana"
 label_settings = SubResource("LabelSettings_ehkex")
 
 [node name="OptionButton" type="OptionButton" parent="menu_opciones/ButtonsVBox/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 item_count = 3
 popup/item_0/text = "Ventana"
@@ -885,28 +900,15 @@ text = "Brillo"
 label_settings = SubResource("LabelSettings_xersf")
 
 [node name="HSlider" type="HSlider" parent="menu_opciones/ButtonsVBox/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 30.0
 max_value = 255.0
 value = 255.0
 
-[node name="opciones_back" type="Button" parent="menu_opciones/ButtonsVBox"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("9_aai4m")
-theme_override_font_sizes/font_size = 24
-text = "Volver"
-flat = true
-
 [node name="Tienda" parent="." instance=ExtResource("12_i7kao")]
 visible = false
-
-[node name="ColorRectBrillo" type="ColorRect" parent="."]
-unique_name_in_owner = true
-offset_right = 1153.0
-offset_bottom = 641.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.563245, -11.68939)
@@ -3255,7 +3257,7 @@ collision_layer = 8
 collision_mask = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="obstaculos/Barrera_muro"]
-transform = Transform3D(10, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+transform = Transform3D(10, 0, -2.3841858e-07, 0, 7, 0, 0, 0, 7, -0.00025177002, -0.0011091232, 0.0002708435)
 mesh = ExtResource("88_4pdt5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="obstaculos/Barrera_muro"]
@@ -4138,12 +4140,13 @@ volume_db = 24.855
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="menu_pausa/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
 [connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="pressed" from="menu_opciones/TextureRect/opciones_back" to="." method="_on_opciones_back_pressed"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="item_selected" from="menu_opciones/ButtonsVBox/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="menu_opciones/ButtonsVBox/opciones_back" to="." method="_on_opciones_back_pressed"]
 [connection signal="body_entered" from="TriggerBoss" to="HeliBoss2" method="_on_trigger_boss_body_entered"]
 [connection signal="body_entered" from="HeliBoss2/Area3D" to="HeliBoss2" method="_on_area_3d_body_entered"]
 

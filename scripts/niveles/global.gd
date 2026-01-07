@@ -8,5 +8,4 @@ signal finalizar_victoria()
 const MAX_NIVEL_JUGADOR: int = 2
 const MAX_VIDA_JUGADOR: int = 4
 
-var arma_elegida : String
-var filtros = {"byn" : preload("res://assets/byn.gdshader"), "nv" : preload("res://assets/nv.gdshader"), "crt": preload("res://assets/crt.gdshader")}
+var filtros = {"byn" : preload("res://assets/filtros/byn.gdshader"), "nv" : preload("res://assets/filtros/nv.gdshader"), "crt": preload("res://assets/filtros/crt.gdshader")}

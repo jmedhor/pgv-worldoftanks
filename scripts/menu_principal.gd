@@ -11,7 +11,13 @@ func _ready() -> void:
 	%camara_menus.position = Vector3(-20.478,11.27,90.358)
 	%camara_menus.rotation_degrees = Vector3(-16.6,25.1,4)
 	SaveManager.cargar_datos()
+	SaveManager.cargar_config()
 	print(SaveManager.datos_jugador)
+	print(SaveManager.configuracion)
+	set_brillo()
+	set_modo()
+	set_sonido()
+	%menu_nivel_selected4.set_especial(SaveManager.get_last_special())
 	level2unlocked = SaveManager.is_lvl_completed("lvl1")
 	level3unlocked = SaveManager.is_lvl_completed("lvl2")
 	
@@ -20,6 +26,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_start_button_pressed() -> void:
+	level2unlocked = SaveManager.is_lvl_completed("lvl1")
+	level3unlocked = SaveManager.is_lvl_completed("lvl2")
 	%menu_principal.visible = false 
 	%animacion_menu_niveles.play("menu_niveles")
 	await get_tree().create_timer(8).timeout
@@ -44,6 +52,7 @@ func _on_options_button_pressed() -> void:
 
 
 func _on_opciones_back_pressed() -> void:
+	SaveManager.guardar_config()
 	%menu_opciones.visible = false 
 	%animacion_menu_opciones.play_backwards("camara_menu_opciones")
 	await get_tree().create_timer(4.0).timeout
@@ -102,20 +111,25 @@ func _on_option_button_item_selected(index: int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		1:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
 		2:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	SaveManager.configuracion.set("modoPantalla",index)
 
 
 func _on_h_slider_value_changed(value: float) -> void:
 	var normalized = value / 255.0
 	rect_brillo.color.a = 1.0 - normalized
+	SaveManager.configuracion.set("brillo", value)
 
 
 func _on_h_slider_2_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	var valor_lineal = value / 100.0
+	var db = linear_to_db(valor_lineal)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
+	SaveManager.configuracion.set("sonido", value)
 	
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
@@ -131,3 +145,33 @@ func _on_boton_start_1_pressed() -> void:
 
 func _on_boton_return_1_pressed() -> void:
 	%level_selected.play_backwards("lvl_selected")
+	
+func set_brillo():
+	var value = SaveManager.configuracion.get("brillo")
+	var normalized = value / 255.0
+	rect_brillo.color.a = 1.0 - normalized
+	%HSlider.value = value
+
+func set_sonido():
+	var value = SaveManager.configuracion.get("sonido")
+	var valor_lineal = value / 100.0
+	var db = linear_to_db(valor_lineal)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
+	%HSlider2.value = value
+
+func set_modo():
+	await get_tree().process_frame
+	var index = int(SaveManager.configuracion.get("modoPantalla"))
+	%OptionButton.selected = index
+	
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+	
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)

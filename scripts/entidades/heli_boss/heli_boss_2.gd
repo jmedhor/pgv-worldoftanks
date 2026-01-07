@@ -257,7 +257,6 @@ func ejecutar_carga(delta):
 			global_position.y = altura_fija_carga
 
 func disparar_bala():
-	var bala_scene := preload("res://escenas/proyectiles/enemigos/proyectil_ligero.tscn")
 	var bala = bala_scene.instantiate()
 	get_parent().add_child(bala)
 	
@@ -283,12 +282,12 @@ func animacion_transicion_fase2(delta):
 	
 	if progreso < 0.5:
 		var t_subir = progreso * 2.0
-		var ease = 1.0 - pow(1.0 - t_subir, 2.0)
-		global_position = posicion_inicial_fase2.lerp(posicion_final_fase2, ease)
+		var ease1 = 1.0 - pow(1.0 - t_subir, 2.0)
+		global_position = posicion_inicial_fase2.lerp(posicion_final_fase2, ease1)
 	else:
 		var t_bajar = (progreso - 0.5) * 2.0  
-		var ease = pow(t_bajar, 2.0)
-		global_position = posicion_final_fase2.lerp(posicion_inicial_fase2, ease)
+		var ease1 = pow(t_bajar, 2.0)
+		global_position = posicion_final_fase2.lerp(posicion_inicial_fase2, ease1)
 	
 	var target_dir = (jugador.global_position - global_position).normalized()
 	if target_dir.length_squared() > 0.01:

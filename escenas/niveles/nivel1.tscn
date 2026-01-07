@@ -57,7 +57,7 @@
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="65_cu5jt"]
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="65_lqvft"]
-[ext_resource type="Shader" uid="uid://dcnjcasv3d57r" path="res://assets/crt.gdshader" id="66_cu5jt"]
+[ext_resource type="Shader" uid="uid://dcnjcasv3d57r" path="res://assets/filtros/crt.gdshader" id="66_cu5jt"]
 [ext_resource type="StyleBox" uid="uid://bn81q4txys2wl" path="res://recursos/barra_de_vida.tres" id="66_dt3yu"]
 [ext_resource type="AudioStream" uid="uid://1v2im4je30ib" path="res://assets/sounds/168707__qubodup__tank-firing.wav" id="67_xn8w1"]
 [ext_resource type="AudioStream" uid="uid://cmyo4nanaxtx2" path="res://assets/sounds/Boss_fight.wav" id="68_i2wjq"]
@@ -388,9 +388,6 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_xersf"]
 font = ExtResource("11_dn6xt")
 font_size = 24
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ucxdg"]
-size = Vector3(25.995544, 1, 27.64508)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhxp4"]
 resource_name = "01_Mat_Tank"
@@ -893,6 +890,9 @@ _data = {
 &"boss_inicio": SubResource("Animation_1plb7")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ucxdg"]
+size = Vector3(25.995544, 1, 27.64508)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ivxyl"]
 size = Vector3(0.48901367, 1, 1)
 
@@ -907,6 +907,16 @@ process_mode = 3
 script = ExtResource("1_v2o2g")
 escena_game_over = ExtResource("2_7vjjb")
 escena_victoria = ExtResource("63_5jpn7")
+
+[node name="ColorRectBrillo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
@@ -1164,12 +1174,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 
-[node name="ColorRect" type="ColorRect" parent="menu_opciones"]
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 652.0
-color = Color(0.019607844, 0.019607844, 0.019607844, 0.101960786)
-
 [node name="TextureRect3" type="TextureRect" parent="menu_opciones"]
 layout_mode = 0
 offset_right = 1114.0
@@ -1185,14 +1189,6 @@ offset_bottom = 310.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_63y5h")
 
-[node name="Fondo_opciones" type="TextureRect" parent="menu_opciones"]
-visible = false
-layout_mode = 0
-offset_right = 2306.0
-offset_bottom = 1304.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_uuvpw")
-
 [node name="TextureRect" type="TextureRect" parent="menu_opciones"]
 layout_mode = 0
 offset_left = 400.0
@@ -1202,12 +1198,25 @@ offset_bottom = 672.65
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_8gu01")
 
+[node name="opciones_back" type="Button" parent="menu_opciones/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.966583
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_dn6xt")
+theme_override_font_sizes/font_size = 48
+text = "Volver"
+flat = true
+
 [node name="ButtonsVBox" type="VBoxContainer" parent="menu_opciones"]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 125.0
 offset_right = 885.0
-offset_bottom = 525.0
+offset_bottom = 400.0725
 scale = Vector2(1.15, 1.15)
 theme_override_constants/separation = 50
 
@@ -1227,11 +1236,9 @@ text = "Volumen"
 label_settings = SubResource("LabelSettings_g14j6")
 
 [node name="HSlider2" type="HSlider" parent="menu_opciones/ButtonsVBox/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = -70.0
-max_value = 5.0
-value = -10.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="menu_opciones/ButtonsVBox"]
 layout_mode = 2
@@ -1243,6 +1250,7 @@ text = "Tipo de ventana"
 label_settings = SubResource("LabelSettings_ehkex")
 
 [node name="OptionButton" type="OptionButton" parent="menu_opciones/ButtonsVBox/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 item_count = 3
 popup/item_0/text = "Ventana"
@@ -1262,30 +1270,12 @@ text = "Brillo"
 label_settings = SubResource("LabelSettings_xersf")
 
 [node name="HSlider" type="HSlider" parent="menu_opciones/ButtonsVBox/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 30.0
 max_value = 255.0
 value = 255.0
-
-[node name="opciones_back" type="Button" parent="menu_opciones/ButtonsVBox"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_dn6xt")
-theme_override_font_sizes/font_size = 24
-text = "Volver"
-flat = true
-
-[node name="Tienda" parent="." instance=ExtResource("73_asdf5")]
-unique_name_in_owner = true
-visible = false
-
-[node name="ColorRectBrillo" type="ColorRect" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_right = 1153.0
-offset_bottom = 641.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
 
 [node name="shop" parent="." instance=ExtResource("21_4vhic")]
 transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -11.396, 0, -648.395)
@@ -2563,22 +2553,10 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.964, 0, -268.152)
 [node name="Foso2" parent="Obstaculos" instance=ExtResource("72_7vjjb")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.275, 0, -907.922)
 
-[node name="Personaje_principal" parent="." instance=ExtResource("71_56w5e")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -1338.4028)
-speed = 650.0
-
-[node name="TriggerBoss" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.722046e-06, 0, -1340.9193)
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerBoss"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35043335, 0, -11.497192)
-shape = SubResource("BoxShape3D_ucxdg")
-
 [node name="tankboss2" type="CharacterBody3D" parent="." groups=["Enemigos"]]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.221624, 0.836725, -1361.7091)
 visible = false
-collision_layer = 3
+collision_layer = 2
 collision_mask = 17
 script = ExtResource("60_7522d")
 area_aviso_scene = ExtResource("61_xoytu")
@@ -2666,6 +2644,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_hsrrj")
 }
 
+[node name="TriggerBoss" type="Area3D" parent="tankboss2"]
+transform = Transform3D(-1.4570462e-08, 0, -0.33333334, 0, 0.33333334, 0, 0.33333334, 0, -1.4570462e-08, -6.9299316, -0.27890834, -8.073876)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tankboss2/TriggerBoss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35043335, 0, -11.497192)
+shape = SubResource("BoxShape3D_ucxdg")
+
 [node name="Shoot" type="AudioStreamPlayer3D" parent="tankboss2"]
 stream = ExtResource("67_xn8w1")
 
@@ -2684,6 +2670,9 @@ volume_db = 6.038
 transform = Transform3D(1, 0, 0, 0, 2.0650663, 0, 0, 0, 1.5848308, 0.25549316, 0, 0.054592133)
 shape = SubResource("BoxShape3D_ivxyl")
 
+[node name="Personaje_principal" parent="." instance=ExtResource("71_56w5e")]
+speed = 650.0
+
 [node name="Victoria" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -2693,6 +2682,10 @@ offset_right = 641.0
 offset_bottom = 292.0
 theme_override_font_sizes/font_size = 32
 text = "Has ganao"
+
+[node name="Tienda" parent="." instance=ExtResource("73_asdf5")]
+unique_name_in_owner = true
+visible = false
 
 [node name="ObjetoMejora" parent="." instance=ExtResource("65_lqvft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3714209, 1.7396365, -20.099121)
@@ -2725,10 +2718,10 @@ mouse_filter = 2
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
 [connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="pressed" from="menu_opciones/TextureRect/opciones_back" to="." method="_on_opciones_back_pressed"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="item_selected" from="menu_opciones/ButtonsVBox/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="menu_opciones/ButtonsVBox/opciones_back" to="." method="_on_opciones_back_pressed"]
-[connection signal="body_entered" from="TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
+[connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]
