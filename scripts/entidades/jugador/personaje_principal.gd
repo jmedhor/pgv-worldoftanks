@@ -183,6 +183,7 @@ func disparar(accion: String):
 	elif accion == "especial": 
 		if puedeDispararEspecial:
 			var tmp_especial = especial.instantiate()
+			$sonido_especial.play()
 			if tmp_especial.has_method("inicializar"):
 				tmp_especial.inicializar($Marker3D.global_position,Vector3(0,0,-1))
 				add_sibling(tmp_especial)

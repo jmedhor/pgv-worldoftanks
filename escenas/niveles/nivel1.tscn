@@ -910,7 +910,6 @@ escena_victoria = ExtResource("63_5jpn7")
 
 [node name="ColorRectBrillo" type="ColorRect" parent="."]
 unique_name_in_owner = true
-z_index = 5
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1175,12 +1174,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 
-[node name="ColorRect" type="ColorRect" parent="menu_opciones"]
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 652.0
-color = Color(0.019607844, 0.019607844, 0.019607844, 0.101960786)
-
 [node name="TextureRect3" type="TextureRect" parent="menu_opciones"]
 layout_mode = 0
 offset_right = 1114.0
@@ -1196,14 +1189,6 @@ offset_bottom = 310.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_63y5h")
 
-[node name="Fondo_opciones" type="TextureRect" parent="menu_opciones"]
-visible = false
-layout_mode = 0
-offset_right = 2306.0
-offset_bottom = 1304.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_uuvpw")
-
 [node name="TextureRect" type="TextureRect" parent="menu_opciones"]
 layout_mode = 0
 offset_left = 400.0
@@ -1213,12 +1198,25 @@ offset_bottom = 672.65
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_8gu01")
 
+[node name="opciones_back" type="Button" parent="menu_opciones/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.966583
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_dn6xt")
+theme_override_font_sizes/font_size = 48
+text = "Volver"
+flat = true
+
 [node name="ButtonsVBox" type="VBoxContainer" parent="menu_opciones"]
 layout_mode = 0
 offset_left = 117.0
 offset_top = 125.0
 offset_right = 885.0
-offset_bottom = 525.0
+offset_bottom = 400.0725
 scale = Vector2(1.15, 1.15)
 theme_override_constants/separation = 50
 
@@ -1278,13 +1276,6 @@ size_flags_horizontal = 3
 min_value = 30.0
 max_value = 255.0
 value = 255.0
-
-[node name="opciones_back" type="Button" parent="menu_opciones/ButtonsVBox"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_dn6xt")
-theme_override_font_sizes/font_size = 24
-text = "Volver"
-flat = true
 
 [node name="shop" parent="." instance=ExtResource("21_4vhic")]
 transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -11.396, 0, -648.395)
@@ -2727,10 +2718,10 @@ mouse_filter = 2
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
 [connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="pressed" from="menu_opciones/TextureRect/opciones_back" to="." method="_on_opciones_back_pressed"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="item_selected" from="menu_opciones/ButtonsVBox/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="menu_opciones/ButtonsVBox/opciones_back" to="." method="_on_opciones_back_pressed"]
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
 [connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]
