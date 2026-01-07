@@ -1,39 +1,47 @@
-[gd_scene load_steps=18 format=3 uid="uid://v1820mch4gef"]
+[gd_scene load_steps=19 format=3 uid="uid://c4dbd3tqrqjg1"]
 
-[ext_resource type="Script" uid="uid://cu1ptmbw7sxly" path="res://scripts/entidades/enemigos/mecha/mecha.gd" id="1_vsdc1"]
-[ext_resource type="PackedScene" uid="uid://i3j02j23qdb5" path="res://escenas/proyectiles/enemigos/proyectil_ligero.tscn" id="2_7t4ig"]
-[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://assets/barvy.png" id="3_d3bj0"]
-[ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="3_hb168"]
-[ext_resource type="ArrayMesh" uid="uid://b3fcmpkaqwybm" path="res://assets/enemigos/enemigoMecha/enemigo3.obj" id="4_7t4ig"]
-[ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="4_ikdi6"]
-[ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_eqssl"]
-[ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="5_o3lq7"]
-[ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="6_j2k3c"]
-[ext_resource type="ArrayMesh" uid="uid://c8x4dsqvnnhn5" path="res://assets/enemigos/enemigoMecha/EMCuerpo.obj" id="10_j2k3c"]
-[ext_resource type="ArrayMesh" uid="uid://b1hiuh7vipp44" path="res://assets/enemigos/enemigoMecha/EMCabeza.obj" id="11_qmwbf"]
-[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://assets/tank_shoot.wav" id="12_qmwbf"]
+[ext_resource type="Script" uid="uid://cu1ptmbw7sxly" path="res://scripts/entidades/enemigos/mecha/mecha.gd" id="1_atjda"]
+[ext_resource type="PackedScene" uid="uid://i3j02j23qdb5" path="res://escenas/proyectiles/enemigos/proyectil_ligero.tscn" id="2_8w5kg"]
+[ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="3_3w4nd"]
+[ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="4_bhvtj"]
+[ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_w13bd"]
+[ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="6_ov5si"]
+[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://assets/barvy.png" id="7_h6xwi"]
+[ext_resource type="ArrayMesh" uid="uid://b3fcmpkaqwybm" path="res://assets/enemigos/enemigoMecha/enemigo3.obj" id="8_r6pwi"]
+[ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="9_fby2g"]
+[ext_resource type="Texture2D" uid="uid://ugo60ieex5ur" path="res://assets/barvy2.png" id="10_8w5kg"]
+[ext_resource type="ArrayMesh" uid="uid://c8x4dsqvnnhn5" path="res://assets/enemigos/enemigoMecha/EMCuerpo.obj" id="10_70lau"]
+[ext_resource type="ArrayMesh" uid="uid://b1hiuh7vipp44" path="res://assets/enemigos/enemigoMecha/EMCabeza.obj" id="11_ksrp3"]
+[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://assets/tank_shoot.wav" id="12_ylfpc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jju12"]
 size = Vector3(1.8, 2, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp171"]
-albedo_texture = ExtResource("3_d3bj0")
+albedo_texture = ExtResource("7_h6xwi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hb168"]
 size = Vector3(2, 1.8, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58vfn"]
-albedo_texture = ExtResource("3_d3bj0")
+albedo_texture = ExtResource("10_8w5kg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uttd2"]
-albedo_texture = ExtResource("3_d3bj0")
+albedo_texture = ExtResource("10_8w5kg")
 
 [node name="enemigoMechaBasico" type="CharacterBody3D" groups=["Enemigos"]]
 collision_layer = 2
-script = ExtResource("1_vsdc1")
-proyectil = ExtResource("2_7t4ig")
-destruccion = ExtResource("3_hb168")
-potenciadores = Array[PackedScene]([ExtResource("4_ikdi6"), ExtResource("5_eqssl"), ExtResource("6_j2k3c")])
+script = ExtResource("1_atjda")
+vida = 8.0
+velocidad_avance = 8.0
+velocidad_desplazo = 2.5
+proyectil = ExtResource("2_8w5kg")
+tiempoEntreDisparo = 0.4
+tiempoMoviendose = 1.5
+puntuacion = 600.0
+destruccion = ExtResource("3_3w4nd")
+potenciadores = Array[PackedScene]([ExtResource("4_bhvtj"), ExtResource("5_w13bd"), ExtResource("6_ov5si")])
+prob_pot = 0.35
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0221922, 0.042253494)
@@ -43,7 +51,7 @@ shape = SubResource("BoxShape3D_jju12")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.009335, -0.03, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_tp171")
-mesh = ExtResource("4_7t4ig")
+mesh = ExtResource("8_r6pwi")
 
 [node name="timerDisparo" type="Timer" parent="."]
 
@@ -54,7 +62,7 @@ mesh = ExtResource("4_7t4ig")
 [node name="AreaContacto" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90560246, 0)
 collision_layer = 2
-script = ExtResource("5_o3lq7")
+script = ExtResource("9_fby2g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaContacto"]
 shape = SubResource("BoxShape3D_hb168")
@@ -62,7 +70,7 @@ shape = SubResource("BoxShape3D_hb168")
 [node name="Cuerpo" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.030736208, -0.072933435)
 material_override = SubResource("StandardMaterial3D_58vfn")
-mesh = ExtResource("10_j2k3c")
+mesh = ExtResource("10_70lau")
 
 [node name="Torreta" type="Node3D" parent="."]
 
@@ -75,10 +83,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65365887, 1.5, 0.8)
 [node name="Cabeza" type="MeshInstance3D" parent="Torreta"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.247161, -0.08274442)
 material_override = SubResource("StandardMaterial3D_uttd2")
-mesh = ExtResource("11_qmwbf")
+mesh = ExtResource("11_ksrp3")
 
 [node name="sonido_disparo" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("12_qmwbf")
+stream = ExtResource("12_ylfpc")
 volume_db = -3.0
 pitch_scale = 2.0
 

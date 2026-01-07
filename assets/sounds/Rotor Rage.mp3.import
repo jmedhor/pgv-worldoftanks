@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvy4juktcf4yu"
+path="res://.godot/imported/Rotor Rage.mp3-88a18738b8319a144e33339ced26d2ce.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Rotor Rage.mp3"
+dest_files=["res://.godot/imported/Rotor Rage.mp3-88a18738b8319a144e33339ced26d2ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

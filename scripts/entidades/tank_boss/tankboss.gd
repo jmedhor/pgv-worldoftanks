@@ -342,6 +342,7 @@ func _on_trigger_boss_body_entered(body: Node3D) -> void:
 	
 	
 	if body.name == "Personaje_principal":
+		
 		get_tree().paused = true
 		
 		$Animacion_inicial.play("boss_inicio")
@@ -431,7 +432,7 @@ func mostrar_texto_boss(texto: String):
 	
 	var pos_final = Vector2(
 		barra_vida.global_position.x + barra_vida.size.x / 2 - texto_boss.size.x / 2 + 80,
-		barra_vida.global_position.y - 20  # 30 píxeles arriba de la barra
+		barra_vida.global_position.y - 20  
 	)
 	
 	

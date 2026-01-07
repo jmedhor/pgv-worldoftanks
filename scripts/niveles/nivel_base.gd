@@ -129,7 +129,8 @@ func _on_cambio_arma(nueva:String):
 func _process(delta: float) -> void:
 	if not pausa:
 		tiempo_jugado+=delta
-		hud.actualizar_tiempo(tiempo_jugado)
+		%menu_pausa.visible = false
+		%menu_opciones.visible = false
 	
 	if Input.is_action_just_pressed("pausa") && partida_activa:
 		if tienda_abierta:
@@ -200,7 +201,8 @@ func _on_timer_1_timeout() -> void:
 func _on_timer_2_timeout() -> void:
 	%AnimationPlayer3.play("mov_camara_3")
 	await $%AnimationPlayer3.animation_finished
-	$tankboss2/TriggerBoss.monitoring = true
+	
+	%TriggerBoss.monitoring = true
 
 func _cerrar_ajustes():
 	%menu_pausa.visible = true
