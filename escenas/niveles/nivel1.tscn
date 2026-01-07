@@ -1162,7 +1162,6 @@ one_shot = true
 
 [node name="menu_opciones" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1174,12 +1173,6 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
-
-[node name="ColorRect" type="ColorRect" parent="menu_opciones"]
-layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 652.0
-color = Color(0.019607844, 0.019607844, 0.019607844, 0.101960786)
 
 [node name="TextureRect3" type="TextureRect" parent="menu_opciones"]
 layout_mode = 0

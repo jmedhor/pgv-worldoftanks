@@ -929,6 +929,17 @@ script = ExtResource("1_3fcw6")
 escena_game_over = ExtResource("2_wsl2x")
 escena_victoria = ExtResource("3_pcafi")
 
+[node name="ColorRectBrillo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 process_mode = 1
 environment = SubResource("Environment_i2p14")
@@ -1292,13 +1303,6 @@ theme_override_fonts/font = ExtResource("9_aai4m")
 theme_override_font_sizes/font_size = 24
 text = "Volver"
 flat = true
-
-[node name="ColorRectBrillo" type="ColorRect" parent="."]
-unique_name_in_owner = true
-offset_right = 1153.0
-offset_bottom = 641.0
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.563245, -11.68939)
