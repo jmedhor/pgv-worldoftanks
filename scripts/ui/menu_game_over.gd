@@ -1,6 +1,6 @@
 extends Control
 
-@export_file("*.tscn") var ruta_menu_principal
+var ruta_menu_principal = preload("res://escenas/menu_principal/menu_principal.tscn")
 var puntos : int
 var combo : int
 var tiempo : float
@@ -16,10 +16,8 @@ func _on_boton_reiniciar_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_boton_volver_pressed() -> void:
-	if ruta_menu_principal:
-		get_tree().change_scene_to_file(ruta_menu_principal)
-	else:
-		print("No hay escena de menu principal :(")
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(ruta_menu_principal)
 
 func obtener_frase_aleatoria() -> String:
 	var lista_frases = [

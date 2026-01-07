@@ -1277,6 +1277,7 @@ flat = true
 
 [node name="ColorRectBrillo" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_right = 1153.0
 offset_bottom = 641.0
 mouse_filter = 2
@@ -2720,6 +2721,7 @@ mouse_filter = 2
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="menu_pausa/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="timeout" from="timer1" to="." method="_on_timer_1_timeout"]
 [connection signal="timeout" from="timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]

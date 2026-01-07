@@ -12,6 +12,7 @@ var timer2 : SceneTreeTimer
 @export var escena_game_over : PackedScene
 @export var escena_victoria : PackedScene
 var objeto_curacion = preload("res://escenas/potenciadores/objeto_curacion.tscn")
+var ruta_menu_principal = preload("res://escenas/menu_principal/menu_principal.tscn")
 var tiempo_jugado : float
 var puntos : int
 var partida_activa : bool = true
@@ -47,13 +48,13 @@ func inicializar_jugador():
 	jugador.vida = 2
 	ultima_vida = jugador.vida
 	jugador.set_nivel(0)
-	jugador.cambiar("emp")
+	jugador.cambiar(Global.arma_elegida)
 
 func inicializar_hud():
 	hud.actualizar_hud_vida(jugador.vida, jugador.escudo)
 	hud.actualizar_puntuacion_hud(puntos)
 	hud.actualizar_combo_hud(combo_actual)
-	hud.actualizar_arma_especial("emp")
+	hud.actualizar_arma_especial(Global.arma_elegida)
 
 func inicializar_señales():
 	Global.is_shopping.connect(_on_puede_comprar)
@@ -135,8 +136,6 @@ func _process(delta: float) -> void:
 			_on_cerrar_tienda()
 		else:
 			_on_enter_shop()
-	if  Input.is_action_just_pressed("pruebaa") && partida_activa:
-		_finalizar_victoria()
 
 func _on_enemigo_muerto(p : int):
 	puntos = puntos + p
@@ -243,3 +242,7 @@ func _on_enter_shop():
 	tienda.set_escudo(jugador.escudo)
 	tienda.set_vida(jugador.vida)
 	_alterar_pausa()
+
+func _on_button_4_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(ruta_menu_principal)

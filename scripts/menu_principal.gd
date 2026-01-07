@@ -2,6 +2,10 @@ extends Node3D
 
 @onready var rect_brillo = $ColorRectBrillo
 # Called when the node enters the scene tree for the first time.
+
+var level2unlocked = true
+var level3unlocked = true
+
 func _ready() -> void:
 	
 	%camara_menus.position = Vector3(-20.478,11.27,90.358)
@@ -18,6 +22,15 @@ func _on_start_button_pressed() -> void:
 	%menu_niveles.visible = true
 	await get_tree().create_timer(0.5).timeout
 	%level1_animation.play("level1_anim")
+	if level2unlocked:
+		%animl1tol2.play("animl1-to-l2")
+		await get_tree().create_timer(2.5).timeout
+		%level2_animation.play("level2_anim")
+	if level3unlocked:
+		%animl2tol3.play("animl1-to-l2")
+		await get_tree().create_timer(2.5).timeout
+		%level3_animation.play("level3_anim")
+		
 
 func _on_options_button_pressed() -> void:
 	%menu_principal.visible = false
@@ -41,19 +54,31 @@ func _on_level_menu_back_button_pressed() -> void:
 	
 
 func _on_level_1_pressed() -> void:
-	%animl1tol2.play("animl1-to-l2")
-	await get_tree().create_timer(2.5).timeout
-	%level2_animation.play("level1_anim")
-	%level_selected.play("lvl_selected")
+	var objetivos = [
+		{"cadena": "Consigue mas de 1500 puntos", "completo":true},
+		{"cadena": "Acaba con 2 o mas vidas", "completo":true},
+		{"cadena": "Consigue un combo minimo de x3", "completo":false}
+	]
+	%menu_nivel_selected4.pasar_nivel("El bosque", objetivos, "res://escenas/niveles/nivel1.tscn")
+	%menu_nivel_selected4.play()
 
 func _on_level_2_pressed() -> void:
-	%animl2tol3.play("animl1-to-l2")
-	await get_tree().create_timer(2.5).timeout
-	%level3_animation.play("level1_anim")
-	%level_selected2.play("lvl_selected")
+	var objetivos = [
+		{"cadena": "Consigue mas de 1500 puntos", "completo":true},
+		{"cadena": "Acaba con 2 o mas vidas", "completo":true},
+		{"cadena": "Consigue un combo minimo de x3", "completo":false}
+	]
+	%menu_nivel_selected4.pasar_nivel("Ciudad en ruinas", objetivos, "res://escenas/niveles/nivel2.tscn")
+	%menu_nivel_selected4.play()
 
 func _on_level_3_pressed() -> void:
-	%level_selected3.play("lvl_selected")
+	var objetivos = [
+		{"cadena": "Consigue mas de 1500 puntos", "completo":false},
+		{"cadena": "Acaba con 2 o mas vidas", "completo":false},
+		{"cadena": "Consigue un combo minimo de x3", "completo":false}
+	]
+	%menu_nivel_selected4.pasar_nivel("El desierto", objetivos, "res://escenas/niveles/nivel3.tscn")
+	%menu_nivel_selected4.play()
 	
 func _on_button_2_pressed() -> void:
 	%level_selected.play_backwards("lvl_selected")

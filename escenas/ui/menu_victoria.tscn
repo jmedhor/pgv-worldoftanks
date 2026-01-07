@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ggu3faetcj12"]
 
-[ext_resource type="Script" uid="uid://ce53ck2ur8df" path="res://escenas/ui/menu_victoria.gd" id="1_smdrh"]
+[ext_resource type="Script" uid="uid://ce53ck2ur8df" path="res://scripts/menu_victoria.gd" id="1_smdrh"]
 [ext_resource type="Texture2D" uid="uid://d1w2hnxagaedf" path="res://assets/icons/empty_star.tres" id="2_8tfq3"]
 [ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="2_pa62r"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_ahgin"]
@@ -285,4 +285,5 @@ theme_override_font_sizes/font_size = 16
 text = "Reiniciar nivel"
 flat = true
 
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/TextureRect2/boton_volver" to="." method="_on_boton_volver_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/TextureRect/boton_reiniciar" to="." method="_on_boton_reiniciar_pressed"]

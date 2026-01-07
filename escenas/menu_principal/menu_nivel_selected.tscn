@@ -1,0 +1,329 @@
+[gd_scene load_steps=14 format=3 uid="uid://be2lkrspewrt4"]
+
+[ext_resource type="Script" uid="uid://cg6e0uw5v4jm8" path="res://scripts/menu_nivel_selected.gd" id="1_cvs0i"]
+[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://texturas/panel_fondo.png" id="1_vrcef"]
+[ext_resource type="Texture2D" uid="uid://die8gcncqth4p" path="res://texturas/level_plate.png" id="2_3lgx4"]
+[ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="3_41g8w"]
+[ext_resource type="Texture2D" uid="uid://d1w2hnxagaedf" path="res://assets/icons/empty_star.tres" id="4_vrcef"]
+[ext_resource type="Texture2D" uid="uid://b0w7rf5gl5x1k" path="res://texturas/left_arrow.png" id="5_5w5mh"]
+[ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://assets/texturas/menus/marco_obj_tienda.png" id="6_41g8w"]
+[ext_resource type="Texture2D" uid="uid://g6hxm7sgh4rm" path="res://texturas/right_arrow.png" id="6_fiyu0"]
+[ext_resource type="Texture2D" uid="uid://c38jwxvgdkqm" path="res://assets/icons/dmg.png" id="7_cvs0i"]
+[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://texturas/button_plate.png" id="7_k2bwf"]
+
+[sub_resource type="Animation" id="Animation_cvs0i"]
+resource_name = "open_menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5w5mh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5w5mh"]
+_data = {
+&"RESET": SubResource("Animation_5w5mh"),
+&"open_menu": SubResource("Animation_cvs0i")
+}
+
+[node name="menu_nivel_selected" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cvs0i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5254902)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -250.0
+offset_right = 345.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(345, 250)
+texture = ExtResource("1_vrcef")
+expand_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(500, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -204.0
+offset_right = 149.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3lgx4")
+expand_mode = 3
+
+[node name="LabelNombre" type="Label" parent="TextureRect/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -12.0
+offset_right = 84.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_41g8w")
+theme_override_font_sizes/font_size = 24
+text = "NIVEL 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 126.0
+offset_right = 572.0
+offset_bottom = 278.0
+size_flags_stretch_ratio = 1.55
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IconoObj1" type="TextureRect" parent="TextureRect/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture = ExtResource("4_vrcef")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelObj1" type="Label" parent="TextureRect/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "objetivo 1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer2"]
+layout_mode = 2
+
+[node name="IconoObj2" type="TextureRect" parent="TextureRect/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture = ExtResource("4_vrcef")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelObj2" type="Label" parent="TextureRect/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "objetivo 2"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IconoObj3" type="TextureRect" parent="TextureRect/VBoxContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+texture = ExtResource("4_vrcef")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LabelObj3" type="Label" parent="TextureRect/VBoxContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "objetivo 3"
+
+[node name="ContenedorArma" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 275.0
+offset_right = -213.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="BotonAnteriorArma" type="Button" parent="TextureRect/ContenedorArma"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/ContenedorArma/BotonAnteriorArma"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.692688
+offset_top = -53.0
+offset_right = 43.692688
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_5w5mh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ContenedorIcono" type="TextureRect" parent="TextureRect/ContenedorArma"]
+layout_mode = 2
+texture = ExtResource("6_41g8w")
+expand_mode = 3
+
+[node name="iconoArma" type="TextureRect" parent="TextureRect/ContenedorArma/ContenedorIcono"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -24.5
+offset_right = 21.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_cvs0i")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BotonSiguienteArma" type="Button" parent="TextureRect/ContenedorArma"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/ContenedorArma/BotonSiguienteArma"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_fiyu0")
+expand_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = 137.0
+offset_right = 232.5
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer2"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_k2bwf")
+expand_mode = 3
+
+[node name="BotonStart" type="Button" parent="TextureRect/HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_41g8w")
+theme_override_font_sizes/font_size = 16
+text = "COMENZAR"
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/HBoxContainer2"]
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_k2bwf")
+expand_mode = 3
+
+[node name="BotonReturn" type="Button" parent="TextureRect/HBoxContainer2/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = ExtResource("3_41g8w")
+theme_override_font_sizes/font_size = 16
+text = "VOLVER"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5w5mh")
+}
+
+[connection signal="pressed" from="TextureRect/ContenedorArma/BotonAnteriorArma" to="." method="_on_boton_anterior_arma_pressed"]
+[connection signal="pressed" from="TextureRect/ContenedorArma/BotonSiguienteArma" to="." method="_on_boton_siguiente_arma_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer2/TextureRect/BotonStart" to="." method="_on_boton_start_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer2/TextureRect2/BotonReturn" to="." method="_on_boton_return_pressed"]
