@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=4 uid="uid://rwwm8c7vlsy6"]
 
-[ext_resource type="Texture2D" uid="uid://cn0fk1ivviuk" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="1_7nxsg"]
+[ext_resource type="Texture2D" uid="uid://dx1nb3qs5bioc" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="1_7nxsg"]
 [ext_resource type="Script" uid="uid://dafpcy1tfio24" path="res://scripts/entidades/tank_boss/tankboss.gd" id="1_lf6dl"]
 [ext_resource type="Animation" uid="uid://knq3idauc5ou" path="res://animaciones/gira_cabeza.res" id="2_gv3f6"]
 [ext_resource type="Animation" uid="uid://8djtsjyb2ykw" path="res://animaciones/shoot.res" id="3_lf6dl"]
@@ -533,6 +533,7 @@ anim_player = NodePath("../Tankwalk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.005044006, 0, 0.9999873, 0, 1, 0, -0.9999873, 0, -0.005044006, 2.9236794, 1.172913, -0.41565788)
+current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.1478439, 0.98901075, 0, -0.98901075, -0.1478439, -0.15523219, 2.3712227, -0.26729786)

@@ -910,6 +910,7 @@ escena_victoria = ExtResource("63_5jpn7")
 
 [node name="ColorRectBrillo" type="ColorRect" parent="."]
 unique_name_in_owner = true
+z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
