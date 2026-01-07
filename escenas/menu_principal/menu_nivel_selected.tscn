@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://be2lkrspewrt4"]
 
 [ext_resource type="Script" uid="uid://cg6e0uw5v4jm8" path="res://scripts/menu_nivel_selected.gd" id="1_cvs0i"]
-[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://texturas/panel_fondo.png" id="1_vrcef"]
-[ext_resource type="Texture2D" uid="uid://die8gcncqth4p" path="res://texturas/level_plate.png" id="2_3lgx4"]
+[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://assets/texturas/panel_fondo.png" id="1_vrcef"]
+[ext_resource type="Texture2D" uid="uid://die8gcncqth4p" path="res://assets/texturas/level_plate.png" id="2_3lgx4"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="3_41g8w"]
 [ext_resource type="Texture2D" uid="uid://d1w2hnxagaedf" path="res://assets/icons/empty_star.tres" id="4_vrcef"]
-[ext_resource type="Texture2D" uid="uid://b0w7rf5gl5x1k" path="res://texturas/left_arrow.png" id="5_5w5mh"]
-[ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://assets/texturas/menus/marco_obj_tienda.png" id="6_41g8w"]
-[ext_resource type="Texture2D" uid="uid://g6hxm7sgh4rm" path="res://texturas/right_arrow.png" id="6_fiyu0"]
+[ext_resource type="Texture2D" uid="uid://b0w7rf5gl5x1k" path="res://assets/texturas/left_arrow.png" id="5_5w5mh"]
+[ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://assets/texturas/marco_obj_tienda.png" id="6_41g8w"]
+[ext_resource type="Texture2D" uid="uid://g6hxm7sgh4rm" path="res://assets/texturas/right_arrow.png" id="6_fiyu0"]
 [ext_resource type="Texture2D" uid="uid://c38jwxvgdkqm" path="res://assets/icons/dmg.png" id="7_cvs0i"]
-[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://texturas/button_plate.png" id="7_k2bwf"]
+[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://assets/texturas/button_plate.png" id="7_k2bwf"]
 
 [sub_resource type="Animation" id="Animation_5w5mh"]
 length = 0.001

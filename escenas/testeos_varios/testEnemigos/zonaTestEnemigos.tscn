@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://sxoag5s4pthj"]
 
 [ext_resource type="Script" uid="uid://cfqgp6c75fr52" path="res://escenas/testeos_varios/testEnemigos/zona_test_enemigos.gd" id="1_4q42e"]
-[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="1_upc3s"]
+[ext_resource type="Texture2D" uid="uid://dj5tqqiqvc07b" path="res://assets/texturas/textula_ladrillo.png" id="1_upc3s"]
 [ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="2_5p0qs"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_b8l55"]
 [ext_resource type="PackedScene" uid="uid://cuk711nm54qj8" path="res://escenas/entidades/enemigos/test/enemigo_test_spawner.tscn" id="3_4q42e"]

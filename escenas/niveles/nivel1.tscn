@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_7vjjb"]
-[ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://assets/texturas/menus/OIP.webp" id="3_2d2d7"]
+[ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://assets/texturas/OIP.webp" id="3_2d2d7"]
 [ext_resource type="Script" uid="uid://drs35a0wr77x6" path="res://scripts/niveles/camara_pivot.gd" id="4_bdw2m"]
 [ext_resource type="Texture2D" uid="uid://5fnhugpjpanf" path="res://assets/texturas/suelo_tierra.png" id="5_2vr2k"]
 [ext_resource type="Texture2D" uid="uid://knoyfjej311q" path="res://assets/texturas/Vandereyt_Salome_GameArtExam_Environment_Tex.jpg" id="6_lasgm"]
 [ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="7_rif7b"]
-[ext_resource type="Texture2D" uid="uid://c5s7tw3pobl8m" path="res://assets/texturas/menus/menu_pausa.png" id="8_7awpn"]
-[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/menus/option_plate.png" id="9_10i1b"]
-[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/menus/button_plate.png" id="10_8gu01"]
+[ext_resource type="Texture2D" uid="uid://c5s7tw3pobl8m" path="res://assets/texturas/menu_pausa.png" id="8_7awpn"]
+[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/option_plate.png" id="9_10i1b"]
+[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/button_plate.png" id="10_8gu01"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="11_dn6xt"]
-[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/menus/panel_fondo.png" id="12_uuvpw"]
-[ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://assets/texturas/menus/level_plate.png" id="13_63y5h"]
+[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/panel_fondo.png" id="12_uuvpw"]
+[ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://assets/texturas/level_plate.png" id="13_63y5h"]
 [ext_resource type="PackedScene" uid="uid://bnbhvfjmkaqhd" path="res://escenas/shop.tscn" id="21_4vhic"]
 [ext_resource type="PackedScene" uid="uid://dfts5xnmr8oe" path="res://assets/scenery/GLTF format/grass.glb" id="23_2bkpj"]
 [ext_resource type="PackedScene" uid="uid://dmf7vhovjlnjo" path="res://assets/scenery/GLTF format/stone_largeB.glb" id="24_ghcse"]
@@ -53,7 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://escenas/entidades/tank_boss/explosion.tscn" id="62_d34lg"]
 [ext_resource type="PackedScene" uid="uid://ggu3faetcj12" path="res://escenas/ui/menu_victoria.tscn" id="63_5jpn7"]
 [ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/entidades/tank_boss/shoot_effect.tscn" id="63_ppgys"]
-[ext_resource type="Texture2D" uid="uid://cn0fk1ivviuk" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="64_hf2n6"]
+[ext_resource type="Texture2D" uid="uid://dx1nb3qs5bioc" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="64_hf2n6"]
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="65_cu5jt"]
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="65_lqvft"]
@@ -910,6 +910,7 @@ escena_victoria = ExtResource("63_5jpn7")
 
 [node name="ColorRectBrillo" type="ColorRect" parent="."]
 unique_name_in_owner = true
+z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -974,6 +975,7 @@ mesh = SubResource("PlaneMesh_rcdd3")
 
 [node name="BarreraIzquierda" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.756, 1.5, 0)
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraIzquierda"]
@@ -983,12 +985,12 @@ shape = SubResource("BoxShape3D_7i0ls")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraIzquierda"]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1500, 0, 0, -743.29)
-visible = false
 mesh = SubResource("BoxMesh_3um7j")
 skeleton = NodePath("")
 
 [node name="BarreraDerecha2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.632, 1.5, -743.29)
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDerecha2"]
@@ -998,13 +1000,13 @@ shape = SubResource("BoxShape3D_7i0ls")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BarreraDerecha2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-visible = false
 mesh = SubResource("BoxMesh_fmekg")
 skeleton = NodePath("")
 
 [node name="BarreraTrasera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.481, -1263.1)
+visible = false
 collision_layer = 64
 collision_mask = 2
 
@@ -1021,6 +1023,7 @@ mesh = SubResource("BoxMesh_a8cc0")
 [node name="BarreraDelantera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
+visible = false
 collision_layer = 64
 collision_mask = 2
 

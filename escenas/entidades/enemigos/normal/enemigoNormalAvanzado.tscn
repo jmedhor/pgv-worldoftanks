@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="4_n1mpr"]
 [ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_uii34"]
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="6_3ydth"]
-[ext_resource type="Texture2D" uid="uid://ugo60ieex5ur" path="res://assets/barvy2.png" id="7_g068x"]
+[ext_resource type="Texture2D" uid="uid://ugo60ieex5ur" path="res://assets/texturas/barvy2.png" id="7_g068x"]
 [ext_resource type="ArrayMesh" uid="uid://cyh0s373rqnlh" path="res://assets/enemigos/enemigoNormal/enemigo1.obj" id="8_d0uxh"]
 [ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="9_n8ban"]
 [ext_resource type="ArrayMesh" uid="uid://brvv8djv4ixpb" path="res://assets/enemigos/enemigoNormal/ENCuerpo.obj" id="10_c5oar"]
 [ext_resource type="ArrayMesh" uid="uid://cj8ohkcohfsw6" path="res://assets/enemigos/enemigoNormal/ENCabeza.obj" id="11_fh47o"]
-[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://assets/tank_shoot.wav" id="12_j6m2a"]
+[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://assets/sounds/tank_shoot.wav" id="12_j6m2a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jju12"]
 size = Vector3(1.8, 1.8, 1.8)

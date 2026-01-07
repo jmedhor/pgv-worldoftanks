@@ -38,7 +38,7 @@ enum BossState {
 
 var vida := max_vida
 var estado_actual : BossState = BossState.PASIVO_F1
-
+var pausado : bool = false
 var jugador : Node3D
 var jugador_en_vision := false
 var puede_disparar := true
@@ -49,7 +49,7 @@ var comenzar_batalla := false
 func _ready() -> void:
 	
 	posicion_inicial = global_position
-
+	Global.pausar_juego.connect(_on_pause_changed)
 	canon_rotacion_inicial = canon.rotation
 	barra_vida.visible = false
 	barra_vida.modulate.a = 0.0
@@ -57,7 +57,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func _on_pause_changed(pausa: bool) -> void:
+	pausado = pausa
+	
 func _physics_process(delta):
+	if pausado:
+		pass
+	
 	if comenzar_batalla and not en_transicion_fase2:
 		if vida <= 0:
 			cambiar_estado(BossState.DERROTADO)
@@ -146,6 +152,7 @@ func estado_pasivo(delta):
 			cambiar_estado(BossState.AGRESIVO_F1)
 		else:
 			cambiar_estado(BossState.AGRESIVO_F2)
+
 func estado_agresivo(delta, fase2: bool):
 	if not jugador_en_vision or jugador == null:
 		if fase2:
@@ -155,7 +162,6 @@ func estado_agresivo(delta, fase2: bool):
 			cambiar_estado(BossState.PASIVO_F1)
 		return
 
-	
 	if puede_disparar and not ejecutando_ataque:
 		ejecutando_ataque = true
 		var eleccion = randi() % 2
@@ -168,8 +174,6 @@ func estado_agresivo(delta, fase2: bool):
 		else:
 			if eleccion == 0:
 				cambiar_estado(BossState.ATAQUE_AREA)
-				
-				
 			else:
 				cambiar_estado(BossState.ATAQUE_ABANICO)
 
@@ -198,7 +202,6 @@ func ataque_abanico(potenciado: bool):
 	volver_a_estado_base()
 
 func ataque_area(potenciado: bool):
-	
 	if ejecutando_ataque and not puede_disparar:
 		return
 	puede_disparar = false
@@ -331,7 +334,7 @@ func actualizar_barra_vida() -> void:
 		vida,
 		0.3
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		
+
 func obtener_posicion_aleatoria() -> Vector3:
 	var x = randf_range(-radio_area, radio_area)
 	var z = randf_range(5, 25)
@@ -339,8 +342,6 @@ func obtener_posicion_aleatoria() -> Vector3:
 
 
 func _on_trigger_boss_body_entered(body: Node3D) -> void:
-	
-	
 	if body.name == "Personaje_principal":
 		
 		get_tree().paused = true
