@@ -389,6 +389,9 @@ font_size = 24
 font = ExtResource("11_dn6xt")
 font_size = 24
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ucxdg"]
+size = Vector3(25.995544, 1, 27.64508)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhxp4"]
 resource_name = "01_Mat_Tank"
 cull_mode = 2
@@ -890,9 +893,6 @@ _data = {
 &"boss_inicio": SubResource("Animation_1plb7")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ucxdg"]
-size = Vector3(25.995544, 1, 27.64508)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ivxyl"]
 size = Vector3(0.48901367, 1, 1)
 
@@ -1285,6 +1285,18 @@ theme_override_fonts/font = ExtResource("11_dn6xt")
 theme_override_font_sizes/font_size = 24
 text = "Volver"
 flat = true
+
+[node name="Tienda" parent="." instance=ExtResource("73_asdf5")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRectBrillo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 1153.0
+offset_bottom = 641.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [node name="shop" parent="." instance=ExtResource("21_4vhic")]
 transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -11.396, 0, -648.395)
@@ -2562,10 +2574,22 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.964, 0, -268.152)
 [node name="Foso2" parent="Obstaculos" instance=ExtResource("72_7vjjb")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.275, 0, -907.922)
 
+[node name="Personaje_principal" parent="." instance=ExtResource("71_56w5e")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -1338.4028)
+speed = 650.0
+
+[node name="TriggerBoss" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.722046e-06, 0, -1340.9193)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerBoss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35043335, 0, -11.497192)
+shape = SubResource("BoxShape3D_ucxdg")
+
 [node name="tankboss2" type="CharacterBody3D" parent="." groups=["Enemigos"]]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.221624, 0.836725, -1361.7091)
 visible = false
-collision_layer = 2
+collision_layer = 3
 collision_mask = 17
 script = ExtResource("60_7522d")
 area_aviso_scene = ExtResource("61_xoytu")
@@ -2653,14 +2677,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_hsrrj")
 }
 
-[node name="TriggerBoss" type="Area3D" parent="tankboss2"]
-transform = Transform3D(-1.4570462e-08, 0, -0.33333334, 0, 0.33333334, 0, 0.33333334, 0, -1.4570462e-08, -6.9299316, -0.27890834, -8.073876)
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tankboss2/TriggerBoss"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35043335, 0, -11.497192)
-shape = SubResource("BoxShape3D_ucxdg")
-
 [node name="Shoot" type="AudioStreamPlayer3D" parent="tankboss2"]
 stream = ExtResource("67_xn8w1")
 
@@ -2679,9 +2695,6 @@ volume_db = 6.038
 transform = Transform3D(1, 0, 0, 0, 2.0650663, 0, 0, 0, 1.5848308, 0.25549316, 0, 0.054592133)
 shape = SubResource("BoxShape3D_ivxyl")
 
-[node name="Personaje_principal" parent="." instance=ExtResource("71_56w5e")]
-speed = 650.0
-
 [node name="Victoria" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -2691,10 +2704,6 @@ offset_right = 641.0
 offset_bottom = 292.0
 theme_override_font_sizes/font_size = 32
 text = "Has ganao"
-
-[node name="Tienda" parent="." instance=ExtResource("73_asdf5")]
-unique_name_in_owner = true
-visible = false
 
 [node name="ObjetoMejora" parent="." instance=ExtResource("65_lqvft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3714209, 1.7396365, -20.099121)
@@ -2731,6 +2740,6 @@ mouse_filter = 2
 [connection signal="item_selected" from="menu_opciones/ButtonsVBox/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="menu_opciones/ButtonsVBox/opciones_back" to="." method="_on_opciones_back_pressed"]
+[connection signal="body_entered" from="TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
-[connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]

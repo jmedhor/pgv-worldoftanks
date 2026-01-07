@@ -5,7 +5,7 @@ class_name enemigoJuggernaut
 @export var vida : float = 12.0
 @export var estatico : bool = false
 @export var velocidad_avance : float = 4.0
-@export var velocidad_desplazo : float = 2.0
+@export var velocidad_desplazo : float = 0
 @export var proyectil:PackedScene
 @export var tiempoEntreDisparo : float = 3
 @export var tiempoEntreMoverse : float = 5
@@ -28,6 +28,7 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
+	$Torreta.global_rotation.y = 0.0
 	
 	if get_parent() is PathFollow3D:
 		moverse_camino(delta)
@@ -74,9 +75,9 @@ func moverse():
 func disparar():
 	var tmp_proyectil = proyectil.instantiate()
 	if tmp_proyectil.has_method("inicializar"):
-		tmp_proyectil.inicializar($Marker3D.global_position,Vector3(0,0,1))
-	add_sibling(tmp_proyectil)
-	
+		tmp_proyectil.inicializar($Torreta/Marker3D.global_position,Vector3(0,0,1))
+	get_tree().current_scene.add_child(tmp_proyectil)
+	$sonido_disparo.play()
 	$timerDisparo.start(tiempoEntreDisparo)
 	
 func _on_timer_disparo_timeout() -> void:

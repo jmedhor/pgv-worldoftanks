@@ -5,7 +5,7 @@ class_name enemigoMecha
 @export var vida : float = 5.0
 @export var estatico : bool = false
 @export var velocidad_avance : float = 6.0
-@export var velocidad_desplazo : float = 1.0	#Queda raro sin animacion lol
+@export var velocidad_desplazo : float = 0
 @export var proyectil:PackedScene
 @export var tiempoEntreDisparo : float = 0.5
 @export var tiempoEntreMoverse : float = 4
@@ -29,6 +29,7 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
+	$Torreta.global_rotation.y = 0.0
 	
 	if get_parent() is PathFollow3D:
 		moverse_camino(delta)
@@ -76,15 +77,15 @@ func disparar():
 	var tmp_proyectil = proyectil.instantiate()
 	var pos_proyectil
 	if canonDerecho:
-		pos_proyectil = $Canon1.global_position
+		pos_proyectil = $Torreta/Canon1.global_position
 		canonDerecho = false
 	else :
-		pos_proyectil = $Canon2.global_position
+		pos_proyectil = $Torreta/Canon2.global_position
 		canonDerecho = true		
 	if tmp_proyectil.has_method("inicializar"):
 		tmp_proyectil.inicializar(pos_proyectil,Vector3(0,0,1))
-	add_sibling(tmp_proyectil)
-	
+	get_tree().current_scene.add_child(tmp_proyectil)
+	$sonido_disparo.play()
 	$timerDisparo.start(tiempoEntreDisparo)
 	
 func _on_timer_disparo_timeout() -> void:
