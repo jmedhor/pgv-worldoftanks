@@ -23,6 +23,7 @@ var combo_maximo : int
 var combo_actual : int
 var puede_comprar : bool = false
 var tienda_abierta : bool = false
+var ajustes_abiertos : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,7 +32,7 @@ func _ready() -> void:
 	%AnimationPlayer.play("mov_camara")
 	%timer1.start()
 	tiempo_jugado = 0
-	puntos = 1000
+	puntos = 0
 	combo_actual = 1
 	combo_maximo = 1
 	datosNivel = SaveManager.get_level(nombreNivel)
@@ -39,6 +40,9 @@ func _ready() -> void:
 	inicializar_jugador()
 	inicializar_hud()
 	inicializar_señales()
+	set_brillo()
+	set_sonido()
+	set_modo()
 	
 
 func reiniciar_pausa():
@@ -47,16 +51,17 @@ func reiniciar_pausa():
 	get_tree().paused = pausa
 
 func inicializar_jugador():
-	jugador.vida = 2
+	jugador.vida = Global.MAX_VIDA_JUGADOR
 	ultima_vida = jugador.vida
 	jugador.set_nivel(0)
-	jugador.cambiar(Global.arma_elegida)
+	jugador.cambiar(SaveManager.get_last_special())
 
 func inicializar_hud():
 	hud.actualizar_hud_vida(jugador.vida, jugador.escudo)
 	hud.actualizar_puntuacion_hud(puntos)
 	hud.actualizar_combo_hud(combo_actual)
-	hud.actualizar_arma_especial(Global.arma_elegida)
+	hud.actualizar_arma_especial(SaveManager.get_last_special())
+	hud.actualizar_tiempo(tiempo_jugado)
 
 func inicializar_señales():
 	Global.is_shopping.connect(_on_puede_comprar)
@@ -124,10 +129,13 @@ func _on_cambio_arma(nueva:String):
 func _process(delta: float) -> void:
 	if not pausa:
 		tiempo_jugado+=delta
+		hud.actualizar_tiempo(tiempo_jugado)
 	
 	if Input.is_action_just_pressed("pausa") && partida_activa:
 		if tienda_abierta:
 			_on_cerrar_tienda()
+		if ajustes_abiertos:
+			_cerrar_ajustes()
 		else:
 			print("estoy pausando crack")
 			_alterar_pausa()
@@ -185,7 +193,6 @@ func _on_button_pressed() -> void:
 	%menu_pausa.visible = false
 	get_tree().paused = pausa
 
-
 func _on_timer_1_timeout() -> void:
 	%AnimationPlayer2.play("mov_camara_2")
 	%timer2.start()
@@ -195,13 +202,19 @@ func _on_timer_2_timeout() -> void:
 	await $%AnimationPlayer3.animation_finished
 	$tankboss2/TriggerBoss.monitoring = true
 
+func _cerrar_ajustes():
+	%menu_pausa.visible = true
+	%menu_opciones.visible = false
+	ajustes_abiertos = false
+	SaveManager.guardar_config()
+
 func _on_button_2_pressed() -> void:
 	%menu_pausa.visible = false
 	%menu_opciones.visible = true
+	ajustes_abiertos = true
 
 func _on_opciones_back_pressed() -> void:
-	%menu_opciones.visible = false
-	%menu_pausa.visible = true
+	_cerrar_ajustes()
 
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
@@ -209,18 +222,23 @@ func _on_option_button_item_selected(index: int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		1:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
 		2:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	SaveManager.configuracion.set("modoPantalla",index)
 
 func _on_h_slider_2_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	var valor_lineal = value / 100.0
+	var db = linear_to_db(valor_lineal)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
+	SaveManager.configuracion.set("sonido", value)
 
 func _on_h_slider_value_changed(value: float) -> void:
 	var normalized = value / 255.0
 	rect_brillo.color.a = 1.0 - normalized
+	SaveManager.configuracion.set("brillo", value)
 
 func _on_button_3_pressed() -> void:
 	%menu_opciones.visible = false
@@ -248,3 +266,33 @@ func _on_enter_shop():
 func _on_button_4_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(ruta_menu_principal)
+
+func set_brillo():
+	var value = SaveManager.configuracion.get("brillo")
+	var normalized = value / 255.0
+	rect_brillo.color.a = 1.0 - normalized
+	%HSlider.value = value
+
+func set_sonido():
+	var value = SaveManager.configuracion.get("sonido")
+	var valor_lineal = value / 100.0
+	var db = linear_to_db(valor_lineal)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
+	%HSlider2.value = value
+
+func set_modo():
+	await get_tree().process_frame
+	var index = int(SaveManager.configuracion.get("modoPantalla"))
+	%OptionButton.selected = index
+	
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+	
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+		2:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)

@@ -347,6 +347,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_nhv7f")
 value = 100.0
 
 [node name="Fogueos" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_4q17s")
@@ -400,6 +401,49 @@ theme_override_constants/margin_bottom = 16
 [node name="Label" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Fogueos/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "(E)"
+label_settings = SubResource("LabelSettings_amv7k")
+horizontal_alignment = 1
+
+[node name="Tiempo" type="PanelContainer" parent="PanelDerecho/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4q17s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Tiempo"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="PanelDerecho/MarginContainer/VBoxContainer/Tiempo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+color = Color(0, 0, 0, 0.62352943)
+
+[node name="TituloTiempo" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Tiempo/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tiempo actual"
+label_settings = SubResource("LabelSettings_rftc2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelDerecho/MarginContainer/VBoxContainer/Tiempo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="LabelTiempo" type="Label" parent="PanelDerecho/MarginContainer/VBoxContainer/Tiempo/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1m10s"
 label_settings = SubResource("LabelSettings_amv7k")
 horizontal_alignment = 1
 

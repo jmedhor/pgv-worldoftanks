@@ -80,6 +80,16 @@ func mostrar_aviso_tienda(aviso:bool):
 func actualizar_temp_especial(tiempo: float):
 	barra_especial.value = tiempo
 # Called when the node enters the scene tree for the first time.
+
+func actualizar_tiempo(tiempo:float):
+	%LabelTiempo.text = formatear_tiempo(tiempo)
+
+func formatear_tiempo(segundos_totales: float) -> String:
+	var minutos = int(segundos_totales / 60)
+	var segundos = int(segundos_totales) % 60
+	
+	return "%dm %ds" % [minutos, segundos]
+
 func _ready() -> void:
 	barra_especial.value = 100;
 

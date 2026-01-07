@@ -79,6 +79,8 @@ func set_nivel(nuevo:int):
 
 func _on_cerrar_tienda_pressed() -> void:
 	print("Cerrando tienda")
+	SaveManager.set_last_special(catalogo_strings[_arma])
+	SaveManager.guardar_datos()
 	cerrar_tienda.emit()
 
 func _on_boton_siguiente_pressed() -> void:

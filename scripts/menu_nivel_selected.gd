@@ -3,7 +3,7 @@ extends Control
 var escena : String
 var estrella = preload("res://assets/icons/star.tres")
 var vacio = preload("res://assets/icons/empty_star.tres")
-var elegida = 0
+var elegida : int = 0
 
 var catalogo_strings = [
 	"dmg",
@@ -14,6 +14,11 @@ var catalogo_iconos = [
 	preload("res://assets/icons/dmg.png"),
 	preload("res://assets/icons/emp.png")
 ]
+
+func set_especial(cadena:String):
+	elegida = catalogo_strings.find(cadena)
+	%iconoArma.texture = catalogo_iconos.get(elegida)
+	print(elegida)
 
 func _on_boton_siguiente_arma_pressed() -> void:
 	elegida = posmod(elegida + 1, catalogo_strings.size())
@@ -29,7 +34,8 @@ func _on_boton_anterior_arma_pressed() -> void:
 
 
 func _on_boton_start_pressed() -> void:
-	Global.arma_elegida = catalogo_strings[elegida]
+	SaveManager.set_last_special(catalogo_strings[elegida])
+	SaveManager.guardar_datos()
 	get_tree().change_scene_to_file(escena)
 
 func play():
@@ -37,6 +43,8 @@ func play():
 	$AnimationPlayer.play("open_menu")
 
 func _on_boton_return_pressed() -> void:
+	SaveManager.set_last_special(catalogo_strings[elegida])
+	SaveManager.guardar_datos()
 	$AnimationPlayer.play_backwards("open_menu")
 	await get_tree().create_timer(1).timeout
 	self.visible = false
