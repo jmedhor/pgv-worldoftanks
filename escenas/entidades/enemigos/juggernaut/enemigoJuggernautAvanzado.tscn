@@ -1,0 +1,95 @@
+[gd_scene load_steps=19 format=3 uid="uid://c8yh2ftiwes6e"]
+
+[ext_resource type="Script" uid="uid://cf6wf2tlhcrkg" path="res://scripts/entidades/enemigos/juggernaut/juggernaut.gd" id="1_oftuf"]
+[ext_resource type="PackedScene" uid="uid://b0lr31thaiegi" path="res://escenas/proyectiles/enemigos/proyectil_pesado.tscn" id="2_n8d77"]
+[ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="3_8oies"]
+[ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="4_gfung"]
+[ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_1vk8c"]
+[ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="6_xvk5q"]
+[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://assets/barvy.png" id="7_8ajf2"]
+[ext_resource type="ArrayMesh" uid="uid://bdgg2xrm0jlwb" path="res://assets/enemigos/enemigoJuggernaut/enemigo2.obj" id="8_tymyf"]
+[ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="9_7jhjq"]
+[ext_resource type="ArrayMesh" uid="uid://bvj57e1hs7xpt" path="res://assets/enemigos/enemigoJuggernaut/EJCuerpo.obj" id="10_cx0yl"]
+[ext_resource type="Texture2D" uid="uid://ugo60ieex5ur" path="res://assets/barvy2.png" id="10_n8d77"]
+[ext_resource type="ArrayMesh" uid="uid://4lwiyiuki6pq" path="res://assets/enemigos/enemigoJuggernaut/EJCabeza.obj" id="11_5jyis"]
+[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://assets/tank_shoot.wav" id="12_w8jtv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jju12"]
+size = Vector3(2.2, 1.8, 2.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp171"]
+albedo_texture = ExtResource("7_8ajf2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1182l"]
+size = Vector3(2.4, 1.8, 2.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8npb"]
+albedo_texture = ExtResource("10_n8d77")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pr2kg"]
+albedo_texture = ExtResource("10_n8d77")
+
+[node name="enemigoJuggernautBasico" type="CharacterBody3D" groups=["Enemigos"]]
+collision_layer = 2
+script = ExtResource("1_oftuf")
+vida = 20.0
+velocidad_desplazo = 2.0
+proyectil = ExtResource("2_n8d77")
+tiempoEntreDisparo = 2.0
+tiempoMoviendose = 4.0
+puntuacion = 400.0
+destruccion = ExtResource("3_8oies")
+potenciadores = Array[PackedScene]([ExtResource("4_gfung"), ExtResource("5_1vk8c"), ExtResource("6_xvk5q")])
+prob_pot = 0.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90335405, -0.0006920099)
+shape = SubResource("BoxShape3D_jju12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.33, 0, 0, 0, 0.26, 0, 0, 0, 0.33, -0.0016073585, 0.36168373, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_tp171")
+mesh = ExtResource("8_tymyf")
+
+[node name="timerDisparo" type="Timer" parent="."]
+
+[node name="timerMoverse" type="Timer" parent="."]
+
+[node name="timerMoviendose" type="Timer" parent="." groups=["Enemigos"]]
+
+[node name="AreaContacto" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90560246, 0)
+collision_layer = 256
+script = ExtResource("9_7jhjq")
+dano = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaContacto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01372385, 0)
+shape = SubResource("BoxShape3D_1182l")
+
+[node name="Cuerpo" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.33, 0, 0, 0, 0.26, 0, 0, 0, 0.33, 0, 0.36, 0)
+material_override = SubResource("StandardMaterial3D_y8npb")
+mesh = ExtResource("10_cx0yl")
+
+[node name="Torreta" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="Torreta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4133079, 1.1840053)
+
+[node name="Cabeza" type="MeshInstance3D" parent="Torreta"]
+transform = Transform3D(0.33, 0, 0, 0, 0.26, 0, 0, 0, 0.33, 0, 0.36, 0)
+material_override = SubResource("StandardMaterial3D_pr2kg")
+mesh = ExtResource("11_5jyis")
+skeleton = NodePath("../..")
+
+[node name="sonido_disparo" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_w8jtv")
+pitch_scale = 0.5
+
+[connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
+[connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
+[connection signal="timeout" from="timerMoviendose" to="." method="_on_timer_moviendose_timeout"]
+[connection signal="body_entered" from="AreaContacto" to="AreaContacto" method="_on_body_entered"]
+[connection signal="destruir" from="AreaContacto" to="." method="_on_area_contacto_destruir"]

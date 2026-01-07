@@ -5,10 +5,10 @@ class_name enemigoNormal
 @export var vida : float = 3.0
 @export var estatico : bool = false
 @export var velocidad_avance : float = 6.0
-@export var velocidad_desplazo : float = 3.0
+@export var velocidad_desplazo : float = 0
 @export var proyectil:PackedScene
 @export var tiempoEntreDisparo : float = 1
-@export var tiempoEntreMoverse : float = 30
+@export var tiempoEntreMoverse : float = 3
 @export var tiempoMoviendose : float = 1
 @export var puntuacion : float = 100
 @export var destruccion:PackedScene
