@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cevsl2yvfw214"
+path="res://.godot/imported/Iron Beasts.ogg-9dd53c2b42721a2442e7799fe98459f0.oggvorbisstr"
+
+[deps]
+
+source_file="res://sonidos/Iron Beasts.ogg"
+dest_files=["res://.godot/imported/Iron Beasts.ogg-9dd53c2b42721a2442e7799fe98459f0.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
