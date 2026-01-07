@@ -3,13 +3,17 @@ extends Node3D
 @onready var rect_brillo = $ColorRectBrillo
 # Called when the node enters the scene tree for the first time.
 
-var level2unlocked = true
-var level3unlocked = true
+var level2unlocked
+var level3unlocked
 
 func _ready() -> void:
 	
 	%camara_menus.position = Vector3(-20.478,11.27,90.358)
 	%camara_menus.rotation_degrees = Vector3(-16.6,25.1,4)
+	SaveManager.cargar_datos()
+	print(SaveManager.datos_jugador)
+	level2unlocked = SaveManager.is_lvl_completed("lvl1")
+	level3unlocked = SaveManager.is_lvl_completed("lvl2")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,28 +58,31 @@ func _on_level_menu_back_button_pressed() -> void:
 	
 
 func _on_level_1_pressed() -> void:
+	var nivel = SaveManager.get_level("lvl1")
 	var objetivos = [
-		{"cadena": "Consigue mas de 1500 puntos", "completo":true},
-		{"cadena": "Acaba con 2 o mas vidas", "completo":true},
-		{"cadena": "Consigue un combo minimo de x3", "completo":false}
+		{"cadena": "Consigue mas de 1500 puntos", "completo":nivel.get("obj1")},
+		{"cadena": "Acaba con 2 o mas vidas", "completo":nivel.get("obj2")},
+		{"cadena": "Consigue un combo minimo de x3", "completo":nivel.get("obj3")}
 	]
 	%menu_nivel_selected4.pasar_nivel("El bosque", objetivos, "res://escenas/niveles/nivel1.tscn")
 	%menu_nivel_selected4.play()
 
 func _on_level_2_pressed() -> void:
+	var nivel = SaveManager.get_level("lvl2")
 	var objetivos = [
-		{"cadena": "Consigue mas de 1500 puntos", "completo":true},
-		{"cadena": "Acaba con 2 o mas vidas", "completo":true},
-		{"cadena": "Consigue un combo minimo de x3", "completo":false}
+		{"cadena": "Consigue mas de 1500 puntos", "completo":nivel.get("obj1")},
+		{"cadena": "Acaba con 2 o mas vidas", "completo":nivel.get("obj2")},
+		{"cadena": "Consigue un combo minimo de x3", "completo":nivel.get("obj3")}
 	]
 	%menu_nivel_selected4.pasar_nivel("Ciudad en ruinas", objetivos, "res://escenas/niveles/nivel2.tscn")
 	%menu_nivel_selected4.play()
 
 func _on_level_3_pressed() -> void:
+	var nivel = SaveManager.get_level("lvl3")
 	var objetivos = [
-		{"cadena": "Consigue mas de 1500 puntos", "completo":false},
-		{"cadena": "Acaba con 2 o mas vidas", "completo":false},
-		{"cadena": "Consigue un combo minimo de x3", "completo":false}
+		{"cadena": "Consigue mas de 1500 puntos", "completo":nivel.get("obj1")},
+		{"cadena": "Acaba con 2 o mas vidas", "completo":nivel.get("obj2")},
+		{"cadena": "Consigue un combo minimo de x3", "completo":nivel.get("obj3")}
 	]
 	%menu_nivel_selected4.pasar_nivel("El desierto", objetivos, "res://escenas/niveles/nivel3.tscn")
 	%menu_nivel_selected4.play()

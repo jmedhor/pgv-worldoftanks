@@ -13,6 +13,8 @@ var timer2 : SceneTreeTimer
 @export var escena_victoria : PackedScene
 var objeto_curacion = preload("res://escenas/potenciadores/objeto_curacion.tscn")
 var ruta_menu_principal = preload("res://escenas/menu_principal/menu_principal.tscn")
+var nombreNivel : String
+var datosNivel : Dictionary
 var tiempo_jugado : float
 var puntos : int
 var partida_activa : bool = true
@@ -24,15 +26,15 @@ var tienda_abierta : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	print(nombreNivel)
 	reiniciar_pausa()
-	
 	%AnimationPlayer.play("mov_camara")
 	%timer1.start()
 	tiempo_jugado = 0
 	puntos = 1000
 	combo_actual = 1
 	combo_maximo = 1
+	datosNivel = SaveManager.get_level(nombreNivel)
 	
 	inicializar_jugador()
 	inicializar_hud()
@@ -70,18 +72,23 @@ func inicializar_señales():
 	tienda.compra_escudo.connect(_on_compra_escudo)
 	tienda.filtro.connect(_on_filtro)
 
-func _comprobar_estrellas() -> int:
-	return 0
+func _comprobar_estrellas() -> Array:
+	return [false, false, false]
 
 func _finalizar_victoria():
 	partida_activa = false
+	var cont = _comprobar_estrellas()
+	print(nombreNivel)
+	SaveManager.update_level(nombreNivel, true, cont[0], cont[1], cont[2], puntos)
+	SaveManager.get_level(nombreNivel)
+	SaveManager.guardar_datos()
 	_alterar_pausa()
 	if escena_victoria:
 		var menu = escena_victoria.instantiate()
 		menu.puntos = puntos
 		menu.tiempo = tiempo_jugado
 		menu.combo = combo_maximo
-		var cont = _comprobar_estrellas()
+		menu.datosNivel = {nombreNivel : datosNivel}
 		menu.rellenar_estrellas(cont)
 		add_child(menu)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -183,7 +190,6 @@ func _on_timer_1_timeout() -> void:
 	%AnimationPlayer2.play("mov_camara_2")
 	%timer2.start()
 
-
 func _on_timer_2_timeout() -> void:
 	%AnimationPlayer3.play("mov_camara_3")
 	await $%AnimationPlayer3.animation_finished
@@ -193,11 +199,9 @@ func _on_button_2_pressed() -> void:
 	%menu_pausa.visible = false
 	%menu_opciones.visible = true
 
-
 func _on_opciones_back_pressed() -> void:
 	%menu_opciones.visible = false
 	%menu_pausa.visible = true
-
 
 func _on_option_button_item_selected(index: int) -> void:
 	match index:
@@ -211,10 +215,8 @@ func _on_option_button_item_selected(index: int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
-
 func _on_h_slider_2_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
-
 
 func _on_h_slider_value_changed(value: float) -> void:
 	var normalized = value / 255.0

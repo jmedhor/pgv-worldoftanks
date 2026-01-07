@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/niveles/global.gd"
 AppConfig="*res://addons/maaacks_options_menus/base/scenes/autoloads/app_config.tscn"
+SaveManager="*res://scripts/SaveManager.gd"
 
 [display]
 

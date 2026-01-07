@@ -4,8 +4,9 @@ var ruta_menu_principal = preload("res://escenas/menu_principal/menu_principal.t
 var puntos : int
 var combo : int
 var tiempo : float
+var datosNivel : Dictionary
 var estrella = preload("res://assets/icons/star.tres")
-
+var vacia = preload("res://assets/icons/empty_star.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%LabelFraseRandom.text = obtener_frase_aleatoria()
@@ -16,16 +17,15 @@ func _ready() -> void:
 func _on_boton_reiniciar_pressed() -> void:
 	get_tree().reload_current_scene()
 
-func rellenar_estrellas(activas:int):
+func rellenar_estrellas(activas:Array):
 	var texturas = [
 		%e1, 
 		%e2, 
 		%e3
 	]
 
-	for i in range(activas):
-		texturas[i].texture = estrella
-		
+	for i in texturas.size():
+		texturas[i].texture = estrella if activas[i] else vacia
 
 func _on_boton_volver_pressed() -> void:
 	get_tree().paused = false

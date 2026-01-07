@@ -41,22 +41,13 @@ func _on_boton_return_pressed() -> void:
 	await get_tree().create_timer(1).timeout
 	self.visible = false
 
-func pasar_nivel(nombre : String, objetivos, ruta : String):
+func pasar_nivel(nombre : String, objetivos : Array, ruta : String):
 	%LabelNombre.text = nombre
 	%LabelObj1.text = objetivos[0].get("cadena")
 	%LabelObj2.text = objetivos[1].get("cadena")
 	%LabelObj3.text = objetivos[2].get("cadena")
-	if objetivos[0].get("completo"):
-		%IconoObj1.texture = estrella
-	else:
-		%IconoObj1.texture = vacio
-	if objetivos[1].get("completo"):
-		%IconoObj2.texture = estrella
-	else:
-		%IconoObj2.texture = vacio
-	if objetivos[2].get("completo"):
-		%IconoObj3.texture = estrella
-	else:
-		%IconoObj3.texture = vacio
+
+	%IconoObj1.texture = estrella if objetivos[0].get("completo") else vacio
+	%IconoObj2.texture = estrella if objetivos[1].get("completo") else vacio
+	%IconoObj3.texture = estrella if objetivos[2].get("completo") else vacio
 	escena = ruta
-	pass

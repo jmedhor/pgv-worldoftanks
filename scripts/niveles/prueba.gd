@@ -3,17 +3,19 @@ extends NivelBase
 
 func _ready():
 	# 'super._ready()' ejecuta el código del padre (el bloque que querías)
+	nombreNivel = "lvl1"
 	super._ready() 
-	
 	# Aquí puedes añadir cosas ÚNICAS del Nivel 1
 	print("Iniciando Nivel 1: El bosque")
+	print("Datos $s", datosNivel)
+	
 
-func _comprobar_estrellas() -> int:
-	var cont = 0
+func _comprobar_estrellas() -> Array:
+	var estrellas = [false,false,false]
 	if (puntos > 1500):
-		cont+=1
+		estrellas[0] = true
 	if jugador.vida >= 2:
-		cont+=1
+		estrellas[1] = true
 	if combo_maximo >= 3:
-		cont+=1
-	return cont
+		estrellas[2] = true
+	return estrellas
