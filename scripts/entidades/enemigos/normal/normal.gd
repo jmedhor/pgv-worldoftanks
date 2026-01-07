@@ -28,7 +28,7 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
-	
+	$Torreta.global_rotation.y = 0.0
 	if get_parent() is PathFollow3D:
 		moverse_camino(delta)
 	else:
@@ -74,9 +74,9 @@ func moverse():
 func disparar():
 	var tmp_proyectil = proyectil.instantiate()
 	if tmp_proyectil.has_method("inicializar"):
-		tmp_proyectil.inicializar($Marker3D.global_position,Vector3(0,0,1))
+		tmp_proyectil.inicializar($Torreta/Marker3D.global_position,Vector3(0,0,1))
 	get_tree().current_scene.add_child(tmp_proyectil)
-	
+	$sonido_disparo.play()
 	$timerDisparo.start(tiempoEntreDisparo)
 	
 func _on_timer_disparo_timeout() -> void:

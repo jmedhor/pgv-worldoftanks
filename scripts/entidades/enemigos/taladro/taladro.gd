@@ -27,7 +27,7 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
-	
+
 	var direction = Vector3.ZERO
 	var nopath = false
 	

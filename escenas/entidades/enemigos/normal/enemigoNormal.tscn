@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://24ir3kp6hnhg"]
+[gd_scene load_steps=18 format=3 uid="uid://24ir3kp6hnhg"]
 
 [ext_resource type="Script" uid="uid://4hyknxljwvhp" path="res://scripts/entidades/enemigos/normal/normal.gd" id="1_dy4yc"]
 [ext_resource type="PackedScene" uid="uid://cp0k3nwgblaam" path="res://escenas/proyectiles/enemigos/proyectil_medio.tscn" id="2_d3bj0"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_ff6e3"]
 [ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="5_s0o2o"]
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="6_cb4m5"]
+[ext_resource type="ArrayMesh" uid="uid://cj8ohkcohfsw6" path="res://assets/enemigos/enemigoNormal/ENCabeza.obj" id="10_cb4m5"]
+[ext_resource type="ArrayMesh" uid="uid://brvv8djv4ixpb" path="res://assets/enemigos/enemigoNormal/ENCuerpo.obj" id="11_xh274"]
+[ext_resource type="AudioStream" uid="uid://b7twtkb84cw55" path="res://assets/tank_shoot.wav" id="12_xh274"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jju12"]
 size = Vector3(1.8, 1.8, 1.8)
@@ -18,6 +21,12 @@ albedo_texture = ExtResource("3_d3bj0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxhux"]
 size = Vector3(2, 1.8, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmyte"]
+albedo_texture = ExtResource("3_d3bj0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0cjb"]
+albedo_texture = ExtResource("3_d3bj0")
 
 [node name="enemigoNormalBasico" type="CharacterBody3D"]
 collision_layer = 2
@@ -32,11 +41,9 @@ shape = SubResource("BoxShape3D_jju12")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.022975147, -0.029538631, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_tp171")
 mesh = ExtResource("4_d3bj0")
-
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4133079, 0.96393204)
 
 [node name="timerDisparo" type="Timer" parent="."]
 
@@ -51,6 +58,28 @@ script = ExtResource("5_s0o2o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaContacto"]
 shape = SubResource("BoxShape3D_wxhux")
+
+[node name="Cuerpo" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.03728175, -0.02807194, 0)
+material_override = SubResource("StandardMaterial3D_cmyte")
+mesh = ExtResource("11_xh274")
+
+[node name="Torreta" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.33044177)
+
+[node name="Marker3D" type="Marker3D" parent="Torreta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00420931, 1.4133079, 1.2944154)
+
+[node name="Cabeza" type="MeshInstance3D" parent="Torreta"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.014914811, 1.2295177, 0.021556556)
+material_override = SubResource("StandardMaterial3D_v0cjb")
+mesh = ExtResource("10_cb4m5")
+skeleton = NodePath("../..")
+
+[node name="sonido_disparo" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_xh274")
+volume_db = -6.0
+pitch_scale = 1.5
 
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
 [connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
