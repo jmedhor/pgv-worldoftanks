@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dm12y1n38gr3x" path="res://assets/images/barraVida50.tres" id="9_1fv7p"]
 [ext_resource type="Texture2D" uid="uid://dp4ttj8lx7c5k" path="res://assets/images/barraVida25.tres" id="10_4u2vk"]
 [ext_resource type="Texture2D" uid="uid://qt5b27w3xgwf" path="res://assets/images/barraVida0.tres" id="11_4q17s"]
-[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="12_1fv7p"]
+[ext_resource type="Texture2D" uid="uid://dj5tqqiqvc07b" path="res://assets/texturas/textula_ladrillo.png" id="12_1fv7p"]
 [ext_resource type="Texture2D" uid="uid://dvwxu8fklff8t" path="res://assets/images/06.png" id="12_3wfay"]
 [ext_resource type="Texture2D" uid="uid://djtuxtejl1stj" path="res://assets/images/barraEscudo75.tres" id="12_4u2vk"]
 

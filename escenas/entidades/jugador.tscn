@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cx3tay0q3kqfh" path="res://escenas/proyectiles/jugador/basico.tscn" id="2_njudt"]
 [ext_resource type="ArrayMesh" uid="uid://bv8qlpixh5fp4" path="res://assets/player/tanque_cabeza.obj" id="3_7st5j"]
 [ext_resource type="PackedScene" uid="uid://d1plaltdd0tp0" path="res://escenas/proyectiles/jugador/bomba_dano.tscn" id="3_qhgh3"]
-[ext_resource type="Texture2D" uid="uid://jcicpskrk3ct" path="res://assets/barvy.png" id="3_ukil5"]
+[ext_resource type="Texture2D" uid="uid://dsu1y2k0dv8f1" path="res://assets/texturas/barvy.png" id="3_ukil5"]
 [ext_resource type="ArrayMesh" uid="uid://cqrhtnvoly0sy" path="res://assets/player/tanque_decapitado.obj" id="5_cvhml"]
 [ext_resource type="AudioStream" uid="uid://y0ryt31i555o" path="res://assets/sounds/error_sound.wav" id="7_qhgh3"]
 [ext_resource type="AudioStream" uid="uid://bkx0ilprawbpu" path="res://assets/sounds/kneeling__cannon.mp3" id="8_d3pvd"]

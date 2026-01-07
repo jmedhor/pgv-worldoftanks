@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0ik3cmkqxu44" path="res://escenas/testeos_varios/prueba_movimiento_interfaz/prueba_movimiento_interfaz.gd" id="1_1gm0e"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_h17py"]
-[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="3_1gm0e"]
+[ext_resource type="Texture2D" uid="uid://dj5tqqiqvc07b" path="res://assets/texturas/textula_ladrillo.png" id="3_1gm0e"]
 [ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="4_xc0o4"]
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="5_ihs85"]
 [ext_resource type="PackedScene" uid="uid://i3j02j23qdb5" path="res://escenas/proyectiles/enemigos/proyectil_ligero.tscn" id="6_6kt0s"]

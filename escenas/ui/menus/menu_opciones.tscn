@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cv4sxwtgh3fo5"]
 
-[ext_resource type="Texture2D" uid="uid://die8gcncqth4p" path="res://texturas/level_plate.png" id="1_klfs5"]
-[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://texturas/panel_fondo.png" id="2_si3p7"]
-[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://texturas/button_plate.png" id="3_ifjmc"]
+[ext_resource type="Texture2D" uid="uid://die8gcncqth4p" path="res://assets/texturas/level_plate.png" id="1_klfs5"]
+[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://assets/texturas/panel_fondo.png" id="2_si3p7"]
+[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://assets/texturas/button_plate.png" id="3_ifjmc"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_dhwh1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ykrsh"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://uwlqe6bn1kcx"]
 
-[ext_resource type="Texture2D" uid="uid://c5s7tw3pobl8m" path="res://assets/texturas/menus/menu_pausa.png" id="1_f0gls"]
-[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/menus/option_plate.png" id="2_kso7j"]
-[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/menus/button_plate.png" id="3_m1pn8"]
+[ext_resource type="Texture2D" uid="uid://c5s7tw3pobl8m" path="res://assets/texturas/menu_pausa.png" id="1_f0gls"]
+[ext_resource type="Texture2D" uid="uid://dn4mfloejrv0t" path="res://assets/texturas/option_plate.png" id="2_kso7j"]
+[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://assets/texturas/button_plate.png" id="3_m1pn8"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_atpth"]
 
 [node name="menu_pausa" type="Control"]

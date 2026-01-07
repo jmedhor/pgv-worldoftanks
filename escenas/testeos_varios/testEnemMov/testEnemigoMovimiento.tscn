@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://46rofch6egub"]
 
-[ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/textula_ladrillo.png" id="1_eybnr"]
+[ext_resource type="Texture2D" uid="uid://dj5tqqiqvc07b" path="res://assets/texturas/textula_ladrillo.png" id="1_eybnr"]
 [ext_resource type="PackedScene" uid="uid://24ir3kp6hnhg" path="res://escenas/entidades/enemigos/normal/enemigoNormal.tscn" id="2_1ij5x"]
 [ext_resource type="PackedScene" uid="uid://c040bjt6dwrp8" path="res://escenas/entidades/enemigos/taladro/enemigoTaladroBasico.tscn" id="3_osbac"]
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="4_4ny4j"]
