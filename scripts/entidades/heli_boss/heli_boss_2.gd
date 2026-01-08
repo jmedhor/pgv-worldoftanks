@@ -3,12 +3,12 @@ extends CharacterBody3D
 var max_vida := 700
 var velocidad := 2.0
 @export var explosion_scene: PackedScene
-@export var bala_scene: PackedScene
 @onready var rotor = $helicop/Gunship/Rotor
 @onready var back_rotor = $helicop/Gunship/Back_Rotor
 @onready var helicop = $helicop
 @onready var barra_vida: ProgressBar = $CanvasLayer/ProgressBar
 @onready var texto_boss: Label = $CanvasLayer/TextoBoss
+var bala_scene := preload("res://escenas/proyectiles/enemigos/proyectil_ligero.tscn")
 var radio_movimiento := 8.0
 var altura_vuelo := 8.0
 var distancia_frontal := 15.0
@@ -388,11 +388,13 @@ func _on_trigger_boss_body_entered(body: Node3D) -> void:
 		
 		%TriggerBoss.monitoring = false
 		get_tree().paused = false
+		self.process_mode = Node.PROCESS_MODE_PAUSABLE
 		var cam = %Camera3D
 		cam.camera_shake(0.55, 5)
 		mostrar_barra_vida()
 		mostrar_texto_boss("Skybreaker")
 		comenzar_batalla=true
+		
 
 func mostrar_barra_vida():
 	barra_vida.visible = true

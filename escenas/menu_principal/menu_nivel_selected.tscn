@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://be2lkrspewrt4"]
 
 [ext_resource type="Script" uid="uid://cg6e0uw5v4jm8" path="res://scripts/menu_nivel_selected.gd" id="1_cvs0i"]
-[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://assets/texturas/panel_fondo.png" id="1_vrcef"]
-[ext_resource type="Texture2D" uid="uid://die8gcncqth4p" path="res://assets/texturas/level_plate.png" id="2_3lgx4"]
+[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/panel_fondo.png" id="1_vrcef"]
+[ext_resource type="Texture2D" uid="uid://y3x5do7l8rtt" path="res://assets/texturas/level_plate.png" id="2_3lgx4"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="3_41g8w"]
 [ext_resource type="Texture2D" uid="uid://d1w2hnxagaedf" path="res://assets/icons/empty_star.tres" id="4_vrcef"]
-[ext_resource type="Texture2D" uid="uid://b0w7rf5gl5x1k" path="res://assets/texturas/left_arrow.png" id="5_5w5mh"]
+[ext_resource type="Texture2D" uid="uid://b7gho8mrl6pkj" path="res://assets/texturas/left_arrow.png" id="5_5w5mh"]
 [ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://assets/texturas/marco_obj_tienda.png" id="6_41g8w"]
-[ext_resource type="Texture2D" uid="uid://g6hxm7sgh4rm" path="res://assets/texturas/right_arrow.png" id="6_fiyu0"]
+[ext_resource type="Texture2D" uid="uid://b3ux0idrpcega" path="res://assets/texturas/right_arrow.png" id="6_fiyu0"]
 [ext_resource type="Texture2D" uid="uid://c38jwxvgdkqm" path="res://assets/icons/dmg.png" id="7_cvs0i"]
-[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://assets/texturas/button_plate.png" id="7_k2bwf"]
+[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/button_plate.png" id="7_k2bwf"]
 
 [sub_resource type="Animation" id="Animation_5w5mh"]
 length = 0.001
@@ -278,25 +278,6 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer2"]
-custom_minimum_size = Vector2(96, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("7_k2bwf")
-expand_mode = 3
-
-[node name="BotonStart" type="Button" parent="TextureRect/HBoxContainer2/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_41g8w")
-theme_override_font_sizes/font_size = 16
-text = "COMENZAR"
-flat = true
-
 [node name="TextureRect2" type="TextureRect" parent="TextureRect/HBoxContainer2"]
 custom_minimum_size = Vector2(96, 48)
 layout_mode = 2
@@ -317,6 +298,25 @@ theme_override_font_sizes/font_size = 16
 text = "VOLVER"
 flat = true
 
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/HBoxContainer2"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_k2bwf")
+expand_mode = 3
+
+[node name="BotonStart" type="Button" parent="TextureRect/HBoxContainer2/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_41g8w")
+theme_override_font_sizes/font_size = 16
+text = "COMENZAR"
+flat = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_5w5mh")
@@ -324,5 +324,5 @@ libraries = {
 
 [connection signal="pressed" from="TextureRect/ContenedorArma/BotonAnteriorArma" to="." method="_on_boton_anterior_arma_pressed"]
 [connection signal="pressed" from="TextureRect/ContenedorArma/BotonSiguienteArma" to="." method="_on_boton_siguiente_arma_pressed"]
-[connection signal="pressed" from="TextureRect/HBoxContainer2/TextureRect/BotonStart" to="." method="_on_boton_start_pressed"]
 [connection signal="pressed" from="TextureRect/HBoxContainer2/TextureRect2/BotonReturn" to="." method="_on_boton_return_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer2/TextureRect3/BotonStart" to="." method="_on_boton_start_pressed"]

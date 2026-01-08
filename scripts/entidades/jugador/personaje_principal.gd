@@ -7,13 +7,14 @@ const MAX_NIVEL: int = Global.MAX_NIVEL_JUGADOR
 const MAX_VIDA: int = Global.MAX_VIDA_JUGADOR
 
 @export var speed : float = 100.0
-@export var proyectil:PackedScene
-@export var especial:PackedScene
 @export var tiempoEntreDisparo : float = 0.5
 @export var tiempoRecargaEspecial : float = 5.0
 @export var vida : float = MAX_VIDA
 @export var _nivel_arma : int = 0
 @export var rotation_speed := 8.0
+
+var proyectil = preload("res://escenas/proyectiles/jugador/basico.tscn")
+var especial : PackedScene
 var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
 var pausado : bool = false
