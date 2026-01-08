@@ -1,7 +1,6 @@
 [gd_scene load_steps=136 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
-[ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_7vjjb"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://assets/texturas/OIP.webp" id="3_2d2d7"]
 [ext_resource type="Script" uid="uid://drs35a0wr77x6" path="res://scripts/niveles/camara_pivot.gd" id="4_bdw2m"]
 [ext_resource type="Texture2D" uid="uid://5fnhugpjpanf" path="res://assets/texturas/suelo_tierra.png" id="5_2vr2k"]
@@ -51,7 +50,6 @@
 [ext_resource type="Script" uid="uid://dafpcy1tfio24" path="res://scripts/entidades/tank_boss/tankboss.gd" id="60_7522d"]
 [ext_resource type="PackedScene" uid="uid://dpmc0ph1v8qme" path="res://escenas/entidades/tank_boss/area_aviso_explosion.tscn" id="61_xoytu"]
 [ext_resource type="PackedScene" uid="uid://x4f32fnxvk8u" path="res://escenas/entidades/tank_boss/explosion.tscn" id="62_d34lg"]
-[ext_resource type="PackedScene" uid="uid://ggu3faetcj12" path="res://escenas/ui/menu_victoria.tscn" id="63_5jpn7"]
 [ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/entidades/tank_boss/shoot_effect.tscn" id="63_ppgys"]
 [ext_resource type="Texture2D" uid="uid://dx1nb3qs5bioc" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="64_hf2n6"]
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
@@ -1006,8 +1004,6 @@ shader_parameter/aberration = 0.002
 [node name="Node3D" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_v2o2g")
-escena_game_over = ExtResource("2_7vjjb")
-escena_victoria = ExtResource("63_5jpn7")
 
 [node name="ColorRectBrillo" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -1154,6 +1150,7 @@ mouse_filter = 1
 [node name="menu_pausa" type="Control" parent="."]
 unique_name_in_owner = true
 process_mode = 2
+process_priority = 5
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -1276,6 +1273,8 @@ one_shot = true
 
 [node name="menu_opciones" type="Control" parent="."]
 unique_name_in_owner = true
+process_mode = 2
+process_priority = 5
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -2669,6 +2668,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.964, 0, -268.152)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.275, 0, -907.922)
 
 [node name="tankboss2" type="CharacterBody3D" parent="." groups=["Enemigos"]]
+process_mode = 1
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 24.221624, 0.836725, -1361.7091)
 visible = false
 collision_layer = 2
@@ -2760,6 +2760,7 @@ libraries = {
 }
 
 [node name="TriggerBoss" type="Area3D" parent="tankboss2"]
+unique_name_in_owner = true
 transform = Transform3D(-1.4570462e-08, 0, -0.33333334, 0, 0.33333334, 0, 0.33333334, 0, -1.4570462e-08, -6.9299316, -0.27890834, -8.073876)
 monitoring = false
 
@@ -3162,4 +3163,5 @@ mouse_filter = 2
 [connection signal="value_changed" from="menu_opciones/ButtonsVBox/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="body_entered" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_entered"]
 [connection signal="body_exited" from="tankboss2/Campo_vision" to="tankboss2" method="_on_campo_vision_body_exited"]
+[connection signal="animation_finished" from="tankboss2/Animacion_inicial" to="tankboss2" method="_on_animacion_inicial_animation_finished"]
 [connection signal="body_entered" from="tankboss2/TriggerBoss" to="tankboss2" method="_on_trigger_boss_body_entered"]

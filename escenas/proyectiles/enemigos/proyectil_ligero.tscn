@@ -11,18 +11,20 @@ render_priority = 0
 shader = ExtResource("3_oygx3")
 shader_parameter/inner_color = Color(0.8978387, 0.69156957, 0.013312581, 1)
 shader_parameter/outer_color = Color(0.96745557, 0.7498175, 3.85046e-07, 1)
-shader_parameter/glow_strength = 4.0
-shader_parameter/noise_scale = 5.0
+shader_parameter/glow_strength = 10.0
+shader_parameter/noise_scale = 10.0
 shader_parameter/energy_speed = 1.0
-shader_parameter/pulse_strength = 0.4
+shader_parameter/pulse_strength = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fl5ik"]
 
 [node name="ProyectilLigero" type="Area3D"]
+process_mode = 1
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_7ngbl")
 datos = ExtResource("2_sspre")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_omi20")

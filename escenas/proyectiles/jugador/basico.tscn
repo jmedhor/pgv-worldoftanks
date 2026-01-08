@@ -11,19 +11,19 @@ render_priority = 0
 shader = ExtResource("3_pktpy")
 shader_parameter/inner_color = Color(0.3, 0.7, 1, 1)
 shader_parameter/outer_color = Color(0.34044516, 0.54244244, 1, 1)
-shader_parameter/glow_strength = 4.0
-shader_parameter/noise_scale = 5.0
+shader_parameter/glow_strength = 10.0
+shader_parameter/noise_scale = 10.0
 shader_parameter/energy_speed = 1.0
-shader_parameter/pulse_strength = 0.4
+shader_parameter/pulse_strength = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dxiwb"]
 
 [node name="Basico" type="Area3D"]
-collision_layer = 4
-collision_mask = 2
+process_mode = 1
 script = ExtResource("1_efxnv")
 datos = ExtResource("2_a08mp")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_p6ov7")

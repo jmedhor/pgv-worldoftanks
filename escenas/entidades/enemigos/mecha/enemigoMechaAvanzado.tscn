@@ -30,6 +30,7 @@ albedo_texture = ExtResource("10_8w5kg")
 albedo_texture = ExtResource("10_8w5kg")
 
 [node name="enemigoMechaBasico" type="CharacterBody3D" groups=["Enemigos"]]
+process_mode = 1
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_atjda")

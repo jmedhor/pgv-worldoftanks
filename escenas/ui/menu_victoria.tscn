@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ce53ck2ur8df" path="res://scripts/menu_victoria.gd" id="1_smdrh"]
 [ext_resource type="Texture2D" uid="uid://d1w2hnxagaedf" path="res://assets/icons/empty_star.tres" id="2_8tfq3"]
-[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://assets/texturas/panel_fondo.png" id="2_pa62r"]
+[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/panel_fondo.png" id="2_pa62r"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="4_ahgin"]
 [ext_resource type="Texture2D" uid="uid://cpikfw1ajt4ih" path="res://assets/texturas/barra_0.png" id="4_pa62r"]
-[ext_resource type="Texture2D" uid="uid://dn4mfloejrv0t" path="res://assets/texturas/option_plate.png" id="5_ahgin"]
-[ext_resource type="Texture2D" uid="uid://ccq2bt4dtms7j" path="res://assets/texturas/button_plate.png" id="7_cj0d2"]
+[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/option_plate.png" id="5_ahgin"]
+[ext_resource type="Texture2D" uid="uid://buqincmevws46" path="res://assets/texturas/button_plate.png" id="7_cj0d2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyduj"]
 font = ExtResource("4_ahgin")
@@ -33,6 +33,7 @@ font = ExtResource("4_ahgin")
 font_size = 24
 
 [node name="menu_victoria" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

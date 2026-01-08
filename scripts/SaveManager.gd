@@ -10,10 +10,10 @@ var datos_jugador = {
 }
 
 var configuracion = {
-	"sonido":100,
+	"sonido":75,
 	"modoPantalla":0,
 	"borderless": false,
-	"brillo":0.0
+	"brillo":1.0
 }
 
 func is_lvl_completed(nivel:String):

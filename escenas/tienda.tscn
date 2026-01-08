@@ -1,15 +1,15 @@
 [gd_scene load_steps=24 format=3 uid="uid://boihdnajnn6l1"]
 
-[ext_resource type="Texture2D" uid="uid://bv1o8fer56lm0" path="res://assets/texturas/panel_fondo.png" id="1_6iohk"]
+[ext_resource type="Texture2D" uid="uid://bjtlux4rwad1e" path="res://assets/texturas/panel_fondo.png" id="1_6iohk"]
 [ext_resource type="Script" uid="uid://choyww27qhude" path="res://scripts/tienda/tienda.gd" id="1_7w1lh"]
 [ext_resource type="Texture2D" uid="uid://cmfqdbpnk2kpn" path="res://assets/texturas/marco_obj_tienda.png" id="2_7w1lh"]
 [ext_resource type="Texture2D" uid="uid://clw6ntmua68ht" path="res://assets/texturas/textula_ladrillo.png" id="3_poroo"]
 [ext_resource type="Texture2D" uid="uid://c8f1gw1uq0vhh" path="res://assets/texturas/x.png" id="4_1bbqv"]
-[ext_resource type="Texture2D" uid="uid://b0w7rf5gl5x1k" path="res://assets/texturas/left_arrow.png" id="5_2d5a0"]
+[ext_resource type="Texture2D" uid="uid://b7gho8mrl6pkj" path="res://assets/texturas/left_arrow.png" id="5_2d5a0"]
 [ext_resource type="Texture2D" uid="uid://buca8dn8wfqj0" path="res://assets/images/random.jpg" id="5_poroo"]
-[ext_resource type="Texture2D" uid="uid://g6hxm7sgh4rm" path="res://assets/texturas/right_arrow.png" id="6_exaca"]
+[ext_resource type="Texture2D" uid="uid://b3ux0idrpcega" path="res://assets/texturas/right_arrow.png" id="6_exaca"]
 [ext_resource type="Texture2D" uid="uid://ivugmq00xdvn" path="res://assets/images/sold_out.png" id="7_1bbqv"]
-[ext_resource type="Texture2D" uid="uid://dn4mfloejrv0t" path="res://assets/texturas/option_plate.png" id="7_008l2"]
+[ext_resource type="Texture2D" uid="uid://bp8inhqo7u711" path="res://assets/texturas/option_plate.png" id="7_008l2"]
 [ext_resource type="FontFile" uid="uid://dfgci47rdcjw6" path="res://assets/PressStart2P-Regular.ttf" id="8_6xkys"]
 [ext_resource type="Texture2D" uid="uid://b427p7seifnk7" path="res://assets/texturas/coin.png" id="9_tdeos"]
 [ext_resource type="Texture2D" uid="uid://cpikfw1ajt4ih" path="res://assets/texturas/barra_0.png" id="10_jfyo6"]
@@ -72,6 +72,7 @@ font = ExtResource("8_6xkys")
 font_size = 48
 
 [node name="Tienda" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
