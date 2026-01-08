@@ -52,6 +52,7 @@ radial_segments = 4
 rings = 2
 
 [node name="Explosion" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_pbw5x")
 
 [node name="Fire" type="GPUParticles3D" parent="."]

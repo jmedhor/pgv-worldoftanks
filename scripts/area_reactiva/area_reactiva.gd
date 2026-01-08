@@ -16,7 +16,8 @@ func _configurar_screen_notifier() -> void:
 	var notificador := VisibleOnScreenNotifier3D.new()
 	
 	notificador.aabb = AABB(Vector3(-0.5,-0.5,-0.5), Vector3.ONE)
-	notificador.connect("screen_exited", destruir)
+	notificador.screen_exited.connect(_on_salida_pantalla)
+	add_child(notificador)
 
 func _on_salida_pantalla() -> void:
 	for efe in datos.efectos:

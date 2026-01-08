@@ -35,6 +35,7 @@ size = Vector3(2, 1.5, 2)
 size = Vector3(1.5, 1, 1)
 
 [node name="enemigoTaladroBasico" type="CharacterBody3D"]
+process_mode = 1
 collision_layer = 2
 script = ExtResource("1_cne2c")
 vida = 4.0

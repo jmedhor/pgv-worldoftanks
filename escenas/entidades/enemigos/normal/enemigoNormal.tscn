@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://4hyknxljwvhp" path="res://scripts/entidades/enemigos/normal/normal.gd" id="1_dy4yc"]
 [ext_resource type="PackedScene" uid="uid://cp0k3nwgblaam" path="res://escenas/proyectiles/enemigos/proyectil_medio.tscn" id="2_d3bj0"]
 [ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="3_1rwwt"]
-[ext_resource type="Texture2D" uid="uid://dsu1y2k0dv8f1" path="res://assets/texturas/barvy.png" id="3_d3bj0"]
+[ext_resource type="Texture2D" uid="uid://rm0n2ylsne3f" path="res://assets/texturas/barvy.png" id="3_d3bj0"]
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="4_3umu6"]
 [ext_resource type="ArrayMesh" uid="uid://cyh0s373rqnlh" path="res://assets/enemigos/enemigoNormal/enemigo1.obj" id="4_d3bj0"]
 [ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_ff6e3"]
@@ -29,6 +29,7 @@ albedo_texture = ExtResource("3_d3bj0")
 albedo_texture = ExtResource("3_d3bj0")
 
 [node name="enemigoNormalBasico" type="CharacterBody3D"]
+process_mode = 1
 collision_layer = 2
 script = ExtResource("1_dy4yc")
 proyectil = ExtResource("2_d3bj0")

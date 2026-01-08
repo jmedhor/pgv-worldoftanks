@@ -7,6 +7,7 @@ albedo_color = Color(0.49411765, 0, 0, 1)
 material = SubResource("StandardMaterial3D_ym4my")
 
 [node name="AreaAviso" type="Node3D"]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2407195, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
