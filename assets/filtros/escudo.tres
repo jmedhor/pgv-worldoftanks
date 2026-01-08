@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmnbpcnyiiho"]
+
+[ext_resource type="Shader" uid="uid://bk22ac1cd6nj0" path="res://assets/filtros/vulnerable.gdshader" id="1_w83me"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_w83me")
+shader_parameter/color_parpadeo = Color(1, 0.3, 0.3, 1)
+shader_parameter/velocidad = 5.0
+shader_parameter/intensidad = 0.3

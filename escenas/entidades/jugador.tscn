@@ -41,6 +41,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622, 1.211)
 
 [node name="timerEspecial" type="Timer" parent="."]
 
+[node name="timerDano" type="Timer" parent="."]
+
 [node name="Canon" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.375, 0)
 rotation_order = 0
@@ -80,5 +82,6 @@ shape = SubResource("CylinderShape3D_qhgh3")
 
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
 [connection signal="timeout" from="timerEspecial" to="." method="_on_timer_especial_timeout"]
+[connection signal="timeout" from="timerDano" to="." method="_on_timer_dano_timeout"]
 [connection signal="body_entered" from="DetectorAplastamiento" to="." method="_on_detector_aplastamiento_body_entered"]
 [connection signal="body_exited" from="DetectorAplastamiento" to="." method="_on_detector_aplastamiento_body_exited"]

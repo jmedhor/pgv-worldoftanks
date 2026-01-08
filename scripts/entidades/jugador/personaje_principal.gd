@@ -9,14 +9,17 @@ const MAX_VIDA: int = Global.MAX_VIDA_JUGADOR
 @export var speed : float = 100.0
 @export var tiempoEntreDisparo : float = 0.5
 @export var tiempoRecargaEspecial : float = 5.0
+@export var tiempoInvulnerabilidad : float = 5.0
 @export var vida : float = MAX_VIDA
 @export var _nivel_arma : int = 0
 @export var rotation_speed := 8.0
 
 var proyectil = preload("res://escenas/proyectiles/jugador/basico.tscn")
+var shader_invul = preload("res://assets/filtros/escudo.tres")
 var especial : PackedScene
 var puedeDisparar : bool = true
 var puedeDispararEspecial : bool = true
+var puedoRecibirDano : bool = true
 var pausado : bool = false
 var vivo : bool = true
 var cadEspecial : String
@@ -196,14 +199,17 @@ func disparar(accion: String):
 			$AudioStreamPlayer3D.play()
 
 func recibir_dano(dano: int):
-	if escudo:
-		escudo = false
-	else:
-		vida -= dano
-	
-	vivo = vida > 0
-	
-	vida_cambiada.emit()
+	if puedoRecibirDano:
+		if escudo:
+			escudo = false
+		else:
+			vida -= dano
+		vivo = vida > 0
+		puedoRecibirDano = false
+		$timerDano.start(tiempoInvulnerabilidad)
+		$Cuerpo.material_overlay = shader_invul
+		$Canon.material_overlay = shader_invul
+		vida_cambiada.emit()
 
 func _on_timer_disparo_timeout() -> void:
 	puedeDisparar = true
@@ -213,6 +219,12 @@ func _on_timer_especial_timeout() -> void:
 	puedeDispararEspecial = true
 	cooldown_updated.emit(100)
 	$timerEspecial.stop()
+
+func _on_timer_dano_timeout() -> void:
+	puedoRecibirDano = true
+	$Cuerpo.material_overlay = null
+	$Canon.material_overlay = null
+	$timerDano.stop()
 
 func _on_pause_changed(pausa: bool) -> void:
 	pausado = pausa
