@@ -114,6 +114,7 @@ top_radius = 0.1
 bottom_radius = 0.0
 
 [node name="Explosion" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_nfeox")
 
 [node name="Area3D" type="Area3D" parent="."]

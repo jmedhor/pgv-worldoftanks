@@ -119,7 +119,9 @@ rings = 24
 ring_segments = 24
 
 [node name="ExplosionEmp" type="Node3D"]
+process_mode = 1
 script = SubResource("GDScript_54ge0")
+metadata/_edit_group_ = true
 
 [node name="Chispas" type="GPUParticles3D" parent="."]
 emitting = false

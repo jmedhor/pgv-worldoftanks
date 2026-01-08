@@ -4064,7 +4064,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105210066, 1.4765625, 0.01
 shape = SubResource("BoxShape3D_htg6l")
 
 [node name="Personaje_principal" parent="." instance=ExtResource("79_3fcw6")]
-process_mode = 1
 speed = 650.0
 
 [node name="TriggerBoss" type="Area3D" parent="."]
@@ -4077,6 +4076,7 @@ transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 34.3
 shape = SubResource("BoxShape3D_y0m02")
 
 [node name="HeliBoss2" type="CharacterBody3D" parent="." groups=["Enemigos"]]
+process_mode = 1
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.33262682, 1.5407076, -1366.9767)
 collision_layer = 3
 collision_mask = 17

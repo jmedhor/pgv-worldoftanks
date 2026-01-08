@@ -29,6 +29,7 @@ albedo_texture = ExtResource("7_g068x")
 albedo_texture = ExtResource("7_g068x")
 
 [node name="enemigoNormalBasico" type="CharacterBody3D"]
+process_mode = 1
 collision_layer = 2
 script = ExtResource("1_g068x")
 vida = 6.0

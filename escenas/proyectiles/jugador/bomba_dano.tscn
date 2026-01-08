@@ -8,11 +8,11 @@
 radius = 0.37579975
 
 [node name="BombaDano" type="Area3D"]
-collision_layer = 4
-collision_mask = 2
+process_mode = 1
 script = ExtResource("1_pifuo")
 datos = ExtResource("2_qbclo")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"
+metadata/_edit_group_ = true
 
 [node name="AoeDmgModel" parent="." instance=ExtResource("3_u8emh")]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bebqcx8g6avtr"]
 
-[ext_resource type="Script" uid="uid://50jxymc6vxxp" path="res://scripts/dano_contacto.gd" id="1_e4mtx"]
+[ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="1_e4mtx"]
 
 [node name="AreaContacto" type="Area3D"]
 script = ExtResource("1_e4mtx")
