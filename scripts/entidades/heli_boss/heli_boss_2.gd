@@ -388,11 +388,13 @@ func _on_trigger_boss_body_entered(body: Node3D) -> void:
 		
 		%TriggerBoss.monitoring = false
 		get_tree().paused = false
+		self.process_mode = Node.PROCESS_MODE_PAUSABLE
 		var cam = %Camera3D
 		cam.camera_shake(0.55, 5)
 		mostrar_barra_vida()
 		mostrar_texto_boss("Skybreaker")
 		comenzar_batalla=true
+		
 
 func mostrar_barra_vida():
 	barra_vida.visible = true
