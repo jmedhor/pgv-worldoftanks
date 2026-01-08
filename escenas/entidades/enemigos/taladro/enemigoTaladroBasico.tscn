@@ -39,8 +39,8 @@ process_mode = 1
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_cne2c")
-vida = 4.0
 velocidad_avance = 6.5
+puntuacion = 5.0
 destruccion = ExtResource("2_md47c")
 potenciadores = Array[PackedScene]([ExtResource("3_jrrqc"), ExtResource("4_6m6h7"), ExtResource("5_6j3b3")])
 
@@ -59,6 +59,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3cpoq")
 surface_material_override/1 = SubResource("StandardMaterial3D_h5ppc")
 
 [node name="TimerCarga" type="Timer" parent="."]
+
+[node name="timerParalizado" type="Timer" parent="."]
 
 [node name="ZonaAtaque" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 8)
@@ -88,6 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.038700104)
 shape = SubResource("BoxShape3D_md47c")
 
 [connection signal="timeout" from="TimerCarga" to="." method="_on_timer_carga_timeout"]
+[connection signal="timeout" from="timerParalizado" to="." method="_on_timer_paralizado_timeout"]
 [connection signal="body_entered" from="ZonaAtaque" to="." method="_on_zona_ataque_body_entered"]
 [connection signal="activar" from="AreaContacto" to="." method="activar_enemigo"]
 [connection signal="body_entered" from="AreaContacto" to="AreaContacto" method="_on_body_entered"]

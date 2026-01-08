@@ -23,6 +23,15 @@ var atacando : bool = false
 
 var activado : bool = false
 
+func paralizar(segundos: float):
+	$timerParalizado.start(segundos)
+	$timerCarga.paused = true
+	activado = false
+
+func _on_timer_paralizado_timeout():
+	activado = true
+	$timerCarga.paused = false
+
 func activar_enemigo():
 	if !activado:
 		activado = true

@@ -25,6 +25,19 @@ var deltaMultiplier : float = 50
 
 var activado : bool = false
 
+func paralizar(segundos: float):
+	$timerParalizado.start(segundos)
+	$timerMoverse.paused = true
+	$timerDisparo.paused = true
+	$timerMoviendose.paused = true
+	activado = false
+
+func _on_timer_paralizado_timeout():
+	activado = true
+	$timerMoverse.paused = false
+	$timerDisparo.paused = false
+	$timerDisparo.paused = false
+
 func activar_enemigo():
 	if !activado:
 		activado = true

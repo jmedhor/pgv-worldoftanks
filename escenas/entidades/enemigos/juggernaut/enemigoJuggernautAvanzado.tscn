@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="4_gfung"]
 [ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_1vk8c"]
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="6_xvk5q"]
-[ext_resource type="Texture2D" uid="uid://rm0n2ylsne3f" path="res://assets/texturas/barvy.png" id="7_8ajf2"]
+[ext_resource type="Texture2D" uid="uid://3vdby4juq8hg" path="res://assets/texturas/barvy.png" id="7_8ajf2"]
 [ext_resource type="ArrayMesh" uid="uid://bdgg2xrm0jlwb" path="res://assets/enemigos/enemigoJuggernaut/enemigo2.obj" id="8_tymyf"]
 [ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="9_7jhjq"]
 [ext_resource type="ArrayMesh" uid="uid://bvj57e1hs7xpt" path="res://assets/enemigos/enemigoJuggernaut/EJCuerpo.obj" id="10_cx0yl"]
@@ -39,7 +39,7 @@ velocidad_desplazo = 2.0
 proyectil = ExtResource("2_n8d77")
 tiempoEntreDisparo = 2.0
 tiempoMoviendose = 4.0
-puntuacion = 400.0
+puntuacion = 40.0
 destruccion = ExtResource("3_8oies")
 potenciadores = Array[PackedScene]([ExtResource("4_gfung"), ExtResource("5_1vk8c"), ExtResource("6_xvk5q")])
 prob_pot = 0.3
