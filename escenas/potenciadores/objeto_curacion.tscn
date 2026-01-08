@@ -8,14 +8,17 @@
 
 [node name="ObjetoCuracion" type="Area3D"]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.0606601, -1.0606601, 0, 1.0606601, 1.0606601, 0, 0, 0)
 script = ExtResource("1_tgqdg")
 datos = ExtResource("2_6si8r")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"
 metadata/_edit_group_ = true
 
 [node name="LlaveInglesa" parent="." instance=ExtResource("3_6sd28")]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, -0.013670608, -0.13156794)
+transform = Transform3D(0.64278764, 0, -0.76604444, 0, 1, 0, 0.76604444, 0, 0.64278764, 0.06269127, -0.044434115, -0.10080445)
+
+[node name="LlaveInglesa2" parent="." instance=ExtResource("3_6sd28")]
+transform = Transform3D(0.7660445, 0, 0.6427876, 0, 1, 0, -0.6427876, 0, 0.7660445, -0.010507762, -0.013670605, -0.13156796)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_fs8i7")

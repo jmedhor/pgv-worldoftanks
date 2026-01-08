@@ -7,6 +7,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_4gebw"]
 
 [node name="ObjetoMejora" type="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_63ati")
 datos = ExtResource("2_npup3")
 metadata/_custom_type_script = "uid://l1jlr0fr0085"

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cf6wf2tlhcrkg" path="res://scripts/entidades/enemigos/juggernaut/juggernaut.gd" id="1_4klen"]
 [ext_resource type="PackedScene" uid="uid://b0lr31thaiegi" path="res://escenas/proyectiles/enemigos/proyectil_pesado.tscn" id="2_3lov5"]
 [ext_resource type="PackedScene" uid="uid://cq5c2cp8mv8p7" path="res://escenas/entidades/enemigos/compartido/explosion_enemigo.tscn" id="3_1182l"]
-[ext_resource type="Texture2D" uid="uid://rm0n2ylsne3f" path="res://assets/texturas/barvy.png" id="3_d3bj0"]
+[ext_resource type="Texture2D" uid="uid://3vdby4juq8hg" path="res://assets/texturas/barvy.png" id="3_d3bj0"]
 [ext_resource type="ArrayMesh" uid="uid://bdgg2xrm0jlwb" path="res://assets/enemigos/enemigoJuggernaut/enemigo2.obj" id="4_3lov5"]
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="4_ibtuw"]
 [ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_n5slh"]
@@ -31,8 +31,11 @@ albedo_texture = ExtResource("3_d3bj0")
 [node name="enemigoJuggernautBasico" type="CharacterBody3D" groups=["Enemigos"]]
 process_mode = 1
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_4klen")
+vida = 8.0
 proyectil = ExtResource("2_3lov5")
+puntuacion = 20.0
 destruccion = ExtResource("3_1182l")
 potenciadores = Array[PackedScene]([ExtResource("4_ibtuw"), ExtResource("5_n5slh"), ExtResource("6_v8j48")])
 
@@ -51,6 +54,8 @@ mesh = ExtResource("4_3lov5")
 [node name="timerMoverse" type="Timer" parent="."]
 
 [node name="timerMoviendose" type="Timer" parent="." groups=["Enemigos"]]
+
+[node name="timerParalizado" type="Timer" parent="."]
 
 [node name="AreaContacto" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90560246, 0)
@@ -85,5 +90,7 @@ pitch_scale = 0.5
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
 [connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
 [connection signal="timeout" from="timerMoviendose" to="." method="_on_timer_moviendose_timeout"]
+[connection signal="timeout" from="timerParalizado" to="." method="_on_timer_paralizado_timeout"]
+[connection signal="activar" from="AreaContacto" to="." method="activar_enemigo"]
 [connection signal="body_entered" from="AreaContacto" to="AreaContacto" method="_on_body_entered"]
 [connection signal="destruir" from="AreaContacto" to="." method="_on_area_contacto_destruir"]

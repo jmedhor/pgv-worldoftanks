@@ -39,11 +39,12 @@ size = Vector3(1.5, 1, 1)
 [node name="enemigoTaladroBasico" type="CharacterBody3D"]
 process_mode = 1
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_3issl")
 vida = 6.0
 velocidad_avance = 9.0
 tiempoCarga = 0.2
-puntuacion = 300.0
+puntuacion = 15.0
 destruccion = ExtResource("2_rjfmw")
 potenciadores = Array[PackedScene]([ExtResource("3_r81di"), ExtResource("4_l2h1d"), ExtResource("5_8gtim")])
 prob_pot = 0.2

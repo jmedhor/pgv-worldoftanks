@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_1fx3k"]
 script = ExtResource("2_vg4qn")
-dano = 10.0
-radio = 3.0
+dano = 12
+radio = 3.5
 metadata/_custom_type_script = "uid://w81fu16jghlg"
 
 [resource]

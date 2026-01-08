@@ -31,6 +31,7 @@ albedo_texture = ExtResource("7_g068x")
 [node name="enemigoNormalBasico" type="CharacterBody3D"]
 process_mode = 1
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_g068x")
 vida = 6.0
 velocidad_avance = 8.0
@@ -38,7 +39,7 @@ velocidad_desplazo = 4.0
 proyectil = ExtResource("2_35acq")
 tiempoEntreDisparo = 0.75
 tiempoMoviendose = 1.5
-puntuacion = 200.0
+puntuacion = 20.0
 destruccion = ExtResource("3_e2h66")
 potenciadores = Array[PackedScene]([ExtResource("4_n1mpr"), ExtResource("5_uii34"), ExtResource("6_3ydth")])
 prob_pot = 0.15
