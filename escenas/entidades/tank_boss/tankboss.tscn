@@ -468,6 +468,7 @@ states/walk/position = Vector2(384, 106)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_44ijy")]
 
 [node name="tankboss" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_lf6dl")
 
 [node name="TankFree_Body" type="MeshInstance3D" parent="."]

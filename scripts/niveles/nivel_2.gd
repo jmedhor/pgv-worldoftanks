@@ -16,3 +16,8 @@ func _comprobar_estrellas() -> Array:
 	if combo_maximo >= 3:
 		estrellas[2] = true
 	return estrellas
+
+func _on_timer_2_timeout() -> void:
+	%AnimationPlayer3.play("mov_camara_3")
+	await $%AnimationPlayer3.animation_finished
+	$TriggerBoss.monitoring = true

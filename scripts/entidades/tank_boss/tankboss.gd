@@ -12,6 +12,7 @@ var rango_movimiento := 10.0
 @export var explosion_scene: PackedScene
 @export var shoot_effect_scene: PackedScene
 @onready var canon = $cabeza/CSGCombiner3D/TankFree_Canon
+var bala_scene := preload("res://escenas/proyectiles/enemigos/proyectil_ligero.tscn")
 var canon_rotacion_inicial: Vector3
 var radio_area := 5.0
 var direccion := 1 
@@ -61,9 +62,6 @@ func _on_pause_changed(pausa: bool) -> void:
 	pausado = pausa
 	
 func _physics_process(delta):
-	if pausado:
-		pass
-	
 	if comenzar_batalla and not en_transicion_fase2:
 		if vida <= 0:
 			cambiar_estado(BossState.DERROTADO)
@@ -146,7 +144,6 @@ func iniciar_transicion_fase2():
 	puede_disparar = true
 
 func estado_pasivo(delta):
-	
 	if jugador_en_vision:
 		if vida > max_vida * 0.5:
 			cambiar_estado(BossState.AGRESIVO_F1)
@@ -251,7 +248,6 @@ func ataque_area(potenciado: bool):
 	volver_a_estado_base()
 	
 func disparar_bala(angulo):
-	var bala_scene := preload("res://escenas/proyectiles/enemigos/proyectil_ligero.tscn")
 	var bala = bala_scene.instantiate()
 	get_parent().add_child(bala)
 	var firepoint = $cabeza/CSGCombiner3D/TankFree_Canon
@@ -357,14 +353,13 @@ func _on_trigger_boss_body_entered(body: Node3D) -> void:
 		await get_tree().create_timer(3).timeout
 		$TriggerBoss.monitoring = false
 		get_tree().paused = false
+		self.process_mode = Node.PROCESS_MODE_PAUSABLE
 		$BossFightMusic.play()
 		var cam = %Camera3D
 		cam.camera_shake(0.55, 5)
 		mostrar_barra_vida()
 		mostrar_texto_boss("Behemoth")
 		await get_tree().create_timer(5).timeout
-		
-		
 		comenzar_batalla = true
 		posicion_inicial = Vector3.ZERO
 	

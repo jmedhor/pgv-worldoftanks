@@ -9,8 +9,8 @@ var timer2 : SceneTreeTimer
 @onready var hud = $hud
 @onready var jugador = $Personaje_principal
 @onready var tienda = $Tienda
-@export var escena_game_over : PackedScene
-@export var escena_victoria : PackedScene
+var escena_game_over = preload("res://escenas/ui/menu_game_over.tscn")
+@export var escena_victoria = preload("res://escenas/ui/menu_victoria.tscn")
 var objeto_curacion = preload("res://escenas/potenciadores/objeto_curacion.tscn")
 var ruta_menu_principal = preload("res://escenas/menu_principal/menu_principal.tscn")
 var nombreNivel : String
@@ -97,8 +97,6 @@ func _finalizar_victoria():
 		menu.rellenar_estrellas(cont)
 		add_child(menu)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
-		print("ERROR: No has asignado la escena de victoria en el Inspector")
 
 func _on_filtro(nombre:String, activo:bool):
 	%capa.visible = activo
@@ -163,7 +161,7 @@ func _on_enemigo_muerto(p : int):
 func _on_actualizar_vida():
 	if jugador.vida < ultima_vida:
 		if combo_actual > 1:
-			combo_actual = combo_actual-1
+			combo_actual = 1
 			hud.actualizar_combo_hud(combo_actual)
 		ultima_vida = jugador.vida
 	hud.actualizar_hud_vida(jugador.vida, jugador.escudo)
@@ -177,8 +175,6 @@ func _on_actualizar_vida():
 			menu.combo = combo_maximo
 			add_child(menu)
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			print("ERROR: No has asignado la escena de Game Over en el Inspector")
 
 func _on_personaje_principal_cooldown_updated(time_left: float) -> void:
 	hud.actualizar_temp_especial(time_left)
