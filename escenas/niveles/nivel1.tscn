@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=117 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_7vjjb"]
@@ -55,8 +55,6 @@
 [ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/entidades/tank_boss/shoot_effect.tscn" id="63_ppgys"]
 [ext_resource type="Texture2D" uid="uid://dx1nb3qs5bioc" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="64_hf2n6"]
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
-[ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="65_cu5jt"]
-[ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="65_lqvft"]
 [ext_resource type="Shader" uid="uid://dcnjcasv3d57r" path="res://assets/filtros/crt.gdshader" id="66_cu5jt"]
 [ext_resource type="StyleBox" uid="uid://bn81q4txys2wl" path="res://recursos/barra_de_vida.tres" id="66_dt3yu"]
 [ext_resource type="AudioStream" uid="uid://1v2im4je30ib" path="res://assets/sounds/168707__qubodup__tank-firing.wav" id="67_xn8w1"]
@@ -975,7 +973,6 @@ mesh = SubResource("PlaneMesh_rcdd3")
 
 [node name="BarreraIzquierda" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.756, 1.5, 0)
-visible = false
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraIzquierda"]
@@ -990,7 +987,6 @@ skeleton = NodePath("")
 
 [node name="BarreraDerecha2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.632, 1.5, -743.29)
-visible = false
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDerecha2"]
@@ -1006,7 +1002,6 @@ skeleton = NodePath("")
 [node name="BarreraTrasera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.481, -1263.1)
-visible = false
 collision_layer = 64
 collision_mask = 2
 
@@ -1023,7 +1018,6 @@ mesh = SubResource("BoxMesh_a8cc0")
 [node name="BarreraDelantera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
-visible = false
 collision_layer = 64
 collision_mask = 2
 
@@ -2690,13 +2684,6 @@ text = "Has ganao"
 unique_name_in_owner = true
 visible = false
 
-[node name="ObjetoMejora" parent="." instance=ExtResource("65_lqvft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3714209, 1.7396365, -20.099121)
-collision_layer = 32
-
-[node name="ObjetoCuracion" parent="." instance=ExtResource("65_cu5jt")]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 5.39245, 0.38908285, -19.09607)
-
 [node name="capa" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 4
@@ -2714,6 +2701,16 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+
+[node name="Enemigos" type="Node3D" parent="."]
+
+[node name="Estaticos" type="Node3D" parent="Enemigos"]
+
+[node name="Moviles" type="Node3D" parent="Enemigos"]
+
+[node name="Caminos" type="Node3D" parent="Enemigos/Moviles"]
+
+[node name="Sueltos" type="Node3D" parent="Enemigos/Moviles"]
 
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
