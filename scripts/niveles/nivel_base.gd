@@ -153,7 +153,7 @@ func _process(delta: float) -> void:
 			_on_enter_shop()
 
 func _on_enemigo_muerto(p : int):
-	puntos = puntos + p
+	puntos = puntos + (p*combo_actual)
 	combo_actual = combo_actual+1
 	if combo_actual > combo_maximo:
 		combo_maximo = combo_actual
