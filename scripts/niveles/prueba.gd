@@ -21,7 +21,6 @@ func _comprobar_estrellas() -> Array:
 	return estrellas
 
 func barrera_delantera(body):
-	print("dado")
 	if body.has_method("activar_enemigo"):
 		body.activar_enemigo()
 		
@@ -31,7 +30,6 @@ func barrera_trasera(body):
 
 func proyectil_trasero(area):
 	if area.has_method("_on_salida_pantalla"):
-		print("error")
 		area._on_salida_pantalla()
 		
 func proyectil_delantero(area):
