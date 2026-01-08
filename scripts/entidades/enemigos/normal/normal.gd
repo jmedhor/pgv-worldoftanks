@@ -22,26 +22,33 @@ var rng : RandomNumberGenerator
 var derecha : bool = true
 var deltaMultiplier : float = 50
 
+var activado : bool = false
+
+func activar_enemigo():
+	if !activado:
+		activado = true
+		$timerMoverse.start(tiempoEntreMoverse)
+		$timerDisparo.start(tiempoEntreDisparo)
+
 func _ready():
-	$timerMoverse.start(tiempoEntreMoverse)
-	$timerDisparo.start(tiempoEntreDisparo)
 	rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
-	$Torreta.global_rotation.y = 0.0
-	if get_parent() is PathFollow3D:
-		moverse_camino(delta)
-	else:
-		if !estatico:
-			var direction = Vector3.ZERO
-			
-			direction.z += 1.0 * velocidad_avance
-			if puedeMoverse == true:
-				direction.x += moverse()
+	if activado:
+		$Torreta.global_rotation.y = 0.0
+		if get_parent() is PathFollow3D:
+			moverse_camino(delta)
+		else:
+			if !estatico:
+				var direction = Vector3.ZERO
+				
+				direction.z += 1.0 * velocidad_avance
+				if puedeMoverse == true:
+					direction.x += moverse()
 
-			velocity = direction * delta * deltaMultiplier
-			
-			move_and_slide() 
+				velocity = direction * delta * deltaMultiplier
+				
+				move_and_slide() 
 	
 func moverse_camino(delta: float) -> void:
 	var curva = parent.get_parent().get_curve()

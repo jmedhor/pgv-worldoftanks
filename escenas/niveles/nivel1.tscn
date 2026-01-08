@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=123 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
 [ext_resource type="PackedScene" uid="uid://njtbqfvsktla" path="res://escenas/ui/menu_game_over.tscn" id="2_7vjjb"]
@@ -55,11 +55,15 @@
 [ext_resource type="PackedScene" uid="uid://dxobnoahmktiy" path="res://escenas/entidades/tank_boss/shoot_effect.tscn" id="63_ppgys"]
 [ext_resource type="Texture2D" uid="uid://dx1nb3qs5bioc" path="res://assets/texturas/tankboss_CTF_TankFree_Base_Color_R.png" id="64_hf2n6"]
 [ext_resource type="StyleBox" uid="uid://dqtxepeykbgxq" path="res://recursos/background_vida.tres" id="65_7cb08"]
+[ext_resource type="PackedScene" uid="uid://24ir3kp6hnhg" path="res://escenas/entidades/enemigos/normal/enemigoNormal.tscn" id="66_5jpn7"]
 [ext_resource type="Shader" uid="uid://dcnjcasv3d57r" path="res://assets/filtros/crt.gdshader" id="66_cu5jt"]
 [ext_resource type="StyleBox" uid="uid://bn81q4txys2wl" path="res://recursos/barra_de_vida.tres" id="66_dt3yu"]
 [ext_resource type="AudioStream" uid="uid://1v2im4je30ib" path="res://assets/sounds/168707__qubodup__tank-firing.wav" id="67_xn8w1"]
+[ext_resource type="PackedScene" uid="uid://v1820mch4gef" path="res://escenas/entidades/enemigos/mecha/enemigoMecha.tscn" id="67_y47so"]
+[ext_resource type="PackedScene" uid="uid://djiqrbmwoi57o" path="res://escenas/entidades/enemigos/taladro/enemigoTaladroAvanzado.tscn" id="68_4vhic"]
 [ext_resource type="AudioStream" uid="uid://cmyo4nanaxtx2" path="res://assets/sounds/Boss_fight.wav" id="68_i2wjq"]
 [ext_resource type="AudioStream" uid="uid://csobc8678jcon" path="res://assets/sounds/418881__kierankeegan__tank-turret-rotate.wav" id="69_067ht"]
+[ext_resource type="PackedScene" uid="uid://qa4y3censpem" path="res://escenas/entidades/enemigos/juggernaut/enemigoJuggernaut.tscn" id="69_v2o2g"]
 [ext_resource type="AudioStream" uid="uid://ddomofawl8r4m" path="res://assets/sounds/200303__qubodup__tank-engine-loop.wav" id="70_g424u"]
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="71_56w5e"]
 [ext_resource type="PackedScene" uid="uid://dhcb4d0qe48v" path="res://escenas/obstaculos/mina.tscn" id="71_v2o2g"]
@@ -150,7 +154,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 90),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.017790794, 0.48101997, 7.3235283), Vector3(-0.018, 0.481, -631.176)]
+"values": [Vector3(-0.018, 1, 7.324), Vector3(-0.018, 0.481, -631.176)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -162,7 +166,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 90),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.019294739, 0.99640465, -27.127901), Vector3(-0.019, 0.996, -665.62)]
+"values": [Vector3(-0.019, 1, -42), Vector3(-0.019, 0.996, -665.62)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2p14"]
@@ -207,7 +211,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.019, 0.996, -665.62)]
+"values": [Vector3(-0.019, 0.996, -680)]
 }
 
 [sub_resource type="Animation" id="Animation_i2p14"]
@@ -247,7 +251,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 70),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.019, 0.996, -665.62), Vector3(-0.019, 0.996, -1296.7)]
+"values": [Vector3(-0.019, 0.996, -680), Vector3(-0.019, 0.996, -1296.7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8bjpd"]
@@ -292,7 +296,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.019, 0.996, -1297.7)]
+"values": [Vector3(-0.019, 0.996, -1305)]
 }
 
 [sub_resource type="Animation" id="Animation_3plae"]
@@ -368,7 +372,13 @@ size = Vector3(27.957733, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a8cc0"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cu5jt"]
+size = Vector3(27.958, 2, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_yp0q4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5jpn7"]
+size = Vector3(27.958, 2, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ykrsh"]
 font = ExtResource("11_dn6xt")
@@ -908,6 +918,7 @@ escena_victoria = ExtResource("63_5jpn7")
 
 [node name="ColorRectBrillo" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
@@ -1015,9 +1026,16 @@ process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_a8cc0")
 
+[node name="Area3D" type="Area3D" parent="BarreraTrasera"]
+collision_layer = 64
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraTrasera/Area3D"]
+shape = SubResource("BoxShape3D_cu5jt")
+
 [node name="BarreraDelantera" type="RigidBody3D" parent="."]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1305)
 collision_layer = 64
 collision_mask = 2
 
@@ -1029,6 +1047,13 @@ shape = SubResource("BoxShape3D_2n4ld")
 process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_yp0q4")
+
+[node name="Area3D" type="Area3D" parent="BarreraDelantera"]
+collision_layer = 64
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDelantera/Area3D"]
+shape = SubResource("BoxShape3D_5jpn7")
 
 [node name="hud" parent="." instance=ExtResource("7_rif7b")]
 mouse_filter = 1
@@ -2712,6 +2737,22 @@ mouse_filter = 2
 
 [node name="Sueltos" type="Node3D" parent="Enemigos/Moviles"]
 
+[node name="enemigoNormalBasico" parent="Enemigos/Moviles/Sueltos" instance=ExtResource("66_5jpn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4976006, 0.0035349317, -63.012413)
+
+[node name="enemigoMechaBasico" parent="Enemigos/Moviles/Sueltos" instance=ExtResource("67_y47so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52374375, -7.636845e-07, -63.116577)
+
+[node name="enemigoTaladroBasico" parent="Enemigos/Moviles/Sueltos" instance=ExtResource("68_4vhic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6031227, -7.636845e-07, -62.822144)
+
+[node name="enemigoJuggernautBasico" parent="Enemigos/Moviles/Sueltos" instance=ExtResource("69_v2o2g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.985818, 0.027356308, -63.03601)
+
+[connection signal="area_entered" from="BarreraTrasera/Area3D" to="." method="proyectil_trasero"]
+[connection signal="body_entered" from="BarreraTrasera/Area3D" to="." method="barrera_trasera"]
+[connection signal="area_entered" from="BarreraDelantera/Area3D" to="." method="proyectil_delantero"]
+[connection signal="body_entered" from="BarreraDelantera/Area3D" to="." method="barrera_delantera"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

@@ -21,6 +21,12 @@ var velocidad_carga : float = velocidad_avance * 4
 var preparando : bool = false
 var atacando : bool = false
 
+var activado : bool = false
+
+func activar_enemigo():
+	if !activado:
+		activado = true
+
 func _ready():
 	rng = RandomNumberGenerator.new()
 
@@ -29,22 +35,23 @@ func _physics_process(delta: float) -> void:
 	var direction = Vector3.ZERO
 	var nopath = false
 	
-	if !atacando:
-		if !preparando:
-			if get_parent() is PathFollow3D:
-				nopath = true
-				moverse_camino(delta)
+	if activado:
+		if !atacando:
+			if !preparando:
+				if get_parent() is PathFollow3D:
+					nopath = true
+					moverse_camino(delta)
+				else:
+					if !estatico:
+						direction.z += 1.0 * velocidad_avance
 			else:
-				if !estatico:
-					direction.z += 1.0 * velocidad_avance
+				direction.z += 1.0 * velocidad_retroceso
 		else:
-			direction.z += 1.0 * velocidad_retroceso
-	else:
-		direction.z += 1.0 * velocidad_carga
-	
-	if !nopath:
-		velocity = direction * delta * deltaMultiplier
-		move_and_slide() 
+			direction.z += 1.0 * velocidad_carga
+		
+		if !nopath:
+			velocity = direction * delta * deltaMultiplier
+			move_and_slide() 
 
 func moverse_camino(delta: float) -> void:
 	var curva = parent.get_parent().get_curve()

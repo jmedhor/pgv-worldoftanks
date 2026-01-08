@@ -36,6 +36,7 @@ size = Vector3(1.5, 1, 1)
 
 [node name="enemigoTaladroBasico" type="CharacterBody3D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_cne2c")
 vida = 4.0
 velocidad_avance = 6.5
@@ -87,7 +88,9 @@ shape = SubResource("BoxShape3D_md47c")
 
 [connection signal="timeout" from="TimerCarga" to="." method="_on_timer_carga_timeout"]
 [connection signal="body_entered" from="ZonaAtaque" to="." method="_on_zona_ataque_body_entered"]
+[connection signal="activar" from="AreaContacto" to="." method="activar_enemigo"]
 [connection signal="body_entered" from="AreaContacto" to="AreaContacto" method="_on_body_entered"]
 [connection signal="destruir" from="AreaContacto" to="." method="_on_area_contacto_destruir"]
+[connection signal="activar" from="AreaTaladro" to="." method="activar_enemigo"]
 [connection signal="body_entered" from="AreaTaladro" to="AreaTaladro" method="_on_body_entered"]
 [connection signal="destruir" from="AreaTaladro" to="." method="_on_area_contacto_destruir"]

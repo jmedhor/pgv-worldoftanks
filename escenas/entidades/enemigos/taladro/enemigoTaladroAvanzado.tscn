@@ -38,6 +38,7 @@ size = Vector3(1.5, 1, 1)
 
 [node name="enemigoTaladroBasico" type="CharacterBody3D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_3issl")
 vida = 6.0
 velocidad_avance = 9.0

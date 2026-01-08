@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="4_bhvtj"]
 [ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_w13bd"]
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="6_ov5si"]
-[ext_resource type="Texture2D" uid="uid://dsu1y2k0dv8f1" path="res://assets/texturas/barvy.png" id="7_h6xwi"]
+[ext_resource type="Texture2D" uid="uid://rm0n2ylsne3f" path="res://assets/texturas/barvy.png" id="7_h6xwi"]
 [ext_resource type="ArrayMesh" uid="uid://b3fcmpkaqwybm" path="res://assets/enemigos/enemigoMecha/enemigo3.obj" id="8_r6pwi"]
 [ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="9_fby2g"]
 [ext_resource type="Texture2D" uid="uid://ugo60ieex5ur" path="res://assets/texturas/barvy2.png" id="10_8w5kg"]
@@ -31,6 +31,7 @@ albedo_texture = ExtResource("10_8w5kg")
 
 [node name="enemigoMechaBasico" type="CharacterBody3D" groups=["Enemigos"]]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_atjda")
 vida = 8.0
 velocidad_avance = 8.0
