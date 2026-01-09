@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=4 uid="uid://c2hli6y7b41dj"]
+[gd_scene load_steps=144 format=4 uid="uid://c2hli6y7b41dj"]
 
 [ext_resource type="Script" uid="uid://c0wsvx0xfuxty" path="res://scripts/niveles/nivel_2.gd" id="1_3fcw6"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://assets/texturas/OIP.webp" id="2_rmom1"]
@@ -52,15 +52,23 @@
 [ext_resource type="PackedScene" uid="uid://bjw072giyy2og" path="res://assets/scenery/GLB format_medieval/wall-fortified-door.glb" id="74_5am72"]
 [ext_resource type="PackedScene" uid="uid://cfdocv5x2aw7" path="res://escenas/ui/hud.tscn" id="74_fh427"]
 [ext_resource type="Shader" uid="uid://dcnjcasv3d57r" path="res://assets/filtros/crt.gdshader" id="75_2lhof"]
+[ext_resource type="PackedScene" uid="uid://24ir3kp6hnhg" path="res://escenas/entidades/enemigos/normal/enemigoNormal.tscn" id="75_24366"]
 [ext_resource type="PackedScene" uid="uid://dn3q7xnmngjo4" path="res://assets/scenery/GLB format_medieval/wall-fortified-gate.glb" id="75_b5thj"]
 [ext_resource type="AudioStream" uid="uid://clf4c3r7mimnc" path="res://assets/sounds/432366__superphat__ar15-real-recording.wav" id="75_md0y7"]
 [ext_resource type="AudioStream" uid="uid://dvy4juktcf4yu" path="res://assets/sounds/Rotor Rage.mp3" id="76_2lhof"]
+[ext_resource type="PackedScene" uid="uid://b2ujb1dnip17u" path="res://escenas/entidades/enemigos/normal/enemigoNormalAvanzado.tscn" id="76_3fcw6"]
 [ext_resource type="PackedScene" uid="uid://dq8pequ12bbn7" path="res://assets/scenery/GLB format_medieval/wall-fortified-paint-door.glb" id="76_a2anc"]
 [ext_resource type="PackedScene" uid="uid://bkvkimwvsroq8" path="res://assets/scenery/GLB format_medieval/wall-paint-gate.glb" id="77_pgt1q"]
+[ext_resource type="PackedScene" uid="uid://v1820mch4gef" path="res://escenas/entidades/enemigos/mecha/enemigoMecha.tscn" id="77_wsl2x"]
+[ext_resource type="PackedScene" uid="uid://qa4y3censpem" path="res://escenas/entidades/enemigos/juggernaut/enemigoJuggernaut.tscn" id="78_pcafi"]
 [ext_resource type="PackedScene" uid="uid://de0lwoceb5ukt" path="res://assets/scenery/GLB format_medieval/wall.glb" id="78_pssbu"]
+[ext_resource type="PackedScene" uid="uid://c4dbd3tqrqjg1" path="res://escenas/entidades/enemigos/mecha/enemigoMechaAvanzado.tscn" id="78_w0bvt"]
 [ext_resource type="PackedScene" uid="uid://dprlg0xrf0opm" path="res://escenas/entidades/jugador.tscn" id="79_3fcw6"]
+[ext_resource type="PackedScene" uid="uid://c040bjt6dwrp8" path="res://escenas/entidades/enemigos/taladro/enemigoTaladroBasico.tscn" id="80_4quwv"]
 [ext_resource type="PackedScene" uid="uid://bfkksxr1aro0h" path="res://assets/scenery/GLB format_medieval/wood-floor-railing.glb" id="80_vrejo"]
 [ext_resource type="PackedScene" uid="uid://cqqyebpl8e00b" path="res://assets/scenery/GLB format_medieval/wood-floor.glb" id="81_2l2pr"]
+[ext_resource type="PackedScene" uid="uid://c8yh2ftiwes6e" path="res://escenas/entidades/enemigos/juggernaut/enemigoJuggernautAvanzado.tscn" id="81_8m87v"]
+[ext_resource type="PackedScene" uid="uid://djiqrbmwoi57o" path="res://escenas/entidades/enemigos/taladro/enemigoTaladroAvanzado.tscn" id="82_i7kao"]
 [ext_resource type="PackedScene" uid="uid://bftqgpoal1awn" path="res://assets/scenery/GLB format_medieval/structure-pole.glb" id="82_rqvgj"]
 [ext_resource type="PackedScene" uid="uid://byxjd665bjsyo" path="res://assets/scenery/GLB format_medieval/structure-cross.glb" id="83_qtxl7"]
 [ext_resource type="PackedScene" uid="uid://2agyhjgp353m" path="res://assets/scenery/GLB format_medieval/pulley-crate.glb" id="84_2c3jq"]
@@ -379,7 +387,13 @@ size = Vector3(27.957733, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a8cc0"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_md0y7"]
+size = Vector3(50, 2, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_yp0q4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lhof"]
+size = Vector3(50, 2, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ykrsh"]
 font = ExtResource("9_aai4m")
@@ -525,6 +539,113 @@ shadow_mesh = SubResource("ArrayMesh_o0dxp")
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xweo"]
 size = Vector3(1.4840393, 1, 2.1054382)
 
+[sub_resource type="Curve3D" id="Curve3D_s5lyc"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.25011, -0.0011174083, 1.3699875),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_w0bvt"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -11.609404, -0.00024574995, 0.340271),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_4quwv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -7.1312637, -0.0009381175, 1.1945114),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_8m87v"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.052356, -0.0012890697, 1.7388306),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_i7kao"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.203363, 0.00040084124, -0.46850586),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_21r5g"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -17.222351, -0.00017899275, 0.2697754),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_yds7f"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11.334263, 0.0020125508, -2.5596313),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_wb5qf"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17.525051, 0.0008071065, -1.0569458),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_u2h26"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15.817438, -0.0013920665, 1.7058258),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_cciol"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.398274, -0.0016590953, 2.1136932),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_6131u"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8.8228035, -0.0019299388, 2.3992004),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_u588r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.06226921, -0.0072247386, 9.074463, 0, 0, 0, 0, 0, 0, 10.296703, -0.0072256923, 9.0477295),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_n3dg1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.0064275265, -0.0043694377, 5.4870605, 0, 0, 0, 0, 0, 0, 9.763484, -0.004682243, 5.4613647),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_q5xen"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_06gqd"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.3280916, 0.004123986, -4.634094),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_24366"]
 shader = ExtResource("75_2lhof")
 shader_parameter/curvature = 0.1
@@ -604,7 +725,6 @@ mesh = SubResource("PlaneMesh_rcdd3")
 
 [node name="BarreraIzquierda" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.756, 1, -743.29)
-visible = false
 collision_layer = 8
 collision_mask = 5
 
@@ -618,7 +738,6 @@ skeleton = NodePath("")
 
 [node name="BarreraDerecha2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.632, 1, -743.29)
-visible = false
 collision_layer = 8
 collision_mask = 5
 
@@ -633,9 +752,7 @@ skeleton = NodePath("")
 [node name="BarreraTrasera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.481, -1263.1)
-visible = false
 collision_layer = 64
-collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraTrasera"]
 process_mode = 1
@@ -647,12 +764,17 @@ process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_a8cc0")
 
+[node name="Area3D" type="Area3D" parent="BarreraTrasera"]
+collision_layer = 64
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraTrasera/Area3D"]
+shape = SubResource("BoxShape3D_md0y7")
+
 [node name="BarreraDelantera" type="RigidBody3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -1297.7)
-visible = false
 collision_layer = 64
-collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDelantera"]
 process_mode = 1
@@ -662,6 +784,14 @@ shape = SubResource("BoxShape3D_2n4ld")
 process_mode = 1
 transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_yp0q4")
+
+[node name="Area3D" type="Area3D" parent="BarreraDelantera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+collision_layer = 64
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarreraDelantera/Area3D"]
+shape = SubResource("BoxShape3D_2lhof")
 
 [node name="menu_pausa" type="Control" parent="."]
 unique_name_in_owner = true
@@ -3066,13 +3196,13 @@ transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 1
 [node name="obstaculos" type="Node3D" parent="."]
 
 [node name="Mina" parent="obstaculos" instance=ExtResource("91_yds7f")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.14922714, 0.049997337, -54.718266)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.012348652, 0.049997337, -54.718266)
 
 [node name="Mina2" parent="obstaculos" instance=ExtResource("91_yds7f")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 8.512472, 0.049997337, -115.95242)
 
 [node name="Mina4" parent="obstaculos" instance=ExtResource("91_yds7f")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.331285, 0.049997337, -157.5428)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.08601093, 0.049997337, -157.5428)
 
 [node name="Mina5" parent="obstaculos" instance=ExtResource("91_yds7f")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.331285, 0.049997337, -202.2061)
@@ -3084,13 +3214,13 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.802345, 0.049997337, -236.3
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.7249165, 0.049997337, -236.31268)
 
 [node name="Mina8" parent="obstaculos" instance=ExtResource("91_yds7f")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.1137576, 0.049997337, -317.15305)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 6.968847, 0.049997337, -317.15305)
 
 [node name="Mina9" parent="obstaculos" instance=ExtResource("91_yds7f")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.24469328, 0.049997337, -317.15305)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.09978247, 0.049997337, -317.15305)
 
 [node name="Mina10" parent="obstaculos" instance=ExtResource("91_yds7f")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.049939, 0.049997337, -317.15305)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.19485, 0.049997337, -317.15305)
 
 [node name="Mina11" parent="obstaculos" instance=ExtResource("91_yds7f")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -9.292971, 0.049997337, -357.04187)
@@ -3111,7 +3241,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.2199135, 0.049997337, -437
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5.601117, 0.049997337, -437.2891)
 
 [node name="Mina16" parent="obstaculos" instance=ExtResource("91_yds7f")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.2199135, 0.049997337, -458.46262)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.3564095, 0.04775811, -455.65527)
 
 [node name="Mina17" parent="obstaculos" instance=ExtResource("91_yds7f")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5.502674, 0.049997337, -458.46262)
@@ -4064,7 +4194,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105210066, 1.4765625, 0.01
 shape = SubResource("BoxShape3D_htg6l")
 
 [node name="Personaje_principal" parent="." instance=ExtResource("79_3fcw6")]
-speed = 650.0
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -4.5)
+speed = 720.0
 
 [node name="TriggerBoss" type="Area3D" parent="."]
 unique_name_in_owner = true
@@ -4143,6 +4274,357 @@ stream = ExtResource("75_md0y7")
 stream = ExtResource("76_2lhof")
 volume_db = 24.855
 
+[node name="Enemigos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.996, -678.62)
+
+[node name="PrimeraMitad" type="Node3D" parent="Enemigos"]
+
+[node name="Estaticos" type="Node3D" parent="Enemigos/PrimeraMitad"]
+
+[node name="Caminos" type="Node3D" parent="Enemigos/PrimeraMitad/Estaticos"]
+
+[node name="Path3D" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.660255, 0, 589.04956)
+curve = SubResource("Curve3D_s5lyc")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D"]
+transform = Transform3D(0.11114182, 9.008943e-05, 0.9938046, 3.6379792e-12, 1, -9.0651054e-05, -0.9938046, 1.0075127e-05, 0.11114182, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D/PathFollow3D" instance=ExtResource("75_24366")]
+estatico = true
+
+[node name="Path3D2" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5209875, 0, 590.249)
+curve = SubResource("Curve3D_w0bvt")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D2"]
+transform = Transform3D(0.029297493, -2.1150014e-05, -0.9995707, 0, 1, -2.1159096e-05, 0.9995707, 6.1990846e-07, 0.029297493, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D2/PathFollow3D" instance=ExtResource("75_24366")]
+estatico = true
+
+[node name="Path3D3" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.518673, 0, 577.48083)
+curve = SubResource("Curve3D_4quwv")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D3"]
+transform = Transform3D(0.16520189, -0.00012795973, -0.9862596, -1.4551915e-11, 1, -0.0001297424, 0.9862596, 2.1433712e-05, 0.16520189, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D3/PathFollow3D" instance=ExtResource("76_3fcw6")]
+estatico = true
+
+[node name="Path3D4" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1984625, 0, 574.0244)
+curve = SubResource("Curve3D_8m87v")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D4"]
+transform = Transform3D(0.23939113, 0.00017231055, 0.9709232, 7.2759585e-12, 1, -0.00017747084, -0.9709231, 4.2484953e-05, 0.23939115, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D4/PathFollow3D" instance=ExtResource("76_3fcw6")]
+estatico = true
+
+[node name="Path3D5" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.383925, 0, 112.74054)
+curve = SubResource("Curve3D_i7kao")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D5"]
+transform = Transform3D(-0.03836294, 3.279844e-05, -0.9992639, -3.6379792e-12, 1, 3.28226e-05, 0.9992639, 1.2591751e-06, -0.03836294, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoJuggernautBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D5/PathFollow3D" instance=ExtResource("78_pcafi")]
+estatico = true
+
+[node name="Path3D6" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.383925, 0, 108.91229)
+curve = SubResource("Curve3D_21r5g")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D6"]
+transform = Transform3D(0.015662432, -1.03905e-05, -0.99987733, 4.5474735e-13, 1, -1.03917755e-05, 0.99987733, 1.6276002e-07, 0.015662432, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D6/PathFollow3D" instance=ExtResource("75_24366")]
+estatico = true
+
+[node name="Path3D7" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.295907, 0, 82.99078)
+curve = SubResource("Curve3D_yds7f")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D7"]
+transform = Transform3D(-0.22028397, -0.00016894717, 0.9754358, 0, 1, 0.00017320173, -0.9754358, 3.8153565e-05, -0.22028397, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoJuggernautBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D7/PathFollow3D" instance=ExtResource("81_8m87v")]
+estatico = true
+
+[node name="Path3D8" type="Path3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.295907, 0, 78.81995)
+curve = SubResource("Curve3D_wb5qf")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D8"]
+transform = Transform3D(-0.06020118, -4.588754e-05, 0.9981863, -1.8189894e-12, 1, 4.597092e-05, -0.9981863, 2.7675017e-06, -0.06020118, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D8/PathFollow3D" instance=ExtResource("76_3fcw6")]
+estatico = true
+
+[node name="Sueltos" type="Node3D" parent="Enemigos/PrimeraMitad/Estaticos"]
+
+[node name="enemigoMechaBasico" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("77_wsl2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034968905, -0.99600077, 583.5212)
+estatico = true
+
+[node name="enemigoMechaBasico2" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("77_wsl2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3138103, -0.99600077, 474.6021)
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("76_3fcw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8462667, -0.9924689, 403.96277)
+estatico = true
+
+[node name="enemigoNormalBasico2" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("76_3fcw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1794186, -0.9924689, 404.69528)
+estatico = true
+
+[node name="enemigoMechaBasico3" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("78_w0bvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3574724, -0.99600077, 365.48593)
+estatico = true
+
+[node name="enemigoMechaBasico4" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("78_w0bvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1071005, -0.99600077, 365.55875)
+estatico = true
+
+[node name="enemigoJuggernautBasico" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("81_8m87v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.046404786, -0.96864367, 321.60034)
+estatico = true
+
+[node name="enemigoNormalBasico4" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1168327, -0.99246794, 323.81512)
+estatico = true
+
+[node name="enemigoNormalBasico6" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.592937, -0.99246794, 323.74655)
+estatico = true
+
+[node name="enemigoTaladroBasico" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7080493, -0.99600077, 271.3799)
+estatico = true
+
+[node name="enemigoTaladroBasico2" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.266835, -0.99600077, 271.45032)
+estatico = true
+
+[node name="enemigoTaladroBasico3" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1042402, -0.99600077, 253.57602)
+estatico = true
+
+[node name="enemigoTaladroBasico4" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.792564, -0.99600077, 241.89221)
+estatico = true
+
+[node name="enemigoTaladroBasico5" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.027126, -0.99600077, 244.0079)
+estatico = true
+
+[node name="enemigoTaladroBasico6" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5982862, -0.99600077, 235.9418)
+estatico = true
+
+[node name="enemigoTaladroBasico7" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8688202, -0.99600077, 231.24887)
+estatico = true
+
+[node name="enemigoMechaBasico5" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("78_w0bvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6153417, -0.99600077, 219.54956)
+estatico = true
+
+[node name="enemigoNormalBasico3" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("76_3fcw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.755914, -0.9924708, 131.26636)
+estatico = true
+
+[node name="enemigoNormalBasico5" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4383135, -0.992467, 130.79639)
+estatico = true
+
+[node name="enemigoNormalBasico7" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.63833, -0.9924689, 53.35736)
+
+[node name="enemigoNormalBasico8" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9757514, -0.9924689, 54.680054)
+
+[node name="enemigoNormalBasico9" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2359736, -0.9924689, 54.783386)
+
+[node name="enemigoNormalBasico10" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13884282, -0.9924689, 56.74243)
+
+[node name="enemigoNormalBasico11" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6183512, -0.9924689, 54.481873)
+
+[node name="enemigoNormalBasico12" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.167706, -0.9924689, 54.75653)
+
+[node name="enemigoNormalBasico13" parent="Enemigos/PrimeraMitad/Estaticos/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.953781, -0.9924689, 52.82196)
+
+[node name="Moviles" type="Node3D" parent="Enemigos/PrimeraMitad"]
+
+[node name="Caminos" type="Node3D" parent="Enemigos/PrimeraMitad/Moviles"]
+
+[node name="Path3D5" type="Path3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.451166, 0, 498.46417)
+curve = SubResource("Curve3D_u2h26")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D5"]
+transform = Transform3D(0.10722279, 8.699652e-05, 0.99423504, 3.6379792e-12, 1, -8.7500965e-05, -0.99423504, 9.382101e-06, 0.10722279, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D5/PathFollow3D" instance=ExtResource("75_24366")]
+
+[node name="Path3D6" type="Path3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.593502, 0, 494.31155)
+curve = SubResource("Curve3D_cciol")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D6"]
+transform = Transform3D(0.1680582, -0.0001300372, -0.9857771, 7.2759567e-12, 1, -0.00013191339, 0.9857771, 2.2169119e-05, 0.1680582, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D6/PathFollow3D" instance=ExtResource("75_24366")]
+
+[node name="Path3D7" type="Path3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.567987, 0, 484.97534)
+curve = SubResource("Curve3D_6131u")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D7"]
+transform = Transform3D(0.26240268, 0.00020368266, 0.9649584, 1.4551917e-11, 1, -0.00021107921, -0.9649583, 5.5387773e-05, 0.2624027, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoJuggernautBasico" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D7/PathFollow3D" instance=ExtResource("78_pcafi")]
+
+[node name="Path3D" type="Path3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9969463, 0, 204.52344)
+curve = SubResource("Curve3D_u588r")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D"]
+transform = Transform3D(0.99997646, -5.462958e-06, -0.006861782, 0, 0.9999997, -0.00079614256, 0.006861784, 0.0007961238, 0.99997616, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D/PathFollow3D" instance=ExtResource("75_24366")]
+transform = Transform3D(0.9999765, 0, 0.0068617845, -5.462958e-06, 0.9999997, 0.0007961238, -0.006861782, -0.00079614256, 0.99997616, 0, 0, 0)
+
+[node name="Path3D2" type="Path3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.554706, 0, 204.52344)
+curve = SubResource("Curve3D_n3dg1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D2"]
+transform = Transform3D(0.9999981, -9.328851e-07, -0.0011715009, 2.8421674e-14, 0.9999997, -0.0007963159, 0.0011714998, 0.0007963153, 0.999999, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D2/PathFollow3D" instance=ExtResource("75_24366")]
+
+[node name="Sueltos" type="Node3D" parent="Enemigos/PrimeraMitad/Moviles"]
+
+[node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12260566, -0.9924676, 627.43884)
+
+[node name="enemigoNormalBasico2" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9529934, -0.9924689, 624.54974)
+
+[node name="enemigoNormalBasico3" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2178373, -0.9924689, 624.36554)
+
+[node name="enemigoJuggernautBasico" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("78_pcafi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.175995, -0.96864367, 531.65094)
+
+[node name="enemigoJuggernautBasico2" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("78_pcafi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.187614, -0.96864367, 531.75275)
+
+[node name="enemigoTaladroBasico" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6673687, -0.99600077, 446.11847)
+
+[node name="enemigoTaladroBasico2" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3760822, -0.99600077, 446.0459)
+
+[node name="enemigoJuggernautBasico3" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("81_8m87v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0858757, -0.96864367, 525.4437)
+
+[node name="enemigoTaladroBasico3" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("82_i7kao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109485336, -0.99600077, 424.7249)
+
+[node name="enemigoTaladroBasico4" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.631024, -0.99600077, 424.63843)
+
+[node name="enemigoTaladroBasico5" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.662122, -0.99600077, 424.93524)
+
+[node name="enemigoNormalBasico4" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.544881, -0.9924689, 365.512)
+
+[node name="enemigoNormalBasico5" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.783735, -0.9924689, 365.63577)
+
+[node name="enemigoTaladroBasico6" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1852036, -0.99600077, 368.99167)
+
+[node name="enemigoTaladroBasico7" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("80_4quwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.865009, -0.99600077, 369.1297)
+
+[node name="enemigoTaladroBasico8" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("82_i7kao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112972446, -0.99600077, 369.8905)
+
+[node name="enemigoNormalBasico6" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6258373, -0.99246794, 321.73267)
+
+[node name="enemigoNormalBasico7" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7394958, -0.99246794, 321.6208)
+
+[node name="enemigoNormalBasico8" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("76_3fcw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6642475, -0.9924689, 289.56375)
+
+[node name="enemigoNormalBasico9" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("76_3fcw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.730742, -0.9924689, 289.4187)
+
+[node name="enemigoNormalBasico10" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.646066, -0.9924689, 286.7546)
+
+[node name="enemigoNormalBasico11" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("75_24366")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.596522, -0.9924689, 286.3075)
+
+[node name="enemigoJuggernautBasico4" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("78_pcafi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.177112, -0.96864367, 180.78394)
+
+[node name="enemigoJuggernautBasico5" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("78_pcafi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038985543, -0.96864367, 180.94592)
+
+[node name="enemigoJuggernautBasico6" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("78_pcafi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.331033, -0.96864367, 181.15363)
+
+[node name="enemigoTaladroBasico9" parent="Enemigos/PrimeraMitad/Moviles/Sueltos" instance=ExtResource("82_i7kao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68533576, -0.99600077, 136.47565)
+
+[node name="Bucle" type="Node3D" parent="Enemigos/PrimeraMitad"]
+
+[node name="Path3D" type="Path3D" parent="Enemigos/PrimeraMitad/Bucle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.667725, 0, 290.11093)
+curve = SubResource("Curve3D_q5xen")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Bucle/Path3D"]
+transform = Transform3D(4.371139e-08, 0, 1, 0, 1, 0, -1, 0, 4.371139e-08, 0, 0, 0)
+use_model_front = true
+
+[node name="enemigoMechaBasico" parent="Enemigos/PrimeraMitad/Bucle/Path3D/PathFollow3D" instance=ExtResource("77_wsl2x")]
+
+[node name="Path3D2" type="Path3D" parent="Enemigos/PrimeraMitad/Bucle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.860288, 0, 166.10205)
+curve = SubResource("Curve3D_06gqd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Bucle/Path3D2"]
+transform = Transform3D(0.65625703, -0.0004406632, -0.7545373, -1.4551914e-11, 0.99999946, -0.0005840179, 0.7545374, 0.0003832657, 0.6562569, 0, 0, 0)
+
+[node name="enemigoMechaBasico" parent="Enemigos/PrimeraMitad/Bucle/Path3D2/PathFollow3D" instance=ExtResource("77_wsl2x")]
+
 [node name="capa" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 4
@@ -4161,6 +4643,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
+[connection signal="area_entered" from="BarreraTrasera/Area3D" to="." method="proyectil_trasero"]
+[connection signal="body_entered" from="BarreraTrasera/Area3D" to="." method="barrera_trasera"]
+[connection signal="area_entered" from="BarreraDelantera/Area3D" to="." method="proyectil_delantero"]
+[connection signal="body_entered" from="BarreraDelantera/Area3D" to="." method="barrera_delantera"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="menu_pausa/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
