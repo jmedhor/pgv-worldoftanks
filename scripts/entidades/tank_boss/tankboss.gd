@@ -120,20 +120,15 @@ func iniciar_transicion_fase2():
 	puede_disparar = false
 	ejecutando_ataque = false
 	
-	# Obtener la cámara
 	var cam = %Camera3D
 	
-	# Vibrar la cámara
 	cam.camera_shake(0.8, 2.0)  # intensidad 0.8, duración 2 segundos
 	
-	# Esperar 2 segundos mientras vibra
 	await get_tree().create_timer(2.0).timeout
 	
-	# Cambiar a fase 2
 	velocidad = 12
 	cambiar_estado(BossState.PASIVO_F2)
 	
-	# Reactivar el boss
 	en_transicion_fase2 = false
 	puede_disparar = true
 
@@ -200,7 +195,7 @@ func ataque_area(potenciado: bool):
 	
 	get_parent().add_child(efecto)
 	efecto.global_position = firepoint.global_position + dir *0.4
-	# efecto.look_at(efecto.global_position, Vector3.UP)
+	
 	
 	var cantidad = 6 if potenciado else 3
 	
