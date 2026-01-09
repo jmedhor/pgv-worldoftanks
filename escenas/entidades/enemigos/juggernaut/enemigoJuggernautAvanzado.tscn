@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dqwod8t5mlsbg" path="res://escenas/potenciadores/objeto_mejora.tscn" id="4_gfung"]
 [ext_resource type="PackedScene" uid="uid://ctf38iky3lmq1" path="res://escenas/potenciadores/objeto_escudo.tscn" id="5_1vk8c"]
 [ext_resource type="PackedScene" uid="uid://2i05slwijum3" path="res://escenas/potenciadores/objeto_curacion.tscn" id="6_xvk5q"]
-[ext_resource type="Texture2D" uid="uid://3vdby4juq8hg" path="res://assets/texturas/barvy.png" id="7_8ajf2"]
+[ext_resource type="Texture2D" uid="uid://cycqcnp31jro6" path="res://assets/texturas/barvy.png" id="7_8ajf2"]
 [ext_resource type="ArrayMesh" uid="uid://bdgg2xrm0jlwb" path="res://assets/enemigos/enemigoJuggernaut/enemigo2.obj" id="8_tymyf"]
 [ext_resource type="Script" uid="uid://dq2joem6bnrmw" path="res://scripts/entidades/enemigos/compartido/dano_contacto.gd" id="9_7jhjq"]
 [ext_resource type="ArrayMesh" uid="uid://bvj57e1hs7xpt" path="res://assets/enemigos/enemigoJuggernaut/EJCuerpo.obj" id="10_cx0yl"]
@@ -35,7 +35,6 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_oftuf")
 vida = 20.0
-velocidad_desplazo = 2.0
 proyectil = ExtResource("2_n8d77")
 tiempoEntreDisparo = 2.0
 tiempoMoviendose = 4.0
@@ -59,6 +58,8 @@ mesh = ExtResource("8_tymyf")
 [node name="timerMoverse" type="Timer" parent="."]
 
 [node name="timerMoviendose" type="Timer" parent="." groups=["Enemigos"]]
+
+[node name="timerParalizado" type="Timer" parent="."]
 
 [node name="AreaContacto" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90560246, 0)
@@ -93,5 +94,6 @@ pitch_scale = 0.5
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
 [connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
 [connection signal="timeout" from="timerMoviendose" to="." method="_on_timer_moviendose_timeout"]
+[connection signal="timeout" from="timerParalizado" to="." method="_on_timer_paralizado_timeout"]
 [connection signal="body_entered" from="AreaContacto" to="AreaContacto" method="_on_body_entered"]
 [connection signal="destruir" from="AreaContacto" to="." method="_on_area_contacto_destruir"]

@@ -35,7 +35,6 @@ collision_mask = 9
 script = ExtResource("1_g068x")
 vida = 6.0
 velocidad_avance = 8.0
-velocidad_desplazo = 4.0
 proyectil = ExtResource("2_35acq")
 tiempoEntreDisparo = 0.75
 tiempoMoviendose = 1.5
@@ -59,6 +58,8 @@ mesh = ExtResource("8_d0uxh")
 [node name="timerMoverse" type="Timer" parent="."]
 
 [node name="timerMoviendose" type="Timer" parent="." groups=["Enemigos"]]
+
+[node name="timerParalizado" type="Timer" parent="."]
 
 [node name="AreaContacto" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90560246, 0)
@@ -93,5 +94,6 @@ pitch_scale = 1.5
 [connection signal="timeout" from="timerDisparo" to="." method="_on_timer_disparo_timeout"]
 [connection signal="timeout" from="timerMoverse" to="." method="_on_timer_moverse_timeout"]
 [connection signal="timeout" from="timerMoviendose" to="." method="_on_timer_moviendose_timeout"]
+[connection signal="timeout" from="timerParalizado" to="." method="_on_timer_paralizado_timeout"]
 [connection signal="body_entered" from="AreaContacto" to="AreaContacto" method="_on_body_entered"]
 [connection signal="destruir" from="AreaContacto" to="." method="_on_area_contacto_destruir"]

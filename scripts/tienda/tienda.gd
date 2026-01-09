@@ -18,9 +18,9 @@ var _escudo : bool
 var filtro_actual = {"activo":false, "color":"ByN"}
 var activar_rot : bool
 
-var precio_vida : int = 100
+var precio_vida : int = 2000
 var precio_random : int = 10
-var precio_escudo : int = 500
+var precio_escudo : int = 1000
 
 var catalogo_strings = [
 	"dmg",
@@ -34,8 +34,8 @@ var catalogo_iconos = [
 ]
 
 var catalogo_niveles = [
-	{"precio": 100, "icono":preload("res://assets/icons/ammo-pistol 32px.png")},
-	{"precio": 500, "icono":preload("res://assets/icons/ammo-rifle 32px.png")}
+	{"precio": 1500, "icono":preload("res://assets/icons/ammo-pistol 32px.png")},
+	{"precio": 3000, "icono":preload("res://assets/icons/ammo-rifle 32px.png")}
 ]
 
 func _ready() -> void:

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dprlg0xrf0opm"]
 
 [ext_resource type="Script" uid="uid://bpvbtgfwgclxw" path="res://scripts/entidades/jugador/personaje_principal.gd" id="1_16k11"]
+[ext_resource type="Texture2D" uid="uid://bj70hwqingh81" path="res://assets/texturas/barvyJug.png" id="2_7mr0k"]
 [ext_resource type="ArrayMesh" uid="uid://bv8qlpixh5fp4" path="res://assets/player/tanque_cabeza.obj" id="3_7st5j"]
-[ext_resource type="Texture2D" uid="uid://3vdby4juq8hg" path="res://assets/texturas/barvy.png" id="3_ukil5"]
 [ext_resource type="ArrayMesh" uid="uid://cqrhtnvoly0sy" path="res://assets/player/tanque_decapitado.obj" id="5_cvhml"]
 [ext_resource type="AudioStream" uid="uid://y0ryt31i555o" path="res://assets/sounds/error_sound.wav" id="7_qhgh3"]
 [ext_resource type="AudioStream" uid="uid://bkx0ilprawbpu" path="res://assets/sounds/kneeling__cannon.mp3" id="8_d3pvd"]
@@ -12,7 +12,7 @@
 size = Vector3(1.25, 2, 1.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvhml"]
-albedo_texture = ExtResource("3_ukil5")
+albedo_texture = ExtResource("2_7mr0k")
 metallic = 0.75
 roughness = 0.55
 normal_scale = 5.15
