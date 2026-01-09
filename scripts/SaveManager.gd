@@ -13,7 +13,7 @@ var configuracion = {
 	"sonido":75,
 	"modoPantalla":0,
 	"borderless": false,
-	"brillo":1.0
+	"brillo":255.0
 }
 
 func is_lvl_completed(nivel:String):
@@ -59,6 +59,15 @@ func cargar_datos():
 		var json = JSON.new()
 		json.parse(file.get_line())
 		datos_jugador = json.data
+	else:
+		datos_jugador = {
+			"levels": {
+				"lvl1": {"completado":false, "obj1": false, "obj2": false, "obj3": false, "best_score":0},
+				"lvl2": {"completado":false, "obj1": false, "obj2": false, "obj3": false, "best_score":0},
+				"lvl3": {"completado":false, "obj1": false, "obj2": false, "obj3": false, "best_score":0}
+			},
+				"last_special":"dmg"
+		}
 
 func cargar_config():
 	if FileAccess.file_exists("user://config.save"):
@@ -66,3 +75,10 @@ func cargar_config():
 		var json = JSON.new()
 		json.parse(file.get_line())
 		configuracion = json.data
+	else:
+		configuracion = {
+			"sonido":75,
+			"modoPantalla":0,
+			"borderless": false,
+			"brillo":255.0
+		}
