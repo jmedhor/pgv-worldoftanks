@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="test"
+config/name="tank revolution: unchained"
 run/main_scene="uid://cdcqfrq1tnlgc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
