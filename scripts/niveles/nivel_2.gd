@@ -9,11 +9,11 @@ func _ready():
 
 func _comprobar_estrellas() -> Array:
 	var estrellas = [false,false,false]
-	if (puntos > 1500):
+	if (puntos > 6500):
 		estrellas[0] = true
-	if jugador.vida >= 2:
+	if jugador.vida >= 3:
 		estrellas[1] = true
-	if combo_maximo >= 3:
+	if combo_maximo >= 40:
 		estrellas[2] = true
 	return estrellas
 

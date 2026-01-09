@@ -63,9 +63,9 @@ func _on_level_menu_back_button_pressed() -> void:
 func _on_level_1_pressed() -> void:
 	var nivel = SaveManager.get_level("lvl1")
 	var objetivos = [
-		{"cadena": "Consigue mas de 1500 puntos", "completo":nivel.get("obj1")},
+		{"cadena": "Consigue mas de 4000 puntos", "completo":nivel.get("obj1")},
 		{"cadena": "Acaba con 2 o mas vidas", "completo":nivel.get("obj2")},
-		{"cadena": "Consigue un combo minimo de x3", "completo":nivel.get("obj3")}
+		{"cadena": "Consigue un combo minimo de x25", "completo":nivel.get("obj3")}
 	]
 	%menu_nivel_selected4.pasar_nivel("El bosque", objetivos, "res://escenas/niveles/nivel1.tscn")
 	%menu_nivel_selected4.play()
@@ -73,9 +73,9 @@ func _on_level_1_pressed() -> void:
 func _on_level_2_pressed() -> void:
 	var nivel = SaveManager.get_level("lvl2")
 	var objetivos = [
-		{"cadena": "Consigue mas de 1500 puntos", "completo":nivel.get("obj1")},
-		{"cadena": "Acaba con 2 o mas vidas", "completo":nivel.get("obj2")},
-		{"cadena": "Consigue un combo minimo de x3", "completo":nivel.get("obj3")}
+		{"cadena": "Consigue mas de 6500 puntos", "completo":nivel.get("obj1")},
+		{"cadena": "Acaba con 3 o mas vidas", "completo":nivel.get("obj2")},
+		{"cadena": "Consigue un combo minimo de x40", "completo":nivel.get("obj3")}
 	]
 	%menu_nivel_selected4.pasar_nivel("Ciudad en ruinas", objetivos, "res://escenas/niveles/nivel2.tscn")
 	%menu_nivel_selected4.play()
@@ -83,9 +83,9 @@ func _on_level_2_pressed() -> void:
 func _on_level_3_pressed() -> void:
 	var nivel = SaveManager.get_level("lvl3")
 	var objetivos = [
-		{"cadena": "Consigue mas de 1500 puntos", "completo":nivel.get("obj1")},
-		{"cadena": "Acaba con 2 o mas vidas", "completo":nivel.get("obj2")},
-		{"cadena": "Consigue un combo minimo de x3", "completo":nivel.get("obj3")}
+		{"cadena": "Consigue mas de 9000 puntos", "completo":nivel.get("obj1")},
+		{"cadena": "Acaba con 4", "completo":nivel.get("obj2")},
+		{"cadena": "Consigue un combo minimo de x65", "completo":nivel.get("obj3")}
 	]
 	%menu_nivel_selected4.pasar_nivel("El desierto", objetivos, "res://escenas/niveles/nivel3.tscn")
 	%menu_nivel_selected4.play()

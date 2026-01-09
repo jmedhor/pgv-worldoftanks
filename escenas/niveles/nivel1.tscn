@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=4 uid="uid://cueor188j5xp7"]
+[gd_scene load_steps=156 format=4 uid="uid://cueor188j5xp7"]
 
 [ext_resource type="Script" uid="uid://ccswvlat4ujlr" path="res://scripts/niveles/prueba.gd" id="1_v2o2g"]
 [ext_resource type="Texture2D" uid="uid://bcioxb88bayp3" path="res://assets/texturas/OIP.webp" id="3_2d2d7"]
@@ -1032,16 +1032,23 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_63y5h"]
+[sub_resource type="Curve3D" id="Curve3D_1yo48"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -6.633876, 0, 4.6814575),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.1794157, 0, -9.795166),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_1yo48"]
+[sub_resource type="Curve3D" id="Curve3D_pyoko"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -4.7137527, -0.0014333725, -6.963379),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5.401597, -0.0014333725, -10.217224),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_63y5h"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -6.633876, 0, 4.6814575),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -1106,7 +1113,7 @@ point_count = 4
 [sub_resource type="Curve3D" id="Curve3D_ghcse"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12.267153, 0, -0.049072266),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.680461, 0, -0.049072266),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -2979,7 +2986,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.593546, 0, -352.55554)
 curve = SubResource("Curve3D_4vhic")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D4"]
-transform = Transform3D(0.5276278, -0.00027686654, -0.8494756, -1.4551914e-11, 0.99999785, -0.00032592707, 0.8494757, 0.00017196784, 0.52762777, 0, 0, 0)
+transform = Transform3D(0.5276278, -0.0002768664, -0.8494756, -1.4551914e-11, 0.9999973, -0.00032592707, 0.8494757, 0.00017196775, 0.52762777, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D4/PathFollow3D" instance=ExtResource("66_5jpn7")]
@@ -2990,7 +2997,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7840059, 0, -582.68195)
 curve = SubResource("Curve3D_10i1b")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D5"]
-transform = Transform3D(0.40157616, 0.00029600333, 0.9158252, -1.4551909e-11, 0.9999979, -0.00032320985, -0.91582525, 0.00012979319, 0.40157613, 0, 0, 0)
+transform = Transform3D(0.40157616, 0.00029600319, 0.9158252, -1.4551909e-11, 0.9999974, -0.00032320985, -0.91582525, 0.00012979312, 0.40157613, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D5/PathFollow3D" instance=ExtResource("66_5jpn7")]
@@ -3001,7 +3008,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8457278, 0, -581.1453)
 curve = SubResource("Curve3D_8gu01")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D6"]
-transform = Transform3D(0.39443737, -0.0002855684, -0.91892266, 1.4551914e-11, 0.9999978, -0.00031076494, 0.91892284, 0.00012257704, 0.39443728, 0, 0, 0)
+transform = Transform3D(0.39443737, -0.00028556827, -0.91892266, 1.4551914e-11, 0.99999726, -0.00031076494, 0.91892284, 0.00012257697, 0.39443728, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoMechaBasico" parent="Enemigos/PrimeraMitad/Estaticos/Caminos/Path3D6/PathFollow3D" instance=ExtResource("67_y47so")]
@@ -3225,7 +3232,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.85065, 0, -319.77222)
 curve = SubResource("Curve3D_2vr2k")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D5"]
-transform = Transform3D(0.31895086, 0.00024077523, 0.94777066, 7.275958e-12, 0.9999978, -0.00025404402, -0.94777125, 8.1027436e-05, 0.31895065, 0, 0, 0)
+transform = Transform3D(0.31895086, 0.00024077512, 0.94777066, 7.275958e-12, 0.99999726, -0.00025404402, -0.94777125, 8.102739e-05, 0.31895065, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoJuggernautBasico" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D5/PathFollow3D" instance=ExtResource("69_v2o2g")]
@@ -3245,7 +3252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.572828, 0, -336.66693)
 curve = SubResource("Curve3D_rif7b")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D7"]
-transform = Transform3D(0.32442337, 0.00024436033, 0.94591194, 1.4551915e-11, 0.9999979, -0.00025833357, -0.945912, 8.38093e-05, 0.32442334, 0, 0, 0)
+transform = Transform3D(0.32442337, 0.00024436018, 0.94591194, 1.4551915e-11, 0.9999974, -0.00025833357, -0.945912, 8.3809246e-05, 0.32442334, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoNormalBasico" parent="Enemigos/PrimeraMitad/Moviles/Caminos/Path3D7/PathFollow3D" instance=ExtResource("66_5jpn7")]
@@ -3410,20 +3417,20 @@ estatico = true
 
 [node name="Path3D6" type="Path3D" parent="Enemigos/SegundaMitad/Moviles/Caminos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8706236, 0, -822.37506)
-curve = SubResource("Curve3D_63y5h")
+curve = SubResource("Curve3D_1yo48")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D6"]
-transform = Transform3D(0.57657677, 0, -0.81704015, 0, 0.99999696, 0, 0.81704015, 0, 0.57657677, 0, 0, 0)
+transform = Transform3D(-0.88401866, 0, 0.4674448, 0, 0.99999696, 0, -0.4674448, 0, -0.88401866, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoNormalBasico" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D6/PathFollow3D" instance=ExtResource("66_5jpn7")]
 
 [node name="Path3D7" type="Path3D" parent="Enemigos/SegundaMitad/Moviles/Caminos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.827286, 0, -822.37506)
-curve = SubResource("Curve3D_1yo48")
+curve = SubResource("Curve3D_pyoko")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D7"]
-transform = Transform3D(-0.82810485, -9.5555704e-05, -0.5605729, -3.637978e-12, 1, -0.00017046076, 0.56057286, -0.00014115943, -0.828105, 0, 0, 0)
+transform = Transform3D(-0.8840554, -5.7966325e-05, -0.46737915, 0, 1, -0.00012402414, 0.46737847, -0.000109644425, -0.8840567, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoNormalBasico" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D7/PathFollow3D" instance=ExtResource("66_5jpn7")]
@@ -3453,7 +3460,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.013482, 0, -1056.1229)
 curve = SubResource("Curve3D_udr52")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D10"]
-transform = Transform3D(0.31895086, 0.00024077506, 0.94777066, 7.275958e-12, 0.999997, -0.00025404402, -0.94777125, 8.102737e-05, 0.31895065, 0, 0, 0)
+transform = Transform3D(0.31895086, 0.00024077493, 0.94777066, 7.275958e-12, 0.9999965, -0.00025404402, -0.94777125, 8.1027334e-05, 0.31895065, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoJuggernautBasico" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D10/PathFollow3D" instance=ExtResource("69_v2o2g")]
@@ -3475,7 +3482,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.545385, 0, -1069.5043)
 curve = SubResource("Curve3D_d2ml0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D12"]
-transform = Transform3D(0.32442337, 0.00024435986, 0.94591194, 1.4551915e-11, 0.999996, -0.00025833357, -0.945912, 8.380914e-05, 0.32442334, 0, 0, 0)
+transform = Transform3D(0.32442337, 0.00024435972, 0.94591194, 1.4551915e-11, 0.99999547, -0.00025833357, -0.945912, 8.380909e-05, 0.32442334, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoNormalBasico" parent="Enemigos/SegundaMitad/Moviles/Caminos/Path3D12/PathFollow3D" instance=ExtResource("66_5jpn7")]
@@ -3630,11 +3637,11 @@ use_model_front = true
 [node name="enemigoNormalBasico" parent="Enemigos/SegundaMitad/Bucle/Path3D3/PathFollow3D2" instance=ExtResource("66_5jpn7")]
 
 [node name="Path3D10" type="Path3D" parent="Enemigos/SegundaMitad/Bucle"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8291836, 0, -967.1147)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4506092, 0, -967.1147)
 curve = SubResource("Curve3D_ghcse")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Enemigos/SegundaMitad/Bucle/Path3D10"]
-transform = Transform3D(-0.0040002516, 0, 0.999992, 0, 1, 0, -0.999992, 0, -0.0040002516, 0, 0, 0)
+transform = Transform3D(-0.008638465, 0, 0.99996215, 0, 1, 0, -0.99996215, 0, -0.008638465, 0, 0, 0)
 use_model_front = true
 
 [node name="enemigoJuggernautBasico" parent="Enemigos/SegundaMitad/Bucle/Path3D10/PathFollow3D" instance=ExtResource("69_v2o2g")]
